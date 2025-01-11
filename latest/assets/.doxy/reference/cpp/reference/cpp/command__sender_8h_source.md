@@ -85,23 +85,6 @@ public:
     [[nodiscard]] virtual Server &getServer() const = 0;
 
     [[nodiscard]] virtual std::string getName() const = 0;
-
-    virtual void sendMessageAsync(const Message &message) const {
-        getServer().getScheduler().runTaskAsync(*getServer().getPluginManager().getPlugin("Endstone"), 
-            [this, message]() {
-                this->sendMessage(message);
-            });
-    }
-
-    template <typename... Args>
-    void sendMessageAsync(const fmt::format_string<Args...> format, Args &&...args) const {
-        try {
-            sendMessageAsync(fmt::format(format, std::forward<Args>(args)...));
-        }
-        catch (std::exception &e) {
-            sendErrorMessage(e.what());
-        }
-    }
 };
 }  // namespace endstone
 ```

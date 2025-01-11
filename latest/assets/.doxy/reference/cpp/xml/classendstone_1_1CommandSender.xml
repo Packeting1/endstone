@@ -244,83 +244,6 @@
         </inbodydescription>
         <location file="include/endstone/command/command_sender.h" line="115" column="26"/>
       </memberdef>
-      <memberdef kind="function" id="classendstone_1_1CommandSender_1a21132ada0d61bc9b6699a86c680f1f5c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
-        <type><ref refid="classendstone_1_1Vector" kindref="compound">void</ref></type>
-        <definition>virtual void endstone::CommandSender::sendMessageAsync</definition>
-        <argsstring>(const Message &amp;message) const</argsstring>
-        <name>sendMessageAsync</name>
-        <qualifiedname>endstone::CommandSender::sendMessageAsync</qualifiedname>
-        <param>
-          <type><ref refid="classendstone_1_1Vector" kindref="compound">const</ref> Message &amp;</type>
-          <declname>message</declname>
-        </param>
-        <briefdescription>
-<para>Sends this sender a message asynchronously. </para>
-        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>message</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Message to be displayed </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/endstone/command/command_sender.h" line="122" column="18" bodyfile="include/endstone/command/command_sender.h" bodystart="122" bodyend="127"/>
-      </memberdef>
-      <memberdef kind="function" id="classendstone_1_1CommandSender_1a7b22d68dd212cb89395abfc1cce44de0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename...</type>
-            <declname>Args</declname>
-            <defname>Args</defname>
-          </param>
-        </templateparamlist>
-        <type><ref refid="classendstone_1_1Vector" kindref="compound">void</ref></type>
-        <definition>void endstone::CommandSender::sendMessageAsync</definition>
-        <argsstring>(const fmt::format_string&lt; Args... &gt; format, Args &amp;&amp;...args) const</argsstring>
-        <name>sendMessageAsync</name>
-        <qualifiedname>endstone::CommandSender::sendMessageAsync</qualifiedname>
-        <param>
-          <type><ref refid="classendstone_1_1Vector" kindref="compound">const</ref> fmt::format_string&lt; Args... &gt;</type>
-          <declname>format</declname>
-        </param>
-        <param>
-          <type><ref refid="classendstone_1_1Vector" kindref="compound">Args</ref> &amp;&amp;...</type>
-          <declname>args</declname>
-        </param>
-        <briefdescription>
-<para>Sends this sender a message asynchronously. </para>
-        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>format</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Format string for the message </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>args</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Arguments for the format string </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/endstone/command/command_sender.h" line="136" column="10" bodyfile="include/endstone/command/command_sender.h" bodystart="136" bodyend="143"/>
-      </memberdef>
     </sectiondef>
     <briefdescription>
 <para>Represents a command sender. </para>
@@ -387,7 +310,7 @@
         <link refid="classendstone_1_1Permissible"/>
       </node>
     </collaborationgraph>
-    <location file="include/endstone/command/command_sender.h" line="34" column="1" bodyfile="include/endstone/command/command_sender.h" bodystart="34" bodyend="144"/>
+    <location file="include/endstone/command/command_sender.h" line="34" column="1" bodyfile="include/endstone/command/command_sender.h" bodystart="34" bodyend="116"/>
     <listofallmembers>
       <member refid="classendstone_1_1Permissible_1ada705f51f6b8d94304b53cf66f5e26a2" prot="public" virt="pure-virtual"><scope>endstone::CommandSender</scope><name>addAttachment</name></member>
       <member refid="classendstone_1_1Permissible_1a344f309bb63d9861d854c074b4e2bd60" prot="public" virt="pure-virtual"><scope>endstone::CommandSender</scope><name>addAttachment</name></member>
@@ -409,8 +332,6 @@
       <member refid="classendstone_1_1CommandSender_1a9ef7b0d45dc7ba12073ce93187c54b87" prot="public" virt="non-virtual"><scope>endstone::CommandSender</scope><name>sendErrorMessage</name></member>
       <member refid="classendstone_1_1CommandSender_1a000782a076576822ea70b640f5f230ea" prot="public" virt="pure-virtual"><scope>endstone::CommandSender</scope><name>sendMessage</name></member>
       <member refid="classendstone_1_1CommandSender_1a991e541b0e30e75ab7f508d6fdb141ad" prot="public" virt="non-virtual"><scope>endstone::CommandSender</scope><name>sendMessage</name></member>
-      <member refid="classendstone_1_1CommandSender_1a21132ada0d61bc9b6699a86c680f1f5c" prot="public" virt="virtual"><scope>endstone::CommandSender</scope><name>sendMessageAsync</name></member>
-      <member refid="classendstone_1_1CommandSender_1a7b22d68dd212cb89395abfc1cce44de0" prot="public" virt="non-virtual"><scope>endstone::CommandSender</scope><name>sendMessageAsync</name></member>
       <member refid="classendstone_1_1Permissible_1a2cf4819b46b03d25c17f1fa15a679233" prot="public" virt="pure-virtual"><scope>endstone::CommandSender</scope><name>setOp</name></member>
       <member refid="classendstone_1_1Permissible_1afd630275e217c42932d29208712fe438" prot="public" virt="virtual"><scope>endstone::CommandSender</scope><name>~Permissible</name></member>
     </listofallmembers>

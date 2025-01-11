@@ -755,8 +755,6 @@ Note that if the actor is affected by AI, it may override this rotation.</para>
       <member refid="classendstone_1_1CommandSender_1a9ef7b0d45dc7ba12073ce93187c54b87" prot="public" virt="non-virtual"><scope>endstone::Actor</scope><name>sendErrorMessage</name></member>
       <member refid="classendstone_1_1CommandSender_1a000782a076576822ea70b640f5f230ea" prot="public" virt="pure-virtual"><scope>endstone::Actor</scope><name>sendMessage</name></member>
       <member refid="classendstone_1_1CommandSender_1a991e541b0e30e75ab7f508d6fdb141ad" prot="public" virt="non-virtual"><scope>endstone::Actor</scope><name>sendMessage</name></member>
-      <member refid="classendstone_1_1CommandSender_1a21132ada0d61bc9b6699a86c680f1f5c" prot="public" virt="virtual"><scope>endstone::Actor</scope><name>sendMessageAsync</name></member>
-      <member refid="classendstone_1_1CommandSender_1a7b22d68dd212cb89395abfc1cce44de0" prot="public" virt="non-virtual"><scope>endstone::Actor</scope><name>sendMessageAsync</name></member>
       <member refid="classendstone_1_1Actor_1a39c0d4e763cafb181f1071de2c31b647" prot="public" virt="pure-virtual"><scope>endstone::Actor</scope><name>setHealth</name></member>
       <member refid="classendstone_1_1Actor_1afa33b47ae91605841f0c4ef5ec127ac7" prot="public" virt="pure-virtual"><scope>endstone::Actor</scope><name>setNameTag</name></member>
       <member refid="classendstone_1_1Actor_1a6c7dc2e5a9b99db8b000e84e4eba5822" prot="public" virt="pure-virtual"><scope>endstone::Actor</scope><name>setNameTagAlwaysVisible</name></member>

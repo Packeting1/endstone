@@ -244,8 +244,6 @@ See [endstone::CommandSender](classendstone_1_1CommandSender.md)
 |  [**void**](classendstone_1_1Vector.md) | [**sendErrorMessage**](classendstone_1_1CommandSender.md#function-senderrormessage-22) ([**const**](classendstone_1_1Vector.md) fmt::format\_string&lt; Args... &gt; format, [**Args**](classendstone_1_1Vector.md) &&... args) const<br> |
 | virtual [**void**](classendstone_1_1Vector.md) | [**sendMessage**](classendstone_1_1CommandSender.md#function-sendmessage-12) ([**const**](classendstone_1_1Vector.md) Message & message) const = 0<br>_Sends this sender a message._  |
 |  [**void**](classendstone_1_1Vector.md) | [**sendMessage**](classendstone_1_1CommandSender.md#function-sendmessage-22) ([**const**](classendstone_1_1Vector.md) fmt::format\_string&lt; Args... &gt; format, [**Args**](classendstone_1_1Vector.md) &&... args) const<br> |
-| virtual [**void**](classendstone_1_1Vector.md) | [**sendMessageAsync**](classendstone_1_1CommandSender.md#function-sendmessageasync-12) ([**const**](classendstone_1_1Vector.md) Message & message) const<br>_Sends this sender a message asynchronously._  |
-|  [**void**](classendstone_1_1Vector.md) | [**sendMessageAsync**](classendstone_1_1CommandSender.md#function-sendmessageasync-22) ([**const**](classendstone_1_1Vector.md) fmt::format\_string&lt; Args... &gt; format, [**Args**](classendstone_1_1Vector.md) &&... args) const<br>_Sends this sender a message asynchronously._  |
 
 
 ## Public Functions inherited from endstone::Permissible

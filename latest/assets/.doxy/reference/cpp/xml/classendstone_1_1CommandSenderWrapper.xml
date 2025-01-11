@@ -668,8 +668,6 @@
       <member refid="classendstone_1_1CommandSender_1a9ef7b0d45dc7ba12073ce93187c54b87" prot="public" virt="non-virtual" ambiguityscope="endstone::CommandSender::"><scope>endstone::CommandSenderWrapper</scope><name>sendErrorMessage</name></member>
       <member refid="classendstone_1_1CommandSenderWrapper_1a46ff186c06fed5c771888c5d9167852c" prot="public" virt="virtual"><scope>endstone::CommandSenderWrapper</scope><name>sendMessage</name></member>
       <member refid="classendstone_1_1CommandSender_1a991e541b0e30e75ab7f508d6fdb141ad" prot="public" virt="non-virtual" ambiguityscope="endstone::CommandSender::"><scope>endstone::CommandSenderWrapper</scope><name>sendMessage</name></member>
-      <member refid="classendstone_1_1CommandSender_1a21132ada0d61bc9b6699a86c680f1f5c" prot="public" virt="virtual"><scope>endstone::CommandSenderWrapper</scope><name>sendMessageAsync</name></member>
-      <member refid="classendstone_1_1CommandSender_1a7b22d68dd212cb89395abfc1cce44de0" prot="public" virt="non-virtual"><scope>endstone::CommandSenderWrapper</scope><name>sendMessageAsync</name></member>
       <member refid="classendstone_1_1CommandSenderWrapper_1adc6b57a30c34ea968b81ceb660a1e976" prot="public" virt="virtual"><scope>endstone::CommandSenderWrapper</scope><name>setOp</name></member>
       <member refid="classendstone_1_1Permissible_1afd630275e217c42932d29208712fe438" prot="public" virt="virtual"><scope>endstone::CommandSenderWrapper</scope><name>~Permissible</name></member>
     </listofallmembers>

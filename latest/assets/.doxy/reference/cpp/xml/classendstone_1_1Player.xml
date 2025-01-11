@@ -1469,8 +1469,6 @@
       <member refid="classendstone_1_1Player_1acfa7b2445c386d21b05ee441c614cf9e" prot="public" virt="pure-virtual"><scope>endstone::Player</scope><name>sendForm</name></member>
       <member refid="classendstone_1_1CommandSender_1a000782a076576822ea70b640f5f230ea" prot="public" virt="pure-virtual"><scope>endstone::Player</scope><name>sendMessage</name></member>
       <member refid="classendstone_1_1CommandSender_1a991e541b0e30e75ab7f508d6fdb141ad" prot="public" virt="non-virtual"><scope>endstone::Player</scope><name>sendMessage</name></member>
-      <member refid="classendstone_1_1CommandSender_1a21132ada0d61bc9b6699a86c680f1f5c" prot="public" virt="virtual"><scope>endstone::Player</scope><name>sendMessageAsync</name></member>
-      <member refid="classendstone_1_1CommandSender_1a7b22d68dd212cb89395abfc1cce44de0" prot="public" virt="non-virtual"><scope>endstone::Player</scope><name>sendMessageAsync</name></member>
       <member refid="classendstone_1_1Player_1aa28e46523502cc4d0c4975fa92cfc067" prot="public" virt="pure-virtual"><scope>endstone::Player</scope><name>sendPacket</name></member>
       <member refid="classendstone_1_1Player_1a57b35a3e8772c746590f3331bd41fab2" prot="public" virt="pure-virtual"><scope>endstone::Player</scope><name>sendPopup</name></member>
       <member refid="classendstone_1_1Player_1ace6a01c98934469d0d7a1d3c61f444be" prot="public" virt="pure-virtual"><scope>endstone::Player</scope><name>sendTip</name></member>

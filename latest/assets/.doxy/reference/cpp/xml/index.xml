@@ -342,8 +342,6 @@
     <member refid="classendstone_1_1CommandSender_1a9ef7b0d45dc7ba12073ce93187c54b87" kind="function"><name>sendErrorMessage</name></member>
     <member refid="classendstone_1_1CommandSender_1aecd5cad85026861938379fa283d626cf" kind="function"><name>getServer</name></member>
     <member refid="classendstone_1_1CommandSender_1acf20807a70561a571e20d4ee3791d69e" kind="function"><name>getName</name></member>
-    <member refid="classendstone_1_1CommandSender_1a21132ada0d61bc9b6699a86c680f1f5c" kind="function"><name>sendMessageAsync</name></member>
-    <member refid="classendstone_1_1CommandSender_1a7b22d68dd212cb89395abfc1cce44de0" kind="function"><name>sendMessageAsync</name></member>
   </compound>
   <compound refid="classendstone_1_1CommandSenderWrapper" kind="class"><name>endstone::CommandSenderWrapper</name>
     <member refid="classendstone_1_1CommandSenderWrapper_1aecfc3f07c79d140b40d890b7a7a2d541" kind="typedef"><name>Callback</name></member>

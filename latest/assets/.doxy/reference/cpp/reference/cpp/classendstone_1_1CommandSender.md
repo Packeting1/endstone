@@ -84,8 +84,6 @@ Inherited by the following classes: [endstone::Actor](classendstone_1_1Actor.md)
 |  [**void**](classendstone_1_1Vector.md) | [**sendErrorMessage**](#function-senderrormessage-22) ([**const**](classendstone_1_1Vector.md) fmt::format\_string&lt; Args... &gt; format, [**Args**](classendstone_1_1Vector.md) &&... args) const<br> |
 | virtual [**void**](classendstone_1_1Vector.md) | [**sendMessage**](#function-sendmessage-12) ([**const**](classendstone_1_1Vector.md) Message & message) const = 0<br>_Sends this sender a message._  |
 |  [**void**](classendstone_1_1Vector.md) | [**sendMessage**](#function-sendmessage-22) ([**const**](classendstone_1_1Vector.md) fmt::format\_string&lt; Args... &gt; format, [**Args**](classendstone_1_1Vector.md) &&... args) const<br> |
-| virtual [**void**](classendstone_1_1Vector.md) | [**sendMessageAsync**](#function-sendmessageasync-12) ([**const**](classendstone_1_1Vector.md) Message & message) const<br>_Sends this sender a message asynchronously._  |
-|  [**void**](classendstone_1_1Vector.md) | [**sendMessageAsync**](#function-sendmessageasync-22) ([**const**](classendstone_1_1Vector.md) fmt::format\_string&lt; Args... &gt; format, [**Args**](classendstone_1_1Vector.md) &&... args) const<br>_Sends this sender a message asynchronously._  |
 
 
 ## Public Functions inherited from endstone::Permissible
@@ -401,63 +399,6 @@ inline void endstone::CommandSender::sendMessage (
 
 
 
-
-<hr>
-
-
-
-### function sendMessageAsync [1/2]
-
-_Sends this sender a message asynchronously._ 
-```C++
-inline virtual void endstone::CommandSender::sendMessageAsync (
-    const Message & message
-) const
-```
-
-
-
-
-
-**Parameters:**
-
-
-* `message` Message to be displayed 
-
-
-
-
-        
-
-<hr>
-
-
-
-### function sendMessageAsync [2/2]
-
-_Sends this sender a message asynchronously._ 
-```C++
-template<typename... Args>
-inline void endstone::CommandSender::sendMessageAsync (
-    const fmt::format_string< Args... > format,
-    Args &&... args
-) const
-```
-
-
-
-
-
-**Parameters:**
-
-
-* `format` Format string for the message 
-* `args` Arguments for the format string 
-
-
-
-
-        
 
 <hr>
 

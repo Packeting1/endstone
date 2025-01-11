@@ -673,7 +673,6 @@
 * **setUsages** ([**endstone::Command**](classendstone_1_1Command.md))
 * **sendErrorMessage** ([**endstone::CommandSender**](classendstone_1_1CommandSender.md), [**endstone::CommandSenderWrapper**](classendstone_1_1CommandSenderWrapper.md))
 * **sendMessage** ([**endstone::CommandSender**](classendstone_1_1CommandSender.md), [**endstone::CommandSenderWrapper**](classendstone_1_1CommandSenderWrapper.md))
-* **sendMessageAsync** ([**endstone::CommandSender**](classendstone_1_1CommandSender.md))
 * **sender\_** ([**endstone::CommandSenderWrapper**](classendstone_1_1CommandSenderWrapper.md), [**endstone::ScriptMessageEvent**](classendstone_1_1ScriptMessageEvent.md), [**endstone::ServerCommandEvent**](classendstone_1_1ServerCommandEvent.md))
 * **setOp** ([**endstone::CommandSenderWrapper**](classendstone_1_1CommandSenderWrapper.md), [**endstone::Permissible**](classendstone_1_1Permissible.md))
 * **setDefaultIndex** ([**endstone::Dropdown**](classendstone_1_1Dropdown.md))
