@@ -119,9 +119,9 @@
         </inbodydescription>
         <location file="include/endstone/level/dimension.h" line="58" column="20"/>
       </memberdef>
-      <memberdef kind="function" id="classendstone_1_1Dimension_1a26deb2bd38092760aa9ff007cb87f831" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
-        <type>Result&lt; std::unique_ptr&lt; <ref refid="classendstone_1_1Block" kindref="compound">Block</ref> &gt; &gt;</type>
-        <definition>virtual Result&lt; std::unique_ptr&lt; Block &gt; &gt; endstone::Dimension::getBlockAt</definition>
+      <memberdef kind="function" id="classendstone_1_1Dimension_1a486bc4185de840fbd98af9eec7b38432" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>Result&lt; std::shared_ptr&lt; <ref refid="classendstone_1_1Block" kindref="compound">Block</ref> &gt; &gt;</type>
+        <definition>virtual Result&lt; std::shared_ptr&lt; Block &gt; &gt; endstone::Dimension::getBlockAt</definition>
         <argsstring>(int x, int y, int z)=0</argsstring>
         <name>getBlockAt</name>
         <qualifiedname>endstone::Dimension::getBlockAt</qualifiedname>
@@ -174,9 +174,9 @@
         </inbodydescription>
         <location file="include/endstone/level/dimension.h" line="68" column="20"/>
       </memberdef>
-      <memberdef kind="function" id="classendstone_1_1Dimension_1a6a2dd8a2fa5c2249ccc0aab565077c9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
-        <type>Result&lt; std::unique_ptr&lt; <ref refid="classendstone_1_1Block" kindref="compound">Block</ref> &gt; &gt;</type>
-        <definition>virtual Result&lt; std::unique_ptr&lt; Block &gt; &gt; endstone::Dimension::getBlockAt</definition>
+      <memberdef kind="function" id="classendstone_1_1Dimension_1a7104191387c8e7bec0441f7a7e0542c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>Result&lt; std::shared_ptr&lt; <ref refid="classendstone_1_1Block" kindref="compound">Block</ref> &gt; &gt;</type>
+        <definition>virtual Result&lt; std::shared_ptr&lt; Block &gt; &gt; endstone::Dimension::getBlockAt</definition>
         <argsstring>(Location location)=0</argsstring>
         <name>getBlockAt</name>
         <qualifiedname>endstone::Dimension::getBlockAt</qualifiedname>
@@ -213,8 +213,8 @@
     </detaileddescription>
     <location file="include/endstone/level/dimension.h" line="25" column="1" bodyfile="include/endstone/level/dimension.h" bodystart="25" bodyend="77"/>
     <listofallmembers>
-      <member refid="classendstone_1_1Dimension_1a26deb2bd38092760aa9ff007cb87f831" prot="public" virt="pure-virtual"><scope>endstone::Dimension</scope><name>getBlockAt</name></member>
-      <member refid="classendstone_1_1Dimension_1a6a2dd8a2fa5c2249ccc0aab565077c9b" prot="public" virt="pure-virtual"><scope>endstone::Dimension</scope><name>getBlockAt</name></member>
+      <member refid="classendstone_1_1Dimension_1a486bc4185de840fbd98af9eec7b38432" prot="public" virt="pure-virtual"><scope>endstone::Dimension</scope><name>getBlockAt</name></member>
+      <member refid="classendstone_1_1Dimension_1a7104191387c8e7bec0441f7a7e0542c9" prot="public" virt="pure-virtual"><scope>endstone::Dimension</scope><name>getBlockAt</name></member>
       <member refid="classendstone_1_1Dimension_1a541fd7f166a3d746dde92b57e4843f6a" prot="public" virt="pure-virtual"><scope>endstone::Dimension</scope><name>getLevel</name></member>
       <member refid="classendstone_1_1Dimension_1a3cd59f6145706ead47d173255a10a39d" prot="public" virt="pure-virtual"><scope>endstone::Dimension</scope><name>getName</name></member>
       <member refid="classendstone_1_1Dimension_1a9d9baf77525291924f80c682cc3d012c" prot="public" virt="pure-virtual"><scope>endstone::Dimension</scope><name>getType</name></member>

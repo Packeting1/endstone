@@ -1,14 +1,14 @@
 
 
-# File version.h
+# File offline\_player.h
 
-[**File List**](files.md) **>** [**endstone**](dir_6cf277b678674f97c7a2b6b3b2447b33.md) **>** [**version.h**](version_8h.md)
+[**File List**](files.md) **>** [**endstone**](dir_6cf277b678674f97c7a2b6b3b2447b33.md) **>** [**offline\_player.h**](offline__player_8h.md)
 
-[Go to the documentation of this file](version_8h.md)
+[Go to the documentation of this file](offline__player_8h.md)
 
 
 ```C++
-// Copyright (c) 2023, The Endstone Project. (https://endstone.dev) All Rights Reserved.
+// Copyright (c) 2024, The Endstone Project. (https://endstone.dev) All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -24,13 +24,20 @@
 
 #pragma once
 
-#define ENDSTONE_STRINGIFY(x) #x
-#define ENDSTONE_TOSTRING(x) ENDSTONE_STRINGIFY(x)
+#include "endstone/util/uuid.h"
 
-#define ENDSTONE_VERSION_MAJOR 0
-#define ENDSTONE_VERSION_MINOR 5
-#define ENDSTONE_VERSION_PATCH 7
-#define ENDSTONE_API_VERSION   ENDSTONE_TOSTRING(ENDSTONE_VERSION_MAJOR) "." ENDSTONE_TOSTRING(ENDSTONE_VERSION_MINOR)
+namespace endstone {
+
+class OfflinePlayer {
+public:
+    virtual ~OfflinePlayer() = default;
+
+    [[nodiscard]] virtual std::string getName() const = 0;
+
+    [[nodiscard]] virtual UUID getUniqueId() const = 0;
+};
+
+}  // namespace endstone
 ```
 
 

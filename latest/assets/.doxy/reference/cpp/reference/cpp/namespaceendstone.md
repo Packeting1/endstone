@@ -39,6 +39,7 @@
 | class | [**Actor**](classendstone_1_1Actor.md) <br>_Represents a base actor in the level._  |
 | class | [**ActorDeathEvent**](classendstone_1_1ActorDeathEvent.md) <br>_Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _dies._ |
 | class | [**ActorEvent**](classendstone_1_1ActorEvent.md) <br>_Represents an Actor-related event._  |
+| class | [**ActorExplodeEvent**](classendstone_1_1ActorExplodeEvent.md) <br>_Called when an actor explodes._  |
 | class | [**ActorKnockbackEvent**](classendstone_1_1ActorKnockbackEvent.md) <br>_Called when a living entity receives knockback._  |
 | class | [**ActorRemoveEvent**](classendstone_1_1ActorRemoveEvent.md) <br>_Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _is removed._ |
 | class | [**ActorSpawnEvent**](classendstone_1_1ActorSpawnEvent.md) <br>_Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _is spawned into a world._ |
@@ -49,6 +50,7 @@
 | class | [**BlockBreakEvent**](classendstone_1_1BlockBreakEvent.md) <br>_Called when a block is broken by a player._  |
 | class | [**BlockData**](classendstone_1_1BlockData.md) <br>_Represents the data related to a live block._  |
 | class | [**BlockEvent**](classendstone_1_1BlockEvent.md) <br>_Represents an Block-related event._  |
+| class | [**BlockPistonEvent**](classendstone_1_1BlockPistonEvent.md) <br>_Called when a piston block is triggered._  |
 | class | [**BlockPlaceEvent**](classendstone_1_1BlockPlaceEvent.md) <br>_Called when a block is placed by a player._  |
 | class | [**BlockState**](classendstone_1_1BlockState.md) <br>_Represents a captured state of a block, which will not update automatically._  |
 | class | [**BossBar**](classendstone_1_1BossBar.md) <br>_Represents a boss bar that is displayed to players._  |
@@ -83,6 +85,7 @@
 | class | [**Mob**](classendstone_1_1Mob.md) <br>_Represents a mobile entity (i.e. living entity), such as a monster or player._  |
 | class | [**ModalForm**](classendstone_1_1ModalForm.md) <br>_Represents a modal form with controls._  |
 | class | [**Objective**](classendstone_1_1Objective.md) <br>_Represents an objective on a scoreboard that can show scores specific to entries._  |
+| class | [**OfflinePlayer**](classendstone_1_1OfflinePlayer.md) <br>_Represents a reference to a player identity and the data belonging to a player that is stored on the disk and can, thus, be retrieved without the player needing to be online._  |
 | class | [**Packet**](classendstone_1_1Packet.md) <br>_Represents a packet._  |
 | class | [**Permissible**](classendstone_1_1Permissible.md) <br>_Represents an object that may become a server operator and can be assigned permissions._  |
 | class | [**Permission**](classendstone_1_1Permission.md) <br>_Represents a unique permission that may be attached to a_ [_**Permissible**_](classendstone_1_1Permissible.md) _._ |
@@ -95,6 +98,7 @@
 | class | [**PlayerCommandEvent**](classendstone_1_1PlayerCommandEvent.md) <br>_Called whenever a player runs a command._  |
 | class | [**PlayerDeathEvent**](classendstone_1_1PlayerDeathEvent.md) <br>_Called when a_ [_**Player**_](classendstone_1_1Player.md) _dies._ |
 | class | [**PlayerEvent**](classendstone_1_1PlayerEvent.md) <br>_Represents a player related event._  |
+| class | [**PlayerGameModeChangeEvent**](classendstone_1_1PlayerGameModeChangeEvent.md) <br>_Called when the GameMode of the player is changed._  |
 | class | [**PlayerInteractActorEvent**](classendstone_1_1PlayerInteractActorEvent.md) <br>_Represents an event that is called when a player right-clicks an actor._  |
 | class | [**PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md) <br>_Represents an event that is called when a player right-clicks a block._  |
 | class | [**PlayerInventory**](classendstone_1_1PlayerInventory.md) <br>_Interface to the inventory of a_ [_**Player**_](classendstone_1_1Player.md) _, including the four armor slots and any extra slots._ |
