@@ -14,7 +14,7 @@ _Called when the GameMode of the player is changed._
 
 
 
-Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerEvent.md)
+Inherits the following classes: [endstone::Cancellable](classendstone_1_1Cancellable.md)
 
 
 
@@ -51,7 +51,7 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 
 | Type | Name |
 | ---: | :--- |
-|  [**const**](classendstone_1_1Vector.md) std::string | [**NAME**](#variable-name)   = = "PlayerGameModeChangeEvent"<br> |
+|  [**const**](classendstone_1_1Vector.md) std::string | [**NAME**](#variable-name)   = `"PlayerGameModeChangeEvent"`<br> |
 
 
 
@@ -104,29 +104,27 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 |   | [**~PlayerGameModeChangeEvent**](#function-playergamemodechangeevent) () override<br> |
 
 
-## Public Functions inherited from endstone::PlayerEvent
+## Public Functions inherited from endstone::Cancellable
 
-See [endstone::PlayerEvent](classendstone_1_1PlayerEvent.md)
-
-| Type | Name |
-| ---: | :--- |
-|   | [**PlayerEvent**](classendstone_1_1PlayerEvent.md#function-playerevent) ([**Player**](classendstone_1_1Player.md) & player) <br> |
-|  [**Player**](classendstone_1_1Player.md) & | [**getPlayer**](classendstone_1_1PlayerEvent.md#function-getplayer) () const<br> |
-|   | [**~PlayerEvent**](classendstone_1_1PlayerEvent.md#function-playerevent) () override<br> |
-
-
-## Public Functions inherited from endstone::Event
-
-See [endstone::Event](classendstone_1_1Event.md)
+See [endstone::Cancellable](classendstone_1_1Cancellable.md)
 
 | Type | Name |
 | ---: | :--- |
-|   | [**Event**](classendstone_1_1Event.md#function-event-12) ([**bool**](classendstone_1_1Vector.md) async=[**false**](classendstone_1_1Vector.md)) <br> |
-|   | [**Event**](classendstone_1_1Event.md#function-event-22) ([**const**](classendstone_1_1Vector.md) [**Event**](classendstone_1_1Event.md) &) = delete<br> |
-| virtual std::string | [**getEventName**](classendstone_1_1Event.md#function-geteventname) () const = 0<br> |
-|  [**bool**](classendstone_1_1Vector.md) | [**isAsynchronous**](classendstone_1_1Event.md#function-isasynchronous) () const<br> |
-|  [**Event**](classendstone_1_1Event.md) & | [**operator=**](classendstone_1_1Event.md#function-operator) ([**const**](classendstone_1_1Vector.md) [**Event**](classendstone_1_1Event.md) &) = delete<br> |
-| virtual  | [**~Event**](classendstone_1_1Event.md#function-event) () = default<br> |
+| virtual [**void**](classendstone_1_1Vector.md) | [**cancel**](classendstone_1_1Cancellable.md#function-cancel) () <br>_Cancel this event. A cancelled event will not be executed in the server, but will still pass to other plugins._  |
+| virtual [**bool**](classendstone_1_1Vector.md) | [**isCancelled**](classendstone_1_1Cancellable.md#function-iscancelled) () const<br>_Gets the cancellation state of this event. A cancelled event will not be executed in the server, but will still pass to other plugins._  |
+| virtual [**void**](classendstone_1_1Vector.md) | [**setCancelled**](classendstone_1_1Cancellable.md#function-setcancelled) ([**bool**](classendstone_1_1Vector.md) cancel) <br>_Sets the cancellation state of this event. A cancelled event will not be executed in the server, but will still pass to other plugins._  |
+
+
+## Public Functions inherited from endstone::ICancellable
+
+See [endstone::ICancellable](classendstone_1_1ICancellable.md)
+
+| Type | Name |
+| ---: | :--- |
+| virtual [**void**](classendstone_1_1Vector.md) | [**cancel**](classendstone_1_1ICancellable.md#function-cancel) () = 0<br> |
+| virtual [**bool**](classendstone_1_1Vector.md) | [**isCancelled**](classendstone_1_1ICancellable.md#function-iscancelled) () const = 0<br> |
+| virtual [**void**](classendstone_1_1Vector.md) | [**setCancelled**](classendstone_1_1ICancellable.md#function-setcancelled) ([**bool**](classendstone_1_1Vector.md) cancel) = 0<br> |
+| virtual  | [**~ICancellable**](classendstone_1_1ICancellable.md#function-icancellable) () = default<br> |
 
 
 

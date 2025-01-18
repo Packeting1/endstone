@@ -52,7 +52,7 @@ Inherited by the following classes: [endstone::PlayerDeathEvent](classendstone_1
 
 | Type | Name |
 | ---: | :--- |
-|  [**const**](classendstone_1_1Vector.md) std::string | [**NAME**](#variable-name)   = = "ActorDeathEvent"<br> |
+|  [**const**](classendstone_1_1Vector.md) std::string | [**NAME**](#variable-name)   = `"ActorDeathEvent"`<br> |
 
 
 

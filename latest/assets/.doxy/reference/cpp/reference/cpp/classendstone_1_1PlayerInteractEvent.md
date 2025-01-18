@@ -51,7 +51,7 @@ Inherits the following classes: [endstone::Cancellable](classendstone_1_1Cancell
 
 | Type | Name |
 | ---: | :--- |
-|  [**const**](classendstone_1_1Vector.md) std::string | [**NAME**](#variable-name)   = = "PlayerInteractEvent"<br> |
+|  [**const**](classendstone_1_1Vector.md) std::string | [**NAME**](#variable-name)   = `"PlayerInteractEvent"`<br> |
 
 
 

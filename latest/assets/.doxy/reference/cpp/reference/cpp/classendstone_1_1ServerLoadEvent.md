@@ -56,7 +56,7 @@ Inherits the following classes: [endstone::ServerEvent](classendstone_1_1ServerE
 
 | Type | Name |
 | ---: | :--- |
-|  [**const**](classendstone_1_1Vector.md) std::string | [**NAME**](#variable-name)   = = "ServerLoadEvent"<br> |
+|  [**const**](classendstone_1_1Vector.md) std::string | [**NAME**](#variable-name)   = `"ServerLoadEvent"`<br> |
 
 
 

@@ -69,7 +69,7 @@ Inherits the following classes: [endstone::ActorDeathEvent](classendstone_1_1Act
 
 | Type | Name |
 | ---: | :--- |
-|  [**const**](classendstone_1_1Vector.md) std::string | [**NAME**](#variable-name)   = = "PlayerDeathEvent"<br> |
+|  [**const**](classendstone_1_1Vector.md) std::string | [**NAME**](#variable-name)   = `"PlayerDeathEvent"`<br> |
 
 
 ## Public Static Attributes inherited from endstone::ActorDeathEvent
@@ -78,7 +78,7 @@ See [endstone::ActorDeathEvent](classendstone_1_1ActorDeathEvent.md)
 
 | Type | Name |
 | ---: | :--- |
-|  [**const**](classendstone_1_1Vector.md) std::string | [**NAME**](classendstone_1_1ActorDeathEvent.md#variable-name)   = = "ActorDeathEvent"<br> |
+|  [**const**](classendstone_1_1Vector.md) std::string | [**NAME**](classendstone_1_1ActorDeathEvent.md#variable-name)   = `"ActorDeathEvent"`<br> |
 
 
 

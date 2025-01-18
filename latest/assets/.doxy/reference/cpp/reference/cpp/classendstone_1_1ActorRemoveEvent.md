@@ -51,7 +51,7 @@ Inherits the following classes: [endstone::ActorEvent](classendstone_1_1ActorEve
 
 | Type | Name |
 | ---: | :--- |
-|  [**const**](classendstone_1_1Vector.md) std::string | [**NAME**](#variable-name)   = = "ActorRemoveEvent"<br> |
+|  [**const**](classendstone_1_1Vector.md) std::string | [**NAME**](#variable-name)   = `"ActorRemoveEvent"`<br> |
 
 
 

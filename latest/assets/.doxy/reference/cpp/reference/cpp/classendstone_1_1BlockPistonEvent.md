@@ -51,7 +51,7 @@ Inherits the following classes: [endstone::BlockEvent](classendstone_1_1BlockEve
 
 | Type | Name |
 | ---: | :--- |
-|  [**const**](classendstone_1_1Vector.md) std::string | [**NAME**](#variable-name)   = = "BlockPistonEvent"<br> |
+|  [**const**](classendstone_1_1Vector.md) std::string | [**NAME**](#variable-name)   = `"BlockPistonEvent"`<br> |
 
 
 

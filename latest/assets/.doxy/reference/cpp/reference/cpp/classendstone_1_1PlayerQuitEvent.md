@@ -51,7 +51,7 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 
 | Type | Name |
 | ---: | :--- |
-|  [**const**](classendstone_1_1Vector.md) std::string | [**NAME**](#variable-name)   = = "PlayerQuitEvent"<br> |
+|  [**const**](classendstone_1_1Vector.md) std::string | [**NAME**](#variable-name)   = `"PlayerQuitEvent"`<br> |
 
 
 
