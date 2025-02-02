@@ -45,17 +45,28 @@
     <member refid="classendstone_1_1Actor_1a29bb3fe504b2b2bffd749a0d9ef1ed92" kind="function"><name>getScoreTag</name></member>
     <member refid="classendstone_1_1Actor_1adeec376304cd5900f6c848f9e946320e" kind="function"><name>setScoreTag</name></member>
   </compound>
+  <compound refid="classendstone_1_1ActorDamageEvent" kind="class"><name>endstone::ActorDamageEvent</name>
+    <member refid="classendstone_1_1ActorDamageEvent_1a319f71e214cfbb92d77667fc03583b2a" kind="variable"><name>NAME</name></member>
+    <member refid="classendstone_1_1ActorDamageEvent_1ac7b9815258c9fed79e45b7b5544a590e" kind="variable"><name>damage_source_</name></member>
+    <member refid="classendstone_1_1ActorDamageEvent_1a867187c57a779cad0f19459222377320" kind="variable"><name>damage_</name></member>
+    <member refid="classendstone_1_1ActorDamageEvent_1a663583a9e7ec44a0b01a04dce342296f" kind="function"><name>ActorDamageEvent</name></member>
+    <member refid="classendstone_1_1ActorDamageEvent_1adc39392f2370363313d09e4dde688e08" kind="function"><name>getEventName</name></member>
+    <member refid="classendstone_1_1ActorDamageEvent_1a44564e018ef4caa37965500a468026e6" kind="function"><name>getDamage</name></member>
+    <member refid="classendstone_1_1ActorDamageEvent_1a077458e25c7329f2cb4c02a2b0ed0bde" kind="function"><name>setDamage</name></member>
+    <member refid="classendstone_1_1ActorDamageEvent_1a538c8cedc5f6f72088aaf4351d9e32f4" kind="function"><name>getDamageSource</name></member>
+  </compound>
   <compound refid="classendstone_1_1ActorDeathEvent" kind="class"><name>endstone::ActorDeathEvent</name>
     <member refid="classendstone_1_1ActorDeathEvent_1a18887864dc592fcce27965ceda143deb" kind="variable"><name>NAME</name></member>
-    <member refid="classendstone_1_1ActorDeathEvent_1ab6ba282a877e6725cd87f725d73aa81f" kind="function"><name>ActorDeathEvent</name></member>
-    <member refid="classendstone_1_1ActorDeathEvent_1ae058d993784b23cc32eedb37b1864611" kind="function"><name>~ActorDeathEvent</name></member>
+    <member refid="classendstone_1_1ActorDeathEvent_1ac6b8ca9f296013ab0943df44b763e4a3" kind="variable"><name>damage_source_</name></member>
+    <member refid="classendstone_1_1ActorDeathEvent_1a0a2ffc4f1aa535e3afd006a934114f1a" kind="function"><name>ActorDeathEvent</name></member>
     <member refid="classendstone_1_1ActorDeathEvent_1ad3572783702cd3e40447a3d6344a8094" kind="function"><name>getEventName</name></member>
+    <member refid="classendstone_1_1ActorDeathEvent_1ac269e4dac094cf1275a1fe60302872ed" kind="function"><name>getDamageSource</name></member>
   </compound>
   <compound refid="classendstone_1_1ActorEvent" kind="class"><name>endstone::ActorEvent</name>
-    <member refid="classendstone_1_1ActorEvent_1a64d37ca9b81a48ec1ec3d1fd6f0975cc" kind="variable"><name>actor_</name></member>
-    <member refid="classendstone_1_1ActorEvent_1a1d431f4b3c7cc2db417684a97029c386" kind="function"><name>ActorEvent</name></member>
-    <member refid="classendstone_1_1ActorEvent_1a3cf15029246f7add54e99e9e417b1c75" kind="function"><name>~ActorEvent</name></member>
-    <member refid="classendstone_1_1ActorEvent_1aeb9ea6c413f562e2ad4282fa4f695758" kind="function"><name>getActor</name></member>
+    <member refid="classendstone_1_1ActorEvent_1a5bda59f76a2df1a35f89d47c6ef2bcbf" kind="variable"><name>actor_</name></member>
+    <member refid="classendstone_1_1ActorEvent_1a07f53f59692095b4a31a6e3d95128015" kind="function"><name>ActorEvent</name></member>
+    <member refid="classendstone_1_1ActorEvent_1a9fff5524effc04e99bb28d49a9b37b6f" kind="function"><name>~ActorEvent</name></member>
+    <member refid="classendstone_1_1ActorEvent_1a49c459c96e831dbab2333ec2187ea552" kind="function"><name>getActor</name></member>
   </compound>
   <compound refid="classendstone_1_1ActorExplodeEvent" kind="class"><name>endstone::ActorExplodeEvent</name>
     <member refid="classendstone_1_1ActorExplodeEvent_1ab8e17c9ea777879efdfc3e476b94a16e" kind="typedef"><name>BlockList</name></member>
@@ -78,16 +89,14 @@
     <member refid="classendstone_1_1ActorKnockbackEvent_1acd617a2d1ffb56c3b9a479d4ddb080a5" kind="function"><name>ActorKnockbackEvent</name></member>
     <member refid="classendstone_1_1ActorKnockbackEvent_1a2c59d36dbcf12d782d927acc211ef292" kind="function"><name>~ActorKnockbackEvent</name></member>
     <member refid="classendstone_1_1ActorKnockbackEvent_1a6b3eee184de0d29360031cf48680c25a" kind="function"><name>getEventName</name></member>
-    <member refid="classendstone_1_1ActorKnockbackEvent_1ab9d97d11996902fd623cc4c50362be06" kind="function"><name>getActor</name></member>
     <member refid="classendstone_1_1ActorKnockbackEvent_1a4dc601b2fc54d46ef20821a75035cd2e" kind="function"><name>getSource</name></member>
     <member refid="classendstone_1_1ActorKnockbackEvent_1a7ec5c1018eb0c66d7143796837ebfff0" kind="function"><name>getKnockback</name></member>
     <member refid="classendstone_1_1ActorKnockbackEvent_1a17876ee6a06028878ff098bec3bb20f1" kind="function"><name>setKnockback</name></member>
   </compound>
   <compound refid="classendstone_1_1ActorRemoveEvent" kind="class"><name>endstone::ActorRemoveEvent</name>
     <member refid="classendstone_1_1ActorRemoveEvent_1a4d53a93b0651f115ce32b99dc5b0398d" kind="variable"><name>NAME</name></member>
-    <member refid="classendstone_1_1ActorRemoveEvent_1ab2b72e42268aee037949fa4d66cb429c" kind="function"><name>ActorRemoveEvent</name></member>
-    <member refid="classendstone_1_1ActorRemoveEvent_1a2b9327e02f470a6aeb6226de8ed2c041" kind="function"><name>~ActorRemoveEvent</name></member>
     <member refid="classendstone_1_1ActorRemoveEvent_1aba629c08862f2ce560791525abfc6037" kind="function"><name>getEventName</name></member>
+    <member refid="classendstone_1_1ActorRemoveEvent_1a07f53f59692095b4a31a6e3d95128015" kind="function"><name>ActorEvent</name></member>
   </compound>
   <compound refid="classendstone_1_1ActorSpawnEvent" kind="class"><name>endstone::ActorSpawnEvent</name>
     <member refid="classendstone_1_1ActorSpawnEvent_1adf1259b01a63a9cf4453ec0f7c99b7db" kind="variable"><name>NAME</name></member>
@@ -258,6 +267,13 @@
     <member refid="classendstone_1_1Cancellable_1a3512b47db69c6001f5c0450051308327" kind="function"><name>cancel</name></member>
     <member refid="classendstone_1_1Cancellable_1abd816b263a239cdacef9ca3b9c549418" kind="function"><name>isCancellable</name></member>
   </compound>
+  <compound refid="classendstone_1_1Chunk" kind="class"><name>endstone::Chunk</name>
+    <member refid="classendstone_1_1Chunk_1ac9753b865a92b8ce919a9a71d82b61d7" kind="function"><name>~Chunk</name></member>
+    <member refid="classendstone_1_1Chunk_1a8f8d55f6c6a9a27772da990c6aa533b1" kind="function"><name>getX</name></member>
+    <member refid="classendstone_1_1Chunk_1aa41c6ad331470b359dc503a9542f6637" kind="function"><name>getZ</name></member>
+    <member refid="classendstone_1_1Chunk_1ad6b110bcd41022ffbf923d732debbb93" kind="function"><name>getLevel</name></member>
+    <member refid="classendstone_1_1Chunk_1ab18bb55fcb0a26706f9cb59406bdf0cc" kind="function"><name>getDimension</name></member>
+  </compound>
   <compound refid="structendstone_1_1ColorFormat" kind="struct"><name>endstone::ColorFormat</name>
     <member refid="structendstone_1_1ColorFormat_1ae88506debc45287385eae171aa061154" kind="variable"><name>Escape</name></member>
     <member refid="structendstone_1_1ColorFormat_1a1fb8b3ffcad01c8b26a773d0860fe32c" kind="variable"><name>Black</name></member>
@@ -400,6 +416,13 @@
     <member refid="classendstone_1_1Criteria_1a41b262cc7d4029a58773d1fa1e5c0eab" kind="function"><name>isReadOnly</name></member>
     <member refid="classendstone_1_1Criteria_1a62d2a81d1b34cb0c271bdf470b0064de" kind="function"><name>getDefaultRenderType</name></member>
   </compound>
+  <compound refid="classendstone_1_1DamageSource" kind="class"><name>endstone::DamageSource</name>
+    <member refid="classendstone_1_1DamageSource_1ad7317c28b8853f400f518106f3f9d659" kind="function"><name>~DamageSource</name></member>
+    <member refid="classendstone_1_1DamageSource_1a545bb2e2d0cbf576bd70595194e88a74" kind="function"><name>getType</name></member>
+    <member refid="classendstone_1_1DamageSource_1aa918ccf5242cf6d8ed707457c227f9c5" kind="function"><name>getActor</name></member>
+    <member refid="classendstone_1_1DamageSource_1a022af0acc2aab4bd95e5ce916186a4ff" kind="function"><name>getDamagingActor</name></member>
+    <member refid="classendstone_1_1DamageSource_1ab078db3a18d08b41dd6c73de066c2b02" kind="function"><name>isIndirect</name></member>
+  </compound>
   <compound refid="classendstone_1_1Dimension" kind="class"><name>endstone::Dimension</name>
     <member refid="classendstone_1_1Dimension_1a5dbe2e9365112e8c0f883978fae1356b" kind="enum"><name>Type</name></member>
     <member refid="classendstone_1_1Dimension_1a5dbe2e9365112e8c0f883978fae1356ba50181b144eb2554dc2e45cd3d437e92f" kind="enumvalue"><name>Overworld</name></member>
@@ -410,8 +433,12 @@
     <member refid="classendstone_1_1Dimension_1a3cd59f6145706ead47d173255a10a39d" kind="function"><name>getName</name></member>
     <member refid="classendstone_1_1Dimension_1a9d9baf77525291924f80c682cc3d012c" kind="function"><name>getType</name></member>
     <member refid="classendstone_1_1Dimension_1a541fd7f166a3d746dde92b57e4843f6a" kind="function"><name>getLevel</name></member>
-    <member refid="classendstone_1_1Dimension_1a486bc4185de840fbd98af9eec7b38432" kind="function"><name>getBlockAt</name></member>
-    <member refid="classendstone_1_1Dimension_1a7104191387c8e7bec0441f7a7e0542c9" kind="function"><name>getBlockAt</name></member>
+    <member refid="classendstone_1_1Dimension_1acd6ec833ad5093f9ed3b60f4bdf9ec81" kind="function"><name>getBlockAt</name></member>
+    <member refid="classendstone_1_1Dimension_1a3b3e5514a44790a32b7f711c2cd4563a" kind="function"><name>getBlockAt</name></member>
+    <member refid="classendstone_1_1Dimension_1a444efcebbf833e779384449f781a10c6" kind="function"><name>getHighestBlockYAt</name></member>
+    <member refid="classendstone_1_1Dimension_1a0571b542f85470787ddd64f7d5ac157b" kind="function"><name>getHighestBlockAt</name></member>
+    <member refid="classendstone_1_1Dimension_1a03197b02f3aebc7663c6f8a7deebaaaf" kind="function"><name>getHighestBlockAt</name></member>
+    <member refid="classendstone_1_1Dimension_1a065a2b1242a809b89dd1502b2ad828b6" kind="function"><name>getLoadedChunks</name></member>
   </compound>
   <compound refid="classendstone_1_1Dropdown" kind="class"><name>endstone::Dropdown</name>
     <member refid="classendstone_1_1Dropdown_1a63178f8424835d566da0e3d6d62bb2b1" kind="variable"><name>label_</name></member>
@@ -470,6 +497,10 @@
     <member refid="classendstone_1_1Form_1aff78b36d4798b8185ea1ff93f6260f63" kind="function"><name>setOnClose</name></member>
     <member refid="classendstone_1_1Form_1ad0a5721b99d2d9bd30eec414d9c218b6" kind="function"><name>getOnClose</name></member>
   </compound>
+  <compound refid="structfmt_1_1formatter_3_01endstone_1_1Actor_01_4" kind="struct"><name>fmt::formatter&lt; endstone::Actor &gt;</name>
+    <member refid="structfmt_1_1formatter_3_01endstone_1_1Actor_01_4_1a0b7e438b7e84f8f70a411fbe0aea3175" kind="typedef"><name>Type</name></member>
+    <member refid="structfmt_1_1formatter_3_01endstone_1_1Actor_01_4_1a8e26093faffc87121ab193cb1e5757af" kind="function"><name>format</name></member>
+  </compound>
   <compound refid="structfmt_1_1formatter_3_01endstone_1_1Block_01_4" kind="struct"><name>fmt::formatter&lt; endstone::Block &gt;</name>
     <member refid="structfmt_1_1formatter_3_01endstone_1_1Block_01_4_1a329e503a43a8c88c344787df53c06dfb" kind="typedef"><name>Type</name></member>
     <member refid="structfmt_1_1formatter_3_01endstone_1_1Block_01_4_1add1c38750b0aa11012686b8474844c70" kind="function"><name>format</name></member>
@@ -493,6 +524,10 @@
   <compound refid="structfmt_1_1formatter_3_01endstone_1_1BlockStates_1_1value__type_01_4" kind="struct"><name>fmt::formatter&lt; endstone::BlockStates::value_type &gt;</name>
     <member refid="structfmt_1_1formatter_3_01endstone_1_1BlockStates_1_1value__type_01_4_1aad09b775459795e7252f362372b83072" kind="typedef"><name>Type</name></member>
     <member refid="structfmt_1_1formatter_3_01endstone_1_1BlockStates_1_1value__type_01_4_1adc0e1b7666aff1112b9b54564d09366d" kind="function"><name>format</name></member>
+  </compound>
+  <compound refid="structfmt_1_1formatter_3_01endstone_1_1DamageSource_01_4" kind="struct"><name>fmt::formatter&lt; endstone::DamageSource &gt;</name>
+    <member refid="structfmt_1_1formatter_3_01endstone_1_1DamageSource_01_4_1a550a3ede03ae8cb3363f4506b352053a" kind="typedef"><name>Type</name></member>
+    <member refid="structfmt_1_1formatter_3_01endstone_1_1DamageSource_01_4_1a28a57016ce7ccd62f11a6a308793c01f" kind="function"><name>format</name></member>
   </compound>
   <compound refid="structfmt_1_1formatter_3_01endstone_1_1ItemStack_01_4" kind="struct"><name>fmt::formatter&lt; endstone::ItemStack &gt;</name>
     <member refid="structfmt_1_1formatter_3_01endstone_1_1ItemStack_01_4_1ad78d75e07f93f63fc0413cee2954d7f0" kind="typedef"><name>Type</name></member>
@@ -878,11 +913,19 @@
   <compound refid="classendstone_1_1PlayerDeathEvent" kind="class"><name>endstone::PlayerDeathEvent</name>
     <member refid="classendstone_1_1PlayerDeathEvent_1aa5ae502ac2f9ffe892efcf8f54d736ba" kind="variable"><name>NAME</name></member>
     <member refid="classendstone_1_1PlayerDeathEvent_1a8d43b4af4294e73278d0d88b27a8ad03" kind="variable"><name>death_message_</name></member>
-    <member refid="classendstone_1_1PlayerDeathEvent_1a6eb8acf00eac81ecc98168799fa32df1" kind="function"><name>PlayerDeathEvent</name></member>
+    <member refid="classendstone_1_1PlayerDeathEvent_1af523e0468d3f29577029c070abf498c4" kind="function"><name>PlayerDeathEvent</name></member>
     <member refid="classendstone_1_1PlayerDeathEvent_1a5babbc8a8524edf5b68b86c9e9d21380" kind="function"><name>~PlayerDeathEvent</name></member>
     <member refid="classendstone_1_1PlayerDeathEvent_1a0f3f1fecbc4c5677ccb0cc7e9a11e1b0" kind="function"><name>getEventName</name></member>
     <member refid="classendstone_1_1PlayerDeathEvent_1ac76e5c152bc08891e8ecf76802c66682" kind="function"><name>getDeathMessage</name></member>
     <member refid="classendstone_1_1PlayerDeathEvent_1adc7d96225b2ea95e7ee70349209d69ff" kind="function"><name>setDeathMessage</name></member>
+  </compound>
+  <compound refid="classendstone_1_1PlayerEmoteEvent" kind="class"><name>endstone::PlayerEmoteEvent</name>
+    <member refid="classendstone_1_1PlayerEmoteEvent_1a74ecb4319b65d01b406f8c591d3aff18" kind="variable"><name>NAME</name></member>
+    <member refid="classendstone_1_1PlayerEmoteEvent_1a74fb29919f23124f944930495dccc486" kind="variable"><name>emote_id_</name></member>
+    <member refid="classendstone_1_1PlayerEmoteEvent_1a5b8cf2941e6759692eedcd1257b7a108" kind="function"><name>PlayerEmoteEvent</name></member>
+    <member refid="classendstone_1_1PlayerEmoteEvent_1a197c850f0d19456039fa2371f4476ff6" kind="function"><name>~PlayerEmoteEvent</name></member>
+    <member refid="classendstone_1_1PlayerEmoteEvent_1a79b81c6252a8a7036ddf04f4827edd40" kind="function"><name>getEventName</name></member>
+    <member refid="classendstone_1_1PlayerEmoteEvent_1a3cdd5e160ee7f361ee4dd23cd94bf709" kind="function"><name>getEmoteId</name></member>
   </compound>
   <compound refid="classendstone_1_1PlayerEvent" kind="class"><name>endstone::PlayerEvent</name>
     <member refid="classendstone_1_1PlayerEvent_1af4eb1d01665dafc47db34a43d7e96281" kind="variable"><name>player_</name></member>
@@ -959,6 +1002,12 @@
     <member refid="classendstone_1_1PlayerQuitEvent_1aa34fac241269914a9d141d4f8f1f362b" kind="function"><name>getEventName</name></member>
     <member refid="classendstone_1_1PlayerQuitEvent_1a00b0ae58f2924784ed2e2ce0ca4ab8b4" kind="function"><name>getQuitMessage</name></member>
     <member refid="classendstone_1_1PlayerQuitEvent_1ae21d854c5df9d4a4631346a858356098" kind="function"><name>setQuitMessage</name></member>
+  </compound>
+  <compound refid="classendstone_1_1PlayerRespawnEvent" kind="class"><name>endstone::PlayerRespawnEvent</name>
+    <member refid="classendstone_1_1PlayerRespawnEvent_1ab47c1f5797bfb607b21b5fdbd1e35336" kind="variable"><name>NAME</name></member>
+    <member refid="classendstone_1_1PlayerRespawnEvent_1abb6a9abde0432b56b4ce24b1ebfdbcbb" kind="function"><name>PlayerRespawnEvent</name></member>
+    <member refid="classendstone_1_1PlayerRespawnEvent_1a6d85e0d878c46548c97daab6e89bad91" kind="function"><name>~PlayerRespawnEvent</name></member>
+    <member refid="classendstone_1_1PlayerRespawnEvent_1a0b74630548cc0c5d82b0ba24a915e8d8" kind="function"><name>getEventName</name></member>
   </compound>
   <compound refid="classendstone_1_1PlayerTeleportEvent" kind="class"><name>endstone::PlayerTeleportEvent</name>
     <member refid="classendstone_1_1PlayerTeleportEvent_1a65255877510836658e5cda1429403f91" kind="variable"><name>NAME</name></member>
@@ -1589,6 +1638,10 @@
   </compound>
   <compound refid="proxied__command__sender_8h" kind="file"><name>proxied_command_sender.h</name>
   </compound>
+  <compound refid="damage__source_8h" kind="file"><name>damage_source.h</name>
+  </compound>
+  <compound refid="actor__damage__event_8h" kind="file"><name>actor_damage_event.h</name>
+  </compound>
   <compound refid="actor__death__event_8h" kind="file"><name>actor_death_event.h</name>
   </compound>
   <compound refid="actor__event_8h" kind="file"><name>actor_event.h</name>
@@ -1627,6 +1680,8 @@
   </compound>
   <compound refid="player__death__event_8h" kind="file"><name>player_death_event.h</name>
   </compound>
+  <compound refid="player__emote__event_8h" kind="file"><name>player_emote_event.h</name>
+  </compound>
   <compound refid="player__event_8h" kind="file"><name>player_event.h</name>
   </compound>
   <compound refid="player__game__mode__change__event_8h" kind="file"><name>player_game_mode_change_event.h</name>
@@ -1642,6 +1697,8 @@
   <compound refid="player__login__event_8h" kind="file"><name>player_login_event.h</name>
   </compound>
   <compound refid="player__quit__event_8h" kind="file"><name>player_quit_event.h</name>
+  </compound>
+  <compound refid="player__respawn__event_8h" kind="file"><name>player_respawn_event.h</name>
   </compound>
   <compound refid="player__teleport__event_8h" kind="file"><name>player_teleport_event.h</name>
   </compound>
@@ -1698,6 +1755,8 @@
   <compound refid="language_8h" kind="file"><name>language.h</name>
   </compound>
   <compound refid="translatable_8h" kind="file"><name>translatable.h</name>
+  </compound>
+  <compound refid="chunk_8h" kind="file"><name>chunk.h</name>
   </compound>
   <compound refid="dimension_8h" kind="file"><name>dimension.h</name>
   </compound>
@@ -1794,6 +1853,8 @@
   <compound refid="dir_5c7b2dbfabcd1115569d1e20a260545c" kind="dir"><name>include/endstone/command</name>
   </compound>
   <compound refid="dir_035306890ec6a3fa870e30b726ac5ffc" kind="dir"><name>include/endstone/form/controls</name>
+  </compound>
+  <compound refid="dir_d35032eb9ca22acb8eface5f2c8b6a35" kind="dir"><name>include/endstone/damage</name>
   </compound>
   <compound refid="dir_6cf277b678674f97c7a2b6b3b2447b33" kind="dir"><name>include/endstone</name>
   </compound>
