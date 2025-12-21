@@ -18,6 +18,77 @@ namespace py = pybind11;
 
 namespace endstone::python {
 
+namespace {
+// Mutable view for ActorExplodeEvent block list that mimics Python list behavior
+class ActorExplodeBlockListView {
+    ActorExplodeEvent &event_;
+    auto &blocks() { return event_.getBlockList(); }
+    const auto &blocks() const { return event_.getBlockList(); }
+
+public:
+    explicit ActorExplodeBlockListView(ActorExplodeEvent &event) : event_(event) {}
+    
+    std::size_t size() const { return blocks().size(); }
+    void clear() { blocks().clear(); }
+    
+    Block *get(std::size_t i) const {
+        if (i >= blocks().size()) throw py::index_error();
+        return blocks()[i].get();
+    }
+    
+    void set(std::size_t i, Block *b) {
+        if (i >= blocks().size()) throw py::index_error();
+        blocks()[i] = b ? b->clone() : nullptr;
+    }
+    
+    void append(Block *b) { blocks().emplace_back(b ? b->clone() : nullptr); }
+    
+    void insert(std::size_t i, Block *b) {
+        if (i > blocks().size()) throw py::index_error();
+        blocks().insert(blocks().begin() + i, b ? b->clone() : nullptr);
+    }
+    
+    void pop(std::ptrdiff_t i = -1) {
+        if (blocks().empty()) throw py::index_error("pop from empty list");
+        if (i < 0) i += blocks().size();
+        if (i < 0 || static_cast<std::size_t>(i) >= blocks().size()) throw py::index_error();
+        blocks().erase(blocks().begin() + i);
+    }
+    
+    void extend(const std::vector<Block *> &bs) { 
+        for (auto *b : bs) append(b); 
+    }
+    
+    void remove(Block *target) {
+        auto &b = blocks();
+        for (auto it = b.begin(); it != b.end(); ++it) {
+            if (it->get() == target) {
+                b.erase(it);
+                return;
+            }
+        }
+        throw py::value_error("list.remove(x): x not in list");
+    }
+    
+    void reverse() {
+        std::reverse(blocks().begin(), blocks().end());
+    }
+    
+    struct Iterator {
+        ActorExplodeEvent::BlockList &blocks;
+        std::size_t index;
+        Block *next() {
+            while (index < blocks.size()) {
+                if (auto *b = blocks[index++].get()) return b;
+            }
+            throw py::stop_iteration();
+        }
+    };
+    
+    Iterator iter() { return {blocks(), 0}; }
+};
+}  // namespace
+
 void init_event(py::module_ &m, py::class_<Event> &event)
 {
     py::native_enum<EventResult>(m, "EventResult", "enum.Enum")
@@ -76,21 +147,31 @@ void init_event(py::module_ &m, py::class_<Event> &event)
                                "Gets the Player that is breaking the block involved in this event.")
         .def_property("death_message", &PlayerDeathEvent::getDeathMessage, &PlayerDeathEvent::setDeathMessage,
                       "Gets or sets the death message that will appear to everyone on the server.");
+
+    py::class_<ActorExplodeBlockListView::Iterator>(m, "ActorExplodeBlockListIterator")
+        .def("__iter__", [](ActorExplodeBlockListView::Iterator &it) -> ActorExplodeBlockListView::Iterator & { return it; })
+        .def("__next__", &ActorExplodeBlockListView::Iterator::next, py::return_value_policy::reference);
+
+    py::class_<ActorExplodeBlockListView>(m, "ActorExplodeBlockList")
+        .def("__len__", &ActorExplodeBlockListView::size)
+        .def("__iter__", &ActorExplodeBlockListView::iter, py::keep_alive<0, 1>())
+        .def("__getitem__", &ActorExplodeBlockListView::get, py::return_value_policy::reference_internal)
+        .def("__setitem__", &ActorExplodeBlockListView::set)
+        .def("clear", &ActorExplodeBlockListView::clear)
+        .def("append", &ActorExplodeBlockListView::append, py::arg("block"))
+        .def("insert", &ActorExplodeBlockListView::insert, py::arg("index"), py::arg("block"))
+        .def("pop", &ActorExplodeBlockListView::pop, py::arg("index") = -1)
+        .def("extend", &ActorExplodeBlockListView::extend, py::arg("blocks"))
+        .def("remove", &ActorExplodeBlockListView::remove, py::arg("block"))
+        .def("reverse", &ActorExplodeBlockListView::reverse);
+
     py::class_<ActorExplodeEvent, ActorEvent<Actor>, ICancellable>(m, "ActorExplodeEvent",
                                                                    "Called when an Actor explodes.")
         .def_property_readonly("location", &ActorExplodeEvent::getLocation,
                                "Returns the location where the explosion happened.")
         .def_property(
             "block_list",
-            [](const ActorExplodeEvent &self) {
-                std::vector<Block *> blocks;
-                for (const auto &block : self.getBlockList()) {
-                    if (block) {
-                        blocks.emplace_back(block.get());
-                    }
-                }
-                return blocks;
-            },
+            [](ActorExplodeEvent &self) { return ActorExplodeBlockListView(self); },
             [](ActorExplodeEvent &self, const std::vector<Block *> &blocks) {
                 self.getBlockList().clear();
                 for (const auto &block : blocks) {
