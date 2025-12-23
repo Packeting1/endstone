@@ -25,9 +25,8 @@ namespace endstone {
  * @brief Called when an actor explodes
  */
 class ActorExplodeEvent : public Cancellable<ActorEvent<Actor>> {
-    using BlockList = std::vector<std::unique_ptr<Block>>;
-
 public:
+    using BlockList = std::vector<std::unique_ptr<Block>>;
     explicit ActorExplodeEvent(Actor &actor, Location location, BlockList blocks)
         : Cancellable(actor), location_(location), blocks_(std::move(blocks))
     {
