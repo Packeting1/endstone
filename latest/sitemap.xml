@@ -713,6 +713,14 @@
          <lastmod>2026-07-30</lastmod>
     </url>
     <url>
+         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerSneakEvent/</loc>
+         <lastmod>2026-07-30</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerSprintEvent/</loc>
+         <lastmod>2026-07-30</lastmod>
+    </url>
+    <url>
          <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerTeleportEvent/</loc>
          <lastmod>2026-07-30</lastmod>
     </url>
@@ -1874,6 +1882,22 @@
     </url>
     <url>
          <loc>https://endstone.dev/latest/reference/cpp/player__skin__change__event_8h_source/</loc>
+         <lastmod>2026-07-30</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__sneak__event_8h/</loc>
+         <lastmod>2026-07-30</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__sneak__event_8h_source/</loc>
+         <lastmod>2026-07-30</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__sprint__event_8h/</loc>
+         <lastmod>2026-07-30</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__sprint__event_8h_source/</loc>
          <lastmod>2026-07-30</lastmod>
     </url>
     <url>
