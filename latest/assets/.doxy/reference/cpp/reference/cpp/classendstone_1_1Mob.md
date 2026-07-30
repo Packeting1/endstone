@@ -1,0 +1,742 @@
+
+
+# Class endstone::Mob
+
+
+
+[**ClassList**](annotated.md) **>** [**endstone**](namespaceendstone.md) **>** [**Mob**](classendstone_1_1Mob.md)
+
+
+
+_Represents a mobile entity (i.e._ [More...](#detailed-description)
+
+* `#include <endstone/actor/mob.h>`
+
+
+
+Inherits the following classes: [endstone::Actor](classendstone_1_1Actor.md)
+
+
+Inherited by the following classes: [endstone::Player](classendstone_1_1Player.md)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Public Functions
+
+| Type | Name |
+| ---: | :--- |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**addEffect**](#function-addeffect) ([**const**](classendstone_1_1Identifier.md) [**Effect**](classendstone_1_1Effect.md) & effect) = 0<br>_Adds the given_ [_**Effect**_](classendstone_1_1Effect.md) _to this entity._ |
+| virtual std::vector&lt; [**Effect**](classendstone_1_1Effect.md) &gt; | [**getActiveEffects**](#function-getactiveeffects) () const = 0<br>_Returns all currently active Effects on this entity._  |
+| virtual std::unique\_ptr&lt; [**AttributeInstance**](classendstone_1_1AttributeInstance.md) &gt; | [**getAttribute**](#function-getattribute) ([**AttributeId**](classendstone_1_1Identifier.md) id) = 0<br>_Gets the specified attribute instance from the object._  |
+| virtual std::vector&lt; std::unique\_ptr&lt; [**AttributeInstance**](classendstone_1_1AttributeInstance.md) &gt; &gt; | [**getAttributes**](#function-getattributes) () = 0<br>_Gets all attribute instances from the object._  |
+| virtual std::optional&lt; [**Effect**](classendstone_1_1Effect.md) &gt; | [**getEffect**](#function-geteffect) ([**EffectId**](classendstone_1_1Identifier.md) type) const = 0<br>_Returns the active_ [_**Effect**_](classendstone_1_1Effect.md) _of the specified type._ |
+| virtual [**int**](classendstone_1_1Identifier.md) | [**getHealth**](#function-gethealth) () const = 0<br>_Gets the entity's health from 0 to its max possible value, where 0 is dead._  |
+| virtual [**int**](classendstone_1_1Identifier.md) | [**getMaxHealth**](#function-getmaxhealth) () const = 0<br>_Gets the maximum health this entity has._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**hasAttribute**](#function-hasattribute) ([**AttributeId**](classendstone_1_1Identifier.md) id) const = 0<br>_Checks whether the given attribute is present on the object._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**hasEffect**](#function-haseffect) ([**EffectId**](classendstone_1_1Identifier.md) type) const = 0<br>_Returns whether the entity already has an existing effect of the given type applied to it._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**isGliding**](#function-isgliding) () const = 0<br>_Checks to see if an actor is gliding, such as using an Elytra._  |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**removeEffect**](#function-removeeffect) ([**EffectId**](classendstone_1_1Identifier.md) type) = 0<br>_Removes any effects of the given type that are present on this entity._  |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**setHealth**](#function-sethealth) ([**int**](classendstone_1_1Identifier.md) health) const = 0<br>_Sets the entity's health from 0 to its possible value, where 0 is dead._  |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**setMaxHealth**](#function-setmaxhealth) ([**int**](classendstone_1_1Identifier.md) health) const = 0<br>_Sets the maximum health this entity can have._  |
+
+
+## Public Functions inherited from endstone::Actor
+
+See [endstone::Actor](classendstone_1_1Actor.md)
+
+| Type | Name |
+| ---: | :--- |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**addScoreboardTag**](classendstone_1_1Actor.md#function-addscoreboardtag) (std::string tag) const = 0<br>_Adds a tag to this actor._  |
+| virtual [**Dimension**](classendstone_1_1Dimension.md) & | [**getDimension**](classendstone_1_1Actor.md#function-getdimension) () const = 0<br>_Gets the current_ [_**Dimension**_](classendstone_1_1Dimension.md) _this actor resides in._ |
+| virtual std::int64\_t | [**getId**](classendstone_1_1Actor.md#function-getid) () const = 0<br>_Returns a unique id for this actor._  |
+| virtual [**Level**](classendstone_1_1Level.md) & | [**getLevel**](classendstone_1_1Actor.md#function-getlevel) () const = 0<br>_Gets the current_ [_**Level**_](classendstone_1_1Level.md) _this actor resides in._ |
+| virtual [**Location**](classendstone_1_1Location.md) | [**getLocation**](classendstone_1_1Actor.md#function-getlocation) () const = 0<br>_Gets the actor's current position._  |
+| virtual std::string | [**getNameTag**](classendstone_1_1Actor.md#function-getnametag) () const = 0<br>_Gets the current name tag of the actor._  |
+| virtual std::uint64\_t | [**getRuntimeId**](classendstone_1_1Actor.md#function-getruntimeid) () const = 0<br>_Returns the runtime id for this actor._  |
+| virtual std::string | [**getScoreTag**](classendstone_1_1Actor.md#function-getscoretag) () const = 0<br>_Gets the current score tag of the actor._  |
+| virtual std::vector&lt; std::string &gt; | [**getScoreboardTags**](classendstone_1_1Actor.md#function-getscoreboardtags) () const = 0<br>_Returns a list of scoreboard tags for this actor._  |
+| virtual [**const**](classendstone_1_1Identifier.md) [**ActorType**](classendstone_1_1ActorType.md) & | [**getType**](classendstone_1_1Actor.md#function-gettype) () const = 0<br>_Get the type of the actor._  |
+| virtual [**Vector**](classendstone_1_1Vector.md) | [**getVelocity**](classendstone_1_1Actor.md#function-getvelocity) () const = 0<br>_Gets this actor's current velocity._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**isDead**](classendstone_1_1Actor.md#function-isdead) () const = 0<br>_Returns true if this actor has been marked for removal._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**isInLava**](classendstone_1_1Actor.md#function-isinlava) () const = 0<br>_Returns true if the actor is in lava._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**isInWater**](classendstone_1_1Actor.md#function-isinwater) () const = 0<br>_Returns true if the actor is in water._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**isNameTagAlwaysVisible**](classendstone_1_1Actor.md#function-isnametagalwaysvisible) () const = 0<br>_Checks if the actor's name tag is always visible._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**isNameTagVisible**](classendstone_1_1Actor.md#function-isnametagvisible) () const = 0<br>_Checks if the actor's name tag is currently visible._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**isOnGround**](classendstone_1_1Actor.md#function-isonground) () const = 0<br>_Returns true if the actor is supported by a block._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**isValid**](classendstone_1_1Actor.md#function-isvalid) () const = 0<br>_Returns false if the entity has died, been despawned for some other reason, or has not been added to the level._  |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**remove**](classendstone_1_1Actor.md#function-remove) () = 0<br>_Remove this actor from the level._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**removeScoreboardTag**](classendstone_1_1Actor.md#function-removescoreboardtag) (std::string tag) const = 0<br>_Removes a given tag from this actor._  |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**setNameTag**](classendstone_1_1Actor.md#function-setnametag) (std::string name) = 0<br>_Sets the name tag for the actor._  |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**setNameTagAlwaysVisible**](classendstone_1_1Actor.md#function-setnametagalwaysvisible) ([**bool**](classendstone_1_1Identifier.md) visible) = 0<br>_Sets whether the actor's name tag should always be visible._  |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**setNameTagVisible**](classendstone_1_1Actor.md#function-setnametagvisible) ([**bool**](classendstone_1_1Identifier.md) visible) = 0<br>_Sets if the actor's name tag is visible or not._  |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**setRotation**](classendstone_1_1Actor.md#function-setrotation) ([**float**](classendstone_1_1Identifier.md) yaw, [**float**](classendstone_1_1Identifier.md) pitch) = 0<br>_Sets the actor's rotation._  |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**setScoreTag**](classendstone_1_1Actor.md#function-setscoretag) (std::string score) = 0<br>_Sets the score tag for the actor._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**teleport**](classendstone_1_1Actor.md#function-teleport-12) ([**const**](classendstone_1_1Identifier.md) [**Location**](classendstone_1_1Location.md) & location) = 0<br>_Teleports this actor to the given location._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**teleport**](classendstone_1_1Actor.md#function-teleport-22) ([**const**](classendstone_1_1Identifier.md) [**Actor**](classendstone_1_1Actor.md) & target) = 0<br>_Teleports this actor to the target_ [_**Actor**_](classendstone_1_1Actor.md) _._ |
+
+
+## Public Functions inherited from endstone::CommandSender
+
+See [endstone::CommandSender](classendstone_1_1CommandSender.md)
+
+| Type | Name |
+| ---: | :--- |
+| virtual std::string | [**getName**](classendstone_1_1CommandSender.md#function-getname) () const = 0<br>_Gets the name of this command sender._  |
+| virtual [**Server**](classendstone_1_1Server.md) & | [**getServer**](classendstone_1_1CommandSender.md#function-getserver) () const = 0<br>_Returns the server instance that this command is running on._  |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**sendErrorMessage**](classendstone_1_1CommandSender.md#function-senderrormessage-12) ([**const**](classendstone_1_1Identifier.md) [**Message**](namespaceendstone.md#typedef-message) & message) const = 0<br>_Sends this sender a error message._  |
+|  [**void**](classendstone_1_1Identifier.md) | [**sendErrorMessage**](classendstone_1_1CommandSender.md#function-senderrormessage-22) ([**const**](classendstone_1_1Identifier.md) std::format\_string&lt; Args... &gt; format, [**Args**](classendstone_1_1Identifier.md) &&... args) const<br> |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**sendMessage**](classendstone_1_1CommandSender.md#function-sendmessage-12) ([**const**](classendstone_1_1Identifier.md) [**Message**](namespaceendstone.md#typedef-message) & message) const = 0<br>_Sends this sender a message._  |
+|  [**void**](classendstone_1_1Identifier.md) | [**sendMessage**](classendstone_1_1CommandSender.md#function-sendmessage-22) ([**const**](classendstone_1_1Identifier.md) std::format\_string&lt; Args... &gt; format, [**Args**](classendstone_1_1Identifier.md) &&... args) const<br> |
+
+
+## Public Functions inherited from endstone::Permissible
+
+See [endstone::Permissible](classendstone_1_1Permissible.md)
+
+| Type | Name |
+| ---: | :--- |
+| virtual [**PermissionAttachment**](classendstone_1_1PermissionAttachment.md) \* | [**addAttachment**](classendstone_1_1Permissible.md#function-addattachment-12) ([**Plugin**](classendstone_1_1Plugin.md) & plugin, [**const**](classendstone_1_1Identifier.md) std::string & name, [**bool**](classendstone_1_1Identifier.md) value) = 0<br>_Adds a new_ [_**PermissionAttachment**_](classendstone_1_1PermissionAttachment.md) _with a single permission by name and value._ |
+| virtual [**PermissionAttachment**](classendstone_1_1PermissionAttachment.md) \* | [**addAttachment**](classendstone_1_1Permissible.md#function-addattachment-22) ([**Plugin**](classendstone_1_1Plugin.md) & plugin) = 0<br>_Adds a new empty_ [_**PermissionAttachment**_](classendstone_1_1PermissionAttachment.md) _to this object._ |
+| virtual std::unordered\_set&lt; [**PermissionAttachmentInfo**](classendstone_1_1PermissionAttachmentInfo.md) \* &gt; | [**getEffectivePermissions**](classendstone_1_1Permissible.md#function-geteffectivepermissions) () const = 0<br>_Gets a set containing all the permissions currently in effect by this object._  |
+| virtual [**PermissionLevel**](namespaceendstone.md#enum-permissionlevel) | [**getPermissionLevel**](classendstone_1_1Permissible.md#function-getpermissionlevel) () const = 0<br>_Gets the permission level of this object._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**hasPermission**](classendstone_1_1Permissible.md#function-haspermission-12) (std::string name) const = 0<br>_Gets the value of the specified permission, if set._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**hasPermission**](classendstone_1_1Permissible.md#function-haspermission-22) ([**const**](classendstone_1_1Identifier.md) [**Permission**](classendstone_1_1Permission.md) & perm) const = 0<br>_Gets the value of the specified permission, if set._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**isPermissionSet**](classendstone_1_1Permissible.md#function-ispermissionset-12) (std::string name) const = 0<br>_Checks if this object contains an override for the specified permission, by fully qualified name._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**isPermissionSet**](classendstone_1_1Permissible.md#function-ispermissionset-22) ([**const**](classendstone_1_1Identifier.md) [**Permission**](classendstone_1_1Permission.md) & perm) const = 0<br>_Checks if this object contains an override for the specified_ [_**Permission**_](classendstone_1_1Permission.md) _._ |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**recalculatePermissions**](classendstone_1_1Permissible.md#function-recalculatepermissions) () = 0<br>_Recalculates the permissions for this object, if the attachments have changed values._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**removeAttachment**](classendstone_1_1Permissible.md#function-removeattachment) ([**PermissionAttachment**](classendstone_1_1PermissionAttachment.md) & attachment) = 0<br>_Removes the given_ [_**PermissionAttachment**_](classendstone_1_1PermissionAttachment.md) _from this object._ |
+
+
+## Public Functions inherited from endstone::Object
+
+See [endstone::Object](classendstone_1_1Object.md)
+
+| Type | Name |
+| ---: | :--- |
+|  [**T**](classendstone_1_1Identifier.md) \* | [**as**](classendstone_1_1Object.md#function-as-12) () <br>_Attempts to cast this object to the given type T._  |
+|  [**const**](classendstone_1_1Identifier.md) [**T**](classendstone_1_1Identifier.md) \* | [**as**](classendstone_1_1Object.md#function-as-22) () const<br>_Attempts to cast this object to the given type T._  |
+| virtual [**const**](classendstone_1_1Identifier.md) std::type\_info & | [**getClassTypeId**](classendstone_1_1Object.md#function-getclasstypeid) () const = 0<br> |
+|  [**bool**](classendstone_1_1Identifier.md) | [**is**](classendstone_1_1Object.md#function-is) () const<br>_Checks if this object is an instance of the given type T (or a subclass of T)._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**isInstanceOf**](classendstone_1_1Object.md#function-isinstanceof) ([**const**](classendstone_1_1Identifier.md) std::type\_info & target) const = 0<br> |
+| virtual  | [**~Object**](classendstone_1_1Object.md#function-object) () = default<br> |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Detailed Description
+
+
+living entity), such as a monster or player. 
+
+
+    
+## Public Functions Documentation
+
+
+
+
+### function addEffect 
+
+_Adds the given_ [_**Effect**_](classendstone_1_1Effect.md) _to this entity._
+```C++
+virtual void endstone::Mob::addEffect (
+    const  Effect & effect
+) = 0
+```
+
+
+
+Only one effect of any given type may be active at any one time. If this entity already has an effect of the same type, it will be overwritten with the new one.
+
+
+
+
+**Parameters:**
+
+
+* `effect` [**Effect**](classendstone_1_1Effect.md) to be added 
+
+
+
+
+        
+
+<hr>
+
+
+
+### function getActiveEffects 
+
+_Returns all currently active Effects on this entity._ 
+```C++
+virtual std::vector< Effect > endstone::Mob::getActiveEffects () const = 0
+```
+
+
+
+
+
+**Returns:**
+
+a vector of Effects 
+
+
+
+
+
+        
+
+<hr>
+
+
+
+### function getAttribute 
+
+_Gets the specified attribute instance from the object._ 
+```C++
+virtual std::unique_ptr< AttributeInstance > endstone::Mob::getAttribute (
+    AttributeId id
+) = 0
+```
+
+
+
+This instance will be backed directly to the object and any changes will be visible at once.
+
+
+
+
+**Parameters:**
+
+
+* `id` The attribute to get 
+
+
+
+
+        
+
+<hr>
+
+
+
+### function getAttributes 
+
+_Gets all attribute instances from the object._ 
+```C++
+virtual std::vector< std::unique_ptr< AttributeInstance > > endstone::Mob::getAttributes () = 0
+```
+
+
+
+This instance will be backed directly to the object and any changes will be visible at once. 
+
+
+        
+
+<hr>
+
+
+
+### function getEffect 
+
+_Returns the active_ [_**Effect**_](classendstone_1_1Effect.md) _of the specified type._
+```C++
+virtual std::optional< Effect > endstone::Mob::getEffect (
+    EffectId type
+) const = 0
+```
+
+
+
+If the effect is not present on the entity then std::nullopt will be returned.
+
+
+
+
+**Parameters:**
+
+
+* `type` the effect type to check 
+
+
+
+**Returns:**
+
+the active effect, or std::nullopt if not present 
+
+
+
+
+
+        
+
+<hr>
+
+
+
+### function getHealth 
+
+_Gets the entity's health from 0 to its max possible value, where 0 is dead._ 
+```C++
+virtual int endstone::Mob::getHealth () const = 0
+```
+
+
+
+
+
+**Returns:**
+
+Health represented from 0 to max 
+
+
+
+
+
+        
+
+<hr>
+
+
+
+### function getMaxHealth 
+
+_Gets the maximum health this entity has._ 
+```C++
+virtual int endstone::Mob::getMaxHealth () const = 0
+```
+
+
+
+
+
+**Returns:**
+
+Maximum health 
+
+
+
+
+
+        
+
+<hr>
+
+
+
+### function hasAttribute 
+
+_Checks whether the given attribute is present on the object._ 
+```C++
+virtual bool endstone::Mob::hasAttribute (
+    AttributeId id
+) const = 0
+```
+
+
+
+
+
+**Parameters:**
+
+
+* `id` The attribute to check 
+
+
+
+
+        
+
+<hr>
+
+
+
+### function hasEffect 
+
+_Returns whether the entity already has an existing effect of the given type applied to it._ 
+```C++
+virtual bool endstone::Mob::hasEffect (
+    EffectId type
+) const = 0
+```
+
+
+
+
+
+**Parameters:**
+
+
+* `type` the effect type to check 
+
+
+
+**Returns:**
+
+whether the entity has the given potion effect active 
+
+
+
+
+
+        
+
+<hr>
+
+
+
+### function isGliding 
+
+_Checks to see if an actor is gliding, such as using an Elytra._ 
+```C++
+virtual bool endstone::Mob::isGliding () const = 0
+```
+
+
+
+
+
+**Returns:**
+
+True if this actor is gliding. 
+
+
+
+
+
+        
+
+<hr>
+
+
+
+### function removeEffect 
+
+_Removes any effects of the given type that are present on this entity._ 
+```C++
+virtual void endstone::Mob::removeEffect (
+    EffectId type
+) = 0
+```
+
+
+
+
+
+**Parameters:**
+
+
+* `type` the effect type to remove 
+
+
+
+
+        
+
+<hr>
+
+
+
+### function setHealth 
+
+_Sets the entity's health from 0 to its possible value, where 0 is dead._ 
+```C++
+virtual void endstone::Mob::setHealth (
+    int health
+) const = 0
+```
+
+
+
+
+
+**Parameters:**
+
+
+* `health` New health represented from 0 to max 
+
+
+
+
+        
+
+<hr>
+
+
+
+### function setMaxHealth 
+
+_Sets the maximum health this entity can have._ 
+```C++
+virtual void endstone::Mob::setMaxHealth (
+    int health
+) const = 0
+```
+
+
+
+If the health of the entity is above the value provided, it will be set to that value.
+
+
+
+
+**Note:**
+
+An entity with a health bar e.g., [**Player**](classendstone_1_1Player.md), EnderDragon, Wither, etc. will have their bar scaled accordingly.
+
+
+
+
+**Parameters:**
+
+
+* `health` amount of health to set the maximum to 
+
+
+
+
+        
+
+<hr>
+
+------------------------------
+The documentation for this class was generated from the following file `include/endstone/actor/mob.h`
+

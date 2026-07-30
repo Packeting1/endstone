@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classendstone_1_1Preconditions" kind="class" language="C++" prot="public">
+    <compoundname>endstone::Preconditions</compoundname>
+    <includes refid="check_8h" local="no">endstone/check.h</includes>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classendstone_1_1Preconditions_1a67ef7267ef07164ae88052ed43750426" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">void</ref></type>
+        <definition>static void endstone::Preconditions::checkArgument</definition>
+        <argsstring>(bool condition, std::format_string&lt; Args... &gt; format, Args &amp;&amp;...args)</argsstring>
+        <name>checkArgument</name>
+        <qualifiedname>endstone::Preconditions::checkArgument</qualifiedname>
+        <param>
+          <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>
+          <declname>condition</declname>
+        </param>
+        <param>
+          <type>std::format_string&lt; Args... &gt;</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type><ref refid="classendstone_1_1Identifier" kindref="compound">Args</ref> &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Ensures the truth of an expression involving one or more parameters to the calling method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>condition</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The expression that must hold. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>format</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A format string describing the failure, used when the condition is <computeroutput>false</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Arguments to substitute into the format string. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::invalid_argument</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if condition is <computeroutput>false</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/check.h" line="36" column="17" bodyfile="include/endstone/check.h" bodystart="36" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1Preconditions_1a5fb6820ed9c6e4629a00776f25d11ef5" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">void</ref></type>
+        <definition>static void endstone::Preconditions::checkState</definition>
+        <argsstring>(bool condition, std::format_string&lt; Args... &gt; format, Args &amp;&amp;...args)</argsstring>
+        <name>checkState</name>
+        <qualifiedname>endstone::Preconditions::checkState</qualifiedname>
+        <param>
+          <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>
+          <declname>condition</declname>
+        </param>
+        <param>
+          <type>std::format_string&lt; Args... &gt;</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type><ref refid="classendstone_1_1Identifier" kindref="compound">Args</ref> &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Ensures the truth of an expression involving the state of the calling instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>condition</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The expression that must hold. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>format</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A format string describing the failure, used when the condition is <computeroutput>false</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Arguments to substitute into the format string. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::runtime_error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if condition is <computeroutput>false</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/check.h" line="53" column="17" bodyfile="include/endstone/check.h" bodystart="53" bodyend="59"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Static helpers for validating method arguments and object state. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/endstone/check.h" line="25" column="1" bodyfile="include/endstone/check.h" bodystart="25" bodyend="60"/>
+    <listofallmembers>
+      <member refid="classendstone_1_1Preconditions_1a67ef7267ef07164ae88052ed43750426" prot="public" virt="non-virtual"><scope>endstone::Preconditions</scope><name>checkArgument</name></member>
+      <member refid="classendstone_1_1Preconditions_1a5fb6820ed9c6e4629a00776f25d11ef5" prot="public" virt="non-virtual"><scope>endstone::Preconditions</scope><name>checkState</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

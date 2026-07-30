@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classendstone_1_1CrossbowMeta" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>endstone::CrossbowMeta</compoundname>
+    <basecompoundref refid="classendstone_1_1ItemMeta" prot="public" virt="non-virtual">endstone::ItemMeta</basecompoundref>
+    <includes refid="crossbow__meta_8h" local="no">endstone/inventory/meta/crossbow_meta.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classendstone_1_1CrossbowMeta_1a25247a3a96495bcc9ef5580b287c954e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>
+        <definition>virtual bool endstone::CrossbowMeta::hasChargedProjectile</definition>
+        <argsstring>() const =0</argsstring>
+        <name>hasChargedProjectile</name>
+        <qualifiedname>endstone::CrossbowMeta::hasChargedProjectile</qualifiedname>
+        <briefdescription>
+<para>Returns whether the crossbow has a charged projectile. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>whether a charged projectile is present </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/inventory/meta/crossbow_meta.h" line="32" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1CrossbowMeta_1aff2f865a581e87ef8a8103ba3074175c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::optional&lt; <ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref> &gt;</type>
+        <definition>virtual std::optional&lt; ItemStack &gt; endstone::CrossbowMeta::getChargedProjectile</definition>
+        <argsstring>() const =0</argsstring>
+        <name>getChargedProjectile</name>
+        <qualifiedname>endstone::CrossbowMeta::getChargedProjectile</qualifiedname>
+        <briefdescription>
+<para>Returns the charged projectile, or std::nullopt if none. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the charged projectile </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/inventory/meta/crossbow_meta.h" line="39" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1CrossbowMeta_1a7e5fc67e1426488549f3a1adf42c746c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">void</ref></type>
+        <definition>virtual void endstone::CrossbowMeta::setChargedProjectile</definition>
+        <argsstring>(std::optional&lt; ItemStack &gt; projectile)=0</argsstring>
+        <name>setChargedProjectile</name>
+        <qualifiedname>endstone::CrossbowMeta::setChargedProjectile</qualifiedname>
+        <param>
+          <type>std::optional&lt; <ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref> &gt;</type>
+          <declname>projectile</declname>
+        </param>
+        <briefdescription>
+<para>Sets the charged projectile. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Pass std::nullopt to clear.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>projectile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the projectile to set, or std::nullopt to clear </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/inventory/meta/crossbow_meta.h" line="46" column="18"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents the meta for a crossbow that can have a charged projectile. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>endstone::CrossbowMeta</label>
+        <link refid="classendstone_1_1CrossbowMeta"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>endstone::ItemMeta</label>
+        <link refid="classendstone_1_1ItemMeta"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>endstone::Object</label>
+        <link refid="classendstone_1_1Object"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>endstone::CrossbowMeta</label>
+        <link refid="classendstone_1_1CrossbowMeta"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>endstone::ItemMeta</label>
+        <link refid="classendstone_1_1ItemMeta"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>endstone::Object</label>
+        <link refid="classendstone_1_1Object"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/endstone/inventory/meta/crossbow_meta.h" line="25" column="1" bodyfile="include/endstone/inventory/meta/crossbow_meta.h" bodystart="25" bodyend="47"/>
+    <listofallmembers>
+      <member refid="classendstone_1_1ItemMeta_1ac1ee49d00e1cdd56816e0e775bff4241" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>addEnchant</name></member>
+      <member refid="classendstone_1_1Object_1a798b5128ce018bbbe8ca949ba78c3db1" prot="public" virt="non-virtual"><scope>endstone::CrossbowMeta</scope><name>as</name></member>
+      <member refid="classendstone_1_1Object_1ae0f38a62da4c186fce272145e2590cc1" prot="public" virt="non-virtual"><scope>endstone::CrossbowMeta</scope><name>as</name></member>
+      <member refid="classendstone_1_1ItemMeta_1a6e2422771cf3c695b96dfbf279e17b4d" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>clone</name></member>
+      <member refid="classendstone_1_1CrossbowMeta_1aff2f865a581e87ef8a8103ba3074175c" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>getChargedProjectile</name></member>
+      <member refid="classendstone_1_1Object_1aaaeb27e8e442e5adb772ae0d1af1c33f" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>getClassTypeId</name></member>
+      <member refid="classendstone_1_1ItemMeta_1a3892649cd822bf85b603d6a2b64b7ebd" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>getDamage</name></member>
+      <member refid="classendstone_1_1ItemMeta_1a612f7b82c6ece41678ed8881acab96ee" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>getDisplayName</name></member>
+      <member refid="classendstone_1_1ItemMeta_1a4ada54133ca59faa19c55d38b3be845f" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>getEnchantLevel</name></member>
+      <member refid="classendstone_1_1ItemMeta_1afe5fbc4ed421b33e455d1e2e679d76e5" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>getEnchants</name></member>
+      <member refid="classendstone_1_1ItemMeta_1aa9ac1cb2bb1fb71ff465001603b3cddf" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>getExtras</name></member>
+      <member refid="classendstone_1_1ItemMeta_1a170ca4e3a87a7a590ba03019129793d1" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>getLore</name></member>
+      <member refid="classendstone_1_1ItemMeta_1ad8d3243a6a5621568ef2f4ce505c42d7" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>getRepairCost</name></member>
+      <member refid="classendstone_1_1CrossbowMeta_1a25247a3a96495bcc9ef5580b287c954e" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>hasChargedProjectile</name></member>
+      <member refid="classendstone_1_1ItemMeta_1af5939a3ac6202136120dcab179c8e9d6" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>hasConflictingEnchant</name></member>
+      <member refid="classendstone_1_1ItemMeta_1ae2ded35522da3ad4a77ca127cd78d938" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>hasDamage</name></member>
+      <member refid="classendstone_1_1ItemMeta_1a0a8bf5690f51d5e1438308d1858a1df4" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>hasDisplayName</name></member>
+      <member refid="classendstone_1_1ItemMeta_1ade351771a140fed5f755067c9fa8d6e3" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>hasEnchant</name></member>
+      <member refid="classendstone_1_1ItemMeta_1ac43230ac05adb1a16d1d6d60049dc010" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>hasEnchants</name></member>
+      <member refid="classendstone_1_1ItemMeta_1a52d6ef7084538f60809b6baff98afdfa" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>hasLore</name></member>
+      <member refid="classendstone_1_1ItemMeta_1a90cfeecd88da173df9c5b06a731ec6ed" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>hasRepairCost</name></member>
+      <member refid="classendstone_1_1Object_1ae8213ae15ad1b14e4631399c6b18960a" prot="public" virt="non-virtual"><scope>endstone::CrossbowMeta</scope><name>is</name></member>
+      <member refid="classendstone_1_1Object_1a20376536a5f64ef02b2569af132171d4" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>isInstanceOf</name></member>
+      <member refid="classendstone_1_1ItemMeta_1a6b272eb7b84e7cdce4c161402d9531fe" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>isUnbreakable</name></member>
+      <member refid="classendstone_1_1ItemMeta_1ad00a6e480dbda4f8e054f48cd318756f" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>removeEnchant</name></member>
+      <member refid="classendstone_1_1ItemMeta_1ada041111e07c6434bc9ac04a0b82cd61" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>removeEnchants</name></member>
+      <member refid="classendstone_1_1CrossbowMeta_1a7e5fc67e1426488549f3a1adf42c746c" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>setChargedProjectile</name></member>
+      <member refid="classendstone_1_1ItemMeta_1a65cb98d0b4ad3842775aeea2fb7900cc" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>setDamage</name></member>
+      <member refid="classendstone_1_1ItemMeta_1a282788eea1a8f607e7fcf4cbc181951f" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>setDisplayName</name></member>
+      <member refid="classendstone_1_1ItemMeta_1ae2d1ff3f93a5fe805dd0a74bbcfaf028" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>setLore</name></member>
+      <member refid="classendstone_1_1ItemMeta_1a5377c0928c991a4e9ea1294b1f38bc1d" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>setRepairCost</name></member>
+      <member refid="classendstone_1_1ItemMeta_1a4cd10bea89892329e54fec6ffc67a137" prot="public" virt="pure-virtual"><scope>endstone::CrossbowMeta</scope><name>setUnbreakable</name></member>
+      <member refid="classendstone_1_1Object_1adfddc886af4b1d0e09ddac7d0391b4d2" prot="public" virt="virtual"><scope>endstone::CrossbowMeta</scope><name>~Object</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

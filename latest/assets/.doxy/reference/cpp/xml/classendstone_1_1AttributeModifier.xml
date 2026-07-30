@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classendstone_1_1AttributeModifier" kind="class" language="C++" prot="public">
+    <compoundname>endstone::AttributeModifier</compoundname>
+    <includes refid="attribute__modifier_8h" local="no">endstone/attribute/attribute_modifier.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classendstone_1_1AttributeModifier_1abd3c67841a00cb00230ef52c06d10170" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Operation</name>
+        <qualifiedname>endstone::AttributeModifier::Operation</qualifiedname>
+        <enumvalue id="classendstone_1_1AttributeModifier_1abd3c67841a00cb00230ef52c06d10170aec211f7c20af43e742bf2570c3cb84f9" prot="public">
+          <name>Add</name>
+          <briefdescription>
+<para>Adds (or subtracts) the specified amount to the base value. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classendstone_1_1AttributeModifier_1abd3c67841a00cb00230ef52c06d10170aa628faa951168de439b8cec76f62b73b" prot="public">
+          <name>MultiplyBase</name>
+          <briefdescription>
+<para>Multiplies the current value of the attribute by (1 + x), where x is the sum of the modifiers&apos; amounts. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classendstone_1_1AttributeModifier_1abd3c67841a00cb00230ef52c06d10170ae257376d913f3b53cbb4a9b19d770648" prot="public">
+          <name>Multiply</name>
+          <briefdescription>
+<para>For every modifier, multiplies the current value of the attribute by (1 + x), where x is the amount of the particular modifier. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="note"><para>Functions the same as MultiplyBase if there is only a single modifier. However, for multiple modifiers it multiplies the modifiers rather than adding them. </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classendstone_1_1AttributeModifier_1abd3c67841a00cb00230ef52c06d10170a88d53497f4a92958c67c73a9f2f52df3" prot="public">
+          <name>Cap</name>
+          <briefdescription>
+<para>Caps the value of the attribute at the modifier&apos;s amount. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="note"><para>Bedrock-specific operation with no Bukkit equivalent. </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Operation to be applied. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/attribute/attribute_modifier.h" line="32" column="5" bodyfile="include/endstone/attribute/attribute_modifier.h" bodystart="32" bodyend="56"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classendstone_1_1AttributeModifier_1af7d11b6dd7bfa23b55043b842e8b094b" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string endstone::AttributeModifier::id_</definition>
+        <argsstring></argsstring>
+        <name>id_</name>
+        <qualifiedname>endstone::AttributeModifier::id_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/attribute/attribute_modifier.h" line="92" column="17" bodyfile="include/endstone/attribute/attribute_modifier.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classendstone_1_1AttributeModifier_1af426b1b9feca243b95fbbfd48e2b0c38" prot="private" static="no" mutable="no">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">float</ref></type>
+        <definition>float endstone::AttributeModifier::amount_</definition>
+        <argsstring></argsstring>
+        <name>amount_</name>
+        <qualifiedname>endstone::AttributeModifier::amount_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/attribute/attribute_modifier.h" line="93" column="11" bodyfile="include/endstone/attribute/attribute_modifier.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classendstone_1_1AttributeModifier_1a0a377d2a916ff12ebc4aa1f1946eb3e3" prot="private" static="no" mutable="no">
+        <type><ref refid="classendstone_1_1AttributeModifier_1abd3c67841a00cb00230ef52c06d10170" kindref="member">Operation</ref></type>
+        <definition>Operation endstone::AttributeModifier::operation_</definition>
+        <argsstring></argsstring>
+        <name>operation_</name>
+        <qualifiedname>endstone::AttributeModifier::operation_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/attribute/attribute_modifier.h" line="94" column="15" bodyfile="include/endstone/attribute/attribute_modifier.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classendstone_1_1AttributeModifier_1ac82c41a9a1cb45e6cc391c4396431f58" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>endstone::AttributeModifier::AttributeModifier</definition>
+        <argsstring>(AttributeModifierId id, float amount, Operation operation)</argsstring>
+        <name>AttributeModifier</name>
+        <qualifiedname>endstone::AttributeModifier::AttributeModifier</qualifiedname>
+        <param>
+          <type><ref refid="classendstone_1_1Identifier" kindref="compound">AttributeModifierId</ref></type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type><ref refid="classendstone_1_1Identifier" kindref="compound">float</ref></type>
+          <declname>amount</declname>
+        </param>
+        <param>
+          <type><ref refid="classendstone_1_1AttributeModifier_1abd3c67841a00cb00230ef52c06d10170" kindref="member">Operation</ref></type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>Construct a new attribute modifier. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the id of the modifier </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>amount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the amount by which the modifier applies its operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the operation to apply </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/attribute/attribute_modifier.h" line="65" column="5" bodyfile="include/endstone/attribute/attribute_modifier.h" bodystart="65" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1AttributeModifier_1a2c0796e64738866257abb3a008f3df83" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">AttributeModifierId</ref></type>
+        <definition>AttributeModifierId endstone::AttributeModifier::getId</definition>
+        <argsstring>() const</argsstring>
+        <name>getId</name>
+        <qualifiedname>endstone::AttributeModifier::getId</qualifiedname>
+        <briefdescription>
+<para>Get the id of this modifier. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>id </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/attribute/attribute_modifier.h" line="75" column="26" bodyfile="include/endstone/attribute/attribute_modifier.h" bodystart="75" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1AttributeModifier_1a64fd4cca69b16a3a740e0ee4aec93bb3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">float</ref></type>
+        <definition>float endstone::AttributeModifier::getAmount</definition>
+        <argsstring>() const</argsstring>
+        <name>getAmount</name>
+        <qualifiedname>endstone::AttributeModifier::getAmount</qualifiedname>
+        <briefdescription>
+<para>Get the amount by which this modifier will apply its operation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>modification amount </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/attribute/attribute_modifier.h" line="82" column="12" bodyfile="include/endstone/attribute/attribute_modifier.h" bodystart="82" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1AttributeModifier_1a710ed8941c3fc3afd04d3babe85bf0bb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1AttributeModifier_1abd3c67841a00cb00230ef52c06d10170" kindref="member">Operation</ref></type>
+        <definition>Operation endstone::AttributeModifier::getOperation</definition>
+        <argsstring>() const</argsstring>
+        <name>getOperation</name>
+        <qualifiedname>endstone::AttributeModifier::getOperation</qualifiedname>
+        <briefdescription>
+<para>Get the operation this modifier will apply. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/attribute/attribute_modifier.h" line="89" column="16" bodyfile="include/endstone/attribute/attribute_modifier.h" bodystart="89" bodyend="89"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Concrete implementation of an attribute modifier. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/endstone/attribute/attribute_modifier.h" line="27" column="1" bodyfile="include/endstone/attribute/attribute_modifier.h" bodystart="27" bodyend="95"/>
+    <listofallmembers>
+      <member refid="classendstone_1_1AttributeModifier_1af426b1b9feca243b95fbbfd48e2b0c38" prot="private" virt="non-virtual"><scope>endstone::AttributeModifier</scope><name>amount_</name></member>
+      <member refid="classendstone_1_1AttributeModifier_1ac82c41a9a1cb45e6cc391c4396431f58" prot="public" virt="non-virtual"><scope>endstone::AttributeModifier</scope><name>AttributeModifier</name></member>
+      <member refid="classendstone_1_1AttributeModifier_1a64fd4cca69b16a3a740e0ee4aec93bb3" prot="public" virt="non-virtual"><scope>endstone::AttributeModifier</scope><name>getAmount</name></member>
+      <member refid="classendstone_1_1AttributeModifier_1a2c0796e64738866257abb3a008f3df83" prot="public" virt="non-virtual"><scope>endstone::AttributeModifier</scope><name>getId</name></member>
+      <member refid="classendstone_1_1AttributeModifier_1a710ed8941c3fc3afd04d3babe85bf0bb" prot="public" virt="non-virtual"><scope>endstone::AttributeModifier</scope><name>getOperation</name></member>
+      <member refid="classendstone_1_1AttributeModifier_1af7d11b6dd7bfa23b55043b842e8b094b" prot="private" virt="non-virtual"><scope>endstone::AttributeModifier</scope><name>id_</name></member>
+      <member refid="classendstone_1_1AttributeModifier_1abd3c67841a00cb00230ef52c06d10170" prot="public" virt="non-virtual"><scope>endstone::AttributeModifier</scope><name>Operation</name></member>
+      <member refid="classendstone_1_1AttributeModifier_1a0a377d2a916ff12ebc4aa1f1946eb3e3" prot="private" virt="non-virtual"><scope>endstone::AttributeModifier</scope><name>operation_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

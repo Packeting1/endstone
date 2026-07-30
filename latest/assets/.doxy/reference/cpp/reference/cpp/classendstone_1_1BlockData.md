@@ -1,0 +1,206 @@
+
+
+# Class endstone::BlockData
+
+
+
+[**ClassList**](annotated.md) **>** [**endstone**](namespaceendstone.md) **>** [**BlockData**](classendstone_1_1BlockData.md)
+
+
+
+_Represents the data related to a live block._ 
+
+* `#include <endstone/block/block_data.h>`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Public Functions
+
+| Type | Name |
+| ---: | :--- |
+| virtual BlockStates | [**getBlockStates**](#function-getblockstates) () const = 0<br>_Gets the block states, which when passed into a method such as Server::createBlockData(type, block\_states) will unambiguously recreate this instance._  |
+| virtual std::uint32\_t | [**getRuntimeId**](#function-getruntimeid) () const = 0<br>_Get the runtime ID for this block._  |
+| virtual std::string | [**getTranslationKey**](#function-gettranslationkey) () const = 0<br>_Get the translation key for this block._  |
+| virtual [**const**](classendstone_1_1Identifier.md) [**BlockType**](classendstone_1_1BlockType.md) & | [**getType**](#function-gettype) () const = 0<br>_Get the block type represented by this block data._  |
+| virtual  | [**~BlockData**](#function-blockdata) () = default<br> |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Public Functions Documentation
+
+
+
+
+### function getBlockStates 
+
+_Gets the block states, which when passed into a method such as Server::createBlockData(type, block\_states) will unambiguously recreate this instance._ 
+```C++
+virtual BlockStates endstone::BlockData::getBlockStates () const = 0
+```
+
+
+
+
+
+**Returns:**
+
+the block states for this block 
+
+
+
+
+
+        
+
+<hr>
+
+
+
+### function getRuntimeId 
+
+_Get the runtime ID for this block._ 
+```C++
+virtual std::uint32_t endstone::BlockData::getRuntimeId () const = 0
+```
+
+
+
+
+
+**Returns:**
+
+the runtime id for this block 
+
+
+
+
+
+        
+
+<hr>
+
+
+
+### function getTranslationKey 
+
+_Get the translation key for this block._ 
+```C++
+virtual std::string endstone::BlockData::getTranslationKey () const = 0
+```
+
+
+
+
+
+**Returns:**
+
+the translation key for this block 
+
+
+
+
+
+        
+
+<hr>
+
+
+
+### function getType 
+
+_Get the block type represented by this block data._ 
+```C++
+virtual const  BlockType & endstone::BlockData::getType () const = 0
+```
+
+
+
+
+
+**Returns:**
+
+the block type 
+
+
+
+
+
+        
+
+<hr>
+
+
+
+### function ~BlockData 
+
+```C++
+virtual endstone::BlockData::~BlockData () = default
+```
+
+
+
+
+<hr>
+
+------------------------------
+The documentation for this class was generated from the following file `include/endstone/block/block_data.h`
+

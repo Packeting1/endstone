@@ -1,0 +1,134 @@
+
+
+# File detail.h
+
+[**File List**](files.md) **>** [**endstone**](dir_6cf277b678674f97c7a2b6b3b2447b33.md) **>** [**detail.h**](detail_8h.md)
+
+[Go to the documentation of this file](detail_8h.md)
+
+
+```C++
+// Copyright (c) 2024, The Endstone Project. (https://endstone.dev) All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+#pragma once
+
+#include <cstring>
+#include <stdexcept>
+
+#if defined(_WIN32) || defined(_WIN64)
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <Windows.h>
+#else
+#include <dlfcn.h>
+
+#include <cstddef>
+#endif
+
+#include <endstone/version.h>
+
+namespace endstone {
+class Server;
+
+namespace detail {
+template <typename Return, typename... Args>
+void *fp_cast(Return (*fp)(Args...))
+{
+    void *v;
+    std::memcpy(&v, &fp, sizeof(v));
+    return v;
+}
+
+template <typename Return, typename Class, typename... Args>
+void *fp_cast(Return (Class::*fp)(Args...))
+{
+    void *v;
+    std::memcpy(&v, &fp, sizeof(v));
+    return v;
+}
+
+template <typename Return, typename Class, typename... Args>
+void *fp_cast(Return (Class::*fp)(Args...) const)
+{
+    void *v;
+    std::memcpy(&v, &fp, sizeof(v));
+    return v;
+}
+
+template <typename Return, typename... Arg>
+Return (*fp_cast(Return (*fp)(Arg...), void *func))(Arg...)
+{
+    Return (*result)(Arg...);
+    std::memcpy(&result, &func, sizeof(result));
+    return result;
+}
+
+template <typename Return, typename Class, typename... Arg>
+auto fp_cast(Return (Class::*)(Arg...), void *address)
+{
+    Return (Class::*result)(Arg...);
+    std::memset(&result, 0, sizeof(result));
+    std::memcpy(&result, &address, sizeof(address));
+    return result;
+}
+
+template <typename Return, typename Class, typename... Arg>
+auto fp_cast(Return (Class::*)(Arg...) const, void *address)
+{
+    Return (Class::*result)(Arg...) const;
+    std::memset(&result, 0, sizeof(result));
+    std::memcpy(&result, &address, sizeof(address));
+    return result;
+}
+
+inline Server &getServer()
+{
+    static Server *server;
+    if (server == nullptr) {
+#ifdef _WIN32
+        auto handle = GetModuleHandle("endstone_runtime.dll");
+#else
+        auto handle = dlopen("libendstone_runtime.so", RTLD_LAZY);
+#endif
+        if (!handle) {
+            throw std::runtime_error("Failed to load endstone runtime.");
+        }
+
+        using GetterFn = Server &(*)();
+#ifdef _WIN32
+        auto fn = reinterpret_cast<GetterFn>(GetProcAddress(handle, "endstone_get_server"));
+#else
+        auto fn = reinterpret_cast<GetterFn>(dlsym(handle, "endstone_get_server"));
+#endif
+        if (!fn) {
+            throw std::runtime_error("Failed to find symbol endstone_get_server");
+        }
+
+        server = &fn();
+        if (!server) {
+            throw std::runtime_error("Failed to get server instance.");
+        }
+    }
+    return *server;
+}
+}  // namespace detail
+}  // namespace endstone
+```
+
+
