@@ -412,8 +412,6 @@
 ([**endstone**](namespaceendstone.md))
 * [**PlayerSprintEvent**](classendstone_1_1PlayerSprintEvent.md)
 ([**endstone**](namespaceendstone.md))
-* [**PlayerSwimEvent**](classendstone_1_1PlayerSwimEvent.md)
-([**endstone**](namespaceendstone.md))
 * [**PlayerTeleportEvent**](classendstone_1_1PlayerTeleportEvent.md)
 ([**endstone**](namespaceendstone.md))
 * [**Plugin**](classendstone_1_1Plugin.md)

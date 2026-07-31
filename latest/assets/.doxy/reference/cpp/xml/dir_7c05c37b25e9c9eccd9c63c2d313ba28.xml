@@ -27,7 +27,6 @@
     <innerfile refid="player__skin__change__event_8h">player_skin_change_event.h</innerfile>
     <innerfile refid="player__sneak__event_8h">player_sneak_event.h</innerfile>
     <innerfile refid="player__sprint__event_8h">player_sprint_event.h</innerfile>
-    <innerfile refid="player__swim__event_8h">player_swim_event.h</innerfile>
     <innerfile refid="player__teleport__event_8h">player_teleport_event.h</innerfile>
     <briefdescription>
     </briefdescription>

@@ -144,7 +144,6 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**PlayerSkinChangeEvent**](classendstone_1_1PlayerSkinChangeEvent.md) _Called when a player changes their skin._     
     * **class** [**PlayerSneakEvent**](classendstone_1_1PlayerSneakEvent.md) _Called when a player starts or stops sneaking._     
     * **class** [**PlayerSprintEvent**](classendstone_1_1PlayerSprintEvent.md) _Called when a player starts or stops sprinting._     
-    * **class** [**PlayerSwimEvent**](classendstone_1_1PlayerSwimEvent.md) _Called when a player starts or stops swimming._     
     * **class** [**PlayerTeleportEvent**](classendstone_1_1PlayerTeleportEvent.md) _Called when a player is teleported from one location to another._     
     * **class** [**Plugin**](classendstone_1_1Plugin.md) _Represents a_ [_**Plugin**_](classendstone_1_1Plugin.md) _._    
     * **class** [**PluginCommand**](classendstone_1_1PluginCommand.md) _Represents a_ [_**Command**_](classendstone_1_1Command.md) _belonging to a_[_**Plugin**_](classendstone_1_1Plugin.md) _._    
