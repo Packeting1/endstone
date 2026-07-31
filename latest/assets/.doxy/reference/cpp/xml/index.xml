@@ -2089,6 +2089,11 @@
     <member refid="classendstone_1_1PlayerSprintEvent_1ab55c13ed87d7cf9866b6d247624231d5" kind="function"><name>PlayerSprintEvent</name></member>
     <member refid="classendstone_1_1PlayerSprintEvent_1a9366b814842ad372fd2bd4aba8d81003" kind="function"><name>isSprinting</name></member>
   </compound>
+  <compound refid="classendstone_1_1PlayerSwimEvent" kind="class"><name>endstone::PlayerSwimEvent</name>
+    <member refid="classendstone_1_1PlayerSwimEvent_1ac1b2bcbac403af0c5aac76cfe2929089" kind="variable"><name>swimming_</name></member>
+    <member refid="classendstone_1_1PlayerSwimEvent_1ad17419b6a9c83a45bfa452720ec379ae" kind="function"><name>PlayerSwimEvent</name></member>
+    <member refid="classendstone_1_1PlayerSwimEvent_1a3642e5ba6ff1306c0a0950a28ee78cd2" kind="function"><name>isSwimming</name></member>
+  </compound>
   <compound refid="classendstone_1_1PlayerTeleportEvent" kind="class"><name>endstone::PlayerTeleportEvent</name>
     <member refid="classendstone_1_1PlayerTeleportEvent_1a43539d2448ad4540de9a2be61bbe47e8" kind="function"><name>ENDSTONE_EVENT</name></member>
     <member refid="classendstone_1_1PlayerTeleportEvent_1a8a1cf3638b2074e1d7845129adbbfed5" kind="function"><name>PlayerMoveEvent</name></member>
@@ -3115,6 +3120,8 @@
   <compound refid="player__sneak__event_8h" kind="file"><name>player_sneak_event.h</name>
   </compound>
   <compound refid="player__sprint__event_8h" kind="file"><name>player_sprint_event.h</name>
+  </compound>
+  <compound refid="player__swim__event_8h" kind="file"><name>player_swim_event.h</name>
   </compound>
   <compound refid="player__teleport__event_8h" kind="file"><name>player_teleport_event.h</name>
   </compound>

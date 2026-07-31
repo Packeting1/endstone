@@ -176,6 +176,7 @@ _Represents a button with text and an optional icon._
 | class | [**PlayerSkinChangeEvent**](classendstone_1_1PlayerSkinChangeEvent.md) <br>_Called when a player changes their skin._  |
 | class | [**PlayerSneakEvent**](classendstone_1_1PlayerSneakEvent.md) <br>_Called when a player starts or stops sneaking._  |
 | class | [**PlayerSprintEvent**](classendstone_1_1PlayerSprintEvent.md) <br>_Called when a player starts or stops sprinting._  |
+| class | [**PlayerSwimEvent**](classendstone_1_1PlayerSwimEvent.md) <br>_Called when a player starts or stops swimming._  |
 | class | [**PlayerTeleportEvent**](classendstone_1_1PlayerTeleportEvent.md) <br>_Called when a player is teleported from one location to another._  |
 | class | [**Plugin**](classendstone_1_1Plugin.md) <br>_Represents a_ [_**Plugin**_](classendstone_1_1Plugin.md) _._ |
 | class | [**PluginCommand**](classendstone_1_1PluginCommand.md) <br>_Represents a_ [_**Command**_](classendstone_1_1Command.md) _belonging to a_[_**Plugin**_](classendstone_1_1Plugin.md) _._ |
