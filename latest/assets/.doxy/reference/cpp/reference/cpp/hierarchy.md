@@ -48,11 +48,13 @@ This inheritance list is sorted roughly, but not completely, alphabetically:
         * **class** [**endstone::PlayerBedLeaveEvent**](classendstone_1_1PlayerBedLeaveEvent.md) _Called when a player is leaving a bed._ 
         * **class** [**endstone::PlayerCrawlEvent**](classendstone_1_1PlayerCrawlEvent.md) _Called when a player starts or stops crawling._ 
         * **class** [**endstone::PlayerDimensionChangeEvent**](classendstone_1_1PlayerDimensionChangeEvent.md) _Called when a player switches to another dimension._ 
+        * **class** [**endstone::PlayerFlightEvent**](classendstone_1_1PlayerFlightEvent.md) _Called when a player starts or stops flying._ 
         * **class** [**endstone::PlayerGlideEvent**](classendstone_1_1PlayerGlideEvent.md) _Called when a player starts or stops gliding._ 
         * **class** [**endstone::PlayerJoinEvent**](classendstone_1_1PlayerJoinEvent.md) _Called when a player joins a server._ 
         * **class** [**endstone::PlayerQuitEvent**](classendstone_1_1PlayerQuitEvent.md) _Called when a player leaves a server._ 
         * **class** [**endstone::PlayerRespawnEvent**](classendstone_1_1PlayerRespawnEvent.md) _Called when a player respawns._ 
         * **class** [**endstone::PlayerSneakEvent**](classendstone_1_1PlayerSneakEvent.md) _Called when a player starts or stops sneaking._ 
+        * **class** [**endstone::PlayerSpinAttackEvent**](classendstone_1_1PlayerSpinAttackEvent.md) _Called when a player starts or stops a spin attack._ 
         * **class** [**endstone::PlayerSprintEvent**](classendstone_1_1PlayerSprintEvent.md) _Called when a player starts or stops sprinting._ 
         * **class** [**endstone::PlayerSwimEvent**](classendstone_1_1PlayerSwimEvent.md) _Called when a player starts or stops swimming._ 
     * **class** [**endstone::ServerEvent**](classendstone_1_1ServerEvent.md) _Represents a Server-related event._     

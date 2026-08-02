@@ -1948,6 +1948,11 @@
     <member refid="classendstone_1_1PlayerEvent_1ab31b937251b8ccc1c72c275d1c7a522b" kind="function"><name>~PlayerEvent</name></member>
     <member refid="classendstone_1_1PlayerEvent_1a3ad904b05886ce30c7299500d9a57fdb" kind="function"><name>getPlayer</name></member>
   </compound>
+  <compound refid="classendstone_1_1PlayerFlightEvent" kind="class"><name>endstone::PlayerFlightEvent</name>
+    <member refid="classendstone_1_1PlayerFlightEvent_1a869dad607493dd4c5a240846e918ee05" kind="variable"><name>flying_</name></member>
+    <member refid="classendstone_1_1PlayerFlightEvent_1ad67637b0220d07fd0820b33eeecbdc6a" kind="function"><name>PlayerFlightEvent</name></member>
+    <member refid="classendstone_1_1PlayerFlightEvent_1a3bbee244ff8d621c0c08189a0570957d" kind="function"><name>isFlying</name></member>
+  </compound>
   <compound refid="classendstone_1_1PlayerGameModeChangeEvent" kind="class"><name>endstone::PlayerGameModeChangeEvent</name>
     <member refid="classendstone_1_1PlayerGameModeChangeEvent_1a04a813980762f492edc3db56907da5b5" kind="variable"><name>new_game_mode_</name></member>
     <member refid="classendstone_1_1PlayerGameModeChangeEvent_1a6a40c884adc4e5b9f09c99aa8369e8a4" kind="function"><name>ENDSTONE_EVENT</name></member>
@@ -2093,6 +2098,11 @@
     <member refid="classendstone_1_1PlayerSneakEvent_1a2234a5baef2b6fe71bf8c4dac1f0708f" kind="variable"><name>sneaking_</name></member>
     <member refid="classendstone_1_1PlayerSneakEvent_1aeabbd09d9e83d0e6e208a54669ff9ba9" kind="function"><name>PlayerSneakEvent</name></member>
     <member refid="classendstone_1_1PlayerSneakEvent_1ace6a070e6ace5ac8251665b8385e4b28" kind="function"><name>isSneaking</name></member>
+  </compound>
+  <compound refid="classendstone_1_1PlayerSpinAttackEvent" kind="class"><name>endstone::PlayerSpinAttackEvent</name>
+    <member refid="classendstone_1_1PlayerSpinAttackEvent_1a63fb06ac629b94e58b8d9932362021f9" kind="variable"><name>spin_attacking_</name></member>
+    <member refid="classendstone_1_1PlayerSpinAttackEvent_1a97a539caa933a027269a36fd8f3656d5" kind="function"><name>PlayerSpinAttackEvent</name></member>
+    <member refid="classendstone_1_1PlayerSpinAttackEvent_1a336d0a19986cc100540cb3b779e6ffe0" kind="function"><name>isSpinAttacking</name></member>
   </compound>
   <compound refid="classendstone_1_1PlayerSprintEvent" kind="class"><name>endstone::PlayerSprintEvent</name>
     <member refid="classendstone_1_1PlayerSprintEvent_1af568d3ce0de4f232a1fdbfbbbc49ec6b" kind="variable"><name>sprinting_</name></member>
@@ -3099,6 +3109,8 @@
   </compound>
   <compound refid="player__event_8h" kind="file"><name>player_event.h</name>
   </compound>
+  <compound refid="player__flight__event_8h" kind="file"><name>player_flight_event.h</name>
+  </compound>
   <compound refid="player__game__mode__change__event_8h" kind="file"><name>player_game_mode_change_event.h</name>
   </compound>
   <compound refid="player__glide__event_8h" kind="file"><name>player_glide_event.h</name>
@@ -3132,6 +3144,8 @@
   <compound refid="player__skin__change__event_8h" kind="file"><name>player_skin_change_event.h</name>
   </compound>
   <compound refid="player__sneak__event_8h" kind="file"><name>player_sneak_event.h</name>
+  </compound>
+  <compound refid="player__spin__attack__event_8h" kind="file"><name>player_spin_attack_event.h</name>
   </compound>
   <compound refid="player__sprint__event_8h" kind="file"><name>player_sprint_event.h</name>
   </compound>

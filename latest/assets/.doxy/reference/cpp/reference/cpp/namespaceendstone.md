@@ -159,6 +159,7 @@ _Represents a button with text and an optional icon._
 | class | [**PlayerDropItemEvent**](classendstone_1_1PlayerDropItemEvent.md) <br>_Called when a player drops an item from their inventory._  |
 | class | [**PlayerEmoteEvent**](classendstone_1_1PlayerEmoteEvent.md) <br>_Called when a player uses an emote._  |
 | class | [**PlayerEvent**](classendstone_1_1PlayerEvent.md) <br>_Represents a player related event._  |
+| class | [**PlayerFlightEvent**](classendstone_1_1PlayerFlightEvent.md) <br>_Called when a player starts or stops flying._  |
 | class | [**PlayerGameModeChangeEvent**](classendstone_1_1PlayerGameModeChangeEvent.md) <br>_Called when the GameMode of the player is changed._  |
 | class | [**PlayerGlideEvent**](classendstone_1_1PlayerGlideEvent.md) <br>_Called when a player starts or stops gliding._  |
 | class | [**PlayerInteractActorEvent**](classendstone_1_1PlayerInteractActorEvent.md) <br>_Represents an event that is called when a player right-clicks an actor._  |
@@ -177,6 +178,7 @@ _Represents a button with text and an optional icon._
 | class | [**PlayerRespawnEvent**](classendstone_1_1PlayerRespawnEvent.md) <br>_Called when a player respawns._  |
 | class | [**PlayerSkinChangeEvent**](classendstone_1_1PlayerSkinChangeEvent.md) <br>_Called when a player changes their skin._  |
 | class | [**PlayerSneakEvent**](classendstone_1_1PlayerSneakEvent.md) <br>_Called when a player starts or stops sneaking._  |
+| class | [**PlayerSpinAttackEvent**](classendstone_1_1PlayerSpinAttackEvent.md) <br>_Called when a player starts or stops a spin attack._  |
 | class | [**PlayerSprintEvent**](classendstone_1_1PlayerSprintEvent.md) <br>_Called when a player starts or stops sprinting._  |
 | class | [**PlayerSwimEvent**](classendstone_1_1PlayerSwimEvent.md) <br>_Called when a player starts or stops swimming._  |
 | class | [**PlayerTeleportEvent**](classendstone_1_1PlayerTeleportEvent.md) <br>_Called when a player is teleported from one location to another._  |

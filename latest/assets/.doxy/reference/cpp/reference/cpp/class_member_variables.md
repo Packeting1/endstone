@@ -190,6 +190,7 @@
 * **Fortune** ([**endstone::Enchantment**](classendstone_1_1Enchantment.md))
 * **FrostWalker** ([**endstone::Enchantment**](classendstone_1_1Enchantment.md))
 * **format\_** ([**endstone::PlayerChatEvent**](classendstone_1_1PlayerChatEvent.md))
+* **flying\_** ([**endstone::PlayerFlightEvent**](classendstone_1_1PlayerFlightEvent.md))
 * **full\_name\_** ([**endstone::PluginDescription**](classendstone_1_1PluginDescription.md))
 
 
@@ -489,6 +490,7 @@
 * **submit\_button\_text\_** ([**endstone::ModalForm**](classendstone_1_1ModalForm.md))
 * **sub\_client\_id\_** ([**endstone::PacketReceiveEvent**](classendstone_1_1PacketReceiveEvent.md), [**endstone::PacketSendEvent**](classendstone_1_1PacketSendEvent.md))
 * **sneaking\_** ([**endstone::PlayerSneakEvent**](classendstone_1_1PlayerSneakEvent.md))
+* **spin\_attacking\_** ([**endstone::PlayerSpinAttackEvent**](classendstone_1_1PlayerSpinAttackEvent.md))
 * **sprinting\_** ([**endstone::PlayerSprintEvent**](classendstone_1_1PlayerSprintEvent.md))
 * **swimming\_** ([**endstone::PlayerSwimEvent**](classendstone_1_1PlayerSwimEvent.md))
 * **server\_** ([**endstone::Plugin**](classendstone_1_1Plugin.md), [**endstone::PluginLoader**](classendstone_1_1PluginLoader.md))
