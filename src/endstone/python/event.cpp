@@ -347,6 +347,8 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
                                "The previous held slot index.");
     py::class_<PlayerCrawlEvent, PlayerEvent>(m, "PlayerCrawlEvent", "Called when a player starts or stops crawling.")
         .def_property_readonly("is_crawling", &PlayerCrawlEvent::isCrawling, "Whether the player is crawling.");
+    py::class_<PlayerFlightEvent, PlayerEvent>(m, "PlayerFlightEvent", "Called when a player starts or stops flying.")
+        .def_property_readonly("is_flying", &PlayerFlightEvent::isFlying, "Whether the player is flying.");
     py::class_<PlayerGlideEvent, PlayerEvent>(m, "PlayerGlideEvent", "Called when a player starts or stops gliding.")
         .def_property_readonly("is_gliding", &PlayerGlideEvent::isGliding, "Whether the player is gliding.");
     py::class_<PlayerSneakEvent, PlayerEvent>(m, "PlayerSneakEvent", "Called when a player starts or stops sneaking.")
