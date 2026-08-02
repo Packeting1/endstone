@@ -1906,6 +1906,11 @@
     <member refid="classendstone_1_1PlayerCommandEvent_1a4096e979a5e327ddecdd9328f087d57b" kind="function"><name>getCommand</name></member>
     <member refid="classendstone_1_1PlayerCommandEvent_1a6d2c4a174ce786fc8a1cd6cd8f9ca7c5" kind="function"><name>setCommand</name></member>
   </compound>
+  <compound refid="classendstone_1_1PlayerCrawlEvent" kind="class"><name>endstone::PlayerCrawlEvent</name>
+    <member refid="classendstone_1_1PlayerCrawlEvent_1af12bcc3735bbaeff2bc373e96fcad09a" kind="variable"><name>crawling_</name></member>
+    <member refid="classendstone_1_1PlayerCrawlEvent_1ac8403442453c8d251bbb74d25954a657" kind="function"><name>PlayerCrawlEvent</name></member>
+    <member refid="classendstone_1_1PlayerCrawlEvent_1aab1a70cafc745f8ea2268f7edc4d3c7a" kind="function"><name>isCrawling</name></member>
+  </compound>
   <compound refid="classendstone_1_1PlayerDeathEvent" kind="class"><name>endstone::PlayerDeathEvent</name>
     <member refid="classendstone_1_1PlayerDeathEvent_1a6480e2399396eaa3fb8ed7bfcb56da21" kind="variable"><name>death_message_</name></member>
     <member refid="classendstone_1_1PlayerDeathEvent_1a65fb428be5bdb70e91101198e73416dd" kind="function"><name>ENDSTONE_EVENT</name></member>
@@ -1949,6 +1954,11 @@
     <member refid="classendstone_1_1PlayerGameModeChangeEvent_1a5e4a9eaed65c0886aaf01610a8c5d4eb" kind="function"><name>PlayerGameModeChangeEvent</name></member>
     <member refid="classendstone_1_1PlayerGameModeChangeEvent_1aef8569884e4cbdbabb945eef9c4ec9eb" kind="function"><name>~PlayerGameModeChangeEvent</name></member>
     <member refid="classendstone_1_1PlayerGameModeChangeEvent_1a422c30eafa2b703fd105138e45da4540" kind="function"><name>getNewGameMode</name></member>
+  </compound>
+  <compound refid="classendstone_1_1PlayerGlideEvent" kind="class"><name>endstone::PlayerGlideEvent</name>
+    <member refid="classendstone_1_1PlayerGlideEvent_1adf92c49c6881481ea6f8f9fb3294d0f6" kind="variable"><name>gliding_</name></member>
+    <member refid="classendstone_1_1PlayerGlideEvent_1a5cb69f01da55ef3b6810a2828703b7e4" kind="function"><name>PlayerGlideEvent</name></member>
+    <member refid="classendstone_1_1PlayerGlideEvent_1a3f5161b779c7d74e953a238d8f719493" kind="function"><name>isGliding</name></member>
   </compound>
   <compound refid="classendstone_1_1PlayerInteractActorEvent" kind="class"><name>endstone::PlayerInteractActorEvent</name>
     <member refid="classendstone_1_1PlayerInteractActorEvent_1a26c386e9a320b585013cd97d0ded093a" kind="variable"><name>actor_</name></member>
@@ -3079,6 +3089,8 @@
   </compound>
   <compound refid="player__command__event_8h" kind="file"><name>player_command_event.h</name>
   </compound>
+  <compound refid="player__crawl__event_8h" kind="file"><name>player_crawl_event.h</name>
+  </compound>
   <compound refid="player__dimension__change__event_8h" kind="file"><name>player_dimension_change_event.h</name>
   </compound>
   <compound refid="player__drop__item__event_8h" kind="file"><name>player_drop_item_event.h</name>
@@ -3088,6 +3100,8 @@
   <compound refid="player__event_8h" kind="file"><name>player_event.h</name>
   </compound>
   <compound refid="player__game__mode__change__event_8h" kind="file"><name>player_game_mode_change_event.h</name>
+  </compound>
+  <compound refid="player__glide__event_8h" kind="file"><name>player_glide_event.h</name>
   </compound>
   <compound refid="player__interact__actor__event_8h" kind="file"><name>player_interact_actor_event.h</name>
   </compound>

@@ -96,6 +96,7 @@
 * **caption\_** ([**endstone::MapCursor**](classendstone_1_1MapCursor.md))
 * **children\_** ([**endstone::Permission**](classendstone_1_1Permission.md), [**endstone::detail::PermissionBuilder**](classendstone_1_1detail_1_1PermissionBuilder.md))
 * **command\_** ([**endstone::PlayerCommandEvent**](classendstone_1_1PlayerCommandEvent.md), [**endstone::ServerCommandEvent**](classendstone_1_1ServerCommandEvent.md))
+* **crawling\_** ([**endstone::PlayerCrawlEvent**](classendstone_1_1PlayerCrawlEvent.md))
 * **clicked\_position\_** ([**endstone::PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md))
 * **current\_** ([**endstone::PlayerItemHeldEvent**](classendstone_1_1PlayerItemHeldEvent.md))
 * **commands\_** ([**endstone::PluginDescription**](classendstone_1_1PluginDescription.md))
@@ -202,6 +203,7 @@
 * **Gold** ([**endstone::ColorFormat**](structendstone_1_1ColorFormat.md))
 * **Gray** ([**endstone::ColorFormat**](structendstone_1_1ColorFormat.md))
 * **Green** ([**endstone::ColorFormat**](structendstone_1_1ColorFormat.md))
+* **gliding\_** ([**endstone::PlayerGlideEvent**](classendstone_1_1PlayerGlideEvent.md))
 * **game\_mode\_** ([**endstone::ServerListPingEvent**](classendstone_1_1ServerListPingEvent.md))
 
 

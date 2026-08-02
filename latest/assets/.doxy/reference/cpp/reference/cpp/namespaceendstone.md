@@ -153,12 +153,14 @@ _Represents a button with text and an optional icon._
 | class | [**PlayerBedLeaveEvent**](classendstone_1_1PlayerBedLeaveEvent.md) <br>_Called when a player is leaving a bed._  |
 | class | [**PlayerChatEvent**](classendstone_1_1PlayerChatEvent.md) <br>_Called when a player sends a chat message._  |
 | class | [**PlayerCommandEvent**](classendstone_1_1PlayerCommandEvent.md) <br>_Called whenever a player runs a command._  |
+| class | [**PlayerCrawlEvent**](classendstone_1_1PlayerCrawlEvent.md) <br>_Called when a player starts or stops crawling._  |
 | class | [**PlayerDeathEvent**](classendstone_1_1PlayerDeathEvent.md) <br>_Called when a_ [_**Player**_](classendstone_1_1Player.md) _dies._ |
 | class | [**PlayerDimensionChangeEvent**](classendstone_1_1PlayerDimensionChangeEvent.md) <br>_Called when a player switches to another dimension._  |
 | class | [**PlayerDropItemEvent**](classendstone_1_1PlayerDropItemEvent.md) <br>_Called when a player drops an item from their inventory._  |
 | class | [**PlayerEmoteEvent**](classendstone_1_1PlayerEmoteEvent.md) <br>_Called when a player uses an emote._  |
 | class | [**PlayerEvent**](classendstone_1_1PlayerEvent.md) <br>_Represents a player related event._  |
 | class | [**PlayerGameModeChangeEvent**](classendstone_1_1PlayerGameModeChangeEvent.md) <br>_Called when the GameMode of the player is changed._  |
+| class | [**PlayerGlideEvent**](classendstone_1_1PlayerGlideEvent.md) <br>_Called when a player starts or stops gliding._  |
 | class | [**PlayerInteractActorEvent**](classendstone_1_1PlayerInteractActorEvent.md) <br>_Represents an event that is called when a player right-clicks an actor._  |
 | class | [**PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md) <br>_Represents an event that is called when a player right-clicks a block._  |
 | class | [**PlayerInventory**](classendstone_1_1PlayerInventory.md) <br>_Interface to the inventory of a_ [_**Player**_](classendstone_1_1Player.md) _, including the four armor slots and any extra slots._ |

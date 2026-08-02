@@ -5,7 +5,9 @@
     <basecompoundref refid="classendstone_1_1Event" prot="public" virt="non-virtual">endstone::Event</basecompoundref>
     <derivedcompoundref refid="classendstone_1_1Cancellable" prot="public" virt="non-virtual">endstone::Cancellable&lt; PlayerEvent &gt;</derivedcompoundref>
     <derivedcompoundref refid="classendstone_1_1PlayerBedLeaveEvent" prot="public" virt="non-virtual">endstone::PlayerBedLeaveEvent</derivedcompoundref>
+    <derivedcompoundref refid="classendstone_1_1PlayerCrawlEvent" prot="public" virt="non-virtual">endstone::PlayerCrawlEvent</derivedcompoundref>
     <derivedcompoundref refid="classendstone_1_1PlayerDimensionChangeEvent" prot="public" virt="non-virtual">endstone::PlayerDimensionChangeEvent</derivedcompoundref>
+    <derivedcompoundref refid="classendstone_1_1PlayerGlideEvent" prot="public" virt="non-virtual">endstone::PlayerGlideEvent</derivedcompoundref>
     <derivedcompoundref refid="classendstone_1_1PlayerJoinEvent" prot="public" virt="non-virtual">endstone::PlayerJoinEvent</derivedcompoundref>
     <derivedcompoundref refid="classendstone_1_1PlayerQuitEvent" prot="public" virt="non-virtual">endstone::PlayerQuitEvent</derivedcompoundref>
     <derivedcompoundref refid="classendstone_1_1PlayerRespawnEvent" prot="public" virt="non-virtual">endstone::PlayerRespawnEvent</derivedcompoundref>
@@ -122,6 +124,12 @@
         </childnode>
       </node>
       <node id="23">
+        <label>endstone::PlayerCrawlEvent</label>
+        <link refid="classendstone_1_1PlayerCrawlEvent"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="24">
         <label>endstone::PlayerDimensionChangeEvent</label>
         <link refid="classendstone_1_1PlayerDimensionChangeEvent"/>
         <childnode refid="1" relation="public-inheritance">
@@ -151,6 +159,12 @@
         <childnode refid="3" relation="public-inheritance">
         </childnode>
       </node>
+      <node id="25">
+        <label>endstone::PlayerGlideEvent</label>
+        <link refid="classendstone_1_1PlayerGlideEvent"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
       <node id="10">
         <label>endstone::PlayerInteractActorEvent</label>
         <link refid="classendstone_1_1PlayerInteractActorEvent"/>
@@ -175,7 +189,7 @@
         <childnode refid="3" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="24">
+      <node id="26">
         <label>endstone::PlayerJoinEvent</label>
         <link refid="classendstone_1_1PlayerJoinEvent"/>
         <childnode refid="1" relation="public-inheritance">
@@ -217,13 +231,13 @@
         <childnode refid="18" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="25">
+      <node id="27">
         <label>endstone::PlayerQuitEvent</label>
         <link refid="classendstone_1_1PlayerQuitEvent"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="26">
+      <node id="28">
         <label>endstone::PlayerRespawnEvent</label>
         <link refid="classendstone_1_1PlayerRespawnEvent"/>
         <childnode refid="1" relation="public-inheritance">
@@ -235,19 +249,19 @@
         <childnode refid="3" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="27">
+      <node id="29">
         <label>endstone::PlayerSneakEvent</label>
         <link refid="classendstone_1_1PlayerSneakEvent"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="28">
+      <node id="30">
         <label>endstone::PlayerSprintEvent</label>
         <link refid="classendstone_1_1PlayerSprintEvent"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="29">
+      <node id="31">
         <label>endstone::PlayerSwimEvent</label>
         <link refid="classendstone_1_1PlayerSwimEvent"/>
         <childnode refid="1" relation="public-inheritance">
