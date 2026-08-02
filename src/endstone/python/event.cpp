@@ -354,6 +354,10 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
     py::class_<PlayerSneakEvent, PlayerEvent>(m, "PlayerSneakEvent", "Called when a player starts or stops sneaking.")
         .def_property_readonly("is_sneaking", &PlayerSneakEvent::isSneaking,
                                "Whether the player is attempting to sneak.");
+    py::class_<PlayerSpinAttackEvent, PlayerEvent>(m, "PlayerSpinAttackEvent",
+                                                   "Called when a player starts or stops a spin attack.")
+        .def_property_readonly("is_spin_attacking", &PlayerSpinAttackEvent::isSpinAttacking,
+                               "Whether the player is performing a spin attack.");
     py::class_<PlayerSprintEvent, PlayerEvent>(m, "PlayerSprintEvent",
                                                "Called when a player starts or stops sprinting.")
         .def_property_readonly("is_sprinting", &PlayerSprintEvent::isSprinting,
