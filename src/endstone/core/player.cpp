@@ -60,7 +60,9 @@
 #include "endstone/core/util/socket_address.h"
 #include "endstone/core/util/uuid.h"
 #include "endstone/event/player/player_bed_leave_event.h"
+#include "endstone/event/player/player_crawl_event.h"
 #include "endstone/event/player/player_emote_event.h"
+#include "endstone/event/player/player_glide_event.h"
 #include "endstone/event/player/player_interact_event.h"
 #include "endstone/event/player/player_item_held_event.h"
 #include "endstone/event/player/player_join_event.h"
@@ -69,6 +71,7 @@
 #include "endstone/event/player/player_skin_change_event.h"
 #include "endstone/event/player/player_sneak_event.h"
 #include "endstone/event/player/player_sprint_event.h"
+#include "endstone/event/player/player_swim_event.h"
 #include "endstone/form/action_form.h"
 #include "endstone/form/message_form.h"
 
@@ -755,11 +758,13 @@ bool EndstonePlayer::handlePacket(Packet &packet)
     }
     case MinecraftPacketIds::PlayerAuthInputPacket: {
         auto &pk = static_cast<PlayerAuthInputPacket &>(packet);
-        if (pk.getInput(PlayerAuthInputPacket::StartSprinting) && !getHandle().isSprinting()) {
+        if (pk.getInput(PlayerAuthInputPacket::StartSprinting) && !getHandle().isSprinting()  &&
+            !getHandle().isInWater()) {
             PlayerSprintEvent e(*this, true);
             getServer().getPluginManager().callEvent(e);
         }
-        if (pk.getInput(PlayerAuthInputPacket::StopSprinting) && getHandle().isSprinting()) {
+        if (pk.getInput(PlayerAuthInputPacket::StopSprinting) && getHandle().isSprinting()  &&
+            !getHandle().isInWater()) {
             PlayerSprintEvent e(*this, false);
             getServer().getPluginManager().callEvent(e);
         }
@@ -769,6 +774,31 @@ bool EndstonePlayer::handlePacket(Packet &packet)
         }
         if (pk.getInput(PlayerAuthInputPacket::StopSneaking) && getHandle().isSneaking()) {
             PlayerSneakEvent e(*this, false);
+            getServer().getPluginManager().callEvent(e);
+        }
+        if (pk.getInput(PlayerAuthInputPacket::StartSwimming) && !getHandle().isSwimming()) {
+            PlayerSwimEvent e(*this, true);
+            getServer().getPluginManager().callEvent(e);
+        }
+        else if (pk.getInput(PlayerAuthInputPacket::StopSwimming) && getHandle().isSwimming()) {
+            PlayerSwimEvent e(*this, false);
+            getServer().getPluginManager().callEvent(e);
+        }
+        if (pk.getInput(PlayerAuthInputPacket::StartGliding) && !getHandle().isGliding() &&
+            !getHandle().isInWater()) {
+            PlayerGlideEvent e(*this, true);
+            getServer().getPluginManager().callEvent(e);
+        }
+        else if (pk.getInput(PlayerAuthInputPacket::StopGliding) && getHandle().isGliding()) {
+            PlayerGlideEvent e(*this, false);
+            getServer().getPluginManager().callEvent(e);
+        }
+        if (pk.getInput(PlayerAuthInputPacket::StartCrawling) && !getHandle().isCrawling()) {
+            PlayerCrawlEvent e(*this, true);
+            getServer().getPluginManager().callEvent(e);
+        }
+        else if (pk.getInput(PlayerAuthInputPacket::StopCrawling) && getHandle().isCrawling()) {
+            PlayerCrawlEvent e(*this, false);
             getServer().getPluginManager().callEvent(e);
         }
 

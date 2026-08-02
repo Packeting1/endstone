@@ -56,12 +56,14 @@ __all__ = [
     "PlayerBedLeaveEvent",
     "PlayerChatEvent",
     "PlayerCommandEvent",
+    "PlayerCrawlEvent",
     "PlayerDeathEvent",
     "PlayerDimensionChangeEvent",
     "PlayerDropItemEvent",
     "PlayerEmoteEvent",
     "PlayerEvent",
     "PlayerGameModeChangeEvent",
+    "PlayerGlideEvent",
     "PlayerInteractActorEvent",
     "PlayerInteractEvent",
     "PlayerItemConsumeEvent",
@@ -78,6 +80,7 @@ __all__ = [
     "PlayerSkinChangeEvent",
     "PlayerSneakEvent",
     "PlayerSprintEvent",
+    "PlayerSwimEvent",
     "PlayerTeleportEvent",
     "PluginDisableEvent",
     "PluginEnableEvent",
@@ -805,6 +808,39 @@ class PlayerSprintEvent(PlayerEvent):
     def is_sprinting(self) -> bool:
         """
         Whether the player is attempting to sprint.
+        """
+        ...
+
+class PlayerSwimEvent(PlayerEvent):
+    """
+    Called when a player starts or stops swimming.
+    """
+    @property
+    def is_swimming(self) -> bool:
+        """
+        Whether the player is swimming.
+        """
+        ...
+
+class PlayerGlideEvent(PlayerEvent):
+    """
+    Called when a player starts or stops gliding.
+    """
+    @property
+    def is_gliding(self) -> bool:
+        """
+        Whether the player is gliding.
+        """
+        ...
+
+class PlayerCrawlEvent(PlayerEvent):
+    """
+    Called when a player starts or stops crawling.
+    """
+    @property
+    def is_crawling(self) -> bool:
+        """
+        Whether the player is crawling.
         """
         ...
 
