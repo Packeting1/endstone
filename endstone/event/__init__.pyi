@@ -54,6 +54,7 @@ __all__ = [
     "PacketSendEvent",
     "PlayerBedEnterEvent",
     "PlayerBedLeaveEvent",
+    "PlayerBlockDamageEvent",
     "PlayerChatEvent",
     "PlayerCommandEvent",
     "PlayerCrawlEvent",
@@ -673,6 +674,69 @@ class PlayerGameModeChangeEvent(PlayerEvent, Cancellable):
     def new_game_mode(self) -> GameMode:
         """
         The `GameMode` the player is switched to.
+        """
+        ...
+
+class PlayerBlockDamageEvent(PlayerEvent, Cancellable):
+    """
+    Called when a player starts, continues, aborts, predicts, or stops damaging a block.
+    """
+    class Action(enum.Enum):
+        """
+        The block damage action that triggered this event.
+        """
+
+        START = 0
+        ABORT = 1
+        STOP = 2
+        CONTINUE = 3
+        PREDICT = 4
+
+    START = Action.START
+    ABORT = Action.ABORT
+    STOP = Action.STOP
+    CONTINUE = Action.CONTINUE
+    PREDICT = Action.PREDICT
+    @property
+    def action(self) -> Action:
+        """
+        The block damage action that triggered this event.
+        """
+        ...
+    @property
+    def has_item(self) -> bool:
+        """
+        `True` if this event involved an item.
+        """
+        ...
+    @property
+    def item(self) -> ItemStack | None:
+        """
+        The item used to damage the block, or `None` if unavailable.
+        """
+        ...
+    @property
+    def has_block(self) -> bool:
+        """
+        `True` if a block is available.
+        """
+        ...
+    @property
+    def block(self) -> Block | None:
+        """
+        The block being damaged, or `None` if unavailable.
+        """
+        ...
+    @property
+    def block_face(self) -> BlockFace | None:
+        """
+        The face being damaged, or `None` if unavailable.
+        """
+        ...
+    @property
+    def position(self) -> Vector | None:
+        """
+        The block position, or `None` if unavailable.
         """
         ...
 

@@ -47,6 +47,7 @@
 #include "endstone/block/block.h"
 #include "endstone/color_format.h"
 #include "endstone/core/base64.h"
+#include "endstone/core/block/block_face.h"
 #include "endstone/core/entity/components/flag_components.h"
 #include "endstone/core/form/form_codec.h"
 #include "endstone/core/game_mode.h"
@@ -60,6 +61,7 @@
 #include "endstone/core/util/socket_address.h"
 #include "endstone/core/util/uuid.h"
 #include "endstone/event/player/player_bed_leave_event.h"
+#include "endstone/event/player/player_block_damage_event.h"
 #include "endstone/event/player/player_crawl_event.h"
 #include "endstone/event/player/player_emote_event.h"
 #include "endstone/event/player/player_flight_event.h"
@@ -823,22 +825,91 @@ bool EndstonePlayer::handlePacket(Packet &packet)
         auto &actions = pk.player_block_actions.actions_;
         for (auto it = actions.begin(); it != actions.end();) {
             const auto &action = *it;
-            if (action.player_action_type == PlayerActionType::StartDestroyBlock) {
-                const auto item = getInventory().getItemInMainHand();
-                const auto block = getDimension().getBlockAt(action.pos.x, action.pos.y, action.pos.z);
-                PlayerInteractEvent e{
+            PlayerBlockDamageEvent::Action damage_action;
+            std::optional<BlockPos> damage_position;
+            switch (action.player_action_type) {
+            case PlayerActionType::StartDestroyBlock:
+                damage_action = PlayerBlockDamageEvent::Action::Start;
+                damage_position = action.pos;
+                break;
+            case PlayerActionType::AbortDestroyBlock:
+                if (!block_damage_position_) {
+                    ++it;
+                    continue;
+                }
+                damage_action = PlayerBlockDamageEvent::Action::Abort;
+                damage_position = block_damage_position_;
+                break;
+            case PlayerActionType::StopDestroyBlock:
+                if (!block_damage_position_) {
+                    ++it;
+                    continue;
+                }
+                damage_action = PlayerBlockDamageEvent::Action::Stop;
+                damage_position = block_damage_position_;
+                break;
+            case PlayerActionType::ContinueDestroyBlock:
+                damage_action = PlayerBlockDamageEvent::Action::Continue;
+                damage_position = action.pos;
+                break;
+            case PlayerActionType::PredictDestroyBlock:
+                damage_action = PlayerBlockDamageEvent::Action::Predict;
+                damage_position = action.pos;
+                break;
+            default:
+                ++it;
+                continue;
+            }
+
+            std::unique_ptr<Block> block;
+            std::optional<Vector> position;
+            if (damage_position) {
+                block = getDimension().getBlockAt(damage_position->x, damage_position->y, damage_position->z);
+                position = Vector{damage_position->x, damage_position->y, damage_position->z};
+            }
+
+            const auto item = getInventory().getItemInMainHand();
+            const auto has_action_face = action.player_action_type == PlayerActionType::StartDestroyBlock ||
+                                         action.player_action_type == PlayerActionType::ContinueDestroyBlock ||
+                                         action.player_action_type == PlayerActionType::PredictDestroyBlock;
+            const auto block_face =
+                has_action_face ? EndstoneBlockFace::fromBedrockFacing(action.facing)
+                                : block_damage_face_;
+            PlayerBlockDamageEvent e{*this, damage_action, item, block.get(), block_face, position};
+            getServer().getPluginManager().callEvent(e);
+            const auto can_cancel = action.player_action_type == PlayerActionType::StartDestroyBlock ||
+                                    action.player_action_type == PlayerActionType::ContinueDestroyBlock;
+            if (can_cancel && e.isCancelled()) {
+                it = actions.erase(it);
+                continue;
+            }
+
+            if (action.player_action_type == PlayerActionType::StartDestroyBlock && block_face) {
+                PlayerInteractEvent interact_event{
                     *this,
                     PlayerInteractEvent::Action::LeftClickBlock,
                     item,
                     block.get(),
-                    static_cast<BlockFace>(action.facing),
-                    Vector{action.pos.x, action.pos.y, action.pos.z},
+                    *block_face,
+                    position,
                 };
-                getServer().getPluginManager().callEvent(e);
-                if (e.isCancelled()) {
+                getServer().getPluginManager().callEvent(interact_event);
+                if (interact_event.isCancelled()) {
                     it = actions.erase(it);
                     continue;
                 }
+            }
+
+            if (action.player_action_type == PlayerActionType::StartDestroyBlock ||
+                action.player_action_type == PlayerActionType::ContinueDestroyBlock ||
+                action.player_action_type == PlayerActionType::PredictDestroyBlock) {
+                block_damage_position_ = action.pos;
+                block_damage_face_ = block_face;
+            }
+            else if (action.player_action_type == PlayerActionType::AbortDestroyBlock ||
+                     action.player_action_type == PlayerActionType::StopDestroyBlock) {
+                block_damage_position_.reset();
+                block_damage_face_.reset();
             }
             ++it;
         }
