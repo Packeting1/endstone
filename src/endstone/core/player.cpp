@@ -795,7 +795,7 @@ bool EndstonePlayer::handlePacket(Packet &packet)
             PlayerGlideEvent e(*this, false);
             getServer().getPluginManager().callEvent(e);
         }
-        if (pk.getInput(PlayerAuthInputPacket::StartFlying) && getAllowFlight() && !getHandle().isFlying()) {
+        if (pk.getInput(PlayerAuthInputPacket::StartFlying) && !getHandle().isFlying()) {
             PlayerFlightEvent e(*this, true);
             getServer().getPluginManager().callEvent(e);
         }
