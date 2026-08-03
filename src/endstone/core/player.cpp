@@ -73,7 +73,7 @@
 #include "endstone/event/player/player_move_event.h"
 #include "endstone/event/player/player_skin_change_event.h"
 #include "endstone/event/player/player_sneak_event.h"
-#include "endstone/event/player/player_spin_attack_event.h"
+#include "endstone/event/player/player_riptide_event.h"
 #include "endstone/event/player/player_sprint_event.h"
 #include "endstone/event/player/player_swim_event.h"
 #include "endstone/form/action_form.h"
@@ -837,11 +837,11 @@ bool EndstonePlayer::handlePacket(Packet &packet)
             getServer().getPluginManager().callEvent(e);
         }
         if (pk.getInput(PlayerAuthInputPacket::StartSpinAttack)) {
-            PlayerSpinAttackEvent e(*this, true);
+            PlayerRiptideEvent e(*this, true);
             getServer().getPluginManager().callEvent(e);
         }
         else if (pk.getInput(PlayerAuthInputPacket::StopSpinAttack)) {
-            PlayerSpinAttackEvent e(*this, false);
+            PlayerRiptideEvent e(*this, false);
             getServer().getPluginManager().callEvent(e);
         }
 

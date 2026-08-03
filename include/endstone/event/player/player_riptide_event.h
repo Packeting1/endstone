@@ -19,26 +19,26 @@
 namespace endstone {
 
 /**
- * @brief Called when a player starts or stops a spin attack.
+ * @brief Called when a player starts or stops a riptide attack.
  */
-class PlayerSpinAttackEvent final : public PlayerEvent {
+class PlayerRiptideEvent final : public PlayerEvent {
 public:
-    ENDSTONE_EVENT(PlayerSpinAttackEvent)
+    ENDSTONE_EVENT(PlayerRiptideEvent)
 
-    explicit PlayerSpinAttackEvent(Player &player, bool spin_attacking)
-        : PlayerEvent(player), spin_attacking_(spin_attacking)
+    explicit PlayerRiptideEvent(Player &player, bool riptiding)
+        : PlayerEvent(player), riptiding_(riptiding)
     {
     }
 
     /**
-     * @brief Gets whether the player is performing a spin attack.
+     * @brief Gets whether the player is riptiding.
      *
-     * @return true when starting a spin attack, false when stopping
+     * @return true when starting riptide, false when stopping
      */
-    [[nodiscard]] bool isSpinAttacking() const { return spin_attacking_; }
+    [[nodiscard]] bool isRiptiding() const { return riptiding_; }
 
 private:
-    bool spin_attacking_;
+    bool riptiding_;
 };
 
 }  // namespace endstone
