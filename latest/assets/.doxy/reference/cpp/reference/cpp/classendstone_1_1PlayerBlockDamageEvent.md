@@ -104,8 +104,6 @@ Inherits the following classes: [endstone::Cancellable](classendstone_1_1Cancell
 |  std::optional&lt; [**BlockFace**](namespaceendstone.md#enum-blockface) &gt; | [**getBlockFace**](#function-getblockface) () const<br> |
 |  [**const**](classendstone_1_1Identifier.md) std::optional&lt; [**ItemStack**](classendstone_1_1ItemStack.md) &gt; & | [**getItem**](#function-getitem) () const<br> |
 |  std::optional&lt; [**Vector**](classendstone_1_1Vector.md) &gt; | [**getPosition**](#function-getposition) () const<br> |
-|  [**bool**](classendstone_1_1Identifier.md) | [**hasBlock**](#function-hasblock) () const<br> |
-|  [**bool**](classendstone_1_1Identifier.md) | [**hasItem**](#function-hasitem) () const<br> |
 
 
 ## Public Functions inherited from endstone::Cancellable
@@ -312,32 +310,6 @@ inline const std::optional< ItemStack > & endstone::PlayerBlockDamageEvent::getI
 
 ```C++
 inline std::optional< Vector > endstone::PlayerBlockDamageEvent::getPosition () const
-```
-
-
-
-
-<hr>
-
-
-
-### function hasBlock 
-
-```C++
-inline bool endstone::PlayerBlockDamageEvent::hasBlock () const
-```
-
-
-
-
-<hr>
-
-
-
-### function hasItem 
-
-```C++
-inline bool endstone::PlayerBlockDamageEvent::hasItem () const
 ```
 
 

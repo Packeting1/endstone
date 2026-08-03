@@ -1900,9 +1900,7 @@
     <member refid="classendstone_1_1PlayerBlockDamageEvent_1a0bf7d6b30838fd29b6a5bcc6ada7b2a6" kind="variable"><name>position_</name></member>
     <member refid="classendstone_1_1PlayerBlockDamageEvent_1a8454cb4f3cd500be97061fe21def7857" kind="function"><name>PlayerBlockDamageEvent</name></member>
     <member refid="classendstone_1_1PlayerBlockDamageEvent_1a3def09475d3fce05be8d10fba6b2a144" kind="function"><name>getAction</name></member>
-    <member refid="classendstone_1_1PlayerBlockDamageEvent_1a982c8cdebdc10372fd4de7fbecbd5845" kind="function"><name>hasItem</name></member>
     <member refid="classendstone_1_1PlayerBlockDamageEvent_1aa8c077c47615b65067bebc95312f74b0" kind="function"><name>getItem</name></member>
-    <member refid="classendstone_1_1PlayerBlockDamageEvent_1a7e83e8039e66c9e47b31c992e1b1cffd" kind="function"><name>hasBlock</name></member>
     <member refid="classendstone_1_1PlayerBlockDamageEvent_1a4f744c9ceca9eec02b6f58d39a4a9555" kind="function"><name>getBlock</name></member>
     <member refid="classendstone_1_1PlayerBlockDamageEvent_1afcdc4e6333007db03d4f27a3ebb7113f" kind="function"><name>getBlockFace</name></member>
     <member refid="classendstone_1_1PlayerBlockDamageEvent_1a10b79caee54fa1388c60cf42950ebec4" kind="function"><name>getPosition</name></member>

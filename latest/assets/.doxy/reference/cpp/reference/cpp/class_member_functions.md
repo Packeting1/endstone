@@ -497,8 +497,8 @@
 * **hasMapView** ([**endstone::MapMeta**](classendstone_1_1MapMeta.md))
 * **hasAttribute** ([**endstone::Mob**](classendstone_1_1Mob.md))
 * **hasEffect** ([**endstone::Mob**](classendstone_1_1Mob.md))
-* **hasBlock** ([**endstone::PlayerBlockDamageEvent**](classendstone_1_1PlayerBlockDamageEvent.md), [**endstone::PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md))
-* **hasItem** ([**endstone::PlayerBlockDamageEvent**](classendstone_1_1PlayerBlockDamageEvent.md), [**endstone::PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md))
+* **hasBlock** ([**endstone::PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md))
+* **hasItem** ([**endstone::PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md))
 * **hasPages** ([**endstone::WritableBookMeta**](classendstone_1_1WritableBookMeta.md))
 
 
