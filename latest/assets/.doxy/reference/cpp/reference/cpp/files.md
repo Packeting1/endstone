@@ -92,6 +92,7 @@ Here is a list of all files with brief descriptions:
             * **dir** [**player**](dir_7c05c37b25e9c9eccd9c63c2d313ba28.md)     
                 * **file** [**player\_bed\_enter\_event.h**](player__bed__enter__event_8h.md)     
                 * **file** [**player\_bed\_leave\_event.h**](player__bed__leave__event_8h.md)     
+                * **file** [**player\_block\_damage\_event.h**](player__block__damage__event_8h.md)     
                 * **file** [**player\_chat\_event.h**](player__chat__event_8h.md)     
                 * **file** [**player\_command\_event.h**](player__command__event_8h.md)     
                 * **file** [**player\_crawl\_event.h**](player__crawl__event_8h.md)     

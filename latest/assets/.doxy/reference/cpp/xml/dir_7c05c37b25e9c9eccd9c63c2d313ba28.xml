@@ -4,6 +4,7 @@
     <compoundname>include/endstone/event/player</compoundname>
     <innerfile refid="player__bed__enter__event_8h">player_bed_enter_event.h</innerfile>
     <innerfile refid="player__bed__leave__event_8h">player_bed_leave_event.h</innerfile>
+    <innerfile refid="player__block__damage__event_8h">player_block_damage_event.h</innerfile>
     <innerfile refid="player__chat__event_8h">player_chat_event.h</innerfile>
     <innerfile refid="player__command__event_8h">player_command_event.h</innerfile>
     <innerfile refid="player__crawl__event_8h">player_crawl_event.h</innerfile>

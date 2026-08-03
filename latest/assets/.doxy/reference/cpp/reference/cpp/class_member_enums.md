@@ -5,7 +5,7 @@
 
 ## a
 
-* **Action** ([**endstone::PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md))
+* **Action** ([**endstone::PlayerBlockDamageEvent**](classendstone_1_1PlayerBlockDamageEvent.md), [**endstone::PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md))
 
 
 ## g
