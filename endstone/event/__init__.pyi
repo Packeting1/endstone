@@ -679,7 +679,7 @@ class PlayerGameModeChangeEvent(PlayerEvent, Cancellable):
 
 class PlayerBlockDamageEvent(PlayerEvent, Cancellable):
     """
-    Called when a player starts, continues, aborts, predicts, or stops damaging a block.
+    Called when a player starts, continues, aborts, predicts, stops, or creatively destroys a block.
     """
     class Action(enum.Enum):
         """
@@ -691,12 +691,14 @@ class PlayerBlockDamageEvent(PlayerEvent, Cancellable):
         STOP = 2
         CONTINUE = 3
         PREDICT = 4
+        CREATIVE = 5
 
     START = Action.START
     ABORT = Action.ABORT
     STOP = Action.STOP
     CONTINUE = Action.CONTINUE
     PREDICT = Action.PREDICT
+    CREATIVE = Action.CREATIVE
     @property
     def action(self) -> Action:
         """

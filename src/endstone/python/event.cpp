@@ -300,7 +300,7 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
                                "The `GameMode` the player is switched to.");
     auto player_block_damage_event = py::class_<PlayerBlockDamageEvent, PlayerEvent, ICancellable>(
         m, "PlayerBlockDamageEvent",
-        "Called when a player starts, continues, aborts, predicts, or stops damaging a block.");
+        "Called when a player starts, continues, aborts, predicts, stops, or creatively destroys a block.");
     py::native_enum<PlayerBlockDamageEvent::Action>(player_block_damage_event, "Action", "enum.Enum",
                                                     "The block damage action that triggered this event.")
         .value("START", PlayerBlockDamageEvent::Action::Start)
@@ -308,6 +308,7 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
         .value("STOP", PlayerBlockDamageEvent::Action::Stop)
         .value("CONTINUE", PlayerBlockDamageEvent::Action::Continue)
         .value("PREDICT", PlayerBlockDamageEvent::Action::Predict)
+        .value("CREATIVE", PlayerBlockDamageEvent::Action::Creative)
         .export_values()
         .finalize();
     player_block_damage_event

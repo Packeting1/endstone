@@ -26,7 +26,7 @@
 namespace endstone {
 
 /**
- * @brief Called when a player starts, continues, aborts, predicts, or stops damaging a block.
+ * @brief Called when a player starts, continues, aborts, predicts, stops, or creatively destroys a block.
  */
 class PlayerBlockDamageEvent final : public Cancellable<PlayerEvent> {
 public:
@@ -38,6 +38,7 @@ public:
         Stop,
         Continue,
         Predict,
+        Creative,
     };
 
     PlayerBlockDamageEvent(Player &player, Action action, std::optional<ItemStack> item, Block *block,

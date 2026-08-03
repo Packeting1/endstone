@@ -693,18 +693,41 @@ bool EndstonePlayer::handlePacket(Packet &packet)
     }
     case MinecraftPacketIds::PlayerAction: {
         auto &pk = static_cast<PlayerActionPacket &>(packet);
-        if (pk.payload.action == PlayerActionType::StopSleeping && getHandle().isSleeping()) {
-            std::unique_ptr<Block> bed;
-            if (getHandle().hasBedPosition()) {
-                const auto bed_position = getHandle().getBedPosition();
-                bed = getDimension().getBlockAt(bed_position.x, bed_position.y, bed_position.z);
-            }
-            else {
-                bed = getDimension().getBlockAt(getLocation());
-            }
-
-            PlayerBedLeaveEvent e(*this, *bed);
+        switch (pk.payload.action) {
+        case PlayerActionType::CreativeDestroyBlock: {
+            const auto &block_position = pk.payload.pos;
+            const auto block =
+                getDimension().getBlockAt(block_position.x, block_position.y, block_position.z);
+            const std::optional<Vector> position =
+                Vector{block_position.x, block_position.y, block_position.z};
+            PlayerBlockDamageEvent e{
+                *this,
+                PlayerBlockDamageEvent::Action::Creative,
+                getInventory().getItemInMainHand(),
+                block.get(),
+                EndstoneBlockFace::fromBedrockFacing(pk.payload.face),
+                position,
+            };
             getServer().getPluginManager().callEvent(e);
+            break;
+        }
+        case PlayerActionType::StopSleeping:
+            if (getHandle().isSleeping()) {
+                std::unique_ptr<Block> bed;
+                if (getHandle().hasBedPosition()) {
+                    const auto bed_position = getHandle().getBedPosition();
+                    bed = getDimension().getBlockAt(bed_position.x, bed_position.y, bed_position.z);
+                }
+                else {
+                    bed = getDimension().getBlockAt(getLocation());
+                }
+
+                PlayerBedLeaveEvent e(*this, *bed);
+                getServer().getPluginManager().callEvent(e);
+            }
+            break;
+        default:
+            break;
         }
         return true;
     }
