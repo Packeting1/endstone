@@ -49,9 +49,7 @@ public:
     }
 
     [[nodiscard]] Action getAction() const { return action_; }
-    [[nodiscard]] bool hasItem() const { return item_.has_value(); }
     [[nodiscard]] const std::optional<ItemStack> &getItem() const { return item_; }
-    [[nodiscard]] bool hasBlock() const { return block_ != nullptr; }
     [[nodiscard]] Block *getBlock() const { return block_; }
     [[nodiscard]] std::optional<BlockFace> getBlockFace() const { return block_face_; }
     [[nodiscard]] std::optional<Vector> getPosition() const { return position_; }

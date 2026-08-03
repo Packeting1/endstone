@@ -706,21 +706,9 @@ class PlayerBlockDamageEvent(PlayerEvent, Cancellable):
         """
         ...
     @property
-    def has_item(self) -> bool:
-        """
-        `True` if this event involved an item.
-        """
-        ...
-    @property
     def item(self) -> ItemStack | None:
         """
         The item used to damage the block, or `None` if unavailable.
-        """
-        ...
-    @property
-    def has_block(self) -> bool:
-        """
-        `True` if a block is available.
         """
         ...
     @property

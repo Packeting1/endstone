@@ -314,10 +314,8 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
     player_block_damage_event
         .def_property_readonly("action", &PlayerBlockDamageEvent::getAction,
                                "The block damage action that triggered this event.")
-        .def_property_readonly("has_item", &PlayerBlockDamageEvent::hasItem, "`True` if this event involved an item.")
         .def_property_readonly("item", &PlayerBlockDamageEvent::getItem,
                                "The item used to damage the block, or `None` if unavailable.")
-        .def_property_readonly("has_block", &PlayerBlockDamageEvent::hasBlock, "`True` if a block is available.")
         .def_property_readonly("block", &PlayerBlockDamageEvent::getBlock, py::return_value_policy::reference,
                                "The block being damaged, or `None` if unavailable.")
         .def_property_readonly("block_face", &PlayerBlockDamageEvent::getBlockFace,
