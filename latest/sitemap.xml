@@ -725,15 +725,15 @@
          <lastmod>2026-08-03</lastmod>
     </url>
     <url>
+         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerRiptideEvent/</loc>
+         <lastmod>2026-08-03</lastmod>
+    </url>
+    <url>
          <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerSkinChangeEvent/</loc>
          <lastmod>2026-08-03</lastmod>
     </url>
     <url>
          <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerSneakEvent/</loc>
-         <lastmod>2026-08-03</lastmod>
-    </url>
-    <url>
-         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerSpinAttackEvent/</loc>
          <lastmod>2026-08-03</lastmod>
     </url>
     <url>
@@ -1933,6 +1933,14 @@
          <lastmod>2026-08-03</lastmod>
     </url>
     <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__riptide__event_8h/</loc>
+         <lastmod>2026-08-03</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__riptide__event_8h_source/</loc>
+         <lastmod>2026-08-03</lastmod>
+    </url>
+    <url>
          <loc>https://endstone.dev/latest/reference/cpp/player__skin__change__event_8h/</loc>
          <lastmod>2026-08-03</lastmod>
     </url>
@@ -1946,14 +1954,6 @@
     </url>
     <url>
          <loc>https://endstone.dev/latest/reference/cpp/player__sneak__event_8h_source/</loc>
-         <lastmod>2026-08-03</lastmod>
-    </url>
-    <url>
-         <loc>https://endstone.dev/latest/reference/cpp/player__spin__attack__event_8h/</loc>
-         <lastmod>2026-08-03</lastmod>
-    </url>
-    <url>
-         <loc>https://endstone.dev/latest/reference/cpp/player__spin__attack__event_8h_source/</loc>
          <lastmod>2026-08-03</lastmod>
     </url>
     <url>

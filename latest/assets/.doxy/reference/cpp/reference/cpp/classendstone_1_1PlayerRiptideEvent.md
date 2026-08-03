@@ -1,16 +1,16 @@
 
 
-# Class endstone::PlayerSpinAttackEvent
+# Class endstone::PlayerRiptideEvent
 
 
 
-[**ClassList**](annotated.md) **>** [**endstone**](namespaceendstone.md) **>** [**PlayerSpinAttackEvent**](classendstone_1_1PlayerSpinAttackEvent.md)
+[**ClassList**](annotated.md) **>** [**endstone**](namespaceendstone.md) **>** [**PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md)
 
 
 
-_Called when a player starts or stops a spin attack._ 
+_Called when a player starts or stops a riptide attack._ 
 
-* `#include <endstone/event/player/player_spin_attack_event.h>`
+* `#include <endstone/event/player/player_riptide_event.h>`
 
 
 
@@ -93,7 +93,7 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 
 | Type | Name |
 | ---: | :--- |
-|   | [**PlayerSpinAttackEvent**](#function-playerspinattackevent) ([**Player**](classendstone_1_1Player.md) & player, [**bool**](classendstone_1_1Identifier.md) spin\_attacking) <br> |
+|   | [**PlayerRiptideEvent**](#function-playerriptideevent) ([**Player**](classendstone_1_1Player.md) & player, [**bool**](classendstone_1_1Identifier.md) spin\_attacking) <br> |
 |  [**bool**](classendstone_1_1Identifier.md) | [**isSpinAttacking**](#function-isspinattacking) () const<br>_Gets whether the player is performing a spin attack._  |
 
 
@@ -214,10 +214,10 @@ See [endstone::PlayerEvent](classendstone_1_1PlayerEvent.md)
 
 
 
-### function PlayerSpinAttackEvent 
+### function PlayerRiptideEvent 
 
 ```C++
-inline explicit endstone::PlayerSpinAttackEvent::PlayerSpinAttackEvent (
+inline explicit endstone::PlayerRiptideEvent::PlayerRiptideEvent (
     Player & player,
     bool spin_attacking
 ) 
@@ -234,7 +234,7 @@ inline explicit endstone::PlayerSpinAttackEvent::PlayerSpinAttackEvent (
 
 _Gets whether the player is performing a spin attack._ 
 ```C++
-inline bool endstone::PlayerSpinAttackEvent::isSpinAttacking () const
+inline bool endstone::PlayerRiptideEvent::isSpinAttacking () const
 ```
 
 
@@ -254,5 +254,5 @@ true when starting a spin attack, false when stopping
 <hr>
 
 ------------------------------
-The documentation for this class was generated from the following file `include/endstone/event/player/player_spin_attack_event.h`
+The documentation for this class was generated from the following file `include/endstone/event/player/player_riptide_event.h`
 

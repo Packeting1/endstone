@@ -658,21 +658,21 @@
         <childnode refid="33" relation="public-inheritance">
         </childnode>
       </node>
+      <node id="62">
+        <label>endstone::PlayerRiptideEvent</label>
+        <link refid="classendstone_1_1PlayerRiptideEvent"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+      </node>
       <node id="53">
         <label>endstone::PlayerSkinChangeEvent</label>
         <link refid="classendstone_1_1PlayerSkinChangeEvent"/>
         <childnode refid="34" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="62">
+      <node id="63">
         <label>endstone::PlayerSneakEvent</label>
         <link refid="classendstone_1_1PlayerSneakEvent"/>
-        <childnode refid="33" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="63">
-        <label>endstone::PlayerSpinAttackEvent</label>
-        <link refid="classendstone_1_1PlayerSpinAttackEvent"/>
         <childnode refid="33" relation="public-inheritance">
         </childnode>
       </node>

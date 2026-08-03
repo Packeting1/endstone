@@ -145,9 +145,9 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**PlayerPortalEvent**](classendstone_1_1PlayerPortalEvent.md) _Called when a player is about to teleport because it is in contact with a portal._     
     * **class** [**PlayerQuitEvent**](classendstone_1_1PlayerQuitEvent.md) _Called when a player leaves a server._     
     * **class** [**PlayerRespawnEvent**](classendstone_1_1PlayerRespawnEvent.md) _Called when a player respawns._     
+    * **class** [**PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md) _Called when a player starts or stops a riptide attack._     
     * **class** [**PlayerSkinChangeEvent**](classendstone_1_1PlayerSkinChangeEvent.md) _Called when a player changes their skin._     
     * **class** [**PlayerSneakEvent**](classendstone_1_1PlayerSneakEvent.md) _Called when a player starts or stops sneaking._     
-    * **class** [**PlayerSpinAttackEvent**](classendstone_1_1PlayerSpinAttackEvent.md) _Called when a player starts or stops a spin attack._     
     * **class** [**PlayerSprintEvent**](classendstone_1_1PlayerSprintEvent.md) _Called when a player starts or stops sprinting._     
     * **class** [**PlayerSwimEvent**](classendstone_1_1PlayerSwimEvent.md) _Called when a player starts or stops swimming._     
     * **class** [**PlayerTeleportEvent**](classendstone_1_1PlayerTeleportEvent.md) _Called when a player is teleported from one location to another._     

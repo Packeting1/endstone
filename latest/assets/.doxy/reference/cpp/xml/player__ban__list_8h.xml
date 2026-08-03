@@ -597,16 +597,16 @@
         <link refid="player__respawn__event_8h_source"/>
       </node>
       <node id="59">
+        <label>include/endstone/event/player/player_riptide_event.h</label>
+        <link refid="player__riptide__event_8h_source"/>
+      </node>
+      <node id="60">
         <label>include/endstone/event/player/player_skin_change_event.h</label>
         <link refid="player__skin__change__event_8h_source"/>
       </node>
-      <node id="60">
+      <node id="61">
         <label>include/endstone/event/player/player_sneak_event.h</label>
         <link refid="player__sneak__event_8h_source"/>
-      </node>
-      <node id="61">
-        <label>include/endstone/event/player/player_spin_attack_event.h</label>
-        <link refid="player__spin__attack__event_8h_source"/>
       </node>
       <node id="62">
         <label>include/endstone/event/player/player_sprint_event.h</label>

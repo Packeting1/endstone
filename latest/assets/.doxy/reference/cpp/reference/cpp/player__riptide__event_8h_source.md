@@ -1,10 +1,10 @@
 
 
-# File player\_spin\_attack\_event.h
+# File player\_riptide\_event.h
 
-[**File List**](files.md) **>** [**endstone**](dir_6cf277b678674f97c7a2b6b3b2447b33.md) **>** [**event**](dir_f1d783c0ad83ee143d16e768ebca51c8.md) **>** [**player**](dir_7c05c37b25e9c9eccd9c63c2d313ba28.md) **>** [**player\_spin\_attack\_event.h**](player__spin__attack__event_8h.md)
+[**File List**](files.md) **>** [**endstone**](dir_6cf277b678674f97c7a2b6b3b2447b33.md) **>** [**event**](dir_f1d783c0ad83ee143d16e768ebca51c8.md) **>** [**player**](dir_7c05c37b25e9c9eccd9c63c2d313ba28.md) **>** [**player\_riptide\_event.h**](player__riptide__event_8h.md)
 
-[Go to the documentation of this file](player__spin__attack__event_8h.md)
+[Go to the documentation of this file](player__riptide__event_8h.md)
 
 
 ```C++
@@ -28,11 +28,11 @@
 
 namespace endstone {
 
-class PlayerSpinAttackEvent final : public PlayerEvent {
+class PlayerRiptideEvent final : public PlayerEvent {
 public:
-    ENDSTONE_EVENT(PlayerSpinAttackEvent)
+    ENDSTONE_EVENT(PlayerRiptideEvent)
 
-    explicit PlayerSpinAttackEvent(Player &player, bool spin_attacking)
+    explicit PlayerRiptideEvent(Player &player, bool spin_attacking)
         : PlayerEvent(player), spin_attacking_(spin_attacking)
     {
     }

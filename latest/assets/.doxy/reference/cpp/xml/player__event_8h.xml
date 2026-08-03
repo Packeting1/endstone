@@ -29,9 +29,9 @@
     <includedby refid="player__pickup__item__event_8h" local="yes">include/endstone/event/player/player_pickup_item_event.h</includedby>
     <includedby refid="player__quit__event_8h" local="yes">include/endstone/event/player/player_quit_event.h</includedby>
     <includedby refid="player__respawn__event_8h" local="yes">include/endstone/event/player/player_respawn_event.h</includedby>
+    <includedby refid="player__riptide__event_8h" local="yes">include/endstone/event/player/player_riptide_event.h</includedby>
     <includedby refid="player__skin__change__event_8h" local="yes">include/endstone/event/player/player_skin_change_event.h</includedby>
     <includedby refid="player__sneak__event_8h" local="yes">include/endstone/event/player/player_sneak_event.h</includedby>
-    <includedby refid="player__spin__attack__event_8h" local="yes">include/endstone/event/player/player_spin_attack_event.h</includedby>
     <includedby refid="player__sprint__event_8h" local="yes">include/endstone/event/player/player_sprint_event.h</includedby>
     <includedby refid="player__swim__event_8h" local="yes">include/endstone/event/player/player_swim_event.h</includedby>
     <incdepgraph>
@@ -1264,16 +1264,16 @@
         <link refid="player__respawn__event_8h_source"/>
       </node>
       <node id="29">
+        <label>include/endstone/event/player/player_riptide_event.h</label>
+        <link refid="player__riptide__event_8h_source"/>
+      </node>
+      <node id="30">
         <label>include/endstone/event/player/player_skin_change_event.h</label>
         <link refid="player__skin__change__event_8h_source"/>
       </node>
-      <node id="30">
+      <node id="31">
         <label>include/endstone/event/player/player_sneak_event.h</label>
         <link refid="player__sneak__event_8h_source"/>
-      </node>
-      <node id="31">
-        <label>include/endstone/event/player/player_spin_attack_event.h</label>
-        <link refid="player__spin__attack__event_8h_source"/>
       </node>
       <node id="32">
         <label>include/endstone/event/player/player_sprint_event.h</label>
