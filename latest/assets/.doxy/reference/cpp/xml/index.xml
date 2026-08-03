@@ -1892,6 +1892,7 @@
     <member refid="classendstone_1_1PlayerBlockDamageEvent_1a13ec95f384e68358b4aad55a5c5387f6a11a755d598c0c417f9a36758c3da7481" kind="enumvalue"><name>Stop</name></member>
     <member refid="classendstone_1_1PlayerBlockDamageEvent_1a13ec95f384e68358b4aad55a5c5387f6aa0bfb8e59e6c13fc8d990781f77694fe" kind="enumvalue"><name>Continue</name></member>
     <member refid="classendstone_1_1PlayerBlockDamageEvent_1a13ec95f384e68358b4aad55a5c5387f6a76801fc396f13051b0afd9f8db4eadcc" kind="enumvalue"><name>Predict</name></member>
+    <member refid="classendstone_1_1PlayerBlockDamageEvent_1a13ec95f384e68358b4aad55a5c5387f6a047c6bd032387e5c84e1e718f58f7e5a" kind="enumvalue"><name>Creative</name></member>
     <member refid="classendstone_1_1PlayerBlockDamageEvent_1aa2fb16a8700413eb4b24dd21548ed55c" kind="variable"><name>action_</name></member>
     <member refid="classendstone_1_1PlayerBlockDamageEvent_1af5ceda239c64d414db1eebc01280997e" kind="variable"><name>item_</name></member>
     <member refid="classendstone_1_1PlayerBlockDamageEvent_1afc9f40d128426215373db461e2bd381f" kind="variable"><name>block_</name></member>

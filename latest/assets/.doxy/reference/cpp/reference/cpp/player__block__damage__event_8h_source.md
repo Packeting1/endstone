@@ -45,6 +45,7 @@ public:
         Stop,
         Continue,
         Predict,
+        Creative,
     };
 
     PlayerBlockDamageEvent(Player &player, Action action, std::optional<ItemStack> item, Block *block,

@@ -151,7 +151,7 @@ _Represents a button with text and an optional icon._
 | class | [**PlayerBanList**](classendstone_1_1PlayerBanList.md) <br>_Represents a ban list, containing banned players._  |
 | class | [**PlayerBedEnterEvent**](classendstone_1_1PlayerBedEnterEvent.md) <br>_Called when a player is almost about to enter the bed._  |
 | class | [**PlayerBedLeaveEvent**](classendstone_1_1PlayerBedLeaveEvent.md) <br>_Called when a player is leaving a bed._  |
-| class | [**PlayerBlockDamageEvent**](classendstone_1_1PlayerBlockDamageEvent.md) <br>_Called when a player starts, continues, aborts, predicts, or stops damaging a block._  |
+| class | [**PlayerBlockDamageEvent**](classendstone_1_1PlayerBlockDamageEvent.md) <br>_Called when a player starts, continues, aborts, predicts, stops, or creatively destroys a block._  |
 | class | [**PlayerChatEvent**](classendstone_1_1PlayerChatEvent.md) <br>_Called when a player sends a chat message._  |
 | class | [**PlayerCommandEvent**](classendstone_1_1PlayerCommandEvent.md) <br>_Called whenever a player runs a command._  |
 | class | [**PlayerCrawlEvent**](classendstone_1_1PlayerCrawlEvent.md) <br>_Called when a player starts or stops crawling._  |

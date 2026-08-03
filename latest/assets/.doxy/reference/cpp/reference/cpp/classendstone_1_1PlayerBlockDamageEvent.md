@@ -8,7 +8,7 @@
 
 
 
-_Called when a player starts, continues, aborts, predicts, or stops damaging a block._ 
+_Called when a player starts, continues, aborts, predicts, stops, or creatively destroys a block._ 
 
 * `#include <endstone/event/player/player_block_damage_event.h>`
 
@@ -222,7 +222,8 @@ enum endstone::PlayerBlockDamageEvent::Action {
     Abort,
     Stop,
     Continue,
-    Predict
+    Predict,
+    Creative
 };
 ```
 

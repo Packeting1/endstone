@@ -41,7 +41,7 @@
 
 | Type | Name |
 | ---: | :--- |
-| class | [**PlayerBlockDamageEvent**](classendstone_1_1PlayerBlockDamageEvent.md) <br>_Called when a player starts, continues, aborts, predicts, or stops damaging a block._  |
+| class | [**PlayerBlockDamageEvent**](classendstone_1_1PlayerBlockDamageEvent.md) <br>_Called when a player starts, continues, aborts, predicts, stops, or creatively destroys a block._  |
 
 
 
