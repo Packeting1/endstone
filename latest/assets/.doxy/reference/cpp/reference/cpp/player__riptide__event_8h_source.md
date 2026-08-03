@@ -32,15 +32,15 @@ class PlayerRiptideEvent final : public PlayerEvent {
 public:
     ENDSTONE_EVENT(PlayerRiptideEvent)
 
-    explicit PlayerRiptideEvent(Player &player, bool spin_attacking)
-        : PlayerEvent(player), spin_attacking_(spin_attacking)
+    explicit PlayerRiptideEvent(Player &player, bool riptiding)
+        : PlayerEvent(player), riptiding_(riptiding)
     {
     }
 
-    [[nodiscard]] bool isSpinAttacking() const { return spin_attacking_; }
+    [[nodiscard]] bool isRiptiding() const { return riptiding_; }
 
 private:
-    bool spin_attacking_;
+    bool riptiding_;
 };
 
 }  // namespace endstone

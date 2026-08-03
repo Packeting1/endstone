@@ -93,8 +93,8 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 
 | Type | Name |
 | ---: | :--- |
-|   | [**PlayerRiptideEvent**](#function-playerriptideevent) ([**Player**](classendstone_1_1Player.md) & player, [**bool**](classendstone_1_1Identifier.md) spin\_attacking) <br> |
-|  [**bool**](classendstone_1_1Identifier.md) | [**isSpinAttacking**](#function-isspinattacking) () const<br>_Gets whether the player is performing a spin attack._  |
+|   | [**PlayerRiptideEvent**](#function-playerriptideevent) ([**Player**](classendstone_1_1Player.md) & player, [**bool**](classendstone_1_1Identifier.md) riptiding) <br> |
+|  [**bool**](classendstone_1_1Identifier.md) | [**isRiptiding**](#function-isriptiding) () const<br>_Gets whether the player is riptiding._  |
 
 
 ## Public Functions inherited from endstone::PlayerEvent
@@ -219,7 +219,7 @@ See [endstone::PlayerEvent](classendstone_1_1PlayerEvent.md)
 ```C++
 inline explicit endstone::PlayerRiptideEvent::PlayerRiptideEvent (
     Player & player,
-    bool spin_attacking
+    bool riptiding
 ) 
 ```
 
@@ -230,11 +230,11 @@ inline explicit endstone::PlayerRiptideEvent::PlayerRiptideEvent (
 
 
 
-### function isSpinAttacking 
+### function isRiptiding 
 
-_Gets whether the player is performing a spin attack._ 
+_Gets whether the player is riptiding._ 
 ```C++
-inline bool endstone::PlayerRiptideEvent::isSpinAttacking () const
+inline bool endstone::PlayerRiptideEvent::isRiptiding () const
 ```
 
 
@@ -243,7 +243,7 @@ inline bool endstone::PlayerRiptideEvent::isSpinAttacking () const
 
 **Returns:**
 
-true when starting a spin attack, false when stopping 
+true when starting riptide, false when stopping 
 
 
 

@@ -557,7 +557,7 @@
 * **isSprinting** ([**endstone::Player**](classendstone_1_1Player.md), [**endstone::PlayerSprintEvent**](classendstone_1_1PlayerSprintEvent.md))
 * **isCrawling** ([**endstone::PlayerCrawlEvent**](classendstone_1_1PlayerCrawlEvent.md))
 * **isMuted** ([**endstone::PlayerEmoteEvent**](classendstone_1_1PlayerEmoteEvent.md))
-* **isSpinAttacking** ([**endstone::PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md))
+* **isRiptiding** ([**endstone::PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md))
 * **isSwimming** ([**endstone::PlayerSwimEvent**](classendstone_1_1PlayerSwimEvent.md))
 * **isEnabled** ([**endstone::Plugin**](classendstone_1_1Plugin.md))
 * **isPluginEnabled** ([**endstone::PluginManager**](classendstone_1_1PluginManager.md))

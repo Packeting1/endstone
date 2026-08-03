@@ -2108,9 +2108,9 @@
     <member refid="classendstone_1_1PlayerRespawnEvent_1a06c6d2fad9c2925ddab52de6a6af0b21" kind="function"><name>getRespawnReason</name></member>
   </compound>
   <compound refid="classendstone_1_1PlayerRiptideEvent" kind="class"><name>endstone::PlayerRiptideEvent</name>
-    <member refid="classendstone_1_1PlayerRiptideEvent_1a57f0ac9703bba5190734b2074d586f55" kind="variable"><name>spin_attacking_</name></member>
-    <member refid="classendstone_1_1PlayerRiptideEvent_1a393d27a7758777848ac4d790349e9805" kind="function"><name>PlayerRiptideEvent</name></member>
-    <member refid="classendstone_1_1PlayerRiptideEvent_1adaec8eda9f3819a7904ff92b2ce05c81" kind="function"><name>isSpinAttacking</name></member>
+    <member refid="classendstone_1_1PlayerRiptideEvent_1a1118b1d70bd1101b9ecbb2c4fe5960d3" kind="variable"><name>riptiding_</name></member>
+    <member refid="classendstone_1_1PlayerRiptideEvent_1a254951e1123f415ac1fb667554b75014" kind="function"><name>PlayerRiptideEvent</name></member>
+    <member refid="classendstone_1_1PlayerRiptideEvent_1a0c0da9d8980df9a53e025bc69a853333" kind="function"><name>isRiptiding</name></member>
   </compound>
   <compound refid="classendstone_1_1PlayerSkinChangeEvent" kind="class"><name>endstone::PlayerSkinChangeEvent</name>
     <member refid="classendstone_1_1PlayerSkinChangeEvent_1a57dfa1e3c9e9fe052d06911c8665dae2" kind="variable"><name>new_skin_</name></member>

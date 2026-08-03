@@ -455,6 +455,7 @@
 * **Respiration** ([**endstone::Enchantment**](classendstone_1_1Enchantment.md))
 * **Riptide** ([**endstone::Enchantment**](classendstone_1_1Enchantment.md))
 * **removed\_** ([**endstone::PermissionAttachment**](classendstone_1_1PermissionAttachment.md))
+* **riptiding\_** ([**endstone::PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md))
 
 
 ## s
@@ -490,7 +491,6 @@
 * **SwiftSneak** ([**endstone::Enchantment**](classendstone_1_1Enchantment.md))
 * **submit\_button\_text\_** ([**endstone::ModalForm**](classendstone_1_1ModalForm.md))
 * **sub\_client\_id\_** ([**endstone::PacketReceiveEvent**](classendstone_1_1PacketReceiveEvent.md), [**endstone::PacketSendEvent**](classendstone_1_1PacketSendEvent.md))
-* **spin\_attacking\_** ([**endstone::PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md))
 * **sneaking\_** ([**endstone::PlayerSneakEvent**](classendstone_1_1PlayerSneakEvent.md))
 * **sprinting\_** ([**endstone::PlayerSprintEvent**](classendstone_1_1PlayerSprintEvent.md))
 * **swimming\_** ([**endstone::PlayerSwimEvent**](classendstone_1_1PlayerSwimEvent.md))
