@@ -58,6 +58,7 @@ __all__ = [
     "PlayerBedLeaveEvent",
     "PlayerLevelChangeEvent",
     "PlayerPickupArrowEvent",
+    "PlayerRecipeBookSettingsChangeEvent",
     "PlayerBlockDamageEvent",
     "PlayerChatEvent",
     "PlayerCommandEvent",
@@ -606,6 +607,17 @@ class PlayerPickupArrowEvent(PlayerEvent, Cancellable):
     """Called when a player picks up an arrow from the ground."""
     @property
     def arrow(self) -> Actor: ...
+
+class PlayerRecipeBookSettingsChangeEvent(PlayerEvent):
+    """Called when a player changes recipe book settings."""
+    class RecipeBookType(enum.Enum):
+        CRAFTING = 0
+    @property
+    def recipe_book_type(self) -> RecipeBookType: ...
+    @property
+    def is_filtering(self) -> bool: ...
+    @property
+    def is_open(self) -> bool: ...
 
 class PlayerChatEvent(PlayerEvent, Cancellable):
     """
