@@ -52,6 +52,7 @@ __all__ = [
     "MobEvent",
     "PacketReceiveEvent",
     "PacketSendEvent",
+    "PlayerAnimationType",
     "PlayerBedEnterEvent",
     "PlayerBedLeaveEvent",
     "PlayerBlockDamageEvent",
@@ -544,6 +545,16 @@ class PlayerEvent(Event):
         The `Player` who is involved in this event.
         """
         ...
+
+class PlayerAnimationType(enum.Enum):
+    """
+    Represents the type of a player animation.
+    """
+
+    ARM_SWING = 0
+    WAKE_UP = 1
+    CRITICAL_HIT = 2
+    MAGIC_CRITICAL_HIT = 3
 
 class PlayerBedEnterEvent(PlayerEvent, Cancellable):
     """
