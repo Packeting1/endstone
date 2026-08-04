@@ -123,6 +123,7 @@ static_assert(_ITERATOR_DEBUG_LEVEL == 0,
 #include "event/player/player_sprint_event.h"
 #include "event/player/player_swim_event.h"
 #include "event/player/player_teleport_event.h"
+#include "event/player/player_velocity_event.h"
 #include "event/server/broadcast_message_event.h"
 #include "event/server/map_initialize_event.h"
 #include "event/server/packet_receive_event.h"
