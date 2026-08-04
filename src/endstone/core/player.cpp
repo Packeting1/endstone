@@ -73,6 +73,7 @@
 #include "endstone/event/player/player_flight_event.h"
 #include "endstone/event/player/player_glide_event.h"
 #include "endstone/event/player/player_interact_event.h"
+#include "endstone/event/player/player_input_event.h"
 #include "endstone/event/player/player_item_held_event.h"
 #include "endstone/event/player/player_join_event.h"
 #include "endstone/event/player/player_jump_event.h"
@@ -867,6 +868,18 @@ bool EndstonePlayer::handlePacket(Packet &packet)
     }
     case MinecraftPacketIds::PlayerAuthInputPacket: {
         auto &pk = static_cast<PlayerAuthInputPacket &>(packet);
+        const Input input{
+            pk.getInput(PlayerAuthInputPacket::Up),
+            pk.getInput(PlayerAuthInputPacket::Down),
+            pk.getInput(PlayerAuthInputPacket::Left),
+            pk.getInput(PlayerAuthInputPacket::Right),
+            pk.getInput(PlayerAuthInputPacket::Jumping),
+            pk.getInput(PlayerAuthInputPacket::Sneaking),
+            pk.getInput(PlayerAuthInputPacket::Sprinting),
+        };
+        const bool input_changed = !last_input_ || *last_input_ != input;
+        last_input_ = input;
+
         if (pk.getInput(PlayerAuthInputPacket::StartSprinting) && !getHandle().isSprinting()  &&
             !getHandle().isInWater()) {
             PlayerSprintEvent e(*this, true);
@@ -924,6 +937,10 @@ bool EndstonePlayer::handlePacket(Packet &packet)
         }
         else if (pk.getInput(PlayerAuthInputPacket::StopSpinAttack)) {
             PlayerRiptideEvent e(*this, false);
+            getServer().getPluginManager().callEvent(e);
+        }
+        if (input_changed) {
+            PlayerInputEvent e(*this, input);
             getServer().getPluginManager().callEvent(e);
         }
 

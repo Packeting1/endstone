@@ -10,6 +10,7 @@ __getattr__, __dir__, __all__ = lazy.attach(
             "EnchantmentRegistry",
             "GameMode",
             "Identifier",
+            "Input",
             "ItemRegistry",
             "Logger",
             "OfflinePlayer",
