@@ -276,6 +276,10 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
                                                     "Called when a player's level changes.")
         .def_property_readonly("old_level", &PlayerLevelChangeEvent::getOldLevel, "The previous player level.")
         .def_property_readonly("new_level", &PlayerLevelChangeEvent::getNewLevel, "The new player level.");
+    py::class_<PlayerPickupArrowEvent, PlayerEvent, ICancellable>(
+        m, "PlayerPickupArrowEvent", "Called when a player picks up an arrow from the ground.")
+        .def_property_readonly("arrow", &PlayerPickupArrowEvent::getArrow, py::return_value_policy::reference,
+                               "The arrow picked up by the player.");
     py::class_<PlayerChatEvent, PlayerEvent, ICancellable>(m, "PlayerChatEvent",
                                                            "Called when a player sends a chat message.")
         .def_property("message", &PlayerChatEvent::getMessage, &PlayerChatEvent::setMessage,

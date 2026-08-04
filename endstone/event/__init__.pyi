@@ -57,6 +57,7 @@ __all__ = [
     "PlayerBedEnterEvent",
     "PlayerBedLeaveEvent",
     "PlayerLevelChangeEvent",
+    "PlayerPickupArrowEvent",
     "PlayerBlockDamageEvent",
     "PlayerChatEvent",
     "PlayerCommandEvent",
@@ -600,6 +601,11 @@ class PlayerLevelChangeEvent(PlayerEvent):
     def old_level(self) -> int: ...
     @property
     def new_level(self) -> int: ...
+
+class PlayerPickupArrowEvent(PlayerEvent, Cancellable):
+    """Called when a player picks up an arrow from the ground."""
+    @property
+    def arrow(self) -> Actor: ...
 
 class PlayerChatEvent(PlayerEvent, Cancellable):
     """
