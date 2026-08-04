@@ -256,6 +256,13 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
         .value("MAGIC_CRITICAL_HIT", PlayerAnimationType::MagicCriticalHit)
         .export_values()
         .finalize();
+    auto player_animation_event =
+        py::class_<PlayerAnimationEvent, PlayerEvent, ICancellable>(m, "PlayerAnimationEvent",
+                                                                     "Called when a player performs an animation. "
+                                                                     "Cancelling prevents the server from processing "
+                                                                     "the animation packet.");
+    player_animation_event.def_property_readonly("animation_type", &PlayerAnimationEvent::getAnimationType,
+                                                 "The type of this animation event.");
     auto player_bed_enter_event = py::class_<PlayerBedEnterEvent, PlayerEvent, ICancellable>(
         m, "PlayerBedEnterEvent", "Called when a player is almost about to enter the bed.");
     player_bed_enter_event.def_property_readonly("bed", &PlayerBedEnterEvent::getBed,

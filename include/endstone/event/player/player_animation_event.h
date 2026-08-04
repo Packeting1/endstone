@@ -2,17 +2,11 @@
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
 
 #pragma once
+
+#include "endstone/event/cancellable.h"
+#include "endstone/event/player/player_event.h"
 
 namespace endstone {
 
@@ -36,6 +30,29 @@ enum class PlayerAnimationType {
      * The player performs a magic critical hit.
      */
     MagicCriticalHit,
+};
+
+/**
+ * Represents an event that is called when a player performs an animation.
+ */
+class PlayerAnimationEvent final : public Cancellable<PlayerEvent> {
+public:
+    ENDSTONE_EVENT(PlayerAnimationEvent);
+
+    PlayerAnimationEvent(Player &player, PlayerAnimationType animation_type)
+        : Cancellable(player), animation_type_(animation_type)
+    {
+    }
+
+    /**
+     * Gets the type of animation performed by the player.
+     *
+     * @return the animation type
+     */
+    [[nodiscard]] PlayerAnimationType getAnimationType() const { return animation_type_; }
+
+private:
+    PlayerAnimationType animation_type_;
 };
 
 }  // namespace endstone

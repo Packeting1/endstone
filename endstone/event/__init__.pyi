@@ -52,6 +52,7 @@ __all__ = [
     "MobEvent",
     "PacketReceiveEvent",
     "PacketSendEvent",
+    "PlayerAnimationEvent",
     "PlayerAnimationType",
     "PlayerBedEnterEvent",
     "PlayerBedLeaveEvent",
@@ -555,6 +556,17 @@ class PlayerAnimationType(enum.Enum):
     WAKE_UP = 1
     CRITICAL_HIT = 2
     MAGIC_CRITICAL_HIT = 3
+
+class PlayerAnimationEvent(PlayerEvent, Cancellable):
+    """
+    Called when a player performs an animation.
+    """
+    @property
+    def animation_type(self) -> PlayerAnimationType:
+        """
+        The type of this animation event.
+        """
+        ...
 
 class PlayerBedEnterEvent(PlayerEvent, Cancellable):
     """
