@@ -99,6 +99,7 @@ static_assert(_ITERATOR_DEBUG_LEVEL == 0,
 #include "event/player/player_crawl_event.h"
 #include "event/player/player_dimension_change_event.h"
 #include "event/player/player_drop_item_event.h"
+#include "event/player/player_edit_book_event.h"
 #include "event/player/player_emote_event.h"
 #include "event/player/player_event.h"
 #include "event/player/player_flight_event.h"

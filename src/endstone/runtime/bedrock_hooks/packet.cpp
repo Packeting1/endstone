@@ -33,8 +33,10 @@ public:
         const auto &server = endstone::core::EndstoneServer::getInstance();
         const auto network_handler = server.getServer().getMinecraft()->getServerNetworkHandler();
         if (const auto *p = network_handler->getServerPlayer(network_id, packet->getSenderSubId())) {
-            if (p->getEndstoneActor<endstone::core::EndstonePlayer>().handlePacket(*packet)) {
+            auto &endstone_player = p->getEndstoneActor<endstone::core::EndstonePlayer>();
+            if (endstone_player.handlePacket(*packet)) {
                 original_.handle(network_id, callback, packet);
+                endstone_player.handlePacketPost(*packet);
             }
         }
     }
@@ -50,6 +52,7 @@ std::shared_ptr<Packet> MinecraftPackets::createPacket(MinecraftPacketIds id)
     switch (id) {
     case MinecraftPacketIds::PlayerEquipment:
     case MinecraftPacketIds::PlayerAction:
+    case MinecraftPacketIds::BookEdit:
     case MinecraftPacketIds::PlayerSkin:
     case MinecraftPacketIds::SetLocalPlayerAsInit:
     case MinecraftPacketIds::Animate:
