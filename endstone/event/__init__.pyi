@@ -56,6 +56,7 @@ __all__ = [
     "PlayerAnimationType",
     "PlayerBedEnterEvent",
     "PlayerBedLeaveEvent",
+    "PlayerLevelChangeEvent",
     "PlayerBlockDamageEvent",
     "PlayerChatEvent",
     "PlayerCommandEvent",
@@ -592,6 +593,13 @@ class PlayerBedLeaveEvent(PlayerEvent):
         The bed block involved in this event.
         """
         ...
+
+class PlayerLevelChangeEvent(PlayerEvent):
+    """Called when a player's level changes."""
+    @property
+    def old_level(self) -> int: ...
+    @property
+    def new_level(self) -> int: ...
 
 class PlayerChatEvent(PlayerEvent, Cancellable):
     """
