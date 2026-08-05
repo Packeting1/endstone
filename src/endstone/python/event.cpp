@@ -398,14 +398,24 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
     This will be `None` outside of `Action.RIGHT_CLICK_BLOCK`. All vector components are between 0.0 and
     1.0 inclusive.
 )doc");
-    py::class_<PlayerInteractActorEvent, PlayerEvent, ICancellable>(
-        m, "PlayerInteractActorEvent", "Represents an event that is called when a player right-clicks an actor.")
-        .def_property_readonly("actor", &PlayerInteractActorEvent::getActor, py::return_value_policy::reference,
-                               "The actor that was right-clicked by the player.");
     py::class_<PlayerInputEvent, PlayerEvent>(m, "PlayerInputEvent",
                                               "Called when a player sends updated input to the server.")
         .def_property_readonly("input", &PlayerInputEvent::getInput,
                                "The new input received from this player.");
+    py::class_<PlayerInteractActorEvent, PlayerEvent, ICancellable>(
+        m, "PlayerInteractActorEvent", "Represents an event that is called when a player right-clicks an actor.")
+        .def_property_readonly("actor", &PlayerInteractActorEvent::getActor, py::return_value_policy::reference,
+                               "The actor that was right-clicked by the player.");
+    py::class_<PlayerArmorStandManipulateEvent, PlayerInteractActorEvent>(
+        m, "PlayerArmorStandManipulateEvent", "Called when a player interacts with an armor stand.")
+        .def_property_readonly("armor_stand_item", &PlayerArmorStandManipulateEvent::getArmorStandItem,
+                               "The item held by the armor stand.")
+        .def_property_readonly("player_item", &PlayerArmorStandManipulateEvent::getPlayerItem,
+                               "The item held by the player.")
+        .def_property_readonly("hand", &PlayerArmorStandManipulateEvent::getHand,
+                               "The hand used for this interaction.")
+        .def_property_readonly("slot", &PlayerArmorStandManipulateEvent::getSlot,
+                               "The armor stand slot involved in the interaction.");
     py::class_<PlayerItemConsumeEvent, PlayerEvent, ICancellable>(m, "PlayerItemConsumeEvent", R"doc(
     Called when a player is finishing consuming an item (food, potion, milk bucket).
 
