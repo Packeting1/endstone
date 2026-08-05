@@ -52,15 +52,13 @@ __all__ = [
     "MobEvent",
     "PacketReceiveEvent",
     "PacketSendEvent",
+    "PlayerArmorStandManipulateEvent",
     "PlayerAnimationEvent",
     "PlayerAnimationType",
     "ARM_SWING",
     "OFF_ARM_SWING",
     "PlayerBedEnterEvent",
     "PlayerBedLeaveEvent",
-    "PlayerLevelChangeEvent",
-    "PlayerPickupArrowEvent",
-    "PlayerRecipeBookSettingsChangeEvent",
     "PlayerBlockDamageEvent",
     "PlayerChatEvent",
     "PlayerCommandEvent",
@@ -82,15 +80,18 @@ __all__ = [
     "PlayerJoinEvent",
     "PlayerJumpEvent",
     "PlayerKickEvent",
+    "PlayerLevelChangeEvent",
     "PlayerLoginEvent",
     "PlayerMoveEvent",
+    "PlayerPickupArrowEvent",
     "PlayerPickupItemEvent",
     "PlayerPortalEvent",
     "PlayerQuitEvent",
+    "PlayerRecipeBookSettingsChangeEvent",
     "PlayerRespawnEvent",
+    "PlayerRiptideEvent",
     "PlayerSkinChangeEvent",
     "PlayerSneakEvent",
-    "PlayerRiptideEvent",
     "PlayerSprintEvent",
     "PlayerSwimEvent",
     "PlayerTeleportEvent",
@@ -930,6 +931,24 @@ class PlayerInputEvent(PlayerEvent):
         """
         The new input received from this player.
         """
+        ...
+class PlayerArmorStandManipulateEvent(PlayerInteractActorEvent):
+    """Called when a player interacts with an armor stand."""
+    @property
+    def armor_stand_item(self) -> ItemStack:
+        """The item held by the armor stand."""
+        ...
+    @property
+    def player_item(self) -> ItemStack:
+        """The item held by the player."""
+        ...
+    @property
+    def hand(self) -> EquipmentSlot:
+        """The hand used for this interaction."""
+        ...
+    @property
+    def slot(self) -> EquipmentSlot:
+        """The armor stand slot involved in the interaction."""
         ...
 
 class PlayerItemConsumeEvent(PlayerEvent, Cancellable):
