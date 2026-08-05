@@ -56,6 +56,7 @@ __all__ = [
     "PlayerBedLeaveEvent",
     "PlayerChatEvent",
     "PlayerCommandEvent",
+    "PlayerCrawlEvent",
     "PlayerDeathEvent",
     "PlayerDimensionChangeEvent",
     "PlayerDropItemEvent",
@@ -829,6 +830,17 @@ class PlayerGlideEvent(PlayerEvent):
     def is_gliding(self) -> bool:
         """
         Whether the player is gliding.
+        """
+        ...
+
+class PlayerCrawlEvent(PlayerEvent):
+    """
+    Called when a player starts or stops crawling.
+    """
+    @property
+    def is_crawling(self) -> bool:
+        """
+        Whether the player is crawling.
         """
         ...
 

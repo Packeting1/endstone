@@ -60,6 +60,7 @@
 #include "endstone/core/util/socket_address.h"
 #include "endstone/core/util/uuid.h"
 #include "endstone/event/player/player_bed_leave_event.h"
+#include "endstone/event/player/player_crawl_event.h"
 #include "endstone/event/player/player_emote_event.h"
 #include "endstone/event/player/player_glide_event.h"
 #include "endstone/event/player/player_interact_event.h"
@@ -786,6 +787,14 @@ bool EndstonePlayer::handlePacket(Packet &packet)
         }
         else if (pk.getInput(PlayerAuthInputPacket::InputData::StopGliding) && getHandle().isGliding()) {
             PlayerGlideEvent e(*this, false);
+            getServer().getPluginManager().callEvent(e);
+        }
+        if (pk.getInput(PlayerAuthInputPacket::InputData::StartCrawling) && !getHandle().isCrawling()) {
+            PlayerCrawlEvent e(*this, true);
+            getServer().getPluginManager().callEvent(e);
+        }
+        else if (pk.getInput(PlayerAuthInputPacket::InputData::StopCrawling) && getHandle().isCrawling()) {
+            PlayerCrawlEvent e(*this, false);
             getServer().getPluginManager().callEvent(e);
         }
 
