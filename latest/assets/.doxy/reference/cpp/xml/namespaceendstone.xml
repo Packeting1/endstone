@@ -74,6 +74,7 @@
     <innerclass refid="classendstone_1_1ICancellable" prot="public">endstone::ICancellable</innerclass>
     <innerclass refid="classendstone_1_1Identifier" prot="public">endstone::Identifier</innerclass>
     <innerclass refid="classendstone_1_1Image" prot="public">endstone::Image</innerclass>
+    <innerclass refid="classendstone_1_1Input" prot="public">endstone::Input</innerclass>
     <innerclass refid="classendstone_1_1Inventory" prot="public">endstone::Inventory</innerclass>
     <innerclass refid="classendstone_1_1IpBanEntry" prot="public">endstone::IpBanEntry</innerclass>
     <innerclass refid="classendstone_1_1IpBanList" prot="public">endstone::IpBanList</innerclass>
@@ -113,6 +114,8 @@
     <innerclass refid="classendstone_1_1PermissionAttachment" prot="public">endstone::PermissionAttachment</innerclass>
     <innerclass refid="classendstone_1_1PermissionAttachmentInfo" prot="public">endstone::PermissionAttachmentInfo</innerclass>
     <innerclass refid="classendstone_1_1Player" prot="public">endstone::Player</innerclass>
+    <innerclass refid="classendstone_1_1PlayerAnimationEvent" prot="public">endstone::PlayerAnimationEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerArmorStandManipulateEvent" prot="public">endstone::PlayerArmorStandManipulateEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerBanEntry" prot="public">endstone::PlayerBanEntry</innerclass>
     <innerclass refid="classendstone_1_1PlayerBanList" prot="public">endstone::PlayerBanList</innerclass>
     <innerclass refid="classendstone_1_1PlayerBedEnterEvent" prot="public">endstone::PlayerBedEnterEvent</innerclass>
@@ -124,11 +127,13 @@
     <innerclass refid="classendstone_1_1PlayerDeathEvent" prot="public">endstone::PlayerDeathEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerDimensionChangeEvent" prot="public">endstone::PlayerDimensionChangeEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerDropItemEvent" prot="public">endstone::PlayerDropItemEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerEditBookEvent" prot="public">endstone::PlayerEditBookEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerEmoteEvent" prot="public">endstone::PlayerEmoteEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerEvent" prot="public">endstone::PlayerEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerFlightEvent" prot="public">endstone::PlayerFlightEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerGameModeChangeEvent" prot="public">endstone::PlayerGameModeChangeEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerGlideEvent" prot="public">endstone::PlayerGlideEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerInputEvent" prot="public">endstone::PlayerInputEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerInteractActorEvent" prot="public">endstone::PlayerInteractActorEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerInteractEvent" prot="public">endstone::PlayerInteractEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerInventory" prot="public">endstone::PlayerInventory</innerclass>
@@ -137,11 +142,14 @@
     <innerclass refid="classendstone_1_1PlayerJoinEvent" prot="public">endstone::PlayerJoinEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerJumpEvent" prot="public">endstone::PlayerJumpEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerKickEvent" prot="public">endstone::PlayerKickEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerLevelChangeEvent" prot="public">endstone::PlayerLevelChangeEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerLoginEvent" prot="public">endstone::PlayerLoginEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerMoveEvent" prot="public">endstone::PlayerMoveEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerPickupArrowEvent" prot="public">endstone::PlayerPickupArrowEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerPickupItemEvent" prot="public">endstone::PlayerPickupItemEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerPortalEvent" prot="public">endstone::PlayerPortalEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerQuitEvent" prot="public">endstone::PlayerQuitEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent" prot="public">endstone::PlayerRecipeBookSettingsChangeEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerRespawnEvent" prot="public">endstone::PlayerRespawnEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerRiptideEvent" prot="public">endstone::PlayerRiptideEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerSkinChangeEvent" prot="public">endstone::PlayerSkinChangeEvent</innerclass>
@@ -149,6 +157,7 @@
     <innerclass refid="classendstone_1_1PlayerSprintEvent" prot="public">endstone::PlayerSprintEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerSwimEvent" prot="public">endstone::PlayerSwimEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerTeleportEvent" prot="public">endstone::PlayerTeleportEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerVelocityEvent" prot="public">endstone::PlayerVelocityEvent</innerclass>
     <innerclass refid="classendstone_1_1Plugin" prot="public">endstone::Plugin</innerclass>
     <innerclass refid="classendstone_1_1PluginCommand" prot="public">endstone::PluginCommand</innerclass>
     <innerclass refid="classendstone_1_1PluginDescription" prot="public">endstone::PluginDescription</innerclass>
@@ -510,6 +519,35 @@
         <inbodydescription>
         </inbodydescription>
         <location file="include/endstone/event/event_priority.h" line="26" column="1" bodyfile="include/endstone/event/event_priority.h" bodystart="26" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceendstone_1a2d4230e31d425cb3fdcf241b1ead57f4" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>PlayerAnimationType</name>
+        <qualifiedname>endstone::PlayerAnimationType</qualifiedname>
+        <enumvalue id="namespaceendstone_1a2d4230e31d425cb3fdcf241b1ead57f4ac7574c2813d72d10b8827f7954854d4d" prot="public">
+          <name>ArmSwing</name>
+          <briefdescription>
+<para>The player swings their main hand. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceendstone_1a2d4230e31d425cb3fdcf241b1ead57f4a5d9980947260ce36ba0e2730c0a9ba5e" prot="public">
+          <name>OffArmSwing</name>
+          <briefdescription>
+<para>The player swings their off hand. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Represents the type of animation performed by a player. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_animation_event.h" line="16" column="1" bodyfile="include/endstone/event/player/player_animation_event.h" bodystart="16" bodyend="25"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceendstone_1a3185831693a75ff4595095c0fe568c2a" prot="public" static="no" strong="yes">
         <type></type>

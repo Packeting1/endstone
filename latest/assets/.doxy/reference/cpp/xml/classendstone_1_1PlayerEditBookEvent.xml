@@ -1,0 +1,365 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classendstone_1_1PlayerEditBookEvent" kind="class" language="C++" prot="public" final="yes">
+    <compoundname>endstone::PlayerEditBookEvent</compoundname>
+    <basecompoundref refid="classendstone_1_1Cancellable" prot="public" virt="non-virtual">endstone::Cancellable&lt; PlayerEvent &gt;</basecompoundref>
+    <includes refid="player__edit__book__event_8h" local="no">endstone/event/player/player_edit_book_event.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classendstone_1_1PlayerEditBookEvent_1ab77fd53052f2adb1c8c2be9f56c4f4a9" prot="private" static="no" mutable="no">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">int</ref></type>
+        <definition>int endstone::PlayerEditBookEvent::slot_</definition>
+        <argsstring></argsstring>
+        <name>slot_</name>
+        <qualifiedname>endstone::PlayerEditBookEvent::slot_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_edit_book_event.h" line="97" column="9" bodyfile="include/endstone/event/player/player_edit_book_event.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classendstone_1_1PlayerEditBookEvent_1afa113d56678438633d952df223722907" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classendstone_1_1BookMeta" kindref="compound">BookMeta</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;BookMeta&gt; endstone::PlayerEditBookEvent::previous_book_meta_</definition>
+        <argsstring></argsstring>
+        <name>previous_book_meta_</name>
+        <qualifiedname>endstone::PlayerEditBookEvent::previous_book_meta_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_edit_book_event.h" line="98" column="21" bodyfile="include/endstone/event/player/player_edit_book_event.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classendstone_1_1PlayerEditBookEvent_1aa6aeeb4afdca866357a2a88e5ec0d9db" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classendstone_1_1BookMeta" kindref="compound">BookMeta</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;BookMeta&gt; endstone::PlayerEditBookEvent::new_book_meta_</definition>
+        <argsstring></argsstring>
+        <name>new_book_meta_</name>
+        <qualifiedname>endstone::PlayerEditBookEvent::new_book_meta_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_edit_book_event.h" line="99" column="21" bodyfile="include/endstone/event/player/player_edit_book_event.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classendstone_1_1PlayerEditBookEvent_1a303d9ce81c2079c465cdadee3822446a" prot="private" static="no" mutable="no">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>
+        <definition>bool endstone::PlayerEditBookEvent::signing_</definition>
+        <argsstring></argsstring>
+        <name>signing_</name>
+        <qualifiedname>endstone::PlayerEditBookEvent::signing_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_edit_book_event.h" line="100" column="10" bodyfile="include/endstone/event/player/player_edit_book_event.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classendstone_1_1PlayerEditBookEvent_1ab1ed0f44304e1df2b04e0d92b3630df8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>endstone::PlayerEditBookEvent::ENDSTONE_EVENT</definition>
+        <argsstring>(PlayerEditBookEvent)</argsstring>
+        <name>ENDSTONE_EVENT</name>
+        <qualifiedname>endstone::PlayerEditBookEvent::ENDSTONE_EVENT</qualifiedname>
+        <param>
+          <type><ref refid="classendstone_1_1PlayerEditBookEvent" kindref="compound">PlayerEditBookEvent</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_edit_book_event.h" line="31" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerEditBookEvent_1aaf18dd08287591d229aa56bf320101a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>endstone::PlayerEditBookEvent::PlayerEditBookEvent</definition>
+        <argsstring>(Player &amp;player, int slot, const BookMeta &amp;previous_book_meta, const BookMeta &amp;new_book_meta, bool signing)</argsstring>
+        <name>PlayerEditBookEvent</name>
+        <qualifiedname>endstone::PlayerEditBookEvent::PlayerEditBookEvent</qualifiedname>
+        <param>
+          <type><ref refid="classendstone_1_1Player" kindref="compound">Player</ref> &amp;</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type><ref refid="classendstone_1_1Identifier" kindref="compound">int</ref></type>
+          <declname>slot</declname>
+        </param>
+        <param>
+          <type><ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> <ref refid="classendstone_1_1BookMeta" kindref="compound">BookMeta</ref> &amp;</type>
+          <declname>previous_book_meta</declname>
+        </param>
+        <param>
+          <type><ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> <ref refid="classendstone_1_1BookMeta" kindref="compound">BookMeta</ref> &amp;</type>
+          <declname>new_book_meta</declname>
+        </param>
+        <param>
+          <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>
+          <declname>signing</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_edit_book_event.h" line="33" column="5" bodyfile="include/endstone/event/player/player_edit_book_event.h" bodystart="33" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerEditBookEvent_1af71ffebeffdbd6948d0bca262fda3bf2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">int</ref></type>
+        <definition>int endstone::PlayerEditBookEvent::getSlot</definition>
+        <argsstring>() const</argsstring>
+        <name>getSlot</name>
+        <qualifiedname>endstone::PlayerEditBookEvent::getSlot</qualifiedname>
+        <briefdescription>
+<para>Gets the inventory slot containing the book. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the inventory slot containing the book </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_edit_book_event.h" line="45" column="10" bodyfile="include/endstone/event/player/player_edit_book_event.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerEditBookEvent_1aeb71ab59ffb12b9b2c1920c8cef93d23" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> <ref refid="classendstone_1_1BookMeta" kindref="compound">BookMeta</ref> &amp;</type>
+        <definition>const BookMeta &amp; endstone::PlayerEditBookEvent::getPreviousBookMeta</definition>
+        <argsstring>() const</argsstring>
+        <name>getPreviousBookMeta</name>
+        <qualifiedname>endstone::PlayerEditBookEvent::getPreviousBookMeta</qualifiedname>
+        <briefdescription>
+<para>Gets the metadata before the edit. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the book metadata before the edit </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_edit_book_event.h" line="52" column="21" bodyfile="include/endstone/event/player/player_edit_book_event.h" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerEditBookEvent_1ae028eba82cdb4ff79bbaf4bf71684949" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1BookMeta" kindref="compound">BookMeta</ref> &amp;</type>
+        <definition>BookMeta &amp; endstone::PlayerEditBookEvent::getNewBookMeta</definition>
+        <argsstring>()</argsstring>
+        <name>getNewBookMeta</name>
+        <qualifiedname>endstone::PlayerEditBookEvent::getNewBookMeta</qualifiedname>
+        <briefdescription>
+<para>Gets the metadata after the edit. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the mutable book metadata after the edit </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_edit_book_event.h" line="59" column="15" bodyfile="include/endstone/event/player/player_edit_book_event.h" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerEditBookEvent_1a83ab74bbc129f66934e8bdd199f0092c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> <ref refid="classendstone_1_1BookMeta" kindref="compound">BookMeta</ref> &amp;</type>
+        <definition>const BookMeta &amp; endstone::PlayerEditBookEvent::getNewBookMeta</definition>
+        <argsstring>() const</argsstring>
+        <name>getNewBookMeta</name>
+        <qualifiedname>endstone::PlayerEditBookEvent::getNewBookMeta</qualifiedname>
+        <briefdescription>
+<para>Gets the metadata after the edit. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the book metadata after the edit </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_edit_book_event.h" line="66" column="21" bodyfile="include/endstone/event/player/player_edit_book_event.h" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerEditBookEvent_1ae5051224838fc0b22cb8bd3387c901a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">void</ref></type>
+        <definition>void endstone::PlayerEditBookEvent::setNewBookMeta</definition>
+        <argsstring>(const BookMeta &amp;new_book_meta)</argsstring>
+        <name>setNewBookMeta</name>
+        <qualifiedname>endstone::PlayerEditBookEvent::setNewBookMeta</qualifiedname>
+        <param>
+          <type><ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> <ref refid="classendstone_1_1BookMeta" kindref="compound">BookMeta</ref> &amp;</type>
+          <declname>new_book_meta</declname>
+        </param>
+        <briefdescription>
+<para>Replaces the metadata that will be applied after the edit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_edit_book_event.h" line="71" column="10" bodyfile="include/endstone/event/player/player_edit_book_event.h" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerEditBookEvent_1ae872bda3627b53d486bea898fc0a53be" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>
+        <definition>bool endstone::PlayerEditBookEvent::isSigning</definition>
+        <argsstring>() const</argsstring>
+        <name>isSigning</name>
+        <qualifiedname>endstone::PlayerEditBookEvent::isSigning</qualifiedname>
+        <briefdescription>
+<para>Gets whether the book should be signed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if the book should be signed </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_edit_book_event.h" line="78" column="11" bodyfile="include/endstone/event/player/player_edit_book_event.h" bodystart="78" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerEditBookEvent_1a33306c08313104acddedf584e0f60dfc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">void</ref></type>
+        <definition>void endstone::PlayerEditBookEvent::setSigning</definition>
+        <argsstring>(bool signing)</argsstring>
+        <name>setSigning</name>
+        <qualifiedname>endstone::PlayerEditBookEvent::setSigning</qualifiedname>
+        <param>
+          <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>
+          <declname>signing</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether the book should be signed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_edit_book_event.h" line="83" column="10" bodyfile="include/endstone/event/player/player_edit_book_event.h" bodystart="83" bodyend="83"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classendstone_1_1PlayerEditBookEvent_1aee186efd491c416b4874452cdcfd7a2e" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::unique_ptr&lt; <ref refid="classendstone_1_1BookMeta" kindref="compound">BookMeta</ref> &gt;</type>
+        <definition>static std::unique_ptr&lt; BookMeta &gt; endstone::PlayerEditBookEvent::cloneBookMeta</definition>
+        <argsstring>(const BookMeta &amp;meta)</argsstring>
+        <name>cloneBookMeta</name>
+        <qualifiedname>endstone::PlayerEditBookEvent::cloneBookMeta</qualifiedname>
+        <param>
+          <type><ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> <ref refid="classendstone_1_1BookMeta" kindref="compound">BookMeta</ref> &amp;</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_edit_book_event.h" line="86" column="29" bodyfile="include/endstone/event/player/player_edit_book_event.h" bodystart="86" bodyend="95"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Called when a player edits or signs a book. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>endstone::Cancellable&lt; PlayerEvent &gt;</label>
+        <link refid="classendstone_1_1Cancellable"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>endstone::Event</label>
+        <link refid="classendstone_1_1Event"/>
+      </node>
+      <node id="5">
+        <label>endstone::ICancellable</label>
+        <link refid="classendstone_1_1ICancellable"/>
+      </node>
+      <node id="1">
+        <label>endstone::PlayerEditBookEvent</label>
+        <link refid="classendstone_1_1PlayerEditBookEvent"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>endstone::PlayerEvent</label>
+        <link refid="classendstone_1_1PlayerEvent"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>endstone::Cancellable&lt; PlayerEvent &gt;</label>
+        <link refid="classendstone_1_1Cancellable"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>endstone::Event</label>
+        <link refid="classendstone_1_1Event"/>
+      </node>
+      <node id="5">
+        <label>endstone::ICancellable</label>
+        <link refid="classendstone_1_1ICancellable"/>
+      </node>
+      <node id="1">
+        <label>endstone::PlayerEditBookEvent</label>
+        <link refid="classendstone_1_1PlayerEditBookEvent"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>endstone::PlayerEvent</label>
+        <link refid="classendstone_1_1PlayerEvent"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/endstone/event/player/player_edit_book_event.h" line="29" column="1" bodyfile="include/endstone/event/player/player_edit_book_event.h" bodystart="29" bodyend="101"/>
+    <listofallmembers>
+      <member refid="classendstone_1_1Cancellable_1a3512b47db69c6001f5c0450051308327" prot="public" virt="virtual"><scope>endstone::PlayerEditBookEvent</scope><name>cancel</name></member>
+      <member refid="classendstone_1_1PlayerEditBookEvent_1aee186efd491c416b4874452cdcfd7a2e" prot="private" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>cloneBookMeta</name></member>
+      <member refid="classendstone_1_1PlayerEditBookEvent_1ab1ed0f44304e1df2b04e0d92b3630df8" prot="public" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>ENDSTONE_EVENT</name></member>
+      <member refid="classendstone_1_1Event_1a28cca8d74920493b449d035540acf023" prot="public" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>Event</name></member>
+      <member refid="classendstone_1_1Event_1a7199136ebb40e1441bc61e29f83c3cad" prot="public" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>Event</name></member>
+      <member refid="classendstone_1_1Event_1ad20bafd16e0671578e37390b95e5104c" prot="public" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>Event</name></member>
+      <member refid="classendstone_1_1Event_1a826fe74f9c4195a36a364b9aeeb321bb" prot="public" virt="pure-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>getEventName</name></member>
+      <member refid="classendstone_1_1PlayerEditBookEvent_1ae028eba82cdb4ff79bbaf4bf71684949" prot="public" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>getNewBookMeta</name></member>
+      <member refid="classendstone_1_1PlayerEditBookEvent_1a83ab74bbc129f66934e8bdd199f0092c" prot="public" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>getNewBookMeta</name></member>
+      <member refid="classendstone_1_1PlayerEvent_1a3ad904b05886ce30c7299500d9a57fdb" prot="public" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>getPlayer</name></member>
+      <member refid="classendstone_1_1PlayerEditBookEvent_1aeb71ab59ffb12b9b2c1920c8cef93d23" prot="public" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>getPreviousBookMeta</name></member>
+      <member refid="classendstone_1_1PlayerEditBookEvent_1af71ffebeffdbd6948d0bca262fda3bf2" prot="public" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>getSlot</name></member>
+      <member refid="classendstone_1_1Event_1ae89b54f63dc32b0c8797a59db69b6931" prot="public" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>isAsynchronous</name></member>
+      <member refid="classendstone_1_1Cancellable_1a268b73cc5bda0fa5923336d031814faa" prot="public" virt="virtual"><scope>endstone::PlayerEditBookEvent</scope><name>isCancelled</name></member>
+      <member refid="classendstone_1_1PlayerEditBookEvent_1ae872bda3627b53d486bea898fc0a53be" prot="public" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>isSigning</name></member>
+      <member refid="classendstone_1_1PlayerEditBookEvent_1aa6aeeb4afdca866357a2a88e5ec0d9db" prot="private" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>new_book_meta_</name></member>
+      <member refid="classendstone_1_1Event_1a44a4ff424a8b690c01a2afe10ae68d8f" prot="public" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>operator=</name></member>
+      <member refid="classendstone_1_1Event_1a1d7fc5400782d20be99a3636aa7f53b9" prot="public" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>operator=</name></member>
+      <member refid="classendstone_1_1PlayerEvent_1a263609667f42005d6cfe9f3a128477bd" prot="protected" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>player_</name></member>
+      <member refid="classendstone_1_1PlayerEditBookEvent_1aaf18dd08287591d229aa56bf320101a0" prot="public" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>PlayerEditBookEvent</name></member>
+      <member refid="classendstone_1_1PlayerEvent_1a244b2be43274af72138b157f63455419" prot="public" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>PlayerEvent</name></member>
+      <member refid="classendstone_1_1PlayerEditBookEvent_1afa113d56678438633d952df223722907" prot="private" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>previous_book_meta_</name></member>
+      <member refid="classendstone_1_1Cancellable_1aa12df44bcb66924d06a689d0dd07865e" prot="public" virt="virtual"><scope>endstone::PlayerEditBookEvent</scope><name>setCancelled</name></member>
+      <member refid="classendstone_1_1PlayerEditBookEvent_1ae5051224838fc0b22cb8bd3387c901a2" prot="public" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>setNewBookMeta</name></member>
+      <member refid="classendstone_1_1PlayerEditBookEvent_1a33306c08313104acddedf584e0f60dfc" prot="public" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>setSigning</name></member>
+      <member refid="classendstone_1_1PlayerEditBookEvent_1a303d9ce81c2079c465cdadee3822446a" prot="private" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>signing_</name></member>
+      <member refid="classendstone_1_1PlayerEditBookEvent_1ab77fd53052f2adb1c8c2be9f56c4f4a9" prot="private" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>slot_</name></member>
+      <member refid="classendstone_1_1Event_1a6aeaa8096baba90f8ace94106e0e05f3" prot="public" virt="virtual"><scope>endstone::PlayerEditBookEvent</scope><name>~Event</name></member>
+      <member refid="classendstone_1_1ICancellable_1ab6d311fcaa18971f69a1b23f5a856301" prot="public" virt="virtual"><scope>endstone::PlayerEditBookEvent</scope><name>~ICancellable</name></member>
+      <member refid="classendstone_1_1PlayerEvent_1ab31b937251b8ccc1c72c275d1c7a522b" prot="public" virt="non-virtual"><scope>endstone::PlayerEditBookEvent</scope><name>~PlayerEvent</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -98,6 +98,7 @@
 * **PermissionDefault** ([**endstone**](namespaceendstone.md))
 * **PermissionLevel** ([**endstone**](namespaceendstone.md))
 * **PermissionRemovedExecutor** ([**endstone**](namespaceendstone.md))
+* **PlayerAnimationType** ([**endstone**](namespaceendstone.md))
 * **PluginLoadOrder** ([**endstone**](namespaceendstone.md))
 * **PotionId** ([**endstone**](namespaceendstone.md))
 

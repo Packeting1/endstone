@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classendstone_1_1PlayerVelocityEvent" kind="class" language="C++" prot="public" final="yes">
+    <compoundname>endstone::PlayerVelocityEvent</compoundname>
+    <basecompoundref refid="classendstone_1_1PlayerEvent" prot="public" virt="non-virtual">endstone::PlayerEvent</basecompoundref>
+    <includes refid="player__velocity__event_8h" local="no">endstone/event/player/player_velocity_event.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classendstone_1_1PlayerVelocityEvent_1aee5fdbabc46d7abf2b146630556f24e4" prot="private" static="no" mutable="no">
+        <type><ref refid="classendstone_1_1Vector" kindref="compound">Vector</ref></type>
+        <definition>Vector endstone::PlayerVelocityEvent::velocity_</definition>
+        <argsstring></argsstring>
+        <name>velocity_</name>
+        <qualifiedname>endstone::PlayerVelocityEvent::velocity_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_velocity_event.h" line="39" column="12" bodyfile="include/endstone/event/player/player_velocity_event.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classendstone_1_1PlayerVelocityEvent_1ac025539b878c5f1fc41fcd9b9c896b17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>endstone::PlayerVelocityEvent::ENDSTONE_EVENT</definition>
+        <argsstring>(PlayerVelocityEvent)</argsstring>
+        <name>ENDSTONE_EVENT</name>
+        <qualifiedname>endstone::PlayerVelocityEvent::ENDSTONE_EVENT</qualifiedname>
+        <param>
+          <type><ref refid="classendstone_1_1PlayerVelocityEvent" kindref="compound">PlayerVelocityEvent</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_velocity_event.h" line="18" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerVelocityEvent_1a266a4958cd198c28dbd10a27bcc3875d" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>endstone::PlayerVelocityEvent::PlayerVelocityEvent</definition>
+        <argsstring>(Player &amp;player, Vector velocity)</argsstring>
+        <name>PlayerVelocityEvent</name>
+        <qualifiedname>endstone::PlayerVelocityEvent::PlayerVelocityEvent</qualifiedname>
+        <param>
+          <type><ref refid="classendstone_1_1Player" kindref="compound">Player</ref> &amp;</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type><ref refid="classendstone_1_1Vector" kindref="compound">Vector</ref></type>
+          <declname>velocity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_velocity_event.h" line="20" column="14" bodyfile="include/endstone/event/player/player_velocity_event.h" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerVelocityEvent_1a72739fc6409573f41c530e0e54bd58f3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Vector" kindref="compound">Vector</ref></type>
+        <definition>Vector endstone::PlayerVelocityEvent::getVelocity</definition>
+        <argsstring>() const</argsstring>
+        <name>getVelocity</name>
+        <qualifiedname>endstone::PlayerVelocityEvent::getVelocity</qualifiedname>
+        <briefdescription>
+<para>Gets the velocity vector that will be sent to the player. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This method returns a copy; changes must be applied via <ref refid="classendstone_1_1PlayerVelocityEvent_1aac9c1cae8732af99a6bccad9b3306744" kindref="member">setVelocity()</ref>.</para>
+</simplesect>
+<simplesect kind="return"><para>the velocity vector </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_velocity_event.h" line="29" column="13" bodyfile="include/endstone/event/player/player_velocity_event.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerVelocityEvent_1aac9c1cae8732af99a6bccad9b3306744" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">void</ref></type>
+        <definition>void endstone::PlayerVelocityEvent::setVelocity</definition>
+        <argsstring>(Vector velocity)</argsstring>
+        <name>setVelocity</name>
+        <qualifiedname>endstone::PlayerVelocityEvent::setVelocity</qualifiedname>
+        <param>
+          <type><ref refid="classendstone_1_1Vector" kindref="compound">Vector</ref></type>
+          <declname>velocity</declname>
+        </param>
+        <briefdescription>
+<para>Sets the velocity vector that will be sent to the player. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>velocity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The velocity vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_velocity_event.h" line="36" column="10" bodyfile="include/endstone/event/player/player_velocity_event.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents an event that is called when the velocity of a player changes. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>endstone::Event</label>
+        <link refid="classendstone_1_1Event"/>
+      </node>
+      <node id="2">
+        <label>endstone::PlayerEvent</label>
+        <link refid="classendstone_1_1PlayerEvent"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>endstone::PlayerVelocityEvent</label>
+        <link refid="classendstone_1_1PlayerVelocityEvent"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>endstone::Event</label>
+        <link refid="classendstone_1_1Event"/>
+      </node>
+      <node id="2">
+        <label>endstone::PlayerEvent</label>
+        <link refid="classendstone_1_1PlayerEvent"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>endstone::PlayerVelocityEvent</label>
+        <link refid="classendstone_1_1PlayerVelocityEvent"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/endstone/event/player/player_velocity_event.h" line="16" column="1" bodyfile="include/endstone/event/player/player_velocity_event.h" bodystart="16" bodyend="40"/>
+    <listofallmembers>
+      <member refid="classendstone_1_1PlayerVelocityEvent_1ac025539b878c5f1fc41fcd9b9c896b17" prot="public" virt="non-virtual"><scope>endstone::PlayerVelocityEvent</scope><name>ENDSTONE_EVENT</name></member>
+      <member refid="classendstone_1_1Event_1a28cca8d74920493b449d035540acf023" prot="public" virt="non-virtual"><scope>endstone::PlayerVelocityEvent</scope><name>Event</name></member>
+      <member refid="classendstone_1_1Event_1a7199136ebb40e1441bc61e29f83c3cad" prot="public" virt="non-virtual"><scope>endstone::PlayerVelocityEvent</scope><name>Event</name></member>
+      <member refid="classendstone_1_1Event_1ad20bafd16e0671578e37390b95e5104c" prot="public" virt="non-virtual"><scope>endstone::PlayerVelocityEvent</scope><name>Event</name></member>
+      <member refid="classendstone_1_1Event_1a826fe74f9c4195a36a364b9aeeb321bb" prot="public" virt="pure-virtual"><scope>endstone::PlayerVelocityEvent</scope><name>getEventName</name></member>
+      <member refid="classendstone_1_1PlayerEvent_1a3ad904b05886ce30c7299500d9a57fdb" prot="public" virt="non-virtual"><scope>endstone::PlayerVelocityEvent</scope><name>getPlayer</name></member>
+      <member refid="classendstone_1_1PlayerVelocityEvent_1a72739fc6409573f41c530e0e54bd58f3" prot="public" virt="non-virtual"><scope>endstone::PlayerVelocityEvent</scope><name>getVelocity</name></member>
+      <member refid="classendstone_1_1Event_1ae89b54f63dc32b0c8797a59db69b6931" prot="public" virt="non-virtual"><scope>endstone::PlayerVelocityEvent</scope><name>isAsynchronous</name></member>
+      <member refid="classendstone_1_1Event_1a44a4ff424a8b690c01a2afe10ae68d8f" prot="public" virt="non-virtual"><scope>endstone::PlayerVelocityEvent</scope><name>operator=</name></member>
+      <member refid="classendstone_1_1Event_1a1d7fc5400782d20be99a3636aa7f53b9" prot="public" virt="non-virtual"><scope>endstone::PlayerVelocityEvent</scope><name>operator=</name></member>
+      <member refid="classendstone_1_1PlayerEvent_1a263609667f42005d6cfe9f3a128477bd" prot="protected" virt="non-virtual"><scope>endstone::PlayerVelocityEvent</scope><name>player_</name></member>
+      <member refid="classendstone_1_1PlayerEvent_1a244b2be43274af72138b157f63455419" prot="public" virt="non-virtual"><scope>endstone::PlayerVelocityEvent</scope><name>PlayerEvent</name></member>
+      <member refid="classendstone_1_1PlayerVelocityEvent_1a266a4958cd198c28dbd10a27bcc3875d" prot="public" virt="non-virtual"><scope>endstone::PlayerVelocityEvent</scope><name>PlayerVelocityEvent</name></member>
+      <member refid="classendstone_1_1PlayerVelocityEvent_1aac9c1cae8732af99a6bccad9b3306744" prot="public" virt="non-virtual"><scope>endstone::PlayerVelocityEvent</scope><name>setVelocity</name></member>
+      <member refid="classendstone_1_1PlayerVelocityEvent_1aee5fdbabc46d7abf2b146630556f24e4" prot="private" virt="non-virtual"><scope>endstone::PlayerVelocityEvent</scope><name>velocity_</name></member>
+      <member refid="classendstone_1_1Event_1a6aeaa8096baba90f8ace94106e0e05f3" prot="public" virt="virtual"><scope>endstone::PlayerVelocityEvent</scope><name>~Event</name></member>
+      <member refid="classendstone_1_1PlayerEvent_1ab31b937251b8ccc1c72c275d1c7a522b" prot="public" virt="non-virtual"><scope>endstone::PlayerVelocityEvent</scope><name>~PlayerEvent</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
