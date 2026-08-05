@@ -113,6 +113,7 @@ __getattr__, __dir__, __all__ = lazy.attach(
             "PlayerGlideEvent",
             "PlayerInteractActorEvent",
             "PlayerInteractEvent",
+            "PlayerInputEvent",
             "PlayerItemConsumeEvent",
             "PlayerItemHeldEvent",
             "PlayerJoinEvent",
