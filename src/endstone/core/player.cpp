@@ -718,7 +718,6 @@ bool EndstonePlayer::handlePacket(Packet &packet)
         auto previous_book_meta = book_edit::createBookMeta(*item);
         auto new_book_meta = book_edit::createBookMeta(*item);
         book_edit::applyBookEditOperation(*new_book_meta, pk.payload.operation);
-        const auto expected_book_meta = new_book_meta->clone();
         const auto is_signing = std::holds_alternative<BookEditAction::Finalize>(pk.payload.operation);
 
         PlayerEditBookEvent event{*this, slot, *previous_book_meta, *new_book_meta, is_signing};
@@ -735,16 +734,14 @@ bool EndstonePlayer::handlePacket(Packet &packet)
                 event.isSigning() ? book_edit::WRITTEN_BOOK : book_edit::WRITABLE_BOOK);
             if (item_meta && edited_item.setItemMeta(item_meta.get())) {
                 getInventory().setItem(slot, std::move(edited_item));
-                return false;
             }
+            return false;
         }
 
-        if (!EndstoneItemFactory::instance().equals(&event.getNewBookMeta(), expected_book_meta.get())) {
+        if (!EndstoneItemFactory::instance().equals(&event.getNewBookMeta(), new_book_meta.get())) {
             auto new_meta = event.getNewBookMeta().clone();
-            if (new_meta->as<BookMeta>() != nullptr) {
-                pending_book_meta_.reset(static_cast<BookMeta *>(new_meta.release()));
-                pending_book_slot_ = slot;
-            }
+            pending_book_meta_.reset(static_cast<BookMeta *>(new_meta.release()));
+            pending_book_slot_ = slot;
         }
         return true;
     }

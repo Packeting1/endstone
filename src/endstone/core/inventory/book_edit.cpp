@@ -39,13 +39,13 @@ std::unique_ptr<BookMeta> createBookMeta(const ItemStack &item)
 
 std::unique_ptr<ItemMeta> createBookItemMeta(const BookMeta &meta, ItemTypeId type)
 {
-    auto tag = std::make_unique<::CompoundTag>();
-    meta.getExtras().applyToItem(*tag);
+    ::CompoundTag tag;
+    meta.getExtras().applyToItem(tag);
     if (type == WRITABLE_BOOK) {
-        return std::make_unique<EndstoneWritableBookMeta>(*tag);
+        return std::make_unique<EndstoneWritableBookMeta>(tag);
     }
     if (type == WRITTEN_BOOK) {
-        return std::make_unique<EndstoneBookMeta>(*tag);
+        return std::make_unique<EndstoneBookMeta>(tag);
     }
     return nullptr;
 }
