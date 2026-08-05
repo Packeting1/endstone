@@ -560,9 +560,7 @@ class PlayerAnimationType(enum.Enum):
     """
 
     ARM_SWING = 0
-    WAKE_UP = 1
-    CRITICAL_HIT = 2
-    MAGIC_CRITICAL_HIT = 3
+    OFF_ARM_SWING = 1
 
 class PlayerAnimationEvent(PlayerEvent, Cancellable):
     """

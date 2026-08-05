@@ -15,21 +15,13 @@ namespace endstone {
  */
 enum class PlayerAnimationType {
     /**
-     * The player swings their arm.
+     * The player swings their main hand.
      */
     ArmSwing,
     /**
-     * The player wakes up from sleeping.
+     * The player swings their off hand.
      */
-    WakeUp,
-    /**
-     * The player performs a critical hit.
-     */
-    CriticalHit,
-    /**
-     * The player performs a magic critical hit.
-     */
-    MagicCriticalHit,
+    OffArmSwing,
 };
 
 /**

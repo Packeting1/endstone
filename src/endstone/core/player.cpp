@@ -824,25 +824,8 @@ bool EndstonePlayer::handlePacket(Packet &packet)
     }
     case MinecraftPacketIds::Animate: {
         auto &pk = static_cast<AnimatePacket &>(packet);
-        std::optional<PlayerAnimationType> animation_type;
-        switch (pk.payload.action) {
-        case AnimatePacketPayload::Action::Swing:
-            animation_type = PlayerAnimationType::ArmSwing;
-            break;
-        case AnimatePacketPayload::Action::WakeUp:
-            animation_type = PlayerAnimationType::WakeUp;
-            break;
-        case AnimatePacketPayload::Action::CriticalHit:
-            animation_type = PlayerAnimationType::CriticalHit;
-            break;
-        case AnimatePacketPayload::Action::MagicCriticalHit:
-            animation_type = PlayerAnimationType::MagicCriticalHit;
-            break;
-        case AnimatePacketPayload::Action::NoAction:
-            break;
-        }
-        if (animation_type.has_value()) {
-            PlayerAnimationEvent e(*this, *animation_type);
+        if (pk.payload.action == AnimatePacketPayload::Action::Swing) {
+            PlayerAnimationEvent e(*this, PlayerAnimationType::ArmSwing);
             getServer().getPluginManager().callEvent(e);
             if (e.isCancelled()) {
                 return false;
