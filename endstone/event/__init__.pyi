@@ -89,6 +89,7 @@ __all__ = [
     "PlayerSprintEvent",
     "PlayerSwimEvent",
     "PlayerTeleportEvent",
+    "PlayerVelocityEvent",
     "PluginDisableEvent",
     "PluginEnableEvent",
     "ScriptMessageEvent",
@@ -1073,6 +1074,18 @@ class PlayerTeleportEvent(PlayerMoveEvent):
     """
     Called when a player is teleported from one location to another.
     """
+
+class PlayerVelocityEvent(PlayerEvent):
+    """Called when the velocity of a player changes."""
+    @property
+    def velocity(self) -> Vector:
+        """The velocity vector that will be sent to the player.
+
+        The getter returns a copy; assign the modified vector back to this property.
+        """
+        ...
+    @velocity.setter
+    def velocity(self, value: Vector) -> None: ...
 
 class PlayerPortalEvent(PlayerTeleportEvent):
     """

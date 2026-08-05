@@ -22,11 +22,13 @@
 #include "bedrock/network/raknet_connector.h"
 #include "bedrock/network/server_network_system.h"
 #include "bedrock/server/server_instance.h"
+#include "bedrock/world/actor/actor_runtime_id.h"
 #include "endstone/core/level/level.h"
 #include "endstone/core/map/map_view.h"
 #include "endstone/core/player.h"
 #include "endstone/core/server.h"
 #include "endstone/core/util/socket_address.h"
+#include "endstone/event/player/player_velocity_event.h"
 #include "endstone/event/server/packet_receive_event.h"
 #include "endstone/event/server/packet_send_event.h"
 #include "endstone/runtime/hook.h"
@@ -107,6 +109,69 @@ void patchPacket(const ClientboundMapItemDataPacket &packet, endstone::core::End
                                                 ));
         }
     }
+}
+
+bool readUnsignedVarInt64(std::string_view payload, std::size_t &offset, std::uint64_t &value)
+{
+    value = 0;
+    for (unsigned int shift = 0; shift < 64; shift += 7) {
+        if (offset >= payload.size()) {
+            return false;
+        }
+
+        const auto byte = static_cast<std::uint8_t>(payload[offset++]);
+        if (shift == 63 && byte > 1) {
+            return false;
+        }
+
+        value |= static_cast<std::uint64_t>(byte & 0x7f) << shift;
+        if ((byte & 0x80) == 0) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool handlePlayerVelocityPacket(std::string_view payload, const ::Player *recipient,
+                                 const endstone::core::EndstoneServer &server, std::string &modified_payload)
+{
+    if (!recipient) {
+        return false;
+    }
+
+    const auto *level = server.getEndstoneLevel();
+    if (!level) {
+        return false;
+    }
+
+    std::size_t offset = 0;
+    std::uint64_t runtime_id = 0;
+    if (!readUnsignedVarInt64(payload, offset, runtime_id)) {
+        return false;
+    }
+
+    auto *target = level->getHandle().getRuntimePlayer(ActorRuntimeID{runtime_id});
+    if (!target || target != recipient || payload.size() - offset < sizeof(float) * 3) {
+        return false;
+    }
+
+    float motion[3];
+    std::memcpy(motion, payload.data() + offset, sizeof(motion));
+
+    endstone::PlayerVelocityEvent event{target->getEndstoneActor<endstone::core::EndstonePlayer>(),
+                                        {motion[0], motion[1], motion[2]}};
+    server.getPluginManager().callEvent(event);
+
+    const auto velocity = event.getVelocity();
+    const float modified_motion[] = {velocity.getX(), velocity.getY(), velocity.getZ()};
+    if (std::memcmp(modified_motion, motion, sizeof(motion)) == 0) {
+        return false;
+    }
+
+    modified_payload.assign(payload.data(), payload.size());
+    std::memcpy(modified_payload.data() + offset, modified_motion, sizeof(modified_motion));
+    return true;
 }
 
 void patchPacket(Packet &packet, endstone::Player *player)
@@ -192,6 +257,13 @@ void BatchedNetworkPeer::sendPacket(const std::string &data, Reliability reliabi
     }
     default:
         break;
+    }
+
+    if (header.getPacketId() == MinecraftPacketIds::SetActorMotion) {
+        std::string modified_payload;
+        if (handlePlayerVelocityPacket(payload, server_player, server, modified_payload)) {
+            e.setPayload(modified_payload);
+        }
     }
 
     server.getPluginManager().callEvent(e);
