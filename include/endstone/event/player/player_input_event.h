@@ -14,8 +14,6 @@
 
 #pragma once
 
-#include <utility>
-
 #include "endstone/event/player/player_event.h"
 #include "endstone/input.h"
 
@@ -28,7 +26,7 @@ class PlayerInputEvent final : public PlayerEvent {
 public:
     ENDSTONE_EVENT(PlayerInputEvent)
 
-    explicit PlayerInputEvent(Player &player, Input input) : PlayerEvent(player), input_(std::move(input)) {}
+    explicit PlayerInputEvent(Player &player, Input input) : PlayerEvent(player), input_(input) {}
 
     /**
      * Gets the new input received from this player.

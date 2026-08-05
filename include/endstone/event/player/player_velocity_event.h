@@ -5,8 +5,6 @@
 
 #pragma once
 
-#include <utility>
-
 #include "endstone/event/player/player_event.h"
 #include "endstone/util/vector.h"
 
@@ -19,7 +17,7 @@ class PlayerVelocityEvent final : public PlayerEvent {
 public:
     ENDSTONE_EVENT(PlayerVelocityEvent);
 
-    explicit PlayerVelocityEvent(Player &player, Vector velocity) : PlayerEvent(player), velocity_(std::move(velocity)) {}
+    explicit PlayerVelocityEvent(Player &player, Vector velocity) : PlayerEvent(player), velocity_(velocity) {}
 
     /**
      * Gets the velocity vector that will be sent to the player.
@@ -35,7 +33,7 @@ public:
      *
      * @param velocity The velocity vector.
      */
-    void setVelocity(Vector velocity) { velocity_ = std::move(velocity); }
+    void setVelocity(Vector velocity) { velocity_ = velocity; }
 
 private:
     Vector velocity_;
