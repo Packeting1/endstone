@@ -62,6 +62,7 @@ __all__ = [
     "PlayerEmoteEvent",
     "PlayerEvent",
     "PlayerGameModeChangeEvent",
+    "PlayerGlideEvent",
     "PlayerInteractActorEvent",
     "PlayerInteractEvent",
     "PlayerItemConsumeEvent",
@@ -817,6 +818,17 @@ class PlayerSwimEvent(PlayerEvent):
     def is_swimming(self) -> bool:
         """
         Whether the player is swimming.
+        """
+        ...
+
+class PlayerGlideEvent(PlayerEvent):
+    """
+    Called when a player starts or stops gliding.
+    """
+    @property
+    def is_gliding(self) -> bool:
+        """
+        Whether the player is gliding.
         """
         ...
 

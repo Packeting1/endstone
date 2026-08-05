@@ -61,6 +61,7 @@
 #include "endstone/core/util/uuid.h"
 #include "endstone/event/player/player_bed_leave_event.h"
 #include "endstone/event/player/player_emote_event.h"
+#include "endstone/event/player/player_glide_event.h"
 #include "endstone/event/player/player_interact_event.h"
 #include "endstone/event/player/player_item_held_event.h"
 #include "endstone/event/player/player_join_event.h"
@@ -776,6 +777,15 @@ bool EndstonePlayer::handlePacket(Packet &packet)
         }
         else if (pk.getInput(PlayerAuthInputPacket::InputData::StopSwimming) && getHandle().isSwimming()) {
             PlayerSwimEvent e(*this, false);
+            getServer().getPluginManager().callEvent(e);
+        }
+        if (pk.getInput(PlayerAuthInputPacket::InputData::StartGliding) && !getHandle().isGliding() &&
+            !getHandle().isInWater()) {
+            PlayerGlideEvent e(*this, true);
+            getServer().getPluginManager().callEvent(e);
+        }
+        else if (pk.getInput(PlayerAuthInputPacket::InputData::StopGliding) && getHandle().isGliding()) {
+            PlayerGlideEvent e(*this, false);
             getServer().getPluginManager().callEvent(e);
         }
 
