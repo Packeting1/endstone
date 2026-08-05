@@ -80,6 +80,7 @@ __all__ = [
     "PlayerRespawnEvent",
     "PlayerSkinChangeEvent",
     "PlayerSneakEvent",
+    "PlayerRiptideEvent",
     "PlayerSprintEvent",
     "PlayerSwimEvent",
     "PlayerTeleportEvent",
@@ -798,6 +799,17 @@ class PlayerSneakEvent(PlayerEvent):
     def is_sneaking(self) -> bool:
         """
         Whether the player is attempting to sneak.
+        """
+        ...
+
+class PlayerRiptideEvent(PlayerEvent):
+    """
+    Called when a player starts or stops a riptide attack.
+    """
+    @property
+    def is_riptiding(self) -> bool:
+        """
+        Whether the player is riptiding.
         """
         ...
 

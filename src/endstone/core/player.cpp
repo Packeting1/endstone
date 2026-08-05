@@ -71,6 +71,7 @@
 #include "endstone/event/player/player_move_event.h"
 #include "endstone/event/player/player_skin_change_event.h"
 #include "endstone/event/player/player_sneak_event.h"
+#include "endstone/event/player/player_riptide_event.h"
 #include "endstone/event/player/player_sprint_event.h"
 #include "endstone/event/player/player_swim_event.h"
 #include "endstone/form/action_form.h"
@@ -804,6 +805,14 @@ bool EndstonePlayer::handlePacket(Packet &packet)
         }
         else if (pk.getInput(PlayerAuthInputPacket::InputData::StopCrawling) && getHandle().isCrawling()) {
             PlayerCrawlEvent e(*this, false);
+            getServer().getPluginManager().callEvent(e);
+        }
+        if (pk.getInput(PlayerAuthInputPacket::InputData::StartSpinAttack)) {
+            PlayerRiptideEvent e(*this, true);
+            getServer().getPluginManager().callEvent(e);
+        }
+        else if (pk.getInput(PlayerAuthInputPacket::InputData::StopSpinAttack)) {
+            PlayerRiptideEvent e(*this, false);
             getServer().getPluginManager().callEvent(e);
         }
 
