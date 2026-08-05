@@ -58,6 +58,7 @@ __all__ = [
     "OFF_ARM_SWING",
     "PlayerBedEnterEvent",
     "PlayerBedLeaveEvent",
+    "PlayerLevelChangeEvent",
     "PlayerBlockDamageEvent",
     "PlayerChatEvent",
     "PlayerCommandEvent",
@@ -595,6 +596,21 @@ class PlayerBedLeaveEvent(PlayerEvent):
     def bed(self) -> Block:
         """
         The bed block involved in this event.
+        """
+        ...
+
+class PlayerLevelChangeEvent(PlayerEvent):
+    """Called when a player's level changes."""
+    @property
+    def old_level(self) -> int:
+        """
+        The player's level before the change.
+        """
+        ...
+    @property
+    def new_level(self) -> int:
+        """
+        The player's level after the change.
         """
         ...
 
