@@ -49,7 +49,7 @@ public:
     };
 
     PlayerBlockDamageEvent(Player &player, Action action, std::optional<ItemStack> item, Block *block,
-                           std::optional<BlockFace> block_face, std::optional<Vector> position)
+                           std::optional<BlockFace> block_face, Vector position)
         : Cancellable(player), action_(action), item_(std::move(item)), block_(block), block_face_(block_face),
           position_(std::move(position))
     {
@@ -59,14 +59,14 @@ public:
     [[nodiscard]] const std::optional<ItemStack> &getItem() const { return item_; }
     [[nodiscard]] Block *getBlock() const { return block_; }
     [[nodiscard]] std::optional<BlockFace> getBlockFace() const { return block_face_; }
-    [[nodiscard]] std::optional<Vector> getPosition() const { return position_; }
+    [[nodiscard]] Vector getPosition() const { return position_; }
 
 private:
     Action action_;
     std::optional<ItemStack> item_;
     Block *block_;
     std::optional<BlockFace> block_face_;
-    std::optional<Vector> position_;
+    Vector position_;
 };
 
 }  // namespace endstone

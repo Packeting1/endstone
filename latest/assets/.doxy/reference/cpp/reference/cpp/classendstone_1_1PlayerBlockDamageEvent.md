@@ -98,12 +98,12 @@ Inherits the following classes: [endstone::Cancellable](classendstone_1_1Cancell
 
 | Type | Name |
 | ---: | :--- |
-|   | [**PlayerBlockDamageEvent**](#function-playerblockdamageevent) ([**Player**](classendstone_1_1Player.md) & player, Action action, std::optional&lt; [**ItemStack**](classendstone_1_1ItemStack.md) &gt; item, [**Block**](classendstone_1_1Block.md) \* block, std::optional&lt; [**BlockFace**](namespaceendstone.md#enum-blockface) &gt; block\_face, std::optional&lt; [**Vector**](classendstone_1_1Vector.md) &gt; position) <br> |
+|   | [**PlayerBlockDamageEvent**](#function-playerblockdamageevent) ([**Player**](classendstone_1_1Player.md) & player, Action action, std::optional&lt; [**ItemStack**](classendstone_1_1ItemStack.md) &gt; item, [**Block**](classendstone_1_1Block.md) \* block, std::optional&lt; [**BlockFace**](namespaceendstone.md#enum-blockface) &gt; block\_face, [**Vector**](classendstone_1_1Vector.md) position) <br> |
 |  Action | [**getAction**](#function-getaction) () const<br> |
 |  [**Block**](classendstone_1_1Block.md) \* | [**getBlock**](#function-getblock) () const<br> |
 |  std::optional&lt; [**BlockFace**](namespaceendstone.md#enum-blockface) &gt; | [**getBlockFace**](#function-getblockface) () const<br> |
 |  [**const**](classendstone_1_1Identifier.md) std::optional&lt; [**ItemStack**](classendstone_1_1ItemStack.md) &gt; & | [**getItem**](#function-getitem) () const<br> |
-|  std::optional&lt; [**Vector**](classendstone_1_1Vector.md) &gt; | [**getPosition**](#function-getposition) () const<br> |
+|  [**Vector**](classendstone_1_1Vector.md) | [**getPosition**](#function-getposition) () const<br> |
 
 
 ## Public Functions inherited from endstone::Cancellable
@@ -243,7 +243,7 @@ inline endstone::PlayerBlockDamageEvent::PlayerBlockDamageEvent (
     std::optional< ItemStack > item,
     Block * block,
     std::optional< BlockFace > block_face,
-    std::optional< Vector > position
+    Vector position
 ) 
 ```
 
@@ -309,7 +309,7 @@ inline const std::optional< ItemStack > & endstone::PlayerBlockDamageEvent::getI
 ### function getPosition 
 
 ```C++
-inline std::optional< Vector > endstone::PlayerBlockDamageEvent::getPosition () const
+inline Vector endstone::PlayerBlockDamageEvent::getPosition () const
 ```
 
 

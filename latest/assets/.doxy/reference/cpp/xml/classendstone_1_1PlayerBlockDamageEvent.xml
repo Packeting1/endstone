@@ -117,9 +117,9 @@
         </inbodydescription>
         <location file="include/endstone/event/player/player_block_damage_event.h" line="61" column="19" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="61" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="classendstone_1_1PlayerBlockDamageEvent_1a0bf7d6b30838fd29b6a5bcc6ada7b2a6" prot="private" static="no" mutable="no">
-        <type>std::optional&lt; <ref refid="classendstone_1_1Vector" kindref="compound">Vector</ref> &gt;</type>
-        <definition>std::optional&lt;Vector&gt; endstone::PlayerBlockDamageEvent::position_</definition>
+      <memberdef kind="variable" id="classendstone_1_1PlayerBlockDamageEvent_1a3ab49900461d39547515062cce44e4aa" prot="private" static="no" mutable="no">
+        <type><ref refid="classendstone_1_1Vector" kindref="compound">Vector</ref></type>
+        <definition>Vector endstone::PlayerBlockDamageEvent::position_</definition>
         <argsstring></argsstring>
         <name>position_</name>
         <qualifiedname>endstone::PlayerBlockDamageEvent::position_</qualifiedname>
@@ -129,14 +129,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_block_damage_event.h" line="62" column="19" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="62" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_block_damage_event.h" line="62" column="12" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="62" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
-      <memberdef kind="function" id="classendstone_1_1PlayerBlockDamageEvent_1a8454cb4f3cd500be97061fe21def7857" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classendstone_1_1PlayerBlockDamageEvent_1a9686ac8df4d25ea8cea22f388cbcbab5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>endstone::PlayerBlockDamageEvent::PlayerBlockDamageEvent</definition>
-        <argsstring>(Player &amp;player, Action action, std::optional&lt; ItemStack &gt; item, Block *block, std::optional&lt; BlockFace &gt; block_face, std::optional&lt; Vector &gt; position)</argsstring>
+        <argsstring>(Player &amp;player, Action action, std::optional&lt; ItemStack &gt; item, Block *block, std::optional&lt; BlockFace &gt; block_face, Vector position)</argsstring>
         <name>PlayerBlockDamageEvent</name>
         <qualifiedname>endstone::PlayerBlockDamageEvent::PlayerBlockDamageEvent</qualifiedname>
         <param>
@@ -160,7 +160,7 @@
           <declname>block_face</declname>
         </param>
         <param>
-          <type>std::optional&lt; <ref refid="classendstone_1_1Vector" kindref="compound">Vector</ref> &gt;</type>
+          <type><ref refid="classendstone_1_1Vector" kindref="compound">Vector</ref></type>
           <declname>position</declname>
         </param>
         <briefdescription>
@@ -227,9 +227,9 @@
         </inbodydescription>
         <location file="include/endstone/event/player/player_block_damage_event.h" line="54" column="20" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="54" bodyend="54"/>
       </memberdef>
-      <memberdef kind="function" id="classendstone_1_1PlayerBlockDamageEvent_1a10b79caee54fa1388c60cf42950ebec4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>std::optional&lt; <ref refid="classendstone_1_1Vector" kindref="compound">Vector</ref> &gt;</type>
-        <definition>std::optional&lt; Vector &gt; endstone::PlayerBlockDamageEvent::getPosition</definition>
+      <memberdef kind="function" id="classendstone_1_1PlayerBlockDamageEvent_1abb4cebafffc08a4c39c905c38abb6666" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Vector" kindref="compound">Vector</ref></type>
+        <definition>Vector endstone::PlayerBlockDamageEvent::getPosition</definition>
         <argsstring>() const</argsstring>
         <name>getPosition</name>
         <qualifiedname>endstone::PlayerBlockDamageEvent::getPosition</qualifiedname>
@@ -239,7 +239,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_block_damage_event.h" line="55" column="20" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="55" bodyend="55"/>
+        <location file="include/endstone/event/player/player_block_damage_event.h" line="55" column="13" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="55" bodyend="55"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -323,16 +323,16 @@
       <member refid="classendstone_1_1Event_1a826fe74f9c4195a36a364b9aeeb321bb" prot="public" virt="pure-virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>getEventName</name></member>
       <member refid="classendstone_1_1PlayerBlockDamageEvent_1aa8c077c47615b65067bebc95312f74b0" prot="public" virt="non-virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>getItem</name></member>
       <member refid="classendstone_1_1PlayerEvent_1a3ad904b05886ce30c7299500d9a57fdb" prot="public" virt="non-virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>getPlayer</name></member>
-      <member refid="classendstone_1_1PlayerBlockDamageEvent_1a10b79caee54fa1388c60cf42950ebec4" prot="public" virt="non-virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>getPosition</name></member>
+      <member refid="classendstone_1_1PlayerBlockDamageEvent_1abb4cebafffc08a4c39c905c38abb6666" prot="public" virt="non-virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>getPosition</name></member>
       <member refid="classendstone_1_1Event_1ae89b54f63dc32b0c8797a59db69b6931" prot="public" virt="non-virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>isAsynchronous</name></member>
       <member refid="classendstone_1_1Cancellable_1a268b73cc5bda0fa5923336d031814faa" prot="public" virt="virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>isCancelled</name></member>
       <member refid="classendstone_1_1PlayerBlockDamageEvent_1af5ceda239c64d414db1eebc01280997e" prot="private" virt="non-virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>item_</name></member>
       <member refid="classendstone_1_1Event_1a44a4ff424a8b690c01a2afe10ae68d8f" prot="public" virt="non-virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>operator=</name></member>
       <member refid="classendstone_1_1Event_1a1d7fc5400782d20be99a3636aa7f53b9" prot="public" virt="non-virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>operator=</name></member>
       <member refid="classendstone_1_1PlayerEvent_1a263609667f42005d6cfe9f3a128477bd" prot="protected" virt="non-virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>player_</name></member>
-      <member refid="classendstone_1_1PlayerBlockDamageEvent_1a8454cb4f3cd500be97061fe21def7857" prot="public" virt="non-virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>PlayerBlockDamageEvent</name></member>
+      <member refid="classendstone_1_1PlayerBlockDamageEvent_1a9686ac8df4d25ea8cea22f388cbcbab5" prot="public" virt="non-virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>PlayerBlockDamageEvent</name></member>
       <member refid="classendstone_1_1PlayerEvent_1a244b2be43274af72138b157f63455419" prot="public" virt="non-virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>PlayerEvent</name></member>
-      <member refid="classendstone_1_1PlayerBlockDamageEvent_1a0bf7d6b30838fd29b6a5bcc6ada7b2a6" prot="private" virt="non-virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>position_</name></member>
+      <member refid="classendstone_1_1PlayerBlockDamageEvent_1a3ab49900461d39547515062cce44e4aa" prot="private" virt="non-virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>position_</name></member>
       <member refid="classendstone_1_1Cancellable_1aa12df44bcb66924d06a689d0dd07865e" prot="public" virt="virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>setCancelled</name></member>
       <member refid="classendstone_1_1Event_1a6aeaa8096baba90f8ace94106e0e05f3" prot="public" virt="virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>~Event</name></member>
       <member refid="classendstone_1_1ICancellable_1ab6d311fcaa18971f69a1b23f5a856301" prot="public" virt="virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>~ICancellable</name></member>
