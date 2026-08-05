@@ -857,7 +857,7 @@ bool EndstonePlayer::handlePacket(Packet &packet)
         PlayerRecipeBookSettingsChangeEvent e{
             *this,
             PlayerRecipeBookSettingsChangeEvent::RecipeBookType::Crafting,
-            options.layout_craft == InventoryLayout::RecipeBookOnly,
+            options.layout_inv != InventoryLayout::InventoryOnly,
             options.filtering,
         };
         getServer().getPluginManager().callEvent(e);
