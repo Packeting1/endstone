@@ -497,8 +497,8 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
         .def_property_readonly("item", &PlayerPickupItemEvent::getItem, py::return_value_policy::reference,
                                "The Item picked up by the entity.");
 
-    py::class_<PlayerVelocityEvent, PlayerEvent, ICancellable>(m, "PlayerVelocityEvent",
-                                                               "Called when the velocity of a player changes.")
+    py::class_<PlayerVelocityEvent, PlayerEvent>(m, "PlayerVelocityEvent",
+                                                 "Called when the velocity of a player changes.")
         .def_property("velocity", &PlayerVelocityEvent::getVelocity, &PlayerVelocityEvent::setVelocity,
                       R"doc(
     The velocity vector that will be sent to the player.

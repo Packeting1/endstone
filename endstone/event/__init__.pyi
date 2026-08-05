@@ -1160,7 +1160,7 @@ class PlayerTeleportEvent(PlayerMoveEvent):
     Called when a player is teleported from one location to another.
     """
 
-class PlayerVelocityEvent(PlayerEvent, Cancellable):
+class PlayerVelocityEvent(PlayerEvent):
     """Called when the velocity of a player changes."""
     @property
     def velocity(self) -> Vector:

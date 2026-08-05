@@ -14,9 +14,6 @@
 
 #include "bedrock/network/batched_network_peer.h"
 
-#include <cstdint>
-#include <cstring>
-
 #include "bedrock/network/packet.h"
 #include "bedrock/network/packet/clientbound_map_item_data_packet.h"
 #include "bedrock/network/packet/resource_pack_stack_packet.h"
@@ -105,13 +102,6 @@ void patchPacket(const ClientboundMapItemDataPacket &packet, endstone::core::End
     }
 }
 
-enum class PlayerVelocityPacketResult {
-    NotApplicable,
-    Unchanged,
-    Modified,
-    Cancelled,
-};
-
 bool readUnsignedVarInt64(std::string_view payload, std::size_t &offset, std::uint64_t &value)
 {
     value = 0;
@@ -134,28 +124,27 @@ bool readUnsignedVarInt64(std::string_view payload, std::size_t &offset, std::ui
     return false;
 }
 
-PlayerVelocityPacketResult handlePlayerVelocityPacket(std::string_view payload, const ::Player *recipient,
-                                                       const endstone::core::EndstoneServer &server,
-                                                       std::string &modified_payload)
+bool handlePlayerVelocityPacket(std::string_view payload, const ::Player *recipient,
+                                 const endstone::core::EndstoneServer &server, std::string &modified_payload)
 {
     if (!recipient) {
-        return PlayerVelocityPacketResult::NotApplicable;
+        return false;
     }
 
     const auto *level = server.getEndstoneLevel();
     if (!level) {
-        return PlayerVelocityPacketResult::NotApplicable;
+        return false;
     }
 
     std::size_t offset = 0;
     std::uint64_t runtime_id = 0;
     if (!readUnsignedVarInt64(payload, offset, runtime_id)) {
-        return PlayerVelocityPacketResult::NotApplicable;
+        return false;
     }
 
     auto *target = level->getHandle().getRuntimePlayer(ActorRuntimeID{runtime_id});
     if (!target || target != recipient || payload.size() - offset < sizeof(float) * 3) {
-        return PlayerVelocityPacketResult::NotApplicable;
+        return false;
     }
 
     float motion[3];
@@ -164,19 +153,16 @@ PlayerVelocityPacketResult handlePlayerVelocityPacket(std::string_view payload, 
     endstone::PlayerVelocityEvent event{target->getEndstoneActor<endstone::core::EndstonePlayer>(),
                                         {motion[0], motion[1], motion[2]}};
     server.getPluginManager().callEvent(event);
-    if (event.isCancelled()) {
-        return PlayerVelocityPacketResult::Cancelled;
-    }
 
     const auto velocity = event.getVelocity();
     const float modified_motion[] = {velocity.getX(), velocity.getY(), velocity.getZ()};
     if (std::memcmp(modified_motion, motion, sizeof(motion)) == 0) {
-        return PlayerVelocityPacketResult::Unchanged;
+        return false;
     }
 
     modified_payload.assign(payload.data(), payload.size());
     std::memcpy(modified_payload.data() + offset, modified_motion, sizeof(modified_motion));
-    return PlayerVelocityPacketResult::Modified;
+    return true;
 }
 
 void patchPacket(Packet &packet, endstone::Player *player)
@@ -264,24 +250,15 @@ void BatchedNetworkPeer::sendPacket(const std::string &data, Reliability reliabi
         break;
     }
 
-    bool player_velocity_cancelled = false;
     if (header.getPacketId() == MinecraftPacketIds::SetActorMotion) {
         std::string modified_payload;
-        switch (handlePlayerVelocityPacket(payload, server_player, server, modified_payload)) {
-        case PlayerVelocityPacketResult::Modified:
+        if (handlePlayerVelocityPacket(payload, server_player, server, modified_payload)) {
             e.setPayload(modified_payload);
-            break;
-        case PlayerVelocityPacketResult::Cancelled:
-            player_velocity_cancelled = true;
-            break;
-        case PlayerVelocityPacketResult::Unchanged:
-        case PlayerVelocityPacketResult::NotApplicable:
-            break;
         }
     }
 
     server.getPluginManager().callEvent(e);
-    if (player_velocity_cancelled || e.isCancelled()) {
+    if (e.isCancelled()) {
         return;
     }
 
