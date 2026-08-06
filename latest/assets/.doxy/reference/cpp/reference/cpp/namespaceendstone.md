@@ -186,6 +186,7 @@ _Represents a button with text and an optional icon._
 | class | [**PlayerRecipeBookSettingsChangeEvent**](classendstone_1_1PlayerRecipeBookSettingsChangeEvent.md) <br>_Represents an event that is called when a player changes recipe book settings._  |
 | class | [**PlayerRespawnEvent**](classendstone_1_1PlayerRespawnEvent.md) <br>_Called when a player respawns._  |
 | class | [**PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md) <br>_Called when a player starts or stops a riptide attack._  |
+| class | [**PlayerShearEntityEvent**](classendstone_1_1PlayerShearEntityEvent.md) <br>_Called when a player shears an entity._  |
 | class | [**PlayerSkinChangeEvent**](classendstone_1_1PlayerSkinChangeEvent.md) <br>_Called when a player changes their skin._  |
 | class | [**PlayerSneakEvent**](classendstone_1_1PlayerSneakEvent.md) <br>_Called when a player starts or stops sneaking._  |
 | class | [**PlayerSprintEvent**](classendstone_1_1PlayerSprintEvent.md) <br>_Called when a player starts or stops sprinting._  |

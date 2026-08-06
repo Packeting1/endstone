@@ -432,6 +432,8 @@
 ([**endstone**](namespaceendstone.md))
 * [**PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md)
 ([**endstone**](namespaceendstone.md))
+* [**PlayerShearEntityEvent**](classendstone_1_1PlayerShearEntityEvent.md)
+([**endstone**](namespaceendstone.md))
 * [**PlayerSkinChangeEvent**](classendstone_1_1PlayerSkinChangeEvent.md)
 ([**endstone**](namespaceendstone.md))
 * [**PlayerSneakEvent**](classendstone_1_1PlayerSneakEvent.md)
