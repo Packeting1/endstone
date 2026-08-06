@@ -90,6 +90,7 @@ __all__ = [
     "PlayerRecipeBookSettingsChangeEvent",
     "PlayerRespawnEvent",
     "PlayerRiptideEvent",
+    "PlayerShearEntityEvent",
     "PlayerSkinChangeEvent",
     "PlayerSneakEvent",
     "PlayerSprintEvent",
@@ -647,6 +648,27 @@ class PlayerRecipeBookSettingsChangeEvent(PlayerEvent):
     def is_open(self) -> bool:
         """
         Whether the recipe book is open.
+        """
+        ...
+
+class PlayerShearEntityEvent(PlayerEvent, Cancellable):
+    """Called when a player shears an entity."""
+    @property
+    def entity(self) -> Actor:
+        """
+        The entity that was sheared.
+        """
+        ...
+    @property
+    def hand(self) -> EquipmentSlot:
+        """
+        The hand used to shear the entity.
+        """
+        ...
+    @property
+    def item(self) -> ItemStack:
+        """
+        The item used to shear the entity.
         """
         ...
 
