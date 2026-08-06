@@ -20,7 +20,6 @@ class Player;
 
 namespace endstone::runtime {
 
-[[nodiscard]] bool fireArmorStandManipulateEvent(const ::Player &player, const ::Actor &target,
-                                                 const ::ItemStack &item);
+[[nodiscard]] bool fireShearEntityEvent(const ::Player &player, const ::Actor &target, const ::ItemStack &item);
 
 }  // namespace endstone::runtime
