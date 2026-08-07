@@ -13,6 +13,7 @@
     <derivedcompoundref refid="classendstone_1_1PlayerJoinEvent" prot="public" virt="non-virtual">endstone::PlayerJoinEvent</derivedcompoundref>
     <derivedcompoundref refid="classendstone_1_1PlayerLevelChangeEvent" prot="public" virt="non-virtual">endstone::PlayerLevelChangeEvent</derivedcompoundref>
     <derivedcompoundref refid="classendstone_1_1PlayerQuitEvent" prot="public" virt="non-virtual">endstone::PlayerQuitEvent</derivedcompoundref>
+    <derivedcompoundref refid="classendstone_1_1PlayerRecipeBookClickEvent" prot="public" virt="non-virtual">endstone::PlayerRecipeBookClickEvent</derivedcompoundref>
     <derivedcompoundref refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent" prot="public" virt="non-virtual">endstone::PlayerRecipeBookSettingsChangeEvent</derivedcompoundref>
     <derivedcompoundref refid="classendstone_1_1PlayerRespawnEvent" prot="public" virt="non-virtual">endstone::PlayerRespawnEvent</derivedcompoundref>
     <derivedcompoundref refid="classendstone_1_1PlayerRiptideEvent" prot="public" virt="non-virtual">endstone::PlayerRiptideEvent</derivedcompoundref>
@@ -292,18 +293,24 @@
         </childnode>
       </node>
       <node id="37">
+        <label>endstone::PlayerRecipeBookClickEvent</label>
+        <link refid="classendstone_1_1PlayerRecipeBookClickEvent"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="38">
         <label>endstone::PlayerRecipeBookSettingsChangeEvent</label>
         <link refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="38">
+      <node id="39">
         <label>endstone::PlayerRespawnEvent</label>
         <link refid="classendstone_1_1PlayerRespawnEvent"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="39">
+      <node id="40">
         <label>endstone::PlayerRiptideEvent</label>
         <link refid="classendstone_1_1PlayerRiptideEvent"/>
         <childnode refid="1" relation="public-inheritance">
@@ -321,19 +328,19 @@
         <childnode refid="3" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="40">
+      <node id="41">
         <label>endstone::PlayerSneakEvent</label>
         <link refid="classendstone_1_1PlayerSneakEvent"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="41">
+      <node id="42">
         <label>endstone::PlayerSprintEvent</label>
         <link refid="classendstone_1_1PlayerSprintEvent"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="42">
+      <node id="43">
         <label>endstone::PlayerSwimEvent</label>
         <link refid="classendstone_1_1PlayerSwimEvent"/>
         <childnode refid="1" relation="public-inheritance">
@@ -345,7 +352,7 @@
         <childnode refid="20" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="43">
+      <node id="44">
         <label>endstone::PlayerVelocityEvent</label>
         <link refid="classendstone_1_1PlayerVelocityEvent"/>
         <childnode refid="1" relation="public-inheritance">

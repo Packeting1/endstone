@@ -3,6 +3,7 @@
   <compounddef id="recipe_8h" kind="file" language="C++">
     <compoundname>recipe.h</compoundname>
     <includes refid="item__stack_8h" local="yes">endstone/inventory/item_stack.h</includes>
+    <includedby refid="player__recipe__book__click__event_8h" local="yes">include/endstone/event/player/player_recipe_book_click_event.h</includedby>
     <incdepgraph>
       <node id="27">
         <label>endstone/ban/ban_entry.h</label>
@@ -834,6 +835,18 @@
         <label>vector</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>include/endstone/event/player/player_recipe_book_click_event.h</label>
+        <link refid="player__recipe__book__click__event_8h_source"/>
+      </node>
+      <node id="1">
+        <label>include/endstone/inventory/recipe.h</label>
+        <link refid="recipe_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innerclass refid="classendstone_1_1Recipe" prot="public">endstone::Recipe</innerclass>
     <innernamespace refid="namespaceendstone">endstone</innernamespace>
     <briefdescription>

@@ -8,7 +8,7 @@
 
 
 
-_Called when a player starts, continues, aborts, predicts, stops, or creatively destroys a block._ 
+_Called when a player starts, continues, aborts, predicts, stops, or creatively destroys a block._ [More...](#detailed-description)
 
 * `#include <endstone/event/player/player_block_damage_event.h>`
 
@@ -207,6 +207,13 @@ See [endstone::ICancellable](classendstone_1_1ICancellable.md)
 
 
 
+## Detailed Description
+
+
+Cancellation is honored for Start and Continue actions only. 
+
+
+    
 ## Public Types Documentation
 
 

@@ -35,7 +35,7 @@
 
 | Type | Name |
 | ---: | :--- |
-| class | [**Recipe**](classendstone_1_1Recipe.md) <br>_Represents some type of crafting recipe._  |
+| class | [**Recipe**](classendstone_1_1Recipe.md) <br>_Represents a crafting recipe._  |
 
 
 

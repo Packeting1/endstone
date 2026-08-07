@@ -392,6 +392,7 @@
 * **on\_close\_** ([**endstone::Form**](classendstone_1_1Form.md))
 * **owned\_payload\_** ([**endstone::PacketReceiveEvent**](classendstone_1_1PacketReceiveEvent.md), [**endstone::PacketSendEvent**](classendstone_1_1PacketSendEvent.md))
 * **old\_level\_** ([**endstone::PlayerLevelChangeEvent**](classendstone_1_1PlayerLevelChangeEvent.md))
+* **original\_recipe\_** ([**endstone::PlayerRecipeBookClickEvent**](classendstone_1_1PlayerRecipeBookClickEvent.md))
 * **owner\_** ([**endstone::PluginCommand**](classendstone_1_1PluginCommand.md))
 
 
@@ -472,6 +473,7 @@
 * **Riptide** ([**endstone::Enchantment**](classendstone_1_1Enchantment.md))
 * **right\_** ([**endstone::Input**](classendstone_1_1Input.md))
 * **removed\_** ([**endstone::PermissionAttachment**](classendstone_1_1PermissionAttachment.md))
+* **recipe\_** ([**endstone::PlayerRecipeBookClickEvent**](classendstone_1_1PlayerRecipeBookClickEvent.md))
 * **recipe\_book\_type\_** ([**endstone::PlayerRecipeBookSettingsChangeEvent**](classendstone_1_1PlayerRecipeBookSettingsChangeEvent.md))
 * **riptiding\_** ([**endstone::PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md))
 
@@ -513,6 +515,7 @@
 * **sub\_client\_id\_** ([**endstone::PacketReceiveEvent**](classendstone_1_1PacketReceiveEvent.md), [**endstone::PacketSendEvent**](classendstone_1_1PacketSendEvent.md))
 * **slot\_** ([**endstone::PlayerArmorStandManipulateEvent**](classendstone_1_1PlayerArmorStandManipulateEvent.md), [**endstone::PlayerEditBookEvent**](classendstone_1_1PlayerEditBookEvent.md))
 * **signing\_** ([**endstone::PlayerEditBookEvent**](classendstone_1_1PlayerEditBookEvent.md))
+* **shift\_click\_** ([**endstone::PlayerRecipeBookClickEvent**](classendstone_1_1PlayerRecipeBookClickEvent.md))
 * **sneaking\_** ([**endstone::PlayerSneakEvent**](classendstone_1_1PlayerSneakEvent.md))
 * **sprinting\_** ([**endstone::PlayerSprintEvent**](classendstone_1_1PlayerSprintEvent.md))
 * **swimming\_** ([**endstone::PlayerSwimEvent**](classendstone_1_1PlayerSwimEvent.md))

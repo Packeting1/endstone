@@ -910,6 +910,10 @@
         <label>include/endstone/event/player/player_pickup_item_event.h</label>
         <link refid="player__pickup__item__event_8h_source"/>
       </node>
+      <node id="22">
+        <label>include/endstone/event/player/player_recipe_book_click_event.h</label>
+        <link refid="player__recipe__book__click__event_8h_source"/>
+      </node>
       <node id="20">
         <label>include/endstone/event/player/player_shear_entity_event.h</label>
         <link refid="player__shear__entity__event_8h_source"/>
@@ -957,6 +961,8 @@
       <node id="21">
         <label>include/endstone/inventory/recipe.h</label>
         <link refid="recipe_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
       </node>
       <node id="4">
         <label>include/endstone/level/dimension.h</label>

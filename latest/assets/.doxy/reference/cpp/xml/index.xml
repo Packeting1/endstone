@@ -2171,6 +2171,18 @@
     <member refid="classendstone_1_1PlayerQuitEvent_1a1dc49d81c8a458e1a45d8d2c33f03f15" kind="function"><name>getQuitMessage</name></member>
     <member refid="classendstone_1_1PlayerQuitEvent_1a33ac4f643cbabfbaec170ba5ef88551a" kind="function"><name>setQuitMessage</name></member>
   </compound>
+  <compound refid="classendstone_1_1PlayerRecipeBookClickEvent" kind="class"><name>endstone::PlayerRecipeBookClickEvent</name>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a92941313ec24e9e169ed293e187a49b0" kind="variable"><name>original_recipe_</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1af85d9bf7e5a74265ec33f48dfc09f32f" kind="variable"><name>recipe_</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1af5640304a87e8eeb668fa5b4f9465ef2" kind="variable"><name>shift_click_</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1ac8369533e374a734dda5edd17923c0eb" kind="function"><name>ENDSTONE_EVENT</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1ac8a916295f33c21cf158ad30d31faca1" kind="function"><name>PlayerRecipeBookClickEvent</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1ac5dfa6ef55f13b18c1626adeff1aeddb" kind="function"><name>getOriginalRecipe</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a21da31b9caddf0b15a560905ab0e66ff" kind="function"><name>getRecipe</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1aba6c4f482c1dc07c31b5f350e859a0a0" kind="function"><name>setRecipe</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a55f87fd678f423833373d018a952d38f" kind="function"><name>isShiftClick</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1ad614df71c62aebf46f10cb36d7de3d54" kind="function"><name>setShiftClick</name></member>
+  </compound>
   <compound refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent" kind="class"><name>endstone::PlayerRecipeBookSettingsChangeEvent</name>
     <member refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent_1ab5709b487202d4c52eacf9e8b54ce67f" kind="enum"><name>RecipeBookType</name></member>
     <member refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent_1ab5709b487202d4c52eacf9e8b54ce67fa8c1a0a596c9fa42f02fe9c59eb1a83b6" kind="enumvalue"><name>Crafting</name></member>
@@ -3280,6 +3292,8 @@
   <compound refid="player__portal__event_8h" kind="file"><name>player_portal_event.h</name>
   </compound>
   <compound refid="player__quit__event_8h" kind="file"><name>player_quit_event.h</name>
+  </compound>
+  <compound refid="player__recipe__book__click__event_8h" kind="file"><name>player_recipe_book_click_event.h</name>
   </compound>
   <compound refid="player__recipe__book__settings__change__event_8h" kind="file"><name>player_recipe_book_settings_change_event.h</name>
   </compound>

@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classendstone_1_1PlayerRecipeBookClickEvent" kind="class" language="C++" prot="public" final="yes">
+    <compoundname>endstone::PlayerRecipeBookClickEvent</compoundname>
+    <basecompoundref refid="classendstone_1_1PlayerEvent" prot="public" virt="non-virtual">endstone::PlayerEvent</basecompoundref>
+    <includes refid="player__recipe__book__click__event_8h" local="no">endstone/event/player/player_recipe_book_click_event.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classendstone_1_1PlayerRecipeBookClickEvent_1a92941313ec24e9e169ed293e187a49b0" prot="private" static="no" mutable="no">
+        <type><ref refid="classendstone_1_1Recipe" kindref="compound">Recipe</ref> &amp;</type>
+        <definition>Recipe&amp; endstone::PlayerRecipeBookClickEvent::original_recipe_</definition>
+        <argsstring></argsstring>
+        <name>original_recipe_</name>
+        <qualifiedname>endstone::PlayerRecipeBookClickEvent::original_recipe_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_recipe_book_click_event.h" line="64" column="12" bodyfile="include/endstone/event/player/player_recipe_book_click_event.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classendstone_1_1PlayerRecipeBookClickEvent_1af85d9bf7e5a74265ec33f48dfc09f32f" prot="private" static="no" mutable="no">
+        <type><ref refid="classendstone_1_1Recipe" kindref="compound">Recipe</ref> &amp;</type>
+        <definition>Recipe&amp; endstone::PlayerRecipeBookClickEvent::recipe_</definition>
+        <argsstring></argsstring>
+        <name>recipe_</name>
+        <qualifiedname>endstone::PlayerRecipeBookClickEvent::recipe_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_recipe_book_click_event.h" line="65" column="12" bodyfile="include/endstone/event/player/player_recipe_book_click_event.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classendstone_1_1PlayerRecipeBookClickEvent_1af5640304a87e8eeb668fa5b4f9465ef2" prot="private" static="no" mutable="no">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>
+        <definition>bool endstone::PlayerRecipeBookClickEvent::shift_click_</definition>
+        <argsstring></argsstring>
+        <name>shift_click_</name>
+        <qualifiedname>endstone::PlayerRecipeBookClickEvent::shift_click_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_recipe_book_click_event.h" line="66" column="10" bodyfile="include/endstone/event/player/player_recipe_book_click_event.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classendstone_1_1PlayerRecipeBookClickEvent_1ac8369533e374a734dda5edd17923c0eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>endstone::PlayerRecipeBookClickEvent::ENDSTONE_EVENT</definition>
+        <argsstring>(PlayerRecipeBookClickEvent)</argsstring>
+        <name>ENDSTONE_EVENT</name>
+        <qualifiedname>endstone::PlayerRecipeBookClickEvent::ENDSTONE_EVENT</qualifiedname>
+        <param>
+          <type><ref refid="classendstone_1_1PlayerRecipeBookClickEvent" kindref="compound">PlayerRecipeBookClickEvent</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_recipe_book_click_event.h" line="21" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerRecipeBookClickEvent_1ac8a916295f33c21cf158ad30d31faca1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>endstone::PlayerRecipeBookClickEvent::PlayerRecipeBookClickEvent</definition>
+        <argsstring>(Player &amp;player, Recipe &amp;recipe, bool shift_click)</argsstring>
+        <name>PlayerRecipeBookClickEvent</name>
+        <qualifiedname>endstone::PlayerRecipeBookClickEvent::PlayerRecipeBookClickEvent</qualifiedname>
+        <param>
+          <type><ref refid="classendstone_1_1Player" kindref="compound">Player</ref> &amp;</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type><ref refid="classendstone_1_1Recipe" kindref="compound">Recipe</ref> &amp;</type>
+          <declname>recipe</declname>
+        </param>
+        <param>
+          <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>
+          <declname>shift_click</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_recipe_book_click_event.h" line="23" column="5" bodyfile="include/endstone/event/player/player_recipe_book_click_event.h" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerRecipeBookClickEvent_1ac5dfa6ef55f13b18c1626adeff1aeddb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Recipe" kindref="compound">Recipe</ref> &amp;</type>
+        <definition>Recipe &amp; endstone::PlayerRecipeBookClickEvent::getOriginalRecipe</definition>
+        <argsstring>() const</argsstring>
+        <name>getOriginalRecipe</name>
+        <qualifiedname>endstone::PlayerRecipeBookClickEvent::getOriginalRecipe</qualifiedname>
+        <briefdescription>
+<para>Gets the recipe originally selected by the player. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the originally selected recipe </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_recipe_book_click_event.h" line="33" column="13" bodyfile="include/endstone/event/player/player_recipe_book_click_event.h" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerRecipeBookClickEvent_1a21da31b9caddf0b15a560905ab0e66ff" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Recipe" kindref="compound">Recipe</ref> &amp;</type>
+        <definition>Recipe &amp; endstone::PlayerRecipeBookClickEvent::getRecipe</definition>
+        <argsstring>() const</argsstring>
+        <name>getRecipe</name>
+        <qualifiedname>endstone::PlayerRecipeBookClickEvent::getRecipe</qualifiedname>
+        <briefdescription>
+<para>Gets the recipe that will be used for crafting. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the recipe that will be used </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_recipe_book_click_event.h" line="40" column="13" bodyfile="include/endstone/event/player/player_recipe_book_click_event.h" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerRecipeBookClickEvent_1aba6c4f482c1dc07c31b5f350e859a0a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">void</ref></type>
+        <definition>void endstone::PlayerRecipeBookClickEvent::setRecipe</definition>
+        <argsstring>(Recipe &amp;recipe)</argsstring>
+        <name>setRecipe</name>
+        <qualifiedname>endstone::PlayerRecipeBookClickEvent::setRecipe</qualifiedname>
+        <param>
+          <type><ref refid="classendstone_1_1Recipe" kindref="compound">Recipe</ref> &amp;</type>
+          <declname>recipe</declname>
+        </param>
+        <briefdescription>
+<para>Sets the recipe that will be used for crafting. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>recipe</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the recipe to use </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_recipe_book_click_event.h" line="47" column="10" bodyfile="include/endstone/event/player/player_recipe_book_click_event.h" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerRecipeBookClickEvent_1a55f87fd678f423833373d018a952d38f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>
+        <definition>bool endstone::PlayerRecipeBookClickEvent::isShiftClick</definition>
+        <argsstring>() const</argsstring>
+        <name>isShiftClick</name>
+        <qualifiedname>endstone::PlayerRecipeBookClickEvent::isShiftClick</qualifiedname>
+        <briefdescription>
+<para>Gets whether the player requested crafting as many copies as possible. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if the player requested shift-click crafting </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_recipe_book_click_event.h" line="54" column="11" bodyfile="include/endstone/event/player/player_recipe_book_click_event.h" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerRecipeBookClickEvent_1ad614df71c62aebf46f10cb36d7de3d54" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">void</ref></type>
+        <definition>void endstone::PlayerRecipeBookClickEvent::setShiftClick</definition>
+        <argsstring>(bool shift_click)</argsstring>
+        <name>setShiftClick</name>
+        <qualifiedname>endstone::PlayerRecipeBookClickEvent::setShiftClick</qualifiedname>
+        <param>
+          <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>
+          <declname>shift_click</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether the player requests crafting as many copies as possible. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>shift_click</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true to request shift-click crafting </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_recipe_book_click_event.h" line="61" column="10" bodyfile="include/endstone/event/player/player_recipe_book_click_event.h" bodystart="61" bodyend="61"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents an event that is called when a player clicks a recipe in the recipe book. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>endstone::Event</label>
+        <link refid="classendstone_1_1Event"/>
+      </node>
+      <node id="2">
+        <label>endstone::PlayerEvent</label>
+        <link refid="classendstone_1_1PlayerEvent"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>endstone::PlayerRecipeBookClickEvent</label>
+        <link refid="classendstone_1_1PlayerRecipeBookClickEvent"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>endstone::Event</label>
+        <link refid="classendstone_1_1Event"/>
+      </node>
+      <node id="2">
+        <label>endstone::PlayerEvent</label>
+        <link refid="classendstone_1_1PlayerEvent"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>endstone::PlayerRecipeBookClickEvent</label>
+        <link refid="classendstone_1_1PlayerRecipeBookClickEvent"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/endstone/event/player/player_recipe_book_click_event.h" line="19" column="1" bodyfile="include/endstone/event/player/player_recipe_book_click_event.h" bodystart="19" bodyend="67"/>
+    <listofallmembers>
+      <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1ac8369533e374a734dda5edd17923c0eb" prot="public" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>ENDSTONE_EVENT</name></member>
+      <member refid="classendstone_1_1Event_1a28cca8d74920493b449d035540acf023" prot="public" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>Event</name></member>
+      <member refid="classendstone_1_1Event_1a7199136ebb40e1441bc61e29f83c3cad" prot="public" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>Event</name></member>
+      <member refid="classendstone_1_1Event_1ad20bafd16e0671578e37390b95e5104c" prot="public" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>Event</name></member>
+      <member refid="classendstone_1_1Event_1a826fe74f9c4195a36a364b9aeeb321bb" prot="public" virt="pure-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>getEventName</name></member>
+      <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1ac5dfa6ef55f13b18c1626adeff1aeddb" prot="public" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>getOriginalRecipe</name></member>
+      <member refid="classendstone_1_1PlayerEvent_1a3ad904b05886ce30c7299500d9a57fdb" prot="public" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>getPlayer</name></member>
+      <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a21da31b9caddf0b15a560905ab0e66ff" prot="public" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>getRecipe</name></member>
+      <member refid="classendstone_1_1Event_1ae89b54f63dc32b0c8797a59db69b6931" prot="public" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>isAsynchronous</name></member>
+      <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a55f87fd678f423833373d018a952d38f" prot="public" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>isShiftClick</name></member>
+      <member refid="classendstone_1_1Event_1a44a4ff424a8b690c01a2afe10ae68d8f" prot="public" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>operator=</name></member>
+      <member refid="classendstone_1_1Event_1a1d7fc5400782d20be99a3636aa7f53b9" prot="public" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>operator=</name></member>
+      <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a92941313ec24e9e169ed293e187a49b0" prot="private" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>original_recipe_</name></member>
+      <member refid="classendstone_1_1PlayerEvent_1a263609667f42005d6cfe9f3a128477bd" prot="protected" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>player_</name></member>
+      <member refid="classendstone_1_1PlayerEvent_1a244b2be43274af72138b157f63455419" prot="public" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>PlayerEvent</name></member>
+      <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1ac8a916295f33c21cf158ad30d31faca1" prot="public" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>PlayerRecipeBookClickEvent</name></member>
+      <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1af85d9bf7e5a74265ec33f48dfc09f32f" prot="private" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>recipe_</name></member>
+      <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1aba6c4f482c1dc07c31b5f350e859a0a0" prot="public" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>setRecipe</name></member>
+      <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1ad614df71c62aebf46f10cb36d7de3d54" prot="public" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>setShiftClick</name></member>
+      <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1af5640304a87e8eeb668fa5b4f9465ef2" prot="private" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>shift_click_</name></member>
+      <member refid="classendstone_1_1Event_1a6aeaa8096baba90f8ace94106e0e05f3" prot="public" virt="virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>~Event</name></member>
+      <member refid="classendstone_1_1PlayerEvent_1ab31b937251b8ccc1c72c275d1c7a522b" prot="public" virt="non-virtual"><scope>endstone::PlayerRecipeBookClickEvent</scope><name>~PlayerEvent</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
