@@ -430,6 +430,26 @@ extra = 0
 pattern = "48 8B 57 08 8B 42 58 83 F8 02 74 ? 83 F8 01 74 ? 85 C0 75 ? 48 8B 47 10 48 8B 77 20 48 8B B8 E8 09 00 00 48 81 C2 BC 00 00 00"
 
 [[signatures]]
+# 1. locate the compiler-generated bucketable interaction callback called from
+#    ItemUseOnActorInventoryTransaction::handle through executeInteraction
+# 2. confirm its Player/target Actor closure ABI against the current BDS database
+# 3. this is an Endstone alias; the address is resolved from the pattern, not a BDS symbol
+name = "endstone_bucket_entity_interaction"
+relative = false
+extra = 0
+pattern = "55 41 57 41 56 41 55 41 54 53 48 81 EC ? ? ? ? 48 8B 47 08 48 89 44 24 08 4C 8B 77 10 49 8B 86 ? ? ? ? 80 B8 ? ? ? ? ? 74 ? 48 8D 1D ? ? ? ? EB ?"
+
+[[signatures]]
+# 1. locate the compiler-generated successful bucket-use callback reached by the
+#    bucketable interaction path from ItemUseOnActorInventoryTransaction::handle
+# 2. confirm its ItemStack/result/entity ABI and success branch against the current BDS database
+# 3. this is an Endstone alias; the address is resolved from the pattern, not a BDS symbol
+name = "endstone_bucket_entity_use"
+relative = false
+extra = 0
+pattern = "55 41 57 41 56 41 55 41 54 53 50 48 8B 47 08 48 85 C0 0F 84 ? ? ? ? 48 83 38 00 0F 84 ? ? ? ? 45 89 CF 44 89 C3 89 CD 41 89 D6 49 89 F4 49 89 FD 48 8B BE D0 01 00 00"
+
+[[signatures]]
 name = "_ZN11LeavesBlock10randomTickERN11BlockEvents20BlockRandomTickEventE"
 relative = false
 extra = 0
