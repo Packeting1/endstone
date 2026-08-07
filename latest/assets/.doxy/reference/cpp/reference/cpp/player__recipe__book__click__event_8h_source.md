@@ -18,34 +18,34 @@
 
 #pragma once
 
+#include <string>
+
+#include "endstone/event/cancellable.h"
 #include "endstone/event/player/player_event.h"
 #include "endstone/inventory/recipe.h"
 
 namespace endstone {
 
-class PlayerRecipeBookClickEvent final : public PlayerEvent {
+class PlayerRecipeBookClickEvent final : public Cancellable<PlayerEvent> {
 public:
     ENDSTONE_EVENT(PlayerRecipeBookClickEvent);
 
-    PlayerRecipeBookClickEvent(Player &player, Recipe &recipe, bool shift_click)
-        : PlayerEvent(player), original_recipe_(recipe), recipe_(recipe), shift_click_(shift_click)
+    PlayerRecipeBookClickEvent(Player &player, RecipeId recipe, bool make_all)
+        : Cancellable(player), recipe_(static_cast<std::string>(recipe)), make_all_(make_all)
     {
     }
 
-    [[nodiscard]] Recipe &getOriginalRecipe() const { return original_recipe_; }
+    [[nodiscard]] RecipeId getRecipe() const { return RecipeId{recipe_}; }
 
-    [[nodiscard]] Recipe &getRecipe() const { return recipe_; }
+    void setRecipe(RecipeId recipe) { recipe_ = static_cast<std::string>(recipe); }
 
-    void setRecipe(Recipe &recipe) { recipe_ = recipe; }
+    [[nodiscard]] bool isMakeAll() const { return make_all_; }
 
-    [[nodiscard]] bool isShiftClick() const { return shift_click_; }
-
-    void setShiftClick(bool shift_click) { shift_click_ = shift_click; }
+    void setMakeAll(bool make_all) { make_all_ = make_all; }
 
 private:
-    Recipe &original_recipe_;
-    Recipe &recipe_;
-    bool shift_click_;
+    std::string recipe_;
+    bool make_all_;
 };
 
 }  // namespace endstone

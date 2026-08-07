@@ -271,6 +271,7 @@ _Represents a button with text and an optional icon._
 | enum  | [**PlayerAnimationType**](#enum-playeranimationtype)  <br>_Represents the type of animation performed by a player._  |
 | enum  | [**PluginLoadOrder**](#enum-pluginloadorder)  <br>_Represents the order in which a plugin should be initialized and enabled._  |
 | typedef [**Identifier**](classendstone_1_1Identifier.md)&lt; [**class**](classendstone_1_1Identifier.md) [**PotionType**](classendstone_1_1PotionType.md) &gt; | [**PotionId**](#typedef-potionid)  <br> |
+| typedef [**Identifier**](classendstone_1_1Identifier.md)&lt; [**class**](classendstone_1_1Identifier.md) [**Recipe**](classendstone_1_1Recipe.md) &gt; | [**RecipeId**](#typedef-recipeid)  <br> |
 | enum std::uint8\_t | [**RenderType**](#enum-rendertype)  <br>_Controls the way in which an_ [_**Objective**_](classendstone_1_1Objective.md) _is rendered on the client side._ |
 | typedef nonstd::expected&lt; [**T**](classendstone_1_1Identifier.md), std::string &gt; | [**Result**](#typedef-result)  <br>_Holds either a value of type T on success or an error message on failure._  |
 | typedef std::variant&lt; [**Player**](classendstone_1_1Player.md) \*, [**Actor**](classendstone_1_1Actor.md) \*, std::string &gt; | [**ScoreEntry**](#typedef-scoreentry)  <br>_An entry for a score._  |
@@ -873,6 +874,19 @@ enum endstone::PluginLoadOrder {
 
 ```C++
 using endstone::PotionId = typedef Identifier<class PotionType>;
+```
+
+
+
+
+<hr>
+
+
+
+### typedef RecipeId 
+
+```C++
+using endstone::RecipeId = typedef Identifier<class Recipe>;
 ```
 
 

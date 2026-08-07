@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/inventory/recipe.h" line="25" column="13"/>
+        <location file="include/endstone/inventory/recipe.h" line="28" column="13"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1Recipe_1a4e20782db3c7f6ea868059af8f2b1cc1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type><ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref></type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/inventory/recipe.h" line="32" column="24"/>
+        <location file="include/endstone/inventory/recipe.h" line="35" column="24"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -42,7 +42,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="include/endstone/inventory/recipe.h" line="23" column="1" bodyfile="include/endstone/inventory/recipe.h" bodystart="23" bodyend="33"/>
+    <location file="include/endstone/inventory/recipe.h" line="26" column="1" bodyfile="include/endstone/inventory/recipe.h" bodystart="26" bodyend="36"/>
     <listofallmembers>
       <member refid="classendstone_1_1Recipe_1a4e20782db3c7f6ea868059af8f2b1cc1" prot="public" virt="pure-virtual"><scope>endstone::Recipe</scope><name>getResult</name></member>
       <member refid="classendstone_1_1Recipe_1a7c54e5660b82baa721fa86ebb1e55638" prot="public" virt="virtual"><scope>endstone::Recipe</scope><name>~Recipe</name></member>

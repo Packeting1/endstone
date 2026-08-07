@@ -61,6 +61,7 @@
 
 ## r
 
+* **RecipeId** ([**endstone**](namespaceendstone.md))
 * **Result** ([**endstone**](namespaceendstone.md))
 
 

@@ -2172,16 +2172,14 @@
     <member refid="classendstone_1_1PlayerQuitEvent_1a33ac4f643cbabfbaec170ba5ef88551a" kind="function"><name>setQuitMessage</name></member>
   </compound>
   <compound refid="classendstone_1_1PlayerRecipeBookClickEvent" kind="class"><name>endstone::PlayerRecipeBookClickEvent</name>
-    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a92941313ec24e9e169ed293e187a49b0" kind="variable"><name>original_recipe_</name></member>
-    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1af85d9bf7e5a74265ec33f48dfc09f32f" kind="variable"><name>recipe_</name></member>
-    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1af5640304a87e8eeb668fa5b4f9465ef2" kind="variable"><name>shift_click_</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a3f294c49e9615c3f4e30c3f7c32a184a" kind="variable"><name>recipe_</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1aa4890800af7d7909fc8dabf686b41a58" kind="variable"><name>make_all_</name></member>
     <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1ac8369533e374a734dda5edd17923c0eb" kind="function"><name>ENDSTONE_EVENT</name></member>
-    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1ac8a916295f33c21cf158ad30d31faca1" kind="function"><name>PlayerRecipeBookClickEvent</name></member>
-    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1ac5dfa6ef55f13b18c1626adeff1aeddb" kind="function"><name>getOriginalRecipe</name></member>
-    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a21da31b9caddf0b15a560905ab0e66ff" kind="function"><name>getRecipe</name></member>
-    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1aba6c4f482c1dc07c31b5f350e859a0a0" kind="function"><name>setRecipe</name></member>
-    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a55f87fd678f423833373d018a952d38f" kind="function"><name>isShiftClick</name></member>
-    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1ad614df71c62aebf46f10cb36d7de3d54" kind="function"><name>setShiftClick</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a3528cbd7487c9db786687df99ed538d3" kind="function"><name>PlayerRecipeBookClickEvent</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a1b8a96dd124938fe10f84e01815c3883" kind="function"><name>getRecipe</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a68a25c2ab677f61bf0198c954882857a" kind="function"><name>setRecipe</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a2e6b52c6f2ea7e9a7ccdee5e7c2491cd" kind="function"><name>isMakeAll</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a073dbc08f636f197b612511b336537c1" kind="function"><name>setMakeAll</name></member>
   </compound>
   <compound refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent" kind="class"><name>endstone::PlayerRecipeBookSettingsChangeEvent</name>
     <member refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent_1ab5709b487202d4c52eacf9e8b54ce67f" kind="enum"><name>RecipeBookType</name></member>
@@ -3003,6 +3001,7 @@
     <member refid="namespaceendstone_1a42f3cb333492510ff60b8097153fa66a" kind="typedef"><name>BlockTypeId</name></member>
     <member refid="namespaceendstone_1a996c90f609bfd792a8245bb60fd3e4ea" kind="typedef"><name>EnchantmentId</name></member>
     <member refid="namespaceendstone_1a38ff2441d6476b407a46c5868fd25cd3" kind="typedef"><name>ItemTypeId</name></member>
+    <member refid="namespaceendstone_1afb52650b7515f712432afa9210d63f6e" kind="typedef"><name>RecipeId</name></member>
     <member refid="namespaceendstone_1a50a151fb732635e869fd9c0a4ef78c2c" kind="typedef"><name>DimensionId</name></member>
     <member refid="namespaceendstone_1ab1be61859bf80a227cf5d0b12a26ef78" kind="typedef"><name>Message</name></member>
     <member refid="namespaceendstone_1a33e1574322a8aca1ebab711faea30a4a" kind="typedef"><name>ByteTag</name></member>

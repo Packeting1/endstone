@@ -2596,9 +2596,9 @@ For latest updates join the chat on
 </li>
       
         <li class="md-nav__item">
-    <a href="#public-functions-inherited-from-endstoneplayerevent" class="md-nav__link">
+    <a href="#public-functions-inherited-from-endstonecancellable" class="md-nav__link">
       <span class="md-ellipsis">
-        Public Functions inherited from endstone::PlayerEvent
+        Public Functions inherited from endstone::Cancellable
       </span>
     </a>
 
@@ -2607,20 +2607,9 @@ For latest updates join the chat on
 </li>
       
         <li class="md-nav__item">
-    <a href="#public-functions-inherited-from-endstoneevent" class="md-nav__link">
+    <a href="#public-functions-inherited-from-endstoneicancellable" class="md-nav__link">
       <span class="md-ellipsis">
-        Public Functions inherited from endstone::Event
-      </span>
-    </a>
-
-    <!-- Table of contents list -->
-    
-</li>
-      
-        <li class="md-nav__item">
-    <a href="#protected-attributes-inherited-from-endstoneplayerevent" class="md-nav__link">
-      <span class="md-ellipsis">
-        Protected Attributes inherited from endstone::PlayerEvent
+        Public Functions inherited from endstone::ICancellable
       </span>
     </a>
 
@@ -2668,19 +2657,6 @@ For latest updates join the chat on
             
                 
                     <li class="md-nav__item">
-    <a href="#function-getoriginalrecipe" class="md-nav__link">
-      <span class="md-ellipsis">
-        function getOriginalRecipe
-      </span>
-    </a>
-
-    <!-- Table of contents list -->
-    
-</li>
-                
-            
-                
-                    <li class="md-nav__item">
     <a href="#function-getrecipe" class="md-nav__link">
       <span class="md-ellipsis">
         function getRecipe
@@ -2694,9 +2670,22 @@ For latest updates join the chat on
             
                 
                     <li class="md-nav__item">
-    <a href="#function-isshiftclick" class="md-nav__link">
+    <a href="#function-ismakeall" class="md-nav__link">
       <span class="md-ellipsis">
-        function isShiftClick
+        function isMakeAll
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
+    <a href="#function-setmakeall" class="md-nav__link">
+      <span class="md-ellipsis">
+        function setMakeAll
       </span>
     </a>
 
@@ -2710,19 +2699,6 @@ For latest updates join the chat on
     <a href="#function-setrecipe" class="md-nav__link">
       <span class="md-ellipsis">
         function setRecipe
-      </span>
-    </a>
-
-    <!-- Table of contents list -->
-    
-</li>
-                
-            
-                
-                    <li class="md-nav__item">
-    <a href="#function-setshiftclick" class="md-nav__link">
-      <span class="md-ellipsis">
-        function setShiftClick
       </span>
     </a>
 
@@ -2775,7 +2751,7 @@ For latest updates join the chat on
 <ul>
 <li><code>#include &lt;endstone/event/player/player_recipe_book_click_event.h&gt;</code></li>
 </ul>
-<p>Inherits the following classes: <a href="../classendstone_1_1PlayerEvent/">endstone::PlayerEvent</a></p>
+<p>Inherits the following classes: <a href="../classendstone_1_1Cancellable/">endstone::Cancellable</a></p>
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -2791,32 +2767,28 @@ For latest updates join the chat on
 </tr>
 <tr>
 <td style="text-align: right;"></td>
-<td style="text-align: left;"><a href="#function-playerrecipebookclickevent"><strong>PlayerRecipeBookClickEvent</strong></a> (<a href="../classendstone_1_1Player/"><strong>Player</strong></a> &amp; player, <a href="../classendstone_1_1Recipe/"><strong>Recipe</strong></a> &amp; recipe, <a href="../classendstone_1_1Identifier/"><strong>bool</strong></a> shift_click) <br></td>
+<td style="text-align: left;"><a href="#function-playerrecipebookclickevent"><strong>PlayerRecipeBookClickEvent</strong></a> (<a href="../classendstone_1_1Player/"><strong>Player</strong></a> &amp; player, <a href="../classendstone_1_1Identifier/"><strong>RecipeId</strong></a> recipe, <a href="../classendstone_1_1Identifier/"><strong>bool</strong></a> make_all) <br></td>
 </tr>
 <tr>
-<td style="text-align: right;"><a href="../classendstone_1_1Recipe/"><strong>Recipe</strong></a> &amp;</td>
-<td style="text-align: left;"><a href="#function-getoriginalrecipe"><strong>getOriginalRecipe</strong></a> () const<br><em>Gets the recipe originally selected by the player.</em></td>
-</tr>
-<tr>
-<td style="text-align: right;"><a href="../classendstone_1_1Recipe/"><strong>Recipe</strong></a> &amp;</td>
-<td style="text-align: left;"><a href="#function-getrecipe"><strong>getRecipe</strong></a> () const<br><em>Gets the recipe that will be used for crafting.</em></td>
+<td style="text-align: right;"><a href="../classendstone_1_1Identifier/"><strong>RecipeId</strong></a></td>
+<td style="text-align: left;"><a href="#function-getrecipe"><strong>getRecipe</strong></a> () const<br><em>Gets the recipe identifier that will be used for crafting.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;"><a href="../classendstone_1_1Identifier/"><strong>bool</strong></a></td>
-<td style="text-align: left;"><a href="#function-isshiftclick"><strong>isShiftClick</strong></a> () const<br><em>Gets whether the player requested crafting as many copies as possible.</em></td>
+<td style="text-align: left;"><a href="#function-ismakeall"><strong>isMakeAll</strong></a> () const<br><em>Gets whether the player requested crafting as many copies as possible.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;"><a href="../classendstone_1_1Identifier/"><strong>void</strong></a></td>
-<td style="text-align: left;"><a href="#function-setrecipe"><strong>setRecipe</strong></a> (<a href="../classendstone_1_1Recipe/"><strong>Recipe</strong></a> &amp; recipe) <br><em>Sets the recipe that will be used for crafting.</em></td>
+<td style="text-align: left;"><a href="#function-setmakeall"><strong>setMakeAll</strong></a> (<a href="../classendstone_1_1Identifier/"><strong>bool</strong></a> make_all) <br><em>Sets whether the player requests crafting as many copies as possible.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;"><a href="../classendstone_1_1Identifier/"><strong>void</strong></a></td>
-<td style="text-align: left;"><a href="#function-setshiftclick"><strong>setShiftClick</strong></a> (<a href="../classendstone_1_1Identifier/"><strong>bool</strong></a> shift_click) <br><em>Sets whether the player requests crafting as many copies as possible.</em></td>
+<td style="text-align: left;"><a href="#function-setrecipe"><strong>setRecipe</strong></a> (<a href="../classendstone_1_1Identifier/"><strong>RecipeId</strong></a> recipe) <br><em>Sets the recipe identifier that will be used for crafting.</em></td>
 </tr>
 </tbody>
 </table>
-<h2 id="public-functions-inherited-from-endstoneplayerevent">Public Functions inherited from endstone::PlayerEvent<a class="headerlink" href="#public-functions-inherited-from-endstoneplayerevent" title="Permanent link">&para;</a></h2>
-<p>See <a href="../classendstone_1_1PlayerEvent/">endstone::PlayerEvent</a></p>
+<h2 id="public-functions-inherited-from-endstonecancellable">Public Functions inherited from endstone::Cancellable<a class="headerlink" href="#public-functions-inherited-from-endstonecancellable" title="Permanent link">&para;</a></h2>
+<p>See <a href="../classendstone_1_1Cancellable/">endstone::Cancellable</a></p>
 <table>
 <thead>
 <tr>
@@ -2826,21 +2798,21 @@ For latest updates join the chat on
 </thead>
 <tbody>
 <tr>
-<td style="text-align: right;"></td>
-<td style="text-align: left;"><a href="../classendstone_1_1PlayerEvent/#function-playerevent"><strong>PlayerEvent</strong></a> (<a href="../classendstone_1_1Player/"><strong>Player</strong></a> &amp; player) <br></td>
+<td style="text-align: right;">virtual <a href="../classendstone_1_1Identifier/"><strong>void</strong></a></td>
+<td style="text-align: left;"><a href="../classendstone_1_1Cancellable/#function-cancel"><strong>cancel</strong></a> () <br><em>Cancel this event.</em></td>
 </tr>
 <tr>
-<td style="text-align: right;"><a href="../classendstone_1_1Player/"><strong>Player</strong></a> &amp;</td>
-<td style="text-align: left;"><a href="../classendstone_1_1PlayerEvent/#function-getplayer"><strong>getPlayer</strong></a> () const<br><em>Returns the player involved in this event.</em></td>
+<td style="text-align: right;">virtual <a href="../classendstone_1_1Identifier/"><strong>bool</strong></a></td>
+<td style="text-align: left;"><a href="../classendstone_1_1Cancellable/#function-iscancelled"><strong>isCancelled</strong></a> () override const<br><em>Gets the cancellation state of this event.</em></td>
 </tr>
 <tr>
-<td style="text-align: right;"></td>
-<td style="text-align: left;"><a href="../classendstone_1_1PlayerEvent/#function-playerevent"><strong>~PlayerEvent</strong></a> () override<br></td>
+<td style="text-align: right;">virtual <a href="../classendstone_1_1Identifier/"><strong>void</strong></a></td>
+<td style="text-align: left;"><a href="../classendstone_1_1Cancellable/#function-setcancelled"><strong>setCancelled</strong></a> (<a href="../classendstone_1_1Identifier/"><strong>bool</strong></a> cancel) override<br><em>Sets the cancellation state of this event.</em></td>
 </tr>
 </tbody>
 </table>
-<h2 id="public-functions-inherited-from-endstoneevent">Public Functions inherited from endstone::Event<a class="headerlink" href="#public-functions-inherited-from-endstoneevent" title="Permanent link">&para;</a></h2>
-<p>See <a href="../classendstone_1_1Event/">endstone::Event</a></p>
+<h2 id="public-functions-inherited-from-endstoneicancellable">Public Functions inherited from endstone::ICancellable<a class="headerlink" href="#public-functions-inherited-from-endstoneicancellable" title="Permanent link">&para;</a></h2>
+<p>See <a href="../classendstone_1_1ICancellable/">endstone::ICancellable</a></p>
 <table>
 <thead>
 <tr>
@@ -2850,52 +2822,20 @@ For latest updates join the chat on
 </thead>
 <tbody>
 <tr>
-<td style="text-align: right;"></td>
-<td style="text-align: left;"><a href="../classendstone_1_1Event/#function-event-13"><strong>Event</strong></a> (<a href="../classendstone_1_1Identifier/"><strong>bool</strong></a> async=<a href="../classendstone_1_1Identifier/"><strong>false</strong></a>) <br></td>
+<td style="text-align: right;">virtual <a href="../classendstone_1_1Identifier/"><strong>void</strong></a></td>
+<td style="text-align: left;"><a href="../classendstone_1_1ICancellable/#function-cancel"><strong>cancel</strong></a> () = 0<br><em>Cancels this event.</em></td>
 </tr>
 <tr>
-<td style="text-align: right;"></td>
-<td style="text-align: left;"><a href="../classendstone_1_1Event/#function-event-23"><strong>Event</strong></a> (<a href="../classendstone_1_1Identifier/"><strong>const</strong></a> <a href="../classendstone_1_1Event/"><strong>Event</strong></a> &amp;) = delete<br></td>
+<td style="text-align: right;">virtual <a href="../classendstone_1_1Identifier/"><strong>bool</strong></a></td>
+<td style="text-align: left;"><a href="../classendstone_1_1ICancellable/#function-iscancelled"><strong>isCancelled</strong></a> () const = 0<br><em>Gets the cancellation state of this event.</em></td>
 </tr>
 <tr>
-<td style="text-align: right;"></td>
-<td style="text-align: left;"><a href="../classendstone_1_1Event/#function-event-33"><strong>Event</strong></a> (<a href="../classendstone_1_1Event/"><strong>Event</strong></a> &amp;&amp;) = default<br></td>
-</tr>
-<tr>
-<td style="text-align: right;">virtual std::string</td>
-<td style="text-align: left;"><a href="../classendstone_1_1Event/#function-geteventname"><strong>getEventName</strong></a> () const = 0<br><em>Gets a user-friendly identifier for this event.</em></td>
-</tr>
-<tr>
-<td style="text-align: right;"><a href="../classendstone_1_1Identifier/"><strong>bool</strong></a></td>
-<td style="text-align: left;"><a href="../classendstone_1_1Event/#function-isasynchronous"><strong>isAsynchronous</strong></a> () const<br><em>Any custom event that should not by synchronized with other events must use the specific constructor.</em></td>
-</tr>
-<tr>
-<td style="text-align: right;"><a href="../classendstone_1_1Event/"><strong>Event</strong></a> &amp;</td>
-<td style="text-align: left;"><a href="../classendstone_1_1Event/#function-operator"><strong>operator=</strong></a> (<a href="../classendstone_1_1Identifier/"><strong>const</strong></a> <a href="../classendstone_1_1Event/"><strong>Event</strong></a> &amp;) = delete<br></td>
-</tr>
-<tr>
-<td style="text-align: right;"><a href="../classendstone_1_1Event/"><strong>Event</strong></a> &amp;</td>
-<td style="text-align: left;"><a href="../classendstone_1_1Event/#function-operator_1"><strong>operator=</strong></a> (<a href="../classendstone_1_1Event/"><strong>Event</strong></a> &amp;&amp;) = default<br></td>
+<td style="text-align: right;">virtual <a href="../classendstone_1_1Identifier/"><strong>void</strong></a></td>
+<td style="text-align: left;"><a href="../classendstone_1_1ICancellable/#function-setcancelled"><strong>setCancelled</strong></a> (<a href="../classendstone_1_1Identifier/"><strong>bool</strong></a> cancel) = 0<br><em>Sets the cancellation state of this event.</em></td>
 </tr>
 <tr>
 <td style="text-align: right;">virtual</td>
-<td style="text-align: left;"><a href="../classendstone_1_1Event/#function-event"><strong>~Event</strong></a> () = default<br></td>
-</tr>
-</tbody>
-</table>
-<h2 id="protected-attributes-inherited-from-endstoneplayerevent">Protected Attributes inherited from endstone::PlayerEvent<a class="headerlink" href="#protected-attributes-inherited-from-endstoneplayerevent" title="Permanent link">&para;</a></h2>
-<p>See <a href="../classendstone_1_1PlayerEvent/">endstone::PlayerEvent</a></p>
-<table>
-<thead>
-<tr>
-<th style="text-align: right;">Type</th>
-<th style="text-align: left;">Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: right;">std::reference_wrapper&lt; <a href="../classendstone_1_1Player/"><strong>Player</strong></a> &gt;</td>
-<td style="text-align: left;"><a href="../classendstone_1_1PlayerEvent/#variable-player_"><strong>player_</strong></a>  <br></td>
+<td style="text-align: left;"><a href="../classendstone_1_1ICancellable/#function-icancellable"><strong>~ICancellable</strong></a> () = default<br></td>
 </tr>
 </tbody>
 </table>
@@ -2910,57 +2850,49 @@ For latest updates join the chat on
 <h3 id="function-playerrecipebookclickevent">function PlayerRecipeBookClickEvent<a class="headerlink" href="#function-playerrecipebookclickevent" title="Permanent link">&para;</a></h3>
 <div class="language-C++ highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">endstone</span><span class="o">::</span><span class="n">PlayerRecipeBookClickEvent</span><span class="o">::</span><span class="n">PlayerRecipeBookClickEvent</span><span class="w"> </span><span class="p">(</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">Player</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">player</span><span class="p">,</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">Recipe</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">recipe</span><span class="p">,</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">shift_click</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">RecipeId</span><span class="w"> </span><span class="n">recipe</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">make_all</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div>
 <hr>
 
-<h3 id="function-getoriginalrecipe">function getOriginalRecipe<a class="headerlink" href="#function-getoriginalrecipe" title="Permanent link">&para;</a></h3>
-<p><em>Gets the recipe originally selected by the player.</em> 
-<div class="language-C++ highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Recipe</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">endstone</span><span class="o">::</span><span class="n">PlayerRecipeBookClickEvent</span><span class="o">::</span><span class="n">getOriginalRecipe</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
-</span></code></pre></div></p>
-<p><strong>Returns:</strong></p>
-<p>the originally selected recipe </p>
-<hr>
-
 <h3 id="function-getrecipe">function getRecipe<a class="headerlink" href="#function-getrecipe" title="Permanent link">&para;</a></h3>
-<p><em>Gets the recipe that will be used for crafting.</em> 
-<div class="language-C++ highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Recipe</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">endstone</span><span class="o">::</span><span class="n">PlayerRecipeBookClickEvent</span><span class="o">::</span><span class="n">getRecipe</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<p><em>Gets the recipe identifier that will be used for crafting.</em> 
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">RecipeId</span><span class="w"> </span><span class="n">endstone</span><span class="o">::</span><span class="n">PlayerRecipeBookClickEvent</span><span class="o">::</span><span class="n">getRecipe</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </span></code></pre></div></p>
 <p><strong>Returns:</strong></p>
-<p>the recipe that will be used </p>
+<p>the recipe identifier </p>
 <hr>
 
-<h3 id="function-isshiftclick">function isShiftClick<a class="headerlink" href="#function-isshiftclick" title="Permanent link">&para;</a></h3>
+<h3 id="function-ismakeall">function isMakeAll<a class="headerlink" href="#function-ismakeall" title="Permanent link">&para;</a></h3>
 <p><em>Gets whether the player requested crafting as many copies as possible.</em> 
-<div class="language-C++ highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">endstone</span><span class="o">::</span><span class="n">PlayerRecipeBookClickEvent</span><span class="o">::</span><span class="n">isShiftClick</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">endstone</span><span class="o">::</span><span class="n">PlayerRecipeBookClickEvent</span><span class="o">::</span><span class="n">isMakeAll</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </span></code></pre></div></p>
 <p><strong>Returns:</strong></p>
-<p>true if the player requested shift-click crafting </p>
+<p>true if the player requested crafting all possible copies </p>
+<hr>
+
+<h3 id="function-setmakeall">function setMakeAll<a class="headerlink" href="#function-setmakeall" title="Permanent link">&para;</a></h3>
+<p><em>Sets whether the player requests crafting as many copies as possible.</em> 
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">endstone</span><span class="o">::</span><span class="n">PlayerRecipeBookClickEvent</span><span class="o">::</span><span class="n">setMakeAll</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">make_all</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div></p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>make_all</code> true to request crafting all possible copies </li>
+</ul>
 <hr>
 
 <h3 id="function-setrecipe">function setRecipe<a class="headerlink" href="#function-setrecipe" title="Permanent link">&para;</a></h3>
-<p><em>Sets the recipe that will be used for crafting.</em> 
+<p><em>Sets the recipe identifier that will be used for crafting.</em> 
 <div class="language-C++ highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">endstone</span><span class="o">::</span><span class="n">PlayerRecipeBookClickEvent</span><span class="o">::</span><span class="n">setRecipe</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">Recipe</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">recipe</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">RecipeId</span><span class="w"> </span><span class="n">recipe</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div></p>
 <p><strong>Parameters:</strong></p>
 <ul>
-<li><code>recipe</code> the recipe to use </li>
-</ul>
-<hr>
-
-<h3 id="function-setshiftclick">function setShiftClick<a class="headerlink" href="#function-setshiftclick" title="Permanent link">&para;</a></h3>
-<p><em>Sets whether the player requests crafting as many copies as possible.</em> 
-<div class="language-C++ highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">endstone</span><span class="o">::</span><span class="n">PlayerRecipeBookClickEvent</span><span class="o">::</span><span class="n">setShiftClick</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">shift_click</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">)</span><span class="w"> </span>
-</span></code></pre></div></p>
-<p><strong>Parameters:</strong></p>
-<ul>
-<li><code>shift_click</code> true to request shift-click crafting </li>
+<li><code>recipe</code> the recipe identifier to use </li>
 </ul>
 <hr>
 

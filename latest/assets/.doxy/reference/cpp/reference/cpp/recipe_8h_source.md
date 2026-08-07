@@ -24,9 +24,12 @@
 
 #pragma once
 
+#include "endstone/identifier.h"
 #include "endstone/inventory/item_stack.h"
 
 namespace endstone {
+using RecipeId = Identifier<class Recipe>;
+
 class Recipe {
 public:
     virtual ~Recipe() = default;

@@ -348,6 +348,7 @@
 * **Minecraft** ([**endstone::Identifier**](classendstone_1_1Identifier.md), [**endstone::PotionType**](classendstone_1_1PotionType.md))
 * **map\_** ([**endstone::MapInitializeEvent**](classendstone_1_1MapInitializeEvent.md))
 * **muted\_** ([**endstone::PlayerEmoteEvent**](classendstone_1_1PlayerEmoteEvent.md))
+* **make\_all\_** ([**endstone::PlayerRecipeBookClickEvent**](classendstone_1_1PlayerRecipeBookClickEvent.md))
 * **Mundane** ([**endstone::PotionType**](classendstone_1_1PotionType.md))
 * **message\_id\_** ([**endstone::ScriptMessageEvent**](classendstone_1_1ScriptMessageEvent.md))
 * **max\_players\_** ([**endstone::ServerListPingEvent**](classendstone_1_1ServerListPingEvent.md))
@@ -392,7 +393,6 @@
 * **on\_close\_** ([**endstone::Form**](classendstone_1_1Form.md))
 * **owned\_payload\_** ([**endstone::PacketReceiveEvent**](classendstone_1_1PacketReceiveEvent.md), [**endstone::PacketSendEvent**](classendstone_1_1PacketSendEvent.md))
 * **old\_level\_** ([**endstone::PlayerLevelChangeEvent**](classendstone_1_1PlayerLevelChangeEvent.md))
-* **original\_recipe\_** ([**endstone::PlayerRecipeBookClickEvent**](classendstone_1_1PlayerRecipeBookClickEvent.md))
 * **owner\_** ([**endstone::PluginCommand**](classendstone_1_1PluginCommand.md))
 
 
@@ -515,7 +515,6 @@
 * **sub\_client\_id\_** ([**endstone::PacketReceiveEvent**](classendstone_1_1PacketReceiveEvent.md), [**endstone::PacketSendEvent**](classendstone_1_1PacketSendEvent.md))
 * **slot\_** ([**endstone::PlayerArmorStandManipulateEvent**](classendstone_1_1PlayerArmorStandManipulateEvent.md), [**endstone::PlayerEditBookEvent**](classendstone_1_1PlayerEditBookEvent.md))
 * **signing\_** ([**endstone::PlayerEditBookEvent**](classendstone_1_1PlayerEditBookEvent.md))
-* **shift\_click\_** ([**endstone::PlayerRecipeBookClickEvent**](classendstone_1_1PlayerRecipeBookClickEvent.md))
 * **sneaking\_** ([**endstone::PlayerSneakEvent**](classendstone_1_1PlayerSneakEvent.md))
 * **sprinting\_** ([**endstone::PlayerSprintEvent**](classendstone_1_1PlayerSprintEvent.md))
 * **swimming\_** ([**endstone::PlayerSwimEvent**](classendstone_1_1PlayerSwimEvent.md))
