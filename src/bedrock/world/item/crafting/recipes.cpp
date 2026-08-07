@@ -16,6 +16,42 @@
 
 #include "bedrock/world/item/item.h"
 
+// Endstone
+const Recipe *Recipes::getRecipeByNetId(const RecipeNetId &net_id) const
+{
+    for (const auto &[id, recipe] : recipes_by_net_id_) {
+        if (id.raw_id == net_id.raw_id) {
+            return recipe;
+        }
+    }
+    return nullptr;
+}
+
+// Endstone
+const Recipe *Recipes::getRecipeById(std::string_view recipe_id) const
+{
+    const auto find_recipe = [this](std::string_view id) -> const Recipe * {
+        for (const auto &[_, recipes] : recipes_) {
+            for (const auto &[key, recipe] : recipes) {
+                if (key == id) {
+                    return recipe.get();
+                }
+            }
+        }
+        return nullptr;
+    };
+
+    if (const auto *recipe = find_recipe(recipe_id); recipe != nullptr) {
+        return recipe;
+    }
+
+    constexpr std::string_view minecraft_prefix = "minecraft:";
+    if (recipe_id.starts_with(minecraft_prefix)) {
+        return find_recipe(recipe_id.substr(minecraft_prefix.size()));
+    }
+    return nullptr;
+}
+
 ItemInstance Recipes::getFurnaceRecipeResult(const ItemStackBase &item, const HashedString &tag) const
 {
     if (!item) {

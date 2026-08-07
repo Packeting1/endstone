@@ -14,24 +14,20 @@
 
 #pragma once
 
-#include "endstone/identifier.h"
-#include "endstone/inventory/item_stack.h"
+#include "bedrock/world/item/crafting/recipe.h"
+#include "endstone/inventory/recipe.h"
 
-namespace endstone {
-using RecipeId = Identifier<class Recipe>;
+namespace endstone::core {
 
-/**
- * Represents a crafting recipe.
- */
-class Recipe {
+class EndstoneRecipe final : public endstone::Recipe {
 public:
-    virtual ~Recipe() = default;
+    explicit EndstoneRecipe(const ::Recipe &recipe) : recipe_(recipe) {}
 
-    /**
-     * Get the result of this recipe.
-     *
-     * @return The result stack
-     */
-    [[nodiscard]] virtual ItemStack getResult() const = 0;
+    [[nodiscard]] ItemStack getResult() const override;
+    [[nodiscard]] const ::Recipe &getHandle() const { return recipe_; }
+
+private:
+    const ::Recipe &recipe_;
 };
-}  // namespace endstone
+
+}  // namespace endstone::core

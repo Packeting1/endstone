@@ -17,6 +17,7 @@
 #include <functional>
 #include <map>
 #include <memory>
+#include <string_view>
 #include <unordered_map>
 #include <unordered_set>
 
@@ -42,6 +43,12 @@ public:
     Recipes();
     Recipes(Level *);
     [[nodiscard]] ItemInstance getFurnaceRecipeResult(const ItemStackBase &, const HashedString &) const;
+
+    // Endstone
+    [[nodiscard]] const Recipe *getRecipeByNetId(const RecipeNetId &) const;
+
+    // Endstone
+    [[nodiscard]] const Recipe *getRecipeById(std::string_view) const;
 
 private:
     ResourcePackManager *resource_pack_manager_;

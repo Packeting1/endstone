@@ -69,8 +69,8 @@ add_library(endstone_core
         enchantments/enchantment.cpp
         form/form_codec.cpp
         inventory/meta/book_meta.cpp
-        inventory/meta/item_meta.cpp
         inventory/meta/crossbow_meta.cpp
+        inventory/meta/item_meta.cpp
         inventory/meta/map_meta.cpp
         inventory/meta/writable_book_meta.cpp
         inventory/book_edit.cpp
@@ -79,6 +79,7 @@ add_library(endstone_core
         inventory/item_stack.cpp
         inventory/item_type.cpp
         inventory/player_inventory.cpp
+        inventory/recipe.cpp
         lang/language.cpp
         level/chunk.cpp
         level/dimension.cpp

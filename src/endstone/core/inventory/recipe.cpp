@@ -12,26 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+#include "endstone/core/inventory/recipe.h"
 
-#include "endstone/identifier.h"
-#include "endstone/inventory/item_stack.h"
+#include "endstone/core/inventory/item_stack.h"
 
-namespace endstone {
-using RecipeId = Identifier<class Recipe>;
+namespace endstone::core {
 
-/**
- * Represents a crafting recipe.
- */
-class Recipe {
-public:
-    virtual ~Recipe() = default;
+ItemStack EndstoneRecipe::getResult() const
+{
+    const auto &results = recipe_.getResultItems();
+    return EndstoneItemStack::fromMinecraft(results.empty() ? ::ItemInstance::EMPTY_ITEM : results.front());
+}
 
-    /**
-     * Get the result of this recipe.
-     *
-     * @return The result stack
-     */
-    [[nodiscard]] virtual ItemStack getResult() const = 0;
-};
-}  // namespace endstone
+}  // namespace endstone::core
