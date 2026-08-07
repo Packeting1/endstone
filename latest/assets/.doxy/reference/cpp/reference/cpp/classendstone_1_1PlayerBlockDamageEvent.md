@@ -33,7 +33,7 @@ Inherits the following classes: [endstone::Cancellable](classendstone_1_1Cancell
 
 | Type | Name |
 | ---: | :--- |
-| enum  | [**Action**](#enum-action)  <br> |
+| enum  | [**Action**](#enum-action)  <br>_Represents the block damage action that triggered this event._  |
 
 
 
@@ -98,12 +98,12 @@ Inherits the following classes: [endstone::Cancellable](classendstone_1_1Cancell
 
 | Type | Name |
 | ---: | :--- |
-|   | [**PlayerBlockDamageEvent**](#function-playerblockdamageevent) ([**Player**](classendstone_1_1Player.md) & player, Action action, std::optional&lt; [**ItemStack**](classendstone_1_1ItemStack.md) &gt; item, [**Block**](classendstone_1_1Block.md) \* block, std::optional&lt; [**BlockFace**](namespaceendstone.md#enum-blockface) &gt; block\_face, [**Vector**](classendstone_1_1Vector.md) position) <br> |
-|  Action | [**getAction**](#function-getaction) () const<br> |
-|  [**Block**](classendstone_1_1Block.md) \* | [**getBlock**](#function-getblock) () const<br> |
-|  std::optional&lt; [**BlockFace**](namespaceendstone.md#enum-blockface) &gt; | [**getBlockFace**](#function-getblockface) () const<br> |
-|  [**const**](classendstone_1_1Identifier.md) std::optional&lt; [**ItemStack**](classendstone_1_1ItemStack.md) &gt; & | [**getItem**](#function-getitem) () const<br> |
-|  [**Vector**](classendstone_1_1Vector.md) | [**getPosition**](#function-getposition) () const<br> |
+|   | [**PlayerBlockDamageEvent**](#function-playerblockdamageevent) ([**Player**](classendstone_1_1Player.md) & player, [**Action**](classendstone_1_1PlayerBlockDamageEvent.md#enum-action) action, std::optional&lt; [**ItemStack**](classendstone_1_1ItemStack.md) &gt; item, [**Block**](classendstone_1_1Block.md) \* block, std::optional&lt; [**BlockFace**](namespaceendstone.md#enum-blockface) &gt; block\_face, [**Vector**](classendstone_1_1Vector.md) position) <br> |
+|  [**Action**](classendstone_1_1PlayerBlockDamageEvent.md#enum-action) | [**getAction**](#function-getaction) () const<br>_Gets the block damage action that triggered this event._  |
+|  [**Block**](classendstone_1_1Block.md) \* | [**getBlock**](#function-getblock) () const<br>_Gets the block being damaged._  |
+|  std::optional&lt; [**BlockFace**](namespaceendstone.md#enum-blockface) &gt; | [**getBlockFace**](#function-getblockface) () const<br>_Gets the face being damaged._  |
+|  [**const**](classendstone_1_1Identifier.md) std::optional&lt; [**ItemStack**](classendstone_1_1ItemStack.md) &gt; & | [**getItem**](#function-getitem) () const<br>_Gets the item used to damage the block._  |
+|  [**Vector**](classendstone_1_1Vector.md) | [**getPosition**](#function-getposition) () const<br>_Gets the block position._  |
 
 
 ## Public Functions inherited from endstone::Cancellable
@@ -221,6 +221,7 @@ Cancellation is honored for Start and Continue actions only.
 
 ### enum Action 
 
+_Represents the block damage action that triggered this event._ 
 ```C++
 enum endstone::PlayerBlockDamageEvent::Action {
     Start,
@@ -263,6 +264,7 @@ inline endstone::PlayerBlockDamageEvent::PlayerBlockDamageEvent (
 
 ### function getAction 
 
+_Gets the block damage action that triggered this event._ 
 ```C++
 inline Action endstone::PlayerBlockDamageEvent::getAction () const
 ```
@@ -270,12 +272,24 @@ inline Action endstone::PlayerBlockDamageEvent::getAction () const
 
 
 
+
+**Returns:**
+
+the block damage action 
+
+
+
+
+
+        
+
 <hr>
 
 
 
 ### function getBlock 
 
+_Gets the block being damaged._ 
 ```C++
 inline Block * endstone::PlayerBlockDamageEvent::getBlock () const
 ```
@@ -283,12 +297,24 @@ inline Block * endstone::PlayerBlockDamageEvent::getBlock () const
 
 
 
+
+**Returns:**
+
+the block being damaged, or nullptr if unavailable 
+
+
+
+
+
+        
+
 <hr>
 
 
 
 ### function getBlockFace 
 
+_Gets the face being damaged._ 
 ```C++
 inline std::optional< BlockFace > endstone::PlayerBlockDamageEvent::getBlockFace () const
 ```
@@ -296,12 +322,24 @@ inline std::optional< BlockFace > endstone::PlayerBlockDamageEvent::getBlockFace
 
 
 
+
+**Returns:**
+
+the face being damaged, or std::nullopt if unavailable 
+
+
+
+
+
+        
+
 <hr>
 
 
 
 ### function getItem 
 
+_Gets the item used to damage the block._ 
 ```C++
 inline const std::optional< ItemStack > & endstone::PlayerBlockDamageEvent::getItem () const
 ```
@@ -309,18 +347,41 @@ inline const std::optional< ItemStack > & endstone::PlayerBlockDamageEvent::getI
 
 
 
+
+**Returns:**
+
+the item used to damage the block, or std::nullopt if unavailable 
+
+
+
+
+
+        
+
 <hr>
 
 
 
 ### function getPosition 
 
+_Gets the block position._ 
 ```C++
 inline Vector endstone::PlayerBlockDamageEvent::getPosition () const
 ```
 
 
 
+
+
+**Returns:**
+
+the block position 
+
+
+
+
+
+        
 
 <hr>
 

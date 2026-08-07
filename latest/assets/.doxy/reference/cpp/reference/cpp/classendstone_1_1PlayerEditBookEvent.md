@@ -381,6 +381,17 @@ inline void endstone::PlayerEditBookEvent::setNewBookMeta (
 
 
 
+
+**Parameters:**
+
+
+* `new_book_meta` the metadata to apply after the edit 
+
+
+
+
+        
+
 <hr>
 
 
@@ -396,6 +407,17 @@ inline void endstone::PlayerEditBookEvent::setSigning (
 
 
 
+
+
+**Parameters:**
+
+
+* `signing` true to sign the book, false to leave it unsigned 
+
+
+
+
+        
 
 <hr>
 

@@ -39,6 +39,7 @@ class PlayerBlockDamageEvent final : public Cancellable<PlayerEvent> {
 public:
     ENDSTONE_EVENT(PlayerBlockDamageEvent)
 
+    
     enum class Action {
         Start,
         Abort,
@@ -56,9 +57,13 @@ public:
     }
 
     [[nodiscard]] Action getAction() const { return action_; }
+
     [[nodiscard]] const std::optional<ItemStack> &getItem() const { return item_; }
+
     [[nodiscard]] Block *getBlock() const { return block_; }
+
     [[nodiscard]] std::optional<BlockFace> getBlockFace() const { return block_face_; }
+
     [[nodiscard]] Vector getPosition() const { return position_; }
 
 private:

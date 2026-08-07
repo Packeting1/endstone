@@ -12,6 +12,7 @@
         <enumvalue id="classendstone_1_1PlayerBlockDamageEvent_1a13ec95f384e68358b4aad55a5c5387f6aa6122a65eaa676f700ae68d393054a37" prot="public">
           <name>Start</name>
           <briefdescription>
+<para>The player started damaging a block. </para>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
@@ -19,6 +20,7 @@
         <enumvalue id="classendstone_1_1PlayerBlockDamageEvent_1a13ec95f384e68358b4aad55a5c5387f6a727b63583e01fa2b3952dab580c84dc2" prot="public">
           <name>Abort</name>
           <briefdescription>
+<para>The player aborted block damage. </para>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
@@ -26,6 +28,7 @@
         <enumvalue id="classendstone_1_1PlayerBlockDamageEvent_1a13ec95f384e68358b4aad55a5c5387f6a11a755d598c0c417f9a36758c3da7481" prot="public">
           <name>Stop</name>
           <briefdescription>
+<para>The player stopped damaging a block. </para>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
@@ -33,6 +36,7 @@
         <enumvalue id="classendstone_1_1PlayerBlockDamageEvent_1a13ec95f384e68358b4aad55a5c5387f6aa0bfb8e59e6c13fc8d990781f77694fe" prot="public">
           <name>Continue</name>
           <briefdescription>
+<para>The player continued damaging a block. </para>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
@@ -40,6 +44,7 @@
         <enumvalue id="classendstone_1_1PlayerBlockDamageEvent_1a13ec95f384e68358b4aad55a5c5387f6a76801fc396f13051b0afd9f8db4eadcc" prot="public">
           <name>Predict</name>
           <briefdescription>
+<para>The player predicted block damage. </para>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
@@ -47,22 +52,24 @@
         <enumvalue id="classendstone_1_1PlayerBlockDamageEvent_1a13ec95f384e68358b4aad55a5c5387f6a047c6bd032387e5c84e1e718f58f7e5a" prot="public">
           <name>Creative</name>
           <briefdescription>
+<para>The player creatively destroyed a block. </para>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
         <briefdescription>
+<para>Represents the block damage action that triggered this event. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_block_damage_event.h" line="37" column="5" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="37" bodyend="44"/>
+        <location file="include/endstone/event/player/player_block_damage_event.h" line="40" column="5" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="40" bodyend="65"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classendstone_1_1PlayerBlockDamageEvent_1aa2fb16a8700413eb4b24dd21548ed55c" prot="private" static="no" mutable="no">
-        <type>Action</type>
+        <type><ref refid="classendstone_1_1PlayerBlockDamageEvent_1a13ec95f384e68358b4aad55a5c5387f6" kindref="member">Action</ref></type>
         <definition>Action endstone::PlayerBlockDamageEvent::action_</definition>
         <argsstring></argsstring>
         <name>action_</name>
@@ -73,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_block_damage_event.h" line="60" column="12" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="60" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_block_damage_event.h" line="110" column="12" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="110" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classendstone_1_1PlayerBlockDamageEvent_1af5ceda239c64d414db1eebc01280997e" prot="private" static="no" mutable="no">
         <type>std::optional&lt; <ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref> &gt;</type>
@@ -87,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_block_damage_event.h" line="61" column="19" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="61" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_block_damage_event.h" line="111" column="19" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="111" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classendstone_1_1PlayerBlockDamageEvent_1afc9f40d128426215373db461e2bd381f" prot="private" static="no" mutable="no">
         <type><ref refid="classendstone_1_1Block" kindref="compound">Block</ref> *</type>
@@ -101,7 +108,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_block_damage_event.h" line="62" column="11" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="62" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_block_damage_event.h" line="112" column="11" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="112" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classendstone_1_1PlayerBlockDamageEvent_1a089fe06581380d652dd9bf64e3aa19ea" prot="private" static="no" mutable="no">
         <type>std::optional&lt; <ref refid="namespaceendstone_1aec620d05bd961a002c83b008e178a785" kindref="member">BlockFace</ref> &gt;</type>
@@ -115,7 +122,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_block_damage_event.h" line="63" column="19" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="63" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_block_damage_event.h" line="113" column="19" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="113" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classendstone_1_1PlayerBlockDamageEvent_1a3ab49900461d39547515062cce44e4aa" prot="private" static="no" mutable="no">
         <type><ref refid="classendstone_1_1Vector" kindref="compound">Vector</ref></type>
@@ -129,7 +136,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_block_damage_event.h" line="64" column="12" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="64" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_block_damage_event.h" line="114" column="12" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="114" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -144,7 +151,7 @@
           <declname>player</declname>
         </param>
         <param>
-          <type>Action</type>
+          <type><ref refid="classendstone_1_1PlayerBlockDamageEvent_1a13ec95f384e68358b4aad55a5c5387f6" kindref="member">Action</ref></type>
           <declname>action</declname>
         </param>
         <param>
@@ -169,21 +176,25 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_block_damage_event.h" line="46" column="5" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="46" bodyend="51"/>
+        <location file="include/endstone/event/player/player_block_damage_event.h" line="67" column="5" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="67" bodyend="72"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerBlockDamageEvent_1a3def09475d3fce05be8d10fba6b2a144" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>Action</type>
+        <type><ref refid="classendstone_1_1PlayerBlockDamageEvent_1a13ec95f384e68358b4aad55a5c5387f6" kindref="member">Action</ref></type>
         <definition>Action endstone::PlayerBlockDamageEvent::getAction</definition>
         <argsstring>() const</argsstring>
         <name>getAction</name>
         <qualifiedname>endstone::PlayerBlockDamageEvent::getAction</qualifiedname>
         <briefdescription>
+<para>Gets the block damage action that triggered this event. </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="return"><para>the block damage action </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_block_damage_event.h" line="53" column="13" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="53" bodyend="53"/>
+        <location file="include/endstone/event/player/player_block_damage_event.h" line="79" column="13" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="79" bodyend="79"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerBlockDamageEvent_1aa8c077c47615b65067bebc95312f74b0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> std::optional&lt; <ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref> &gt; &amp;</type>
@@ -192,12 +203,16 @@
         <name>getItem</name>
         <qualifiedname>endstone::PlayerBlockDamageEvent::getItem</qualifiedname>
         <briefdescription>
+<para>Gets the item used to damage the block. </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="return"><para>the item used to damage the block, or std::nullopt if unavailable </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_block_damage_event.h" line="54" column="26" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="54" bodyend="54"/>
+        <location file="include/endstone/event/player/player_block_damage_event.h" line="86" column="26" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="86" bodyend="86"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerBlockDamageEvent_1a4f744c9ceca9eec02b6f58d39a4a9555" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classendstone_1_1Block" kindref="compound">Block</ref> *</type>
@@ -206,12 +221,16 @@
         <name>getBlock</name>
         <qualifiedname>endstone::PlayerBlockDamageEvent::getBlock</qualifiedname>
         <briefdescription>
+<para>Gets the block being damaged. </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="return"><para>the block being damaged, or nullptr if unavailable </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_block_damage_event.h" line="55" column="12" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="55" bodyend="55"/>
+        <location file="include/endstone/event/player/player_block_damage_event.h" line="93" column="12" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="93" bodyend="93"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerBlockDamageEvent_1afcdc4e6333007db03d4f27a3ebb7113f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::optional&lt; <ref refid="namespaceendstone_1aec620d05bd961a002c83b008e178a785" kindref="member">BlockFace</ref> &gt;</type>
@@ -220,12 +239,16 @@
         <name>getBlockFace</name>
         <qualifiedname>endstone::PlayerBlockDamageEvent::getBlockFace</qualifiedname>
         <briefdescription>
+<para>Gets the face being damaged. </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="return"><para>the face being damaged, or std::nullopt if unavailable </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_block_damage_event.h" line="56" column="20" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="56" bodyend="56"/>
+        <location file="include/endstone/event/player/player_block_damage_event.h" line="100" column="20" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="100" bodyend="100"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerBlockDamageEvent_1abb4cebafffc08a4c39c905c38abb6666" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classendstone_1_1Vector" kindref="compound">Vector</ref></type>
@@ -234,12 +257,16 @@
         <name>getPosition</name>
         <qualifiedname>endstone::PlayerBlockDamageEvent::getPosition</qualifiedname>
         <briefdescription>
+<para>Gets the block position. </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="return"><para>the block position </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_block_damage_event.h" line="57" column="13" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="57" bodyend="57"/>
+        <location file="include/endstone/event/player/player_block_damage_event.h" line="107" column="13" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="107" bodyend="107"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -308,7 +335,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/endstone/event/player/player_block_damage_event.h" line="33" column="1" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="33" bodyend="65"/>
+    <location file="include/endstone/event/player/player_block_damage_event.h" line="33" column="1" bodyfile="include/endstone/event/player/player_block_damage_event.h" bodystart="33" bodyend="115"/>
     <listofallmembers>
       <member refid="classendstone_1_1PlayerBlockDamageEvent_1a13ec95f384e68358b4aad55a5c5387f6" prot="public" virt="non-virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>Action</name></member>
       <member refid="classendstone_1_1PlayerBlockDamageEvent_1aa2fb16a8700413eb4b24dd21548ed55c" prot="private" virt="non-virtual"><scope>endstone::PlayerBlockDamageEvent</scope><name>action_</name></member>
