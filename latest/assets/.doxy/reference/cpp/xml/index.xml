@@ -1952,6 +1952,19 @@
     <member refid="classendstone_1_1PlayerBlockDamageEvent_1afcdc4e6333007db03d4f27a3ebb7113f" kind="function"><name>getBlockFace</name></member>
     <member refid="classendstone_1_1PlayerBlockDamageEvent_1abb4cebafffc08a4c39c905c38abb6666" kind="function"><name>getPosition</name></member>
   </compound>
+  <compound refid="classendstone_1_1PlayerBucketEntityEvent" kind="class"><name>endstone::PlayerBucketEntityEvent</name>
+    <member refid="classendstone_1_1PlayerBucketEntityEvent_1a0293c30bfc1b6a7bc42c9315c451c9fb" kind="variable"><name>entity_</name></member>
+    <member refid="classendstone_1_1PlayerBucketEntityEvent_1a71c258cd4efc4a1275584f2ab35243ab" kind="variable"><name>entity_bucket_</name></member>
+    <member refid="classendstone_1_1PlayerBucketEntityEvent_1a1cf02c65ec55734af0884630a9889e56" kind="variable"><name>hand_</name></member>
+    <member refid="classendstone_1_1PlayerBucketEntityEvent_1afab4d8b770f40c00633a48cd36a592ad" kind="variable"><name>original_bucket_</name></member>
+    <member refid="classendstone_1_1PlayerBucketEntityEvent_1ad1f8aff40686722849f463e0e2fd228a" kind="function"><name>ENDSTONE_EVENT</name></member>
+    <member refid="classendstone_1_1PlayerBucketEntityEvent_1af8ec1e48523011d170c9ee7032ff0fff" kind="function"><name>PlayerBucketEntityEvent</name></member>
+    <member refid="classendstone_1_1PlayerBucketEntityEvent_1a7f7541a70bedbe46a00f74f1f9740a21" kind="function"><name>getEntity</name></member>
+    <member refid="classendstone_1_1PlayerBucketEntityEvent_1aff98cec1cb1de3ed0b152b630f629de3" kind="function"><name>getEntityBucket</name></member>
+    <member refid="classendstone_1_1PlayerBucketEntityEvent_1a9e3731467e2e7d57d92881e681f7d083" kind="function"><name>setEntityBucket</name></member>
+    <member refid="classendstone_1_1PlayerBucketEntityEvent_1ae4809cc4be9d22608d32a783bc588976" kind="function"><name>getHand</name></member>
+    <member refid="classendstone_1_1PlayerBucketEntityEvent_1aa46eb8662cff3148c0f3be4792a2610d" kind="function"><name>getOriginalBucket</name></member>
+  </compound>
   <compound refid="classendstone_1_1PlayerChatEvent" kind="class"><name>endstone::PlayerChatEvent</name>
     <member refid="classendstone_1_1PlayerChatEvent_1a5a2fadea22a0df7dcfd1e3229ace5414" kind="variable"><name>message_</name></member>
     <member refid="classendstone_1_1PlayerChatEvent_1a6f547117792397c1aa4dfeed946d6452" kind="variable"><name>format_</name></member>
@@ -3246,6 +3259,8 @@
   <compound refid="player__bed__leave__event_8h" kind="file"><name>player_bed_leave_event.h</name>
   </compound>
   <compound refid="player__block__damage__event_8h" kind="file"><name>player_block_damage_event.h</name>
+  </compound>
+  <compound refid="player__bucket__entity__event_8h" kind="file"><name>player_bucket_entity_event.h</name>
   </compound>
   <compound refid="player__chat__event_8h" kind="file"><name>player_chat_event.h</name>
   </compound>

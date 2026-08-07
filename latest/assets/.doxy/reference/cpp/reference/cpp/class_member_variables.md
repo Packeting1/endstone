@@ -170,8 +170,9 @@
 * **event\_** ([**endstone::EventHandler**](classendstone_1_1EventHandler.md), [**endstone::HandlerList**](classendstone_1_1HandlerList.md))
 * **executor\_** ([**endstone::EventHandler**](classendstone_1_1EventHandler.md), [**endstone::PluginCommand**](classendstone_1_1PluginCommand.md))
 * **elements\_** ([**endstone::ListTag**](classendstone_1_1ListTag.md))
+* **entity\_** ([**endstone::PlayerBucketEntityEvent**](classendstone_1_1PlayerBucketEntityEvent.md), [**endstone::PlayerShearEntityEvent**](classendstone_1_1PlayerShearEntityEvent.md))
+* **entity\_bucket\_** ([**endstone::PlayerBucketEntityEvent**](classendstone_1_1PlayerBucketEntityEvent.md))
 * **emote\_id\_** ([**endstone::PlayerEmoteEvent**](classendstone_1_1PlayerEmoteEvent.md))
-* **entity\_** ([**endstone::PlayerShearEntityEvent**](classendstone_1_1PlayerShearEntityEvent.md))
 * **enabled\_** ([**endstone::Plugin**](classendstone_1_1Plugin.md))
 * **end** ([**endstone::detail::JoinView**](structendstone_1_1detail_1_1JoinView.md))
 
@@ -228,7 +229,7 @@
 * **Hunger** ([**endstone::EffectType**](classendstone_1_1EffectType.md))
 * **handlers\_** ([**endstone::HandlerList**](classendstone_1_1HandlerList.md))
 * **height\_** ([**endstone::Image**](classendstone_1_1Image.md))
-* **hand\_** ([**endstone::PlayerArmorStandManipulateEvent**](classendstone_1_1PlayerArmorStandManipulateEvent.md), [**endstone::PlayerItemConsumeEvent**](classendstone_1_1PlayerItemConsumeEvent.md), [**endstone::PlayerShearEntityEvent**](classendstone_1_1PlayerShearEntityEvent.md))
+* **hand\_** ([**endstone::PlayerArmorStandManipulateEvent**](classendstone_1_1PlayerArmorStandManipulateEvent.md), [**endstone::PlayerBucketEntityEvent**](classendstone_1_1PlayerBucketEntityEvent.md), [**endstone::PlayerItemConsumeEvent**](classendstone_1_1PlayerItemConsumeEvent.md), [**endstone::PlayerShearEntityEvent**](classendstone_1_1PlayerShearEntityEvent.md))
 * **Harming** ([**endstone::PotionType**](classendstone_1_1PotionType.md))
 * **Healing** ([**endstone::PotionType**](classendstone_1_1PotionType.md))
 * **hostname\_** ([**endstone::SocketAddress**](classendstone_1_1SocketAddress.md))
@@ -392,6 +393,7 @@
 * **Oozing** ([**endstone::EffectType**](classendstone_1_1EffectType.md), [**endstone::PotionType**](classendstone_1_1PotionType.md))
 * **on\_close\_** ([**endstone::Form**](classendstone_1_1Form.md))
 * **owned\_payload\_** ([**endstone::PacketReceiveEvent**](classendstone_1_1PacketReceiveEvent.md), [**endstone::PacketSendEvent**](classendstone_1_1PacketSendEvent.md))
+* **original\_bucket\_** ([**endstone::PlayerBucketEntityEvent**](classendstone_1_1PlayerBucketEntityEvent.md))
 * **old\_level\_** ([**endstone::PlayerLevelChangeEvent**](classendstone_1_1PlayerLevelChangeEvent.md))
 * **owner\_** ([**endstone::PluginCommand**](classendstone_1_1PluginCommand.md))
 

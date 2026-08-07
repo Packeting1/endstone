@@ -637,6 +637,10 @@
          <lastmod>2026-08-07</lastmod>
     </url>
     <url>
+         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerBucketEntityEvent/</loc>
+         <lastmod>2026-08-07</lastmod>
+    </url>
+    <url>
          <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerChatEvent/</loc>
          <lastmod>2026-08-07</lastmod>
     </url>
@@ -1814,6 +1818,14 @@
     </url>
     <url>
          <loc>https://endstone.dev/latest/reference/cpp/player__block__damage__event_8h_source/</loc>
+         <lastmod>2026-08-07</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__bucket__entity__event_8h/</loc>
+         <lastmod>2026-08-07</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__bucket__entity__event_8h_source/</loc>
          <lastmod>2026-08-07</lastmod>
     </url>
     <url>

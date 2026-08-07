@@ -1,0 +1,315 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classendstone_1_1PlayerBucketEntityEvent" kind="class" language="C++" prot="public" final="yes">
+    <compoundname>endstone::PlayerBucketEntityEvent</compoundname>
+    <basecompoundref refid="classendstone_1_1Cancellable" prot="public" virt="non-virtual">endstone::Cancellable&lt; PlayerEvent &gt;</basecompoundref>
+    <includes refid="player__bucket__entity__event_8h" local="no">endstone/event/player/player_bucket_entity_event.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classendstone_1_1PlayerBucketEntityEvent_1a0293c30bfc1b6a7bc42c9315c451c9fb" prot="private" static="no" mutable="no">
+        <type><ref refid="classendstone_1_1Actor" kindref="compound">Actor</ref> &amp;</type>
+        <definition>Actor&amp; endstone::PlayerBucketEntityEvent::entity_</definition>
+        <argsstring></argsstring>
+        <name>entity_</name>
+        <qualifiedname>endstone::PlayerBucketEntityEvent::entity_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="80" column="11" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classendstone_1_1PlayerBucketEntityEvent_1a71c258cd4efc4a1275584f2ab35243ab" prot="private" static="no" mutable="no">
+        <type><ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref></type>
+        <definition>ItemStack endstone::PlayerBucketEntityEvent::entity_bucket_</definition>
+        <argsstring></argsstring>
+        <name>entity_bucket_</name>
+        <qualifiedname>endstone::PlayerBucketEntityEvent::entity_bucket_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="81" column="15" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classendstone_1_1PlayerBucketEntityEvent_1a1cf02c65ec55734af0884630a9889e56" prot="private" static="no" mutable="no">
+        <type><ref refid="namespaceendstone_1afad3b218f2082aec71169d21f2493a39" kindref="member">EquipmentSlot</ref></type>
+        <definition>EquipmentSlot endstone::PlayerBucketEntityEvent::hand_</definition>
+        <argsstring></argsstring>
+        <name>hand_</name>
+        <qualifiedname>endstone::PlayerBucketEntityEvent::hand_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="82" column="19" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classendstone_1_1PlayerBucketEntityEvent_1afab4d8b770f40c00633a48cd36a592ad" prot="private" static="no" mutable="no">
+        <type><ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref></type>
+        <definition>ItemStack endstone::PlayerBucketEntityEvent::original_bucket_</definition>
+        <argsstring></argsstring>
+        <name>original_bucket_</name>
+        <qualifiedname>endstone::PlayerBucketEntityEvent::original_bucket_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="83" column="15" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classendstone_1_1PlayerBucketEntityEvent_1ad1f8aff40686722849f463e0e2fd228a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>endstone::PlayerBucketEntityEvent::ENDSTONE_EVENT</definition>
+        <argsstring>(PlayerBucketEntityEvent)</argsstring>
+        <name>ENDSTONE_EVENT</name>
+        <qualifiedname>endstone::PlayerBucketEntityEvent::ENDSTONE_EVENT</qualifiedname>
+        <param>
+          <type><ref refid="classendstone_1_1PlayerBucketEntityEvent" kindref="compound">PlayerBucketEntityEvent</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="32" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerBucketEntityEvent_1af8ec1e48523011d170c9ee7032ff0fff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>endstone::PlayerBucketEntityEvent::PlayerBucketEntityEvent</definition>
+        <argsstring>(Player &amp;player, Actor &amp;entity, ItemStack entity_bucket, EquipmentSlot hand, ItemStack original_bucket)</argsstring>
+        <name>PlayerBucketEntityEvent</name>
+        <qualifiedname>endstone::PlayerBucketEntityEvent::PlayerBucketEntityEvent</qualifiedname>
+        <param>
+          <type><ref refid="classendstone_1_1Player" kindref="compound">Player</ref> &amp;</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type><ref refid="classendstone_1_1Actor" kindref="compound">Actor</ref> &amp;</type>
+          <declname>entity</declname>
+        </param>
+        <param>
+          <type><ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref></type>
+          <declname>entity_bucket</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceendstone_1afad3b218f2082aec71169d21f2493a39" kindref="member">EquipmentSlot</ref></type>
+          <declname>hand</declname>
+        </param>
+        <param>
+          <type><ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref></type>
+          <declname>original_bucket</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="34" column="5" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="34" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerBucketEntityEvent_1a7f7541a70bedbe46a00f74f1f9740a21" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Actor" kindref="compound">Actor</ref> &amp;</type>
+        <definition>Actor &amp; endstone::PlayerBucketEntityEvent::getEntity</definition>
+        <argsstring>() const</argsstring>
+        <name>getEntity</name>
+        <qualifiedname>endstone::PlayerBucketEntityEvent::getEntity</qualifiedname>
+        <briefdescription>
+<para>Gets the entity being captured. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>entity being captured </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="49" column="12" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerBucketEntityEvent_1aff98cec1cb1de3ed0b152b630f629de3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> <ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref> &amp;</type>
+        <definition>const ItemStack &amp; endstone::PlayerBucketEntityEvent::getEntityBucket</definition>
+        <argsstring>() const</argsstring>
+        <name>getEntityBucket</name>
+        <qualifiedname>endstone::PlayerBucketEntityEvent::getEntityBucket</qualifiedname>
+        <briefdescription>
+<para>Gets the bucket item that will contain the captured entity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>bucket item containing the captured entity </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="56" column="22" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerBucketEntityEvent_1a9e3731467e2e7d57d92881e681f7d083" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">void</ref></type>
+        <definition>void endstone::PlayerBucketEntityEvent::setEntityBucket</definition>
+        <argsstring>(ItemStack entity_bucket)</argsstring>
+        <name>setEntityBucket</name>
+        <qualifiedname>endstone::PlayerBucketEntityEvent::setEntityBucket</qualifiedname>
+        <param>
+          <type><ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref></type>
+          <declname>entity_bucket</declname>
+        </param>
+        <briefdescription>
+<para>Sets the bucket item that will contain the captured entity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entity_bucket</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>new entity bucket </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="63" column="10" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerBucketEntityEvent_1ae4809cc4be9d22608d32a783bc588976" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceendstone_1afad3b218f2082aec71169d21f2493a39" kindref="member">EquipmentSlot</ref></type>
+        <definition>EquipmentSlot endstone::PlayerBucketEntityEvent::getHand</definition>
+        <argsstring>() const</argsstring>
+        <name>getHand</name>
+        <qualifiedname>endstone::PlayerBucketEntityEvent::getHand</qualifiedname>
+        <briefdescription>
+<para>Gets the hand used to capture the entity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>hand used to capture the entity </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="70" column="20" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerBucketEntityEvent_1aa46eb8662cff3148c0f3be4792a2610d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> <ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref> &amp;</type>
+        <definition>const ItemStack &amp; endstone::PlayerBucketEntityEvent::getOriginalBucket</definition>
+        <argsstring>() const</argsstring>
+        <name>getOriginalBucket</name>
+        <qualifiedname>endstone::PlayerBucketEntityEvent::getOriginalBucket</qualifiedname>
+        <briefdescription>
+<para>Gets the bucket used to capture the entity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>bucket used to capture the entity </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="77" column="22" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="77" bodyend="77"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents an event that is called when a player captures an entity with a bucket. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>endstone::Cancellable&lt; PlayerEvent &gt;</label>
+        <link refid="classendstone_1_1Cancellable"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>endstone::Event</label>
+        <link refid="classendstone_1_1Event"/>
+      </node>
+      <node id="5">
+        <label>endstone::ICancellable</label>
+        <link refid="classendstone_1_1ICancellable"/>
+      </node>
+      <node id="1">
+        <label>endstone::PlayerBucketEntityEvent</label>
+        <link refid="classendstone_1_1PlayerBucketEntityEvent"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>endstone::PlayerEvent</label>
+        <link refid="classendstone_1_1PlayerEvent"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>endstone::Cancellable&lt; PlayerEvent &gt;</label>
+        <link refid="classendstone_1_1Cancellable"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>endstone::Event</label>
+        <link refid="classendstone_1_1Event"/>
+      </node>
+      <node id="5">
+        <label>endstone::ICancellable</label>
+        <link refid="classendstone_1_1ICancellable"/>
+      </node>
+      <node id="1">
+        <label>endstone::PlayerBucketEntityEvent</label>
+        <link refid="classendstone_1_1PlayerBucketEntityEvent"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>endstone::PlayerEvent</label>
+        <link refid="classendstone_1_1PlayerEvent"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/endstone/event/player/player_bucket_entity_event.h" line="30" column="1" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="30" bodyend="84"/>
+    <listofallmembers>
+      <member refid="classendstone_1_1Cancellable_1a3512b47db69c6001f5c0450051308327" prot="public" virt="virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>cancel</name></member>
+      <member refid="classendstone_1_1PlayerBucketEntityEvent_1ad1f8aff40686722849f463e0e2fd228a" prot="public" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>ENDSTONE_EVENT</name></member>
+      <member refid="classendstone_1_1PlayerBucketEntityEvent_1a0293c30bfc1b6a7bc42c9315c451c9fb" prot="private" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>entity_</name></member>
+      <member refid="classendstone_1_1PlayerBucketEntityEvent_1a71c258cd4efc4a1275584f2ab35243ab" prot="private" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>entity_bucket_</name></member>
+      <member refid="classendstone_1_1Event_1a28cca8d74920493b449d035540acf023" prot="public" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>Event</name></member>
+      <member refid="classendstone_1_1Event_1a7199136ebb40e1441bc61e29f83c3cad" prot="public" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>Event</name></member>
+      <member refid="classendstone_1_1Event_1ad20bafd16e0671578e37390b95e5104c" prot="public" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>Event</name></member>
+      <member refid="classendstone_1_1PlayerBucketEntityEvent_1a7f7541a70bedbe46a00f74f1f9740a21" prot="public" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>getEntity</name></member>
+      <member refid="classendstone_1_1PlayerBucketEntityEvent_1aff98cec1cb1de3ed0b152b630f629de3" prot="public" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>getEntityBucket</name></member>
+      <member refid="classendstone_1_1Event_1a826fe74f9c4195a36a364b9aeeb321bb" prot="public" virt="pure-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>getEventName</name></member>
+      <member refid="classendstone_1_1PlayerBucketEntityEvent_1ae4809cc4be9d22608d32a783bc588976" prot="public" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>getHand</name></member>
+      <member refid="classendstone_1_1PlayerBucketEntityEvent_1aa46eb8662cff3148c0f3be4792a2610d" prot="public" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>getOriginalBucket</name></member>
+      <member refid="classendstone_1_1PlayerEvent_1a3ad904b05886ce30c7299500d9a57fdb" prot="public" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>getPlayer</name></member>
+      <member refid="classendstone_1_1PlayerBucketEntityEvent_1a1cf02c65ec55734af0884630a9889e56" prot="private" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>hand_</name></member>
+      <member refid="classendstone_1_1Event_1ae89b54f63dc32b0c8797a59db69b6931" prot="public" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>isAsynchronous</name></member>
+      <member refid="classendstone_1_1Cancellable_1a268b73cc5bda0fa5923336d031814faa" prot="public" virt="virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>isCancelled</name></member>
+      <member refid="classendstone_1_1Event_1a44a4ff424a8b690c01a2afe10ae68d8f" prot="public" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>operator=</name></member>
+      <member refid="classendstone_1_1Event_1a1d7fc5400782d20be99a3636aa7f53b9" prot="public" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>operator=</name></member>
+      <member refid="classendstone_1_1PlayerBucketEntityEvent_1afab4d8b770f40c00633a48cd36a592ad" prot="private" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>original_bucket_</name></member>
+      <member refid="classendstone_1_1PlayerEvent_1a263609667f42005d6cfe9f3a128477bd" prot="protected" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>player_</name></member>
+      <member refid="classendstone_1_1PlayerBucketEntityEvent_1af8ec1e48523011d170c9ee7032ff0fff" prot="public" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>PlayerBucketEntityEvent</name></member>
+      <member refid="classendstone_1_1PlayerEvent_1a244b2be43274af72138b157f63455419" prot="public" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>PlayerEvent</name></member>
+      <member refid="classendstone_1_1Cancellable_1aa12df44bcb66924d06a689d0dd07865e" prot="public" virt="virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>setCancelled</name></member>
+      <member refid="classendstone_1_1PlayerBucketEntityEvent_1a9e3731467e2e7d57d92881e681f7d083" prot="public" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>setEntityBucket</name></member>
+      <member refid="classendstone_1_1Event_1a6aeaa8096baba90f8ace94106e0e05f3" prot="public" virt="virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>~Event</name></member>
+      <member refid="classendstone_1_1ICancellable_1ab6d311fcaa18971f69a1b23f5a856301" prot="public" virt="virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>~ICancellable</name></member>
+      <member refid="classendstone_1_1PlayerEvent_1ab31b937251b8ccc1c72c275d1c7a522b" prot="public" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>~PlayerEvent</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
