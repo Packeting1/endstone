@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="80" column="11" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="80" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="81" column="11" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="81" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classendstone_1_1PlayerBucketEntityEvent_1a71c258cd4efc4a1275584f2ab35243ab" prot="private" static="no" mutable="no">
         <type><ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref></type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="81" column="15" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="81" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="82" column="15" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="82" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classendstone_1_1PlayerBucketEntityEvent_1a1cf02c65ec55734af0884630a9889e56" prot="private" static="no" mutable="no">
         <type><ref refid="namespaceendstone_1afad3b218f2082aec71169d21f2493a39" kindref="member">EquipmentSlot</ref></type>
@@ -45,7 +45,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="82" column="19" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="82" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="83" column="19" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="83" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classendstone_1_1PlayerBucketEntityEvent_1afab4d8b770f40c00633a48cd36a592ad" prot="private" static="no" mutable="no">
         <type><ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref></type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="83" column="15" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="83" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="84" column="15" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="84" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -78,7 +78,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="32" column="5"/>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="33" column="5"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerBucketEntityEvent_1af8ec1e48523011d170c9ee7032ff0fff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -112,7 +112,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="34" column="5" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="34" bodyend="42"/>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="35" column="5" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="35" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerBucketEntityEvent_1a7f7541a70bedbe46a00f74f1f9740a21" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classendstone_1_1Actor" kindref="compound">Actor</ref> &amp;</type>
@@ -130,7 +130,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="49" column="12" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="49" bodyend="49"/>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="50" column="12" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="50" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerBucketEntityEvent_1aff98cec1cb1de3ed0b152b630f629de3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> <ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref> &amp;</type>
@@ -148,7 +148,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="56" column="22" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="56" bodyend="56"/>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="57" column="22" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="57" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerBucketEntityEvent_1a9e3731467e2e7d57d92881e681f7d083" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classendstone_1_1Identifier" kindref="compound">void</ref></type>
@@ -177,7 +177,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="63" column="10" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="63" bodyend="63"/>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="64" column="10" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="64" bodyend="64"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerBucketEntityEvent_1ae4809cc4be9d22608d32a783bc588976" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="namespaceendstone_1afad3b218f2082aec71169d21f2493a39" kindref="member">EquipmentSlot</ref></type>
@@ -195,7 +195,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="70" column="20" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="70" bodyend="70"/>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="71" column="20" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="71" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerBucketEntityEvent_1aa46eb8662cff3148c0f3be4792a2610d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> <ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref> &amp;</type>
@@ -213,7 +213,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="77" column="22" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="77" bodyend="77"/>
+        <location file="include/endstone/event/player/player_bucket_entity_event.h" line="78" column="22" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="78" bodyend="78"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -281,7 +281,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/endstone/event/player/player_bucket_entity_event.h" line="30" column="1" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="30" bodyend="84"/>
+    <location file="include/endstone/event/player/player_bucket_entity_event.h" line="31" column="1" bodyfile="include/endstone/event/player/player_bucket_entity_event.h" bodystart="31" bodyend="85"/>
     <listofallmembers>
       <member refid="classendstone_1_1Cancellable_1a3512b47db69c6001f5c0450051308327" prot="public" virt="virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>cancel</name></member>
       <member refid="classendstone_1_1PlayerBucketEntityEvent_1ad1f8aff40686722849f463e0e2fd228a" prot="public" virt="non-virtual"><scope>endstone::PlayerBucketEntityEvent</scope><name>ENDSTONE_EVENT</name></member>

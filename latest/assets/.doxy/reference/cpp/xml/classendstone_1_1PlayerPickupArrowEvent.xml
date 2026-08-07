@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_pickup_arrow_event.h" line="34" column="11" bodyfile="include/endstone/event/player/player_pickup_arrow_event.h" bodystart="34" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_pickup_arrow_event.h" line="35" column="11" bodyfile="include/endstone/event/player/player_pickup_arrow_event.h" bodystart="35" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_pickup_arrow_event.h" line="22" column="5"/>
+        <location file="include/endstone/event/player/player_pickup_arrow_event.h" line="23" column="5"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerPickupArrowEvent_1a301ac6ac6a4d9340badfdbdeade539ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_pickup_arrow_event.h" line="24" column="5" bodyfile="include/endstone/event/player/player_pickup_arrow_event.h" bodystart="24" bodyend="24"/>
+        <location file="include/endstone/event/player/player_pickup_arrow_event.h" line="25" column="5" bodyfile="include/endstone/event/player/player_pickup_arrow_event.h" bodystart="25" bodyend="25"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerPickupArrowEvent_1a27c68f03c6b351d2cc9b39d2d752b549" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classendstone_1_1Actor" kindref="compound">Actor</ref> &amp;</type>
@@ -76,7 +76,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_pickup_arrow_event.h" line="31" column="12" bodyfile="include/endstone/event/player/player_pickup_arrow_event.h" bodystart="31" bodyend="31"/>
+        <location file="include/endstone/event/player/player_pickup_arrow_event.h" line="32" column="12" bodyfile="include/endstone/event/player/player_pickup_arrow_event.h" bodystart="32" bodyend="32"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -144,7 +144,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/endstone/event/player/player_pickup_arrow_event.h" line="20" column="1" bodyfile="include/endstone/event/player/player_pickup_arrow_event.h" bodystart="20" bodyend="35"/>
+    <location file="include/endstone/event/player/player_pickup_arrow_event.h" line="21" column="1" bodyfile="include/endstone/event/player/player_pickup_arrow_event.h" bodystart="21" bodyend="36"/>
     <listofallmembers>
       <member refid="classendstone_1_1PlayerPickupArrowEvent_1a609476d1bd65368b63d114d23ccc63b0" prot="private" virt="non-virtual"><scope>endstone::PlayerPickupArrowEvent</scope><name>arrow_</name></member>
       <member refid="classendstone_1_1Cancellable_1a3512b47db69c6001f5c0450051308327" prot="public" virt="virtual"><scope>endstone::PlayerPickupArrowEvent</scope><name>cancel</name></member>

@@ -18,11 +18,12 @@
 
 #pragma once
 
-#include "endstone/actor/actor.h"
 #include "endstone/event/cancellable.h"
 #include "endstone/event/player/player_event.h"
 
 namespace endstone {
+
+class Actor;
 
 class PlayerPickupArrowEvent final : public Cancellable<PlayerEvent> {
 public:

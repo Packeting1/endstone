@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_shear_entity_event.h" line="63" column="11" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="63" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_shear_entity_event.h" line="64" column="11" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="64" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classendstone_1_1PlayerShearEntityEvent_1a225c4e937c44ff659c13180dab48e02d" prot="private" static="no" mutable="no">
         <type><ref refid="namespaceendstone_1afad3b218f2082aec71169d21f2493a39" kindref="member">EquipmentSlot</ref></type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_shear_entity_event.h" line="64" column="19" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="64" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_shear_entity_event.h" line="65" column="19" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="65" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classendstone_1_1PlayerShearEntityEvent_1ae3bf1d962a47f8d7c0ae9c31448dd920" prot="private" static="no" mutable="no">
         <type><ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref></type>
@@ -45,7 +45,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_shear_entity_event.h" line="65" column="15" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="65" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_shear_entity_event.h" line="66" column="15" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="66" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_shear_entity_event.h" line="26" column="5"/>
+        <location file="include/endstone/event/player/player_shear_entity_event.h" line="27" column="5"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerShearEntityEvent_1ac23b469160ba478b8de3eb5f2c785f51" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -129,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_shear_entity_event.h" line="36" column="5" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="36" bodyend="39"/>
+        <location file="include/endstone/event/player/player_shear_entity_event.h" line="37" column="5" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="37" bodyend="40"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerShearEntityEvent_1a31c19fefa791320efac2cf6806c7e99b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classendstone_1_1Actor" kindref="compound">Actor</ref> &amp;</type>
@@ -147,7 +147,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_shear_entity_event.h" line="46" column="12" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="46" bodyend="46"/>
+        <location file="include/endstone/event/player/player_shear_entity_event.h" line="47" column="12" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="47" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerShearEntityEvent_1ad8eccd4ab31bc6bd6a70183b0ec61352" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="namespaceendstone_1afad3b218f2082aec71169d21f2493a39" kindref="member">EquipmentSlot</ref></type>
@@ -165,7 +165,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_shear_entity_event.h" line="53" column="20" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="53" bodyend="53"/>
+        <location file="include/endstone/event/player/player_shear_entity_event.h" line="54" column="20" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="54" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerShearEntityEvent_1aba0f8f68dab3ee5ac697d0b1211ae9b5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> <ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref> &amp;</type>
@@ -183,7 +183,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_shear_entity_event.h" line="60" column="22" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="60" bodyend="60"/>
+        <location file="include/endstone/event/player/player_shear_entity_event.h" line="61" column="22" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="61" bodyend="61"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -251,7 +251,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/endstone/event/player/player_shear_entity_event.h" line="24" column="1" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="24" bodyend="66"/>
+    <location file="include/endstone/event/player/player_shear_entity_event.h" line="25" column="1" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="25" bodyend="67"/>
     <listofallmembers>
       <member refid="classendstone_1_1Cancellable_1a3512b47db69c6001f5c0450051308327" prot="public" virt="virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>cancel</name></member>
       <member refid="classendstone_1_1PlayerShearEntityEvent_1a7194ded93a28a6b29d4501d43471c5b6" prot="public" virt="non-virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>ENDSTONE_EVENT</name></member>

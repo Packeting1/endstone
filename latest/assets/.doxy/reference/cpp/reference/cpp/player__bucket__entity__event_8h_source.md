@@ -26,13 +26,14 @@
 
 #include <utility>
 
-#include "endstone/actor/actor.h"
 #include "endstone/event/cancellable.h"
 #include "endstone/event/player/player_event.h"
 #include "endstone/inventory/equipment_slot.h"
 #include "endstone/inventory/item_stack.h"
 
 namespace endstone {
+
+class Actor;
 
 class PlayerBucketEntityEvent final : public Cancellable<PlayerEvent> {
 public:
