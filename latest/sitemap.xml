@@ -1109,6 +1109,10 @@
          <lastmod>2026-08-07</lastmod>
     </url>
     <url>
+         <loc>https://endstone.dev/latest/reference/cpp/structstd_1_1formatter_3_01endstone_1_1SocketAddress_01_4/</loc>
+         <lastmod>2026-08-07</lastmod>
+    </url>
+    <url>
          <loc>https://endstone.dev/latest/reference/cpp/structstd_1_1formatter_3_01endstone_1_1StringTag_01_4/</loc>
          <lastmod>2026-08-07</lastmod>
     </url>
@@ -1138,6 +1142,10 @@
     </url>
     <url>
          <loc>https://endstone.dev/latest/reference/cpp/structstd_1_1hash_3_01endstone_1_1Nullable_3_01T_01_4_01_4/</loc>
+         <lastmod>2026-08-07</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/structstd_1_1hash_3_01endstone_1_1SocketAddress_01_4/</loc>
          <lastmod>2026-08-07</lastmod>
     </url>
     <url>
