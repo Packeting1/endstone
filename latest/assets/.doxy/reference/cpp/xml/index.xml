@@ -2196,7 +2196,6 @@
     <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1ac8369533e374a734dda5edd17923c0eb" kind="function"><name>ENDSTONE_EVENT</name></member>
     <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a3528cbd7487c9db786687df99ed538d3" kind="function"><name>PlayerRecipeBookClickEvent</name></member>
     <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a1b8a96dd124938fe10f84e01815c3883" kind="function"><name>getRecipe</name></member>
-    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a68a25c2ab677f61bf0198c954882857a" kind="function"><name>setRecipe</name></member>
     <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a2e6b52c6f2ea7e9a7ccdee5e7c2491cd" kind="function"><name>isMakeAll</name></member>
     <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a073dbc08f636f197b612511b336537c1" kind="function"><name>setMakeAll</name></member>
   </compound>

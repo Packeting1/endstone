@@ -1389,7 +1389,6 @@
 * **setKickMessage** ([**endstone::PlayerLoginEvent**](classendstone_1_1PlayerLoginEvent.md))
 * **setQuitMessage** ([**endstone::PlayerQuitEvent**](classendstone_1_1PlayerQuitEvent.md))
 * **setMakeAll** ([**endstone::PlayerRecipeBookClickEvent**](classendstone_1_1PlayerRecipeBookClickEvent.md))
-* **setRecipe** ([**endstone::PlayerRecipeBookClickEvent**](classendstone_1_1PlayerRecipeBookClickEvent.md))
 * **setSkinChangeMessage** ([**endstone::PlayerSkinChangeEvent**](classendstone_1_1PlayerSkinChangeEvent.md))
 * **sneaking\_** ([**endstone::PlayerSneakEvent**](classendstone_1_1PlayerSneakEvent.md))
 * **sprinting\_** ([**endstone::PlayerSprintEvent**](classendstone_1_1PlayerSprintEvent.md))

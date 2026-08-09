@@ -95,10 +95,9 @@ Inherits the following classes: [endstone::Cancellable](classendstone_1_1Cancell
 | ---: | :--- |
 |   | [**ENDSTONE\_EVENT**](#function-endstone_event) ([**PlayerRecipeBookClickEvent**](classendstone_1_1PlayerRecipeBookClickEvent.md)) <br> |
 |   | [**PlayerRecipeBookClickEvent**](#function-playerrecipebookclickevent) ([**Player**](classendstone_1_1Player.md) & player, [**RecipeId**](classendstone_1_1Identifier.md) recipe, [**bool**](classendstone_1_1Identifier.md) make\_all) <br> |
-|  [**RecipeId**](classendstone_1_1Identifier.md) | [**getRecipe**](#function-getrecipe) () const<br>_Gets the recipe identifier that will be used for crafting._  |
+|  [**RecipeId**](classendstone_1_1Identifier.md) | [**getRecipe**](#function-getrecipe) () const<br>_Gets the recipe identifier clicked by the player._  |
 |  [**bool**](classendstone_1_1Identifier.md) | [**isMakeAll**](#function-ismakeall) () const<br>_Gets whether the player requested crafting as many copies as possible._  |
 |  [**void**](classendstone_1_1Identifier.md) | [**setMakeAll**](#function-setmakeall) ([**bool**](classendstone_1_1Identifier.md) make\_all) <br>_Sets whether the player requests crafting as many copies as possible._  |
-|  [**void**](classendstone_1_1Identifier.md) | [**setRecipe**](#function-setrecipe) ([**RecipeId**](classendstone_1_1Identifier.md) recipe) <br>_Sets the recipe identifier that will be used for crafting._  |
 
 
 ## Public Functions inherited from endstone::Cancellable
@@ -241,7 +240,7 @@ inline endstone::PlayerRecipeBookClickEvent::PlayerRecipeBookClickEvent (
 
 ### function getRecipe 
 
-_Gets the recipe identifier that will be used for crafting._ 
+_Gets the recipe identifier clicked by the player._ 
 ```C++
 inline RecipeId endstone::PlayerRecipeBookClickEvent::getRecipe () const
 ```
@@ -306,33 +305,6 @@ inline void endstone::PlayerRecipeBookClickEvent::setMakeAll (
 
 
 * `make_all` true to request crafting all possible copies 
-
-
-
-
-        
-
-<hr>
-
-
-
-### function setRecipe 
-
-_Sets the recipe identifier that will be used for crafting._ 
-```C++
-inline void endstone::PlayerRecipeBookClickEvent::setRecipe (
-    RecipeId recipe
-) 
-```
-
-
-
-
-
-**Parameters:**
-
-
-* `recipe` the recipe identifier to use 
 
 
 

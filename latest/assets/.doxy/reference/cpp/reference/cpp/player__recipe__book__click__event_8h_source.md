@@ -37,8 +37,6 @@ public:
 
     [[nodiscard]] RecipeId getRecipe() const { return RecipeId{recipe_}; }
 
-    void setRecipe(RecipeId recipe) { recipe_ = static_cast<std::string>(recipe); }
-
     [[nodiscard]] bool isMakeAll() const { return make_all_; }
 
     void setMakeAll(bool make_all) { make_all_ = make_all; }
