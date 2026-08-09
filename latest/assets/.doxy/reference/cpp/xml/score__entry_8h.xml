@@ -691,12 +691,18 @@
         <childnode refid="74" relation="include">
         </childnode>
       </node>
-      <node id="122">
+      <node id="121">
+        <label>include/endstone/game_rule.h</label>
+        <link refid="game__rule_8h_source"/>
+        <childnode refid="70" relation="include">
+        </childnode>
+      </node>
+      <node id="123">
         <label>include/endstone/inventory/inventory.h</label>
         <link refid="inventory_8h_source"/>
         <childnode refid="99" relation="include">
         </childnode>
-        <childnode refid="123" relation="include">
+        <childnode refid="124" relation="include">
         </childnode>
       </node>
       <node id="114">
@@ -729,10 +735,10 @@
         <childnode refid="65" relation="include">
         </childnode>
       </node>
-      <node id="121">
+      <node id="122">
         <label>include/endstone/inventory/item_type.h</label>
         <link refid="item__type_8h_source"/>
-        <childnode refid="122" relation="include">
+        <childnode refid="123" relation="include">
         </childnode>
         <childnode refid="114" relation="include">
         </childnode>
@@ -773,7 +779,7 @@
         <childnode refid="120" relation="include">
         </childnode>
       </node>
-      <node id="123">
+      <node id="124">
         <label>include/endstone/inventory/player_inventory.h</label>
         <link refid="player__inventory_8h_source"/>
         <childnode refid="5" relation="include">
@@ -847,6 +853,8 @@
         <childnode refid="112" relation="include">
         </childnode>
         <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
         </childnode>
       </node>
       <node id="60">
