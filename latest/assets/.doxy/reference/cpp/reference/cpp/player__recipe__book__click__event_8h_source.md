@@ -22,7 +22,6 @@
 
 #include "endstone/event/cancellable.h"
 #include "endstone/event/player/player_event.h"
-#include "endstone/inventory/recipe.h"
 
 namespace endstone {
 
@@ -30,12 +29,12 @@ class PlayerRecipeBookClickEvent final : public Cancellable<PlayerEvent> {
 public:
     ENDSTONE_EVENT(PlayerRecipeBookClickEvent);
 
-    PlayerRecipeBookClickEvent(Player &player, RecipeId recipe, bool make_all)
-        : Cancellable(player), recipe_(static_cast<std::string>(recipe)), make_all_(make_all)
+    PlayerRecipeBookClickEvent(Player &player, std::string recipe, bool make_all)
+        : Cancellable(player), recipe_(recipe), make_all_(make_all)
     {
     }
 
-    [[nodiscard]] RecipeId getRecipe() const { return RecipeId{recipe_}; }
+    [[nodiscard]] const std::string &getRecipe() const { return recipe_; }
 
     [[nodiscard]] bool isMakeAll() const { return make_all_; }
 

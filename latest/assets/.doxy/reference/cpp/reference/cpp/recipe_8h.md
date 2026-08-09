@@ -10,7 +10,6 @@
 
 
 
-* `#include "endstone/identifier.h"`
 * `#include "endstone/inventory/item_stack.h"`
 
 

@@ -715,8 +715,6 @@
       <node id="114">
         <label>include/endstone/inventory/recipe.h</label>
         <link refid="recipe_8h_source"/>
-        <childnode refid="79" relation="include">
-        </childnode>
       </node>
       <node id="107">
         <label>include/endstone/level/chunk.h</label>

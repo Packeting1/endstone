@@ -110,7 +110,6 @@
 
 ## r
 
-* **RecipeId** ([**endstone**](namespaceendstone.md))
 * **RenderType** ([**endstone**](namespaceendstone.md))
 * **Result** ([**endstone**](namespaceendstone.md))
 * **read\_bytes** ([**endstone::nbt::detail**](namespaceendstone_1_1nbt_1_1detail.md))

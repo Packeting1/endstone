@@ -2179,8 +2179,8 @@
     <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a3f294c49e9615c3f4e30c3f7c32a184a" kind="variable"><name>recipe_</name></member>
     <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1aa4890800af7d7909fc8dabf686b41a58" kind="variable"><name>make_all_</name></member>
     <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1ac8369533e374a734dda5edd17923c0eb" kind="function"><name>ENDSTONE_EVENT</name></member>
-    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a3528cbd7487c9db786687df99ed538d3" kind="function"><name>PlayerRecipeBookClickEvent</name></member>
-    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a1b8a96dd124938fe10f84e01815c3883" kind="function"><name>getRecipe</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1aea7755b2ef91b5899a1a2f5d58883875" kind="function"><name>PlayerRecipeBookClickEvent</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a9077d11f8f6683293e4c15980d485e64" kind="function"><name>getRecipe</name></member>
     <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a2e6b52c6f2ea7e9a7ccdee5e7c2491cd" kind="function"><name>isMakeAll</name></member>
     <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a073dbc08f636f197b612511b336537c1" kind="function"><name>setMakeAll</name></member>
   </compound>
@@ -3023,7 +3023,6 @@
     <member refid="namespaceendstone_1a42f3cb333492510ff60b8097153fa66a" kind="typedef"><name>BlockTypeId</name></member>
     <member refid="namespaceendstone_1a996c90f609bfd792a8245bb60fd3e4ea" kind="typedef"><name>EnchantmentId</name></member>
     <member refid="namespaceendstone_1a38ff2441d6476b407a46c5868fd25cd3" kind="typedef"><name>ItemTypeId</name></member>
-    <member refid="namespaceendstone_1afb52650b7515f712432afa9210d63f6e" kind="typedef"><name>RecipeId</name></member>
     <member refid="namespaceendstone_1a50a151fb732635e869fd9c0a4ef78c2c" kind="typedef"><name>DimensionId</name></member>
     <member refid="namespaceendstone_1ab1be61859bf80a227cf5d0b12a26ef78" kind="typedef"><name>Message</name></member>
     <member refid="namespaceendstone_1a33e1574322a8aca1ebab711faea30a4a" kind="typedef"><name>ByteTag</name></member>

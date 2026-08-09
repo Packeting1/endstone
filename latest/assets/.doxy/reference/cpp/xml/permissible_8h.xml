@@ -848,8 +848,6 @@
       <node id="120">
         <label>include/endstone/inventory/recipe.h</label>
         <link refid="recipe_8h_source"/>
-        <childnode refid="51" relation="include">
-        </childnode>
       </node>
       <node id="83">
         <label>include/endstone/level/chunk.h</label>
