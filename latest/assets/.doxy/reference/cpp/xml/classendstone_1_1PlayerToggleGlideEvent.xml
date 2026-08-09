@@ -50,10 +50,10 @@
         <name>isGliding</name>
         <qualifiedname>endstone::PlayerToggleGlideEvent::isGliding</qualifiedname>
         <briefdescription>
-<para>Gets whether the player is gliding. </para>
+<para>Returns whether the player is now gliding or not. </para>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>true when starting to glide, false when stopping </para>
+<para><simplesect kind="return"><para>the new gliding state </para>
 </simplesect>
 </para>
         </detaileddescription>
@@ -63,7 +63,7 @@
       </memberdef>
     </sectiondef>
     <briefdescription>
-<para>Called when a player starts or stops gliding. </para>
+<para>Called when a player toggles their gliding state. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>

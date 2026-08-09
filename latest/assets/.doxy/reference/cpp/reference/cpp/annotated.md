@@ -156,12 +156,12 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**PlayerShearEntityEvent**](classendstone_1_1PlayerShearEntityEvent.md) _Called when a player shears an entity._     
     * **class** [**PlayerSkinChangeEvent**](classendstone_1_1PlayerSkinChangeEvent.md) _Called when a player changes their skin._     
     * **class** [**PlayerTeleportEvent**](classendstone_1_1PlayerTeleportEvent.md) _Called when a player is teleported from one location to another._     
-    * **class** [**PlayerToggleCrawlEvent**](classendstone_1_1PlayerToggleCrawlEvent.md) _Called when a player starts or stops crawling._     
-    * **class** [**PlayerToggleFlightEvent**](classendstone_1_1PlayerToggleFlightEvent.md) _Called when a player starts or stops flying._     
-    * **class** [**PlayerToggleGlideEvent**](classendstone_1_1PlayerToggleGlideEvent.md) _Called when a player starts or stops gliding._     
+    * **class** [**PlayerToggleCrawlEvent**](classendstone_1_1PlayerToggleCrawlEvent.md) _Called when a player toggles their crawling state._     
+    * **class** [**PlayerToggleFlightEvent**](classendstone_1_1PlayerToggleFlightEvent.md) _Called when a player toggles their flying state._     
+    * **class** [**PlayerToggleGlideEvent**](classendstone_1_1PlayerToggleGlideEvent.md) _Called when a player toggles their gliding state._     
     * **class** [**PlayerToggleSneakEvent**](classendstone_1_1PlayerToggleSneakEvent.md) _Called when a player toggles their sneaking state._     
     * **class** [**PlayerToggleSprintEvent**](classendstone_1_1PlayerToggleSprintEvent.md) _Called when a player toggles their sprinting state._     
-    * **class** [**PlayerToggleSwimEvent**](classendstone_1_1PlayerToggleSwimEvent.md) _Called when a player starts or stops swimming._     
+    * **class** [**PlayerToggleSwimEvent**](classendstone_1_1PlayerToggleSwimEvent.md) _Called when a player toggles their swimming state._     
     * **class** [**PlayerVelocityEvent**](classendstone_1_1PlayerVelocityEvent.md) _Represents an event that is called when the velocity of a player changes._     
     * **class** [**Plugin**](classendstone_1_1Plugin.md) _Represents a_ [_**Plugin**_](classendstone_1_1Plugin.md) _._    
     * **class** [**PluginCommand**](classendstone_1_1PluginCommand.md) _Represents a_ [_**Command**_](classendstone_1_1Command.md) _belonging to a_[_**Plugin**_](classendstone_1_1Plugin.md) _._    

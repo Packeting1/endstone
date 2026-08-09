@@ -2706,7 +2706,7 @@ For latest updates join the chat on
 
 <h1 id="class-endstoneplayertoggleglideevent">Class endstone::PlayerToggleGlideEvent<a class="headerlink" href="#class-endstoneplayertoggleglideevent" title="Permanent link">&para;</a></h1>
 <p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="../namespaceendstone/"><strong>endstone</strong></a> <strong>&gt;</strong> <a href="./"><strong>PlayerToggleGlideEvent</strong></a></p>
-<p><em>Called when a player starts or stops gliding.</em> </p>
+<p><em>Called when a player toggles their gliding state.</em> </p>
 <ul>
 <li><code>#include &lt;endstone/event/player/player_toggle_glide_event.h&gt;</code></li>
 </ul>
@@ -2726,7 +2726,7 @@ For latest updates join the chat on
 </tr>
 <tr>
 <td style="text-align: right;"><a href="../classendstone_1_1Identifier/"><strong>bool</strong></a></td>
-<td style="text-align: left;"><a href="#function-isgliding"><strong>isGliding</strong></a> () const<br><em>Gets whether the player is gliding.</em></td>
+<td style="text-align: left;"><a href="#function-isgliding"><strong>isGliding</strong></a> () const<br><em>Returns whether the player is now gliding or not.</em></td>
 </tr>
 </tbody>
 </table>
@@ -2824,11 +2824,11 @@ For latest updates join the chat on
 <hr>
 
 <h3 id="function-isgliding">function isGliding<a class="headerlink" href="#function-isgliding" title="Permanent link">&para;</a></h3>
-<p><em>Gets whether the player is gliding.</em> 
+<p><em>Returns whether the player is now gliding or not.</em> 
 <div class="language-C++ highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">endstone</span><span class="o">::</span><span class="n">PlayerToggleGlideEvent</span><span class="o">::</span><span class="n">isGliding</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </span></code></pre></div></p>
 <p><strong>Returns:</strong></p>
-<p>true when starting to glide, false when stopping </p>
+<p>the new gliding state </p>
 <hr>
 
 <hr />

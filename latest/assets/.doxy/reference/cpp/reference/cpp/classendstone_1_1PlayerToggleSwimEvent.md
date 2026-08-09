@@ -8,7 +8,7 @@
 
 
 
-_Called when a player starts or stops swimming._ 
+_Called when a player toggles their swimming state._ 
 
 * `#include <endstone/event/player/player_toggle_swim_event.h>`
 
@@ -94,7 +94,7 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 | Type | Name |
 | ---: | :--- |
 |   | [**PlayerToggleSwimEvent**](#function-playertoggleswimevent) ([**Player**](classendstone_1_1Player.md) & player, [**bool**](classendstone_1_1Identifier.md) swimming) <br> |
-|  [**bool**](classendstone_1_1Identifier.md) | [**isSwimming**](#function-isswimming) () const<br>_Gets whether the player is swimming._  |
+|  [**bool**](classendstone_1_1Identifier.md) | [**isSwimming**](#function-isswimming) () const<br>_Returns whether the player is now swimming or not._  |
 
 
 ## Public Functions inherited from endstone::PlayerEvent
@@ -232,7 +232,7 @@ inline explicit endstone::PlayerToggleSwimEvent::PlayerToggleSwimEvent (
 
 ### function isSwimming 
 
-_Gets whether the player is swimming._ 
+_Returns whether the player is now swimming or not._ 
 ```C++
 inline bool endstone::PlayerToggleSwimEvent::isSwimming () const
 ```
@@ -243,7 +243,7 @@ inline bool endstone::PlayerToggleSwimEvent::isSwimming () const
 
 **Returns:**
 
-true when starting to swim, false when stopping 
+the new swimming state 
 
 
 

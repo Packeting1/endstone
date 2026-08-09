@@ -8,7 +8,7 @@
 
 
 
-_Called when a player starts or stops flying._ 
+_Called when a player toggles their flying state._ 
 
 * `#include <endstone/event/player/player_toggle_flight_event.h>`
 
@@ -94,7 +94,7 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 | Type | Name |
 | ---: | :--- |
 |   | [**PlayerToggleFlightEvent**](#function-playertoggleflightevent) ([**Player**](classendstone_1_1Player.md) & player, [**bool**](classendstone_1_1Identifier.md) flying) <br> |
-|  [**bool**](classendstone_1_1Identifier.md) | [**isFlying**](#function-isflying) () const<br>_Gets whether the player is flying._  |
+|  [**bool**](classendstone_1_1Identifier.md) | [**isFlying**](#function-isflying) () const<br>_Returns whether the player is now flying or not._  |
 
 
 ## Public Functions inherited from endstone::PlayerEvent
@@ -232,7 +232,7 @@ inline explicit endstone::PlayerToggleFlightEvent::PlayerToggleFlightEvent (
 
 ### function isFlying 
 
-_Gets whether the player is flying._ 
+_Returns whether the player is now flying or not._ 
 ```C++
 inline bool endstone::PlayerToggleFlightEvent::isFlying () const
 ```
@@ -243,7 +243,7 @@ inline bool endstone::PlayerToggleFlightEvent::isFlying () const
 
 **Returns:**
 
-true when starting to fly, false when stopping 
+the new flying state 
 
 
 

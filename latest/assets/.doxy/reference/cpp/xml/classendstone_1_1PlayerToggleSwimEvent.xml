@@ -50,10 +50,10 @@
         <name>isSwimming</name>
         <qualifiedname>endstone::PlayerToggleSwimEvent::isSwimming</qualifiedname>
         <briefdescription>
-<para>Gets whether the player is swimming. </para>
+<para>Returns whether the player is now swimming or not. </para>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>true when starting to swim, false when stopping </para>
+<para><simplesect kind="return"><para>the new swimming state </para>
 </simplesect>
 </para>
         </detaileddescription>
@@ -63,7 +63,7 @@
       </memberdef>
     </sectiondef>
     <briefdescription>
-<para>Called when a player starts or stops swimming. </para>
+<para>Called when a player toggles their swimming state. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>

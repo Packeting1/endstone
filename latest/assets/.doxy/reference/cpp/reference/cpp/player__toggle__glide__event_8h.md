@@ -35,7 +35,7 @@
 
 | Type | Name |
 | ---: | :--- |
-| class | [**PlayerToggleGlideEvent**](classendstone_1_1PlayerToggleGlideEvent.md) <br>_Called when a player starts or stops gliding._  |
+| class | [**PlayerToggleGlideEvent**](classendstone_1_1PlayerToggleGlideEvent.md) <br>_Called when a player toggles their gliding state._  |
 
 
 

@@ -8,7 +8,7 @@
 
 
 
-_Called when a player starts or stops gliding._ 
+_Called when a player toggles their gliding state._ 
 
 * `#include <endstone/event/player/player_toggle_glide_event.h>`
 
@@ -94,7 +94,7 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 | Type | Name |
 | ---: | :--- |
 |   | [**PlayerToggleGlideEvent**](#function-playertoggleglideevent) ([**Player**](classendstone_1_1Player.md) & player, [**bool**](classendstone_1_1Identifier.md) gliding) <br> |
-|  [**bool**](classendstone_1_1Identifier.md) | [**isGliding**](#function-isgliding) () const<br>_Gets whether the player is gliding._  |
+|  [**bool**](classendstone_1_1Identifier.md) | [**isGliding**](#function-isgliding) () const<br>_Returns whether the player is now gliding or not._  |
 
 
 ## Public Functions inherited from endstone::PlayerEvent
@@ -232,7 +232,7 @@ inline explicit endstone::PlayerToggleGlideEvent::PlayerToggleGlideEvent (
 
 ### function isGliding 
 
-_Gets whether the player is gliding._ 
+_Returns whether the player is now gliding or not._ 
 ```C++
 inline bool endstone::PlayerToggleGlideEvent::isGliding () const
 ```
@@ -243,7 +243,7 @@ inline bool endstone::PlayerToggleGlideEvent::isGliding () const
 
 **Returns:**
 
-true when starting to glide, false when stopping 
+the new gliding state 
 
 
 

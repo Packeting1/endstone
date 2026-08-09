@@ -55,12 +55,12 @@ This inheritance list is sorted roughly, but not completely, alphabetically:
         * **class** [**endstone::PlayerRecipeBookSettingsChangeEvent**](classendstone_1_1PlayerRecipeBookSettingsChangeEvent.md) _Represents an event that is called when a player changes recipe book settings._ 
         * **class** [**endstone::PlayerRespawnEvent**](classendstone_1_1PlayerRespawnEvent.md) _Called when a player respawns._ 
         * **class** [**endstone::PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md) _Called when a player starts or stops a riptide attack._ 
-        * **class** [**endstone::PlayerToggleCrawlEvent**](classendstone_1_1PlayerToggleCrawlEvent.md) _Called when a player starts or stops crawling._ 
-        * **class** [**endstone::PlayerToggleFlightEvent**](classendstone_1_1PlayerToggleFlightEvent.md) _Called when a player starts or stops flying._ 
-        * **class** [**endstone::PlayerToggleGlideEvent**](classendstone_1_1PlayerToggleGlideEvent.md) _Called when a player starts or stops gliding._ 
+        * **class** [**endstone::PlayerToggleCrawlEvent**](classendstone_1_1PlayerToggleCrawlEvent.md) _Called when a player toggles their crawling state._ 
+        * **class** [**endstone::PlayerToggleFlightEvent**](classendstone_1_1PlayerToggleFlightEvent.md) _Called when a player toggles their flying state._ 
+        * **class** [**endstone::PlayerToggleGlideEvent**](classendstone_1_1PlayerToggleGlideEvent.md) _Called when a player toggles their gliding state._ 
         * **class** [**endstone::PlayerToggleSneakEvent**](classendstone_1_1PlayerToggleSneakEvent.md) _Called when a player toggles their sneaking state._ 
         * **class** [**endstone::PlayerToggleSprintEvent**](classendstone_1_1PlayerToggleSprintEvent.md) _Called when a player toggles their sprinting state._ 
-        * **class** [**endstone::PlayerToggleSwimEvent**](classendstone_1_1PlayerToggleSwimEvent.md) _Called when a player starts or stops swimming._ 
+        * **class** [**endstone::PlayerToggleSwimEvent**](classendstone_1_1PlayerToggleSwimEvent.md) _Called when a player toggles their swimming state._ 
         * **class** [**endstone::PlayerVelocityEvent**](classendstone_1_1PlayerVelocityEvent.md) _Represents an event that is called when the velocity of a player changes._ 
     * **class** [**endstone::ServerEvent**](classendstone_1_1ServerEvent.md) _Represents a Server-related event._     
         * **class** [**endstone::Cancellable**](classendstone_1_1Cancellable.md) _A type characterizing events that may be cancelled by a plugin or the server._ 

@@ -35,7 +35,7 @@
 
 | Type | Name |
 | ---: | :--- |
-| class | [**PlayerToggleFlightEvent**](classendstone_1_1PlayerToggleFlightEvent.md) <br>_Called when a player starts or stops flying._  |
+| class | [**PlayerToggleFlightEvent**](classendstone_1_1PlayerToggleFlightEvent.md) <br>_Called when a player toggles their flying state._  |
 
 
 

@@ -50,10 +50,10 @@
         <name>isFlying</name>
         <qualifiedname>endstone::PlayerToggleFlightEvent::isFlying</qualifiedname>
         <briefdescription>
-<para>Gets whether the player is flying. </para>
+<para>Returns whether the player is now flying or not. </para>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>true when starting to fly, false when stopping </para>
+<para><simplesect kind="return"><para>the new flying state </para>
 </simplesect>
 </para>
         </detaileddescription>
@@ -63,7 +63,7 @@
       </memberdef>
     </sectiondef>
     <briefdescription>
-<para>Called when a player starts or stops flying. </para>
+<para>Called when a player toggles their flying state. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>

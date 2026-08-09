@@ -8,7 +8,7 @@
 
 
 
-_Called when a player starts or stops crawling._ 
+_Called when a player toggles their crawling state._ 
 
 * `#include <endstone/event/player/player_toggle_crawl_event.h>`
 
@@ -94,7 +94,7 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 | Type | Name |
 | ---: | :--- |
 |   | [**PlayerToggleCrawlEvent**](#function-playertogglecrawlevent) ([**Player**](classendstone_1_1Player.md) & player, [**bool**](classendstone_1_1Identifier.md) crawling) <br> |
-|  [**bool**](classendstone_1_1Identifier.md) | [**isCrawling**](#function-iscrawling) () const<br>_Gets whether the player is crawling._  |
+|  [**bool**](classendstone_1_1Identifier.md) | [**isCrawling**](#function-iscrawling) () const<br>_Returns whether the player is now crawling or not._  |
 
 
 ## Public Functions inherited from endstone::PlayerEvent
@@ -232,7 +232,7 @@ inline explicit endstone::PlayerToggleCrawlEvent::PlayerToggleCrawlEvent (
 
 ### function isCrawling 
 
-_Gets whether the player is crawling._ 
+_Returns whether the player is now crawling or not._ 
 ```C++
 inline bool endstone::PlayerToggleCrawlEvent::isCrawling () const
 ```
@@ -243,7 +243,7 @@ inline bool endstone::PlayerToggleCrawlEvent::isCrawling () const
 
 **Returns:**
 
-true when starting to crawl, false when stopping 
+the new crawling state 
 
 
 

@@ -35,7 +35,7 @@
 
 | Type | Name |
 | ---: | :--- |
-| class | [**PlayerToggleSwimEvent**](classendstone_1_1PlayerToggleSwimEvent.md) <br>_Called when a player starts or stops swimming._  |
+| class | [**PlayerToggleSwimEvent**](classendstone_1_1PlayerToggleSwimEvent.md) <br>_Called when a player toggles their swimming state._  |
 
 
 

@@ -50,10 +50,10 @@
         <name>isCrawling</name>
         <qualifiedname>endstone::PlayerToggleCrawlEvent::isCrawling</qualifiedname>
         <briefdescription>
-<para>Gets whether the player is crawling. </para>
+<para>Returns whether the player is now crawling or not. </para>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>true when starting to crawl, false when stopping </para>
+<para><simplesect kind="return"><para>the new crawling state </para>
 </simplesect>
 </para>
         </detaileddescription>
@@ -63,7 +63,7 @@
       </memberdef>
     </sectiondef>
     <briefdescription>
-<para>Called when a player starts or stops crawling. </para>
+<para>Called when a player toggles their crawling state. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
