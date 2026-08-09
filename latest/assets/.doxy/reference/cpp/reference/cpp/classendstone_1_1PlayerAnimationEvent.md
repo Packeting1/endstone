@@ -14,7 +14,7 @@ _Represents an event that is called when a player performs an animation._
 
 
 
-Inherits the following classes: [endstone::Cancellable](classendstone_1_1Cancellable.md)
+Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerEvent.md)
 
 
 
@@ -98,27 +98,31 @@ Inherits the following classes: [endstone::Cancellable](classendstone_1_1Cancell
 |  [**PlayerAnimationType**](namespaceendstone.md#enum-playeranimationtype) | [**getAnimationType**](#function-getanimationtype) () const<br>_Gets the type of animation performed by the player._  |
 
 
-## Public Functions inherited from endstone::Cancellable
+## Public Functions inherited from endstone::PlayerEvent
 
-See [endstone::Cancellable](classendstone_1_1Cancellable.md)
-
-| Type | Name |
-| ---: | :--- |
-| virtual [**void**](classendstone_1_1Identifier.md) | [**cancel**](classendstone_1_1Cancellable.md#function-cancel) () <br>_Cancel this event._  |
-| virtual [**bool**](classendstone_1_1Identifier.md) | [**isCancelled**](classendstone_1_1Cancellable.md#function-iscancelled) () override const<br>_Gets the cancellation state of this event._  |
-| virtual [**void**](classendstone_1_1Identifier.md) | [**setCancelled**](classendstone_1_1Cancellable.md#function-setcancelled) ([**bool**](classendstone_1_1Identifier.md) cancel) override<br>_Sets the cancellation state of this event._  |
-
-
-## Public Functions inherited from endstone::ICancellable
-
-See [endstone::ICancellable](classendstone_1_1ICancellable.md)
+See [endstone::PlayerEvent](classendstone_1_1PlayerEvent.md)
 
 | Type | Name |
 | ---: | :--- |
-| virtual [**void**](classendstone_1_1Identifier.md) | [**cancel**](classendstone_1_1ICancellable.md#function-cancel) () = 0<br>_Cancels this event._  |
-| virtual [**bool**](classendstone_1_1Identifier.md) | [**isCancelled**](classendstone_1_1ICancellable.md#function-iscancelled) () const = 0<br>_Gets the cancellation state of this event._  |
-| virtual [**void**](classendstone_1_1Identifier.md) | [**setCancelled**](classendstone_1_1ICancellable.md#function-setcancelled) ([**bool**](classendstone_1_1Identifier.md) cancel) = 0<br>_Sets the cancellation state of this event._  |
-| virtual  | [**~ICancellable**](classendstone_1_1ICancellable.md#function-icancellable) () = default<br> |
+|   | [**PlayerEvent**](classendstone_1_1PlayerEvent.md#function-playerevent) ([**Player**](classendstone_1_1Player.md) & player) <br> |
+|  [**Player**](classendstone_1_1Player.md) & | [**getPlayer**](classendstone_1_1PlayerEvent.md#function-getplayer) () const<br>_Returns the player involved in this event._  |
+|   | [**~PlayerEvent**](classendstone_1_1PlayerEvent.md#function-playerevent) () override<br> |
+
+
+## Public Functions inherited from endstone::Event
+
+See [endstone::Event](classendstone_1_1Event.md)
+
+| Type | Name |
+| ---: | :--- |
+|   | [**Event**](classendstone_1_1Event.md#function-event-13) ([**bool**](classendstone_1_1Identifier.md) async=[**false**](classendstone_1_1Identifier.md)) <br> |
+|   | [**Event**](classendstone_1_1Event.md#function-event-23) ([**const**](classendstone_1_1Identifier.md) [**Event**](classendstone_1_1Event.md) &) = delete<br> |
+|   | [**Event**](classendstone_1_1Event.md#function-event-33) ([**Event**](classendstone_1_1Event.md) &&) = default<br> |
+| virtual std::string | [**getEventName**](classendstone_1_1Event.md#function-geteventname) () const = 0<br>_Gets a user-friendly identifier for this event._  |
+|  [**bool**](classendstone_1_1Identifier.md) | [**isAsynchronous**](classendstone_1_1Event.md#function-isasynchronous) () const<br>_Any custom event that should not by synchronized with other events must use the specific constructor._  |
+|  [**Event**](classendstone_1_1Event.md) & | [**operator=**](classendstone_1_1Event.md#function-operator) ([**const**](classendstone_1_1Identifier.md) [**Event**](classendstone_1_1Event.md) &) = delete<br> |
+|  [**Event**](classendstone_1_1Event.md) & | [**operator=**](classendstone_1_1Event.md#function-operator_1) ([**Event**](classendstone_1_1Event.md) &&) = default<br> |
+| virtual  | [**~Event**](classendstone_1_1Event.md#function-event) () = default<br> |
 
 
 
@@ -141,6 +145,13 @@ See [endstone::ICancellable](classendstone_1_1ICancellable.md)
 
 
 
+## Protected Attributes inherited from endstone::PlayerEvent
+
+See [endstone::PlayerEvent](classendstone_1_1PlayerEvent.md)
+
+| Type | Name |
+| ---: | :--- |
+|  std::reference\_wrapper&lt; [**Player**](classendstone_1_1Player.md) &gt; | [**player\_**](classendstone_1_1PlayerEvent.md#variable-player_)  <br> |
 
 
 

@@ -15,7 +15,6 @@
 
 #pragma once
 
-#include "endstone/event/cancellable.h"
 #include "endstone/event/player/player_event.h"
 
 namespace endstone {
@@ -25,12 +24,12 @@ enum class PlayerAnimationType {
     OffArmSwing,
 };
 
-class PlayerAnimationEvent final : public Cancellable<PlayerEvent> {
+class PlayerAnimationEvent final : public PlayerEvent {
 public:
     ENDSTONE_EVENT(PlayerAnimationEvent);
 
     PlayerAnimationEvent(Player &player, PlayerAnimationType animation_type)
-        : Cancellable(player), animation_type_(animation_type)
+        : PlayerEvent(player), animation_type_(animation_type)
     {
     }
 
