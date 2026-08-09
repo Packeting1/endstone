@@ -14,10 +14,9 @@ namespace endstone::runtime {
 static constexpr std::array<std::pair<std::string_view, std::size_t>, 65> symbols = {{
     {"BlockState::StateListNode::mHead", 211163888},
     {"Enchant::mEnchants", 211010840},
+    {"ItemStackRequestActionCraftRecipeAuto::vftable", 176340128},
     {"MobEffect::mMobEffects", 211293808},
     {"endstone_bucket_entity_use", 29090608},
-    {"handleCraftAction", 150302208},
-    {"ItemStackRequestActionCraftRecipeAuto::vftable", 176340128},
     // Actor
     {"?addEffect@Actor@@QEAAXAEBVMobEffectInstance@@@Z", 14780848},
     {"?teleportTo@Actor@@UEAAXAEBVVec3@@_NHH1@Z", 14649472},
@@ -50,7 +49,7 @@ static constexpr std::array<std::pair<std::string_view, std::size_t>, 65> symbol
     {"?symbolToString@CommandRegistry@@AEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VSymbol@1@@Z", 3423648},
     // CommandUtils
     {"?getActorName@CommandUtils@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVActor@@@Z", 3711472},
-    // CraftingDataPacket
+    // CraftingDataPacketPayload
     {"?fromRecipes@CraftingDataPacketPayload@@SA?AU1@AEBVRecipes@@_N@Z", 39607088},
     // DedicatedServer
     {"?start@DedicatedServer@@QEAA?AW4ServerExitCode@1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVActivationArguments@Bedrock@@@Z", 501600},
@@ -71,6 +70,8 @@ static constexpr std::array<std::pair<std::string_view, std::size_t>, 65> symbol
     // ItemStackBase
     {"?_loadBlocksForCanPlaceOnCanDestroy@ItemStackBase@@CA_NAEAV?$vector@PEBVBlockType@@V?$allocator@PEBVBlockType@@@std@@@std@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@3@@Z", 29144736},
     {"?_setItem@ItemStackBase@@AEAA_NH_N@Z", 29106032},
+    // ItemStackRequestActionCraftHandler
+    {"?handleCraftAction@ItemStackRequestActionCraftHandler@@QEAA?AW4ItemStackNetResult@@AEBVItemStackRequestActionCraftBase@@@Z", 150302208},
     // ItemUseOnActorInventoryTransaction
     {"?executeInteraction@ItemUseOnActorInventoryTransaction@@SAXPEAX@Z", 39511152},
     // LeavesBlock
