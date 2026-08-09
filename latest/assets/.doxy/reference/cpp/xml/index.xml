@@ -2202,6 +2202,9 @@
   <compound refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent" kind="class"><name>endstone::PlayerRecipeBookSettingsChangeEvent</name>
     <member refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent_1ab5709b487202d4c52eacf9e8b54ce67f" kind="enum"><name>RecipeBookType</name></member>
     <member refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent_1ab5709b487202d4c52eacf9e8b54ce67fa8c1a0a596c9fa42f02fe9c59eb1a83b6" kind="enumvalue"><name>Crafting</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent_1ab5709b487202d4c52eacf9e8b54ce67fa7399ee9906df06fdd5fb9b75294f2e4b" kind="enumvalue"><name>Furnace</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent_1ab5709b487202d4c52eacf9e8b54ce67facef16e217d26d844981df9c598984d6e" kind="enumvalue"><name>BlastFurnace</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent_1ab5709b487202d4c52eacf9e8b54ce67fa8678df5263057d6cafbd62b1770ad466" kind="enumvalue"><name>Smoker</name></member>
     <member refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent_1a8037d2929f7d8835bd79634097fd35bf" kind="variable"><name>recipe_book_type_</name></member>
     <member refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent_1abc414f1d40eccf224ff8d2b420add35b" kind="variable"><name>is_open_</name></member>
     <member refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent_1a57c7b8ca86bfd62af5e899fe5338dade" kind="variable"><name>is_filtering_</name></member>

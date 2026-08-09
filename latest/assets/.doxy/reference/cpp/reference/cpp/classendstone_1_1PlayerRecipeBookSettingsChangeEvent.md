@@ -227,7 +227,10 @@ See [endstone::PlayerEvent](classendstone_1_1PlayerEvent.md)
 _Represents the type of recipe book whose settings changed._ 
 ```C++
 enum endstone::PlayerRecipeBookSettingsChangeEvent::RecipeBookType {
-    Crafting
+    Crafting,
+    Furnace,
+    BlastFurnace,
+    Smoker
 };
 ```
 

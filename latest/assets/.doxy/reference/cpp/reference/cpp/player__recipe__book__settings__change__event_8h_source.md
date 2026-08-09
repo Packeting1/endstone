@@ -28,6 +28,9 @@ public:
 
     enum class RecipeBookType {
         Crafting,
+        Furnace,
+        BlastFurnace,
+        Smoker,
     };
 
     PlayerRecipeBookSettingsChangeEvent(Player &player, RecipeBookType recipe_book_type, bool is_open,
