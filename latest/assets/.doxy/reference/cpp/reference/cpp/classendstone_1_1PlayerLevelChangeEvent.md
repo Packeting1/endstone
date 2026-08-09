@@ -94,7 +94,7 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 | Type | Name |
 | ---: | :--- |
 |   | [**ENDSTONE\_EVENT**](#function-endstone_event) ([**PlayerLevelChangeEvent**](classendstone_1_1PlayerLevelChangeEvent.md)) <br> |
-|   | [**PlayerLevelChangeEvent**](#function-playerlevelchangeevent) ([**Player**](classendstone_1_1Player.md) & player, [**int**](classendstone_1_1Identifier.md) old\_level, [**int**](classendstone_1_1Identifier.md) new\_level) <br> |
+|   | [**PlayerLevelChangeEvent**](#function-playerlevelchangeevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**int**](classendstone_1_1Identifier.md) old\_level, [**int**](classendstone_1_1Identifier.md) new\_level) <br> |
 |  [**int**](classendstone_1_1Identifier.md) | [**getNewLevel**](#function-getnewlevel) () const<br>_Gets the player's level after the change._  |
 |  [**int**](classendstone_1_1Identifier.md) | [**getOldLevel**](#function-getoldlevel) () const<br>_Gets the player's level before the change._  |
 
@@ -105,8 +105,8 @@ See [endstone::PlayerEvent](classendstone_1_1PlayerEvent.md)
 
 | Type | Name |
 | ---: | :--- |
-|   | [**PlayerEvent**](classendstone_1_1PlayerEvent.md#function-playerevent) ([**Player**](classendstone_1_1Player.md) & player) <br> |
-|  [**Player**](classendstone_1_1Player.md) & | [**getPlayer**](classendstone_1_1PlayerEvent.md#function-getplayer) () const<br>_Returns the player involved in this event._  |
+|   | [**PlayerEvent**](classendstone_1_1PlayerEvent.md#function-playerevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player) <br> |
+|  [**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & | [**getPlayer**](classendstone_1_1PlayerEvent.md#function-getplayer) () const<br>_Returns the player involved in this event._  |
 |   | [**~PlayerEvent**](classendstone_1_1PlayerEvent.md#function-playerevent) () override<br> |
 
 
@@ -152,7 +152,7 @@ See [endstone::PlayerEvent](classendstone_1_1PlayerEvent.md)
 
 | Type | Name |
 | ---: | :--- |
-|  std::reference\_wrapper&lt; [**Player**](classendstone_1_1Player.md) &gt; | [**player\_**](classendstone_1_1PlayerEvent.md#variable-player_)  <br> |
+|  [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; | [**player\_**](classendstone_1_1PlayerEvent.md#variable-player_)  <br> |
 
 
 
@@ -235,7 +235,7 @@ endstone::PlayerLevelChangeEvent::ENDSTONE_EVENT (
 
 ```C++
 inline endstone::PlayerLevelChangeEvent::PlayerLevelChangeEvent (
-    Player & player,
+    const  NotNull < Player > & player,
     int old_level,
     int new_level
 ) 

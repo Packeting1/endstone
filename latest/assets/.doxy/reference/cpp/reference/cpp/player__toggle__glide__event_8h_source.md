@@ -32,7 +32,7 @@ class PlayerToggleGlideEvent final : public PlayerEvent {
 public:
     ENDSTONE_EVENT(PlayerToggleGlideEvent)
 
-    explicit PlayerToggleGlideEvent(Player &player, bool gliding) : PlayerEvent(player), gliding_(gliding) {}
+    explicit PlayerToggleGlideEvent(const NotNull<Player> &player, bool gliding) : PlayerEvent(player), gliding_(gliding) {}
 
     [[nodiscard]] bool isGliding() const { return gliding_; }
 

@@ -32,7 +32,7 @@ class PlayerToggleFlightEvent final : public PlayerEvent {
 public:
     ENDSTONE_EVENT(PlayerToggleFlightEvent)
 
-    explicit PlayerToggleFlightEvent(Player &player, bool flying) : PlayerEvent(player), flying_(flying) {}
+    explicit PlayerToggleFlightEvent(const NotNull<Player> &player, bool flying) : PlayerEvent(player), flying_(flying) {}
 
     [[nodiscard]] bool isFlying() const { return flying_; }
 

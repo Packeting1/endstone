@@ -94,7 +94,7 @@ Inherits the following classes: [endstone::Cancellable](classendstone_1_1Cancell
 | Type | Name |
 | ---: | :--- |
 |   | [**ENDSTONE\_EVENT**](#function-endstone_event) ([**PlayerRecipeBookClickEvent**](classendstone_1_1PlayerRecipeBookClickEvent.md)) <br> |
-|   | [**PlayerRecipeBookClickEvent**](#function-playerrecipebookclickevent) ([**Player**](classendstone_1_1Player.md) & player, std::string recipe, [**bool**](classendstone_1_1Identifier.md) make\_all) <br> |
+|   | [**PlayerRecipeBookClickEvent**](#function-playerrecipebookclickevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, std::string recipe, [**bool**](classendstone_1_1Identifier.md) make\_all) <br> |
 |  [**const**](classendstone_1_1Identifier.md) std::string & | [**getRecipe**](#function-getrecipe) () const<br>_Gets the recipe identifier clicked by the player._  |
 |  [**bool**](classendstone_1_1Identifier.md) | [**isMakeAll**](#function-ismakeall) () const<br>_Gets whether the player requested crafting as many copies as possible._  |
 |  [**void**](classendstone_1_1Identifier.md) | [**setMakeAll**](#function-setmakeall) ([**bool**](classendstone_1_1Identifier.md) make\_all) <br>_Sets whether the player requests crafting as many copies as possible._  |
@@ -225,7 +225,7 @@ endstone::PlayerRecipeBookClickEvent::ENDSTONE_EVENT (
 
 ```C++
 inline endstone::PlayerRecipeBookClickEvent::PlayerRecipeBookClickEvent (
-    Player & player,
+    const  NotNull < Player > & player,
     std::string recipe,
     bool make_all
 ) 

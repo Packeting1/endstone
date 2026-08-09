@@ -32,7 +32,7 @@ class PlayerToggleCrawlEvent final : public PlayerEvent {
 public:
     ENDSTONE_EVENT(PlayerToggleCrawlEvent)
 
-    explicit PlayerToggleCrawlEvent(Player &player, bool crawling) : PlayerEvent(player), crawling_(crawling) {}
+    explicit PlayerToggleCrawlEvent(const NotNull<Player> &player, bool crawling) : PlayerEvent(player), crawling_(crawling) {}
 
     [[nodiscard]] bool isCrawling() const { return crawling_; }
 
