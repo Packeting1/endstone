@@ -40,10 +40,10 @@
     <innerfile refid="player__riptide__event_8h">player_riptide_event.h</innerfile>
     <innerfile refid="player__shear__entity__event_8h">player_shear_entity_event.h</innerfile>
     <innerfile refid="player__skin__change__event_8h">player_skin_change_event.h</innerfile>
-    <innerfile refid="player__sneak__event_8h">player_sneak_event.h</innerfile>
-    <innerfile refid="player__sprint__event_8h">player_sprint_event.h</innerfile>
     <innerfile refid="player__swim__event_8h">player_swim_event.h</innerfile>
     <innerfile refid="player__teleport__event_8h">player_teleport_event.h</innerfile>
+    <innerfile refid="player__toggle__sneak__event_8h">player_toggle_sneak_event.h</innerfile>
+    <innerfile refid="player__toggle__sprint__event_8h">player_toggle_sprint_event.h</innerfile>
     <innerfile refid="player__velocity__event_8h">player_velocity_event.h</innerfile>
     <briefdescription>
     </briefdescription>

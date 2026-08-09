@@ -138,7 +138,7 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**PlayerGlideEvent**](classendstone_1_1PlayerGlideEvent.md) _Called when a player starts or stops gliding._     
     * **class** [**PlayerInputEvent**](classendstone_1_1PlayerInputEvent.md) _Represents an event that is called when a player sends updated input to the server._     
     * **class** [**PlayerInteractActorEvent**](classendstone_1_1PlayerInteractActorEvent.md) _Represents an event that is called when a player right-clicks an actor._     
-    * **class** [**PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md) _Represents an event that is called when a player right-clicks a block._     
+    * **class** [**PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md) _Represents an event that is called when a player interacts with an object or air._     
     * **class** [**PlayerInventory**](classendstone_1_1PlayerInventory.md) _Interface to the inventory of a_ [_**Player**_](classendstone_1_1Player.md) _, including the four armor slots and any extra slots._    
     * **class** [**PlayerItemConsumeEvent**](classendstone_1_1PlayerItemConsumeEvent.md) _Called when a player is finishing consuming an item (food, potion, milk bucket)._     
     * **class** [**PlayerItemHeldEvent**](classendstone_1_1PlayerItemHeldEvent.md) _Called when a player changes their currently held item._     
@@ -158,10 +158,10 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md) _Called when a player starts or stops a riptide attack._     
     * **class** [**PlayerShearEntityEvent**](classendstone_1_1PlayerShearEntityEvent.md) _Called when a player shears an entity._     
     * **class** [**PlayerSkinChangeEvent**](classendstone_1_1PlayerSkinChangeEvent.md) _Called when a player changes their skin._     
-    * **class** [**PlayerSneakEvent**](classendstone_1_1PlayerSneakEvent.md) _Called when a player starts or stops sneaking._     
-    * **class** [**PlayerSprintEvent**](classendstone_1_1PlayerSprintEvent.md) _Called when a player starts or stops sprinting._     
     * **class** [**PlayerSwimEvent**](classendstone_1_1PlayerSwimEvent.md) _Called when a player starts or stops swimming._     
     * **class** [**PlayerTeleportEvent**](classendstone_1_1PlayerTeleportEvent.md) _Called when a player is teleported from one location to another._     
+    * **class** [**PlayerToggleSneakEvent**](classendstone_1_1PlayerToggleSneakEvent.md) _Called when a player toggles their sneaking state._     
+    * **class** [**PlayerToggleSprintEvent**](classendstone_1_1PlayerToggleSprintEvent.md) _Called when a player toggles their sprinting state._     
     * **class** [**PlayerVelocityEvent**](classendstone_1_1PlayerVelocityEvent.md) _Represents an event that is called when the velocity of a player changes._     
     * **class** [**Plugin**](classendstone_1_1Plugin.md) _Represents a_ [_**Plugin**_](classendstone_1_1Plugin.md) _._    
     * **class** [**PluginCommand**](classendstone_1_1PluginCommand.md) _Represents a_ [_**Command**_](classendstone_1_1Command.md) _belonging to a_[_**Plugin**_](classendstone_1_1Plugin.md) _._    

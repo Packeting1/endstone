@@ -731,18 +731,6 @@
         </childnode>
       </node>
       <node id="73">
-        <label>endstone::PlayerSneakEvent</label>
-        <link refid="classendstone_1_1PlayerSneakEvent"/>
-        <childnode refid="33" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="74">
-        <label>endstone::PlayerSprintEvent</label>
-        <link refid="classendstone_1_1PlayerSprintEvent"/>
-        <childnode refid="33" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="75">
         <label>endstone::PlayerSwimEvent</label>
         <link refid="classendstone_1_1PlayerSwimEvent"/>
         <childnode refid="33" relation="public-inheritance">
@@ -752,6 +740,18 @@
         <label>endstone::PlayerTeleportEvent</label>
         <link refid="classendstone_1_1PlayerTeleportEvent"/>
         <childnode refid="51" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="74">
+        <label>endstone::PlayerToggleSneakEvent</label>
+        <link refid="classendstone_1_1PlayerToggleSneakEvent"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="75">
+        <label>endstone::PlayerToggleSprintEvent</label>
+        <link refid="classendstone_1_1PlayerToggleSprintEvent"/>
+        <childnode refid="33" relation="public-inheritance">
         </childnode>
       </node>
       <node id="76">

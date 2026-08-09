@@ -777,19 +777,19 @@
          <lastmod>2026-08-09</lastmod>
     </url>
     <url>
-         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerSneakEvent/</loc>
-         <lastmod>2026-08-09</lastmod>
-    </url>
-    <url>
-         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerSprintEvent/</loc>
-         <lastmod>2026-08-09</lastmod>
-    </url>
-    <url>
          <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerSwimEvent/</loc>
          <lastmod>2026-08-09</lastmod>
     </url>
     <url>
          <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerTeleportEvent/</loc>
+         <lastmod>2026-08-09</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerToggleSneakEvent/</loc>
+         <lastmod>2026-08-09</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerToggleSprintEvent/</loc>
          <lastmod>2026-08-09</lastmod>
     </url>
     <url>
@@ -2085,22 +2085,6 @@
          <lastmod>2026-08-09</lastmod>
     </url>
     <url>
-         <loc>https://endstone.dev/latest/reference/cpp/player__sneak__event_8h/</loc>
-         <lastmod>2026-08-09</lastmod>
-    </url>
-    <url>
-         <loc>https://endstone.dev/latest/reference/cpp/player__sneak__event_8h_source/</loc>
-         <lastmod>2026-08-09</lastmod>
-    </url>
-    <url>
-         <loc>https://endstone.dev/latest/reference/cpp/player__sprint__event_8h/</loc>
-         <lastmod>2026-08-09</lastmod>
-    </url>
-    <url>
-         <loc>https://endstone.dev/latest/reference/cpp/player__sprint__event_8h_source/</loc>
-         <lastmod>2026-08-09</lastmod>
-    </url>
-    <url>
          <loc>https://endstone.dev/latest/reference/cpp/player__swim__event_8h/</loc>
          <lastmod>2026-08-09</lastmod>
     </url>
@@ -2114,6 +2098,22 @@
     </url>
     <url>
          <loc>https://endstone.dev/latest/reference/cpp/player__teleport__event_8h_source/</loc>
+         <lastmod>2026-08-09</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__toggle__sneak__event_8h/</loc>
+         <lastmod>2026-08-09</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__toggle__sneak__event_8h_source/</loc>
+         <lastmod>2026-08-09</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__toggle__sprint__event_8h/</loc>
+         <lastmod>2026-08-09</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__toggle__sprint__event_8h_source/</loc>
          <lastmod>2026-08-09</lastmod>
     </url>
     <url>
