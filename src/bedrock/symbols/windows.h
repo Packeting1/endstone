@@ -11,10 +11,11 @@
 
 namespace endstone::runtime {
 
-static constexpr std::array<std::pair<std::string_view, std::size_t>, 64> symbols = {{
+static constexpr std::array<std::pair<std::string_view, std::size_t>, 65> symbols = {{
     {"BlockState::StateListNode::mHead", 211163888},
     {"Enchant::mEnchants", 211010840},
     {"MobEffect::mMobEffects", 211293808},
+    {"endstone_bucket_entity_use", 29090608},
     {"handleCraftAction", 150302208},
     {"ItemStackRequestActionCraftRecipeAuto::vftable", 176340128},
     // Actor
