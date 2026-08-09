@@ -1986,11 +1986,6 @@
     <member refid="classendstone_1_1PlayerCommandEvent_1a4096e979a5e327ddecdd9328f087d57b" kind="function"><name>getCommand</name></member>
     <member refid="classendstone_1_1PlayerCommandEvent_1a6d2c4a174ce786fc8a1cd6cd8f9ca7c5" kind="function"><name>setCommand</name></member>
   </compound>
-  <compound refid="classendstone_1_1PlayerCrawlEvent" kind="class"><name>endstone::PlayerCrawlEvent</name>
-    <member refid="classendstone_1_1PlayerCrawlEvent_1af12bcc3735bbaeff2bc373e96fcad09a" kind="variable"><name>crawling_</name></member>
-    <member refid="classendstone_1_1PlayerCrawlEvent_1ac8403442453c8d251bbb74d25954a657" kind="function"><name>PlayerCrawlEvent</name></member>
-    <member refid="classendstone_1_1PlayerCrawlEvent_1aab1a70cafc745f8ea2268f7edc4d3c7a" kind="function"><name>isCrawling</name></member>
-  </compound>
   <compound refid="classendstone_1_1PlayerDeathEvent" kind="class"><name>endstone::PlayerDeathEvent</name>
     <member refid="classendstone_1_1PlayerDeathEvent_1a6480e2399396eaa3fb8ed7bfcb56da21" kind="variable"><name>death_message_</name></member>
     <member refid="classendstone_1_1PlayerDeathEvent_1a65fb428be5bdb70e91101198e73416dd" kind="function"><name>ENDSTONE_EVENT</name></member>
@@ -2044,22 +2039,12 @@
     <member refid="classendstone_1_1PlayerEvent_1ab31b937251b8ccc1c72c275d1c7a522b" kind="function"><name>~PlayerEvent</name></member>
     <member refid="classendstone_1_1PlayerEvent_1a3ad904b05886ce30c7299500d9a57fdb" kind="function"><name>getPlayer</name></member>
   </compound>
-  <compound refid="classendstone_1_1PlayerFlightEvent" kind="class"><name>endstone::PlayerFlightEvent</name>
-    <member refid="classendstone_1_1PlayerFlightEvent_1a869dad607493dd4c5a240846e918ee05" kind="variable"><name>flying_</name></member>
-    <member refid="classendstone_1_1PlayerFlightEvent_1ad67637b0220d07fd0820b33eeecbdc6a" kind="function"><name>PlayerFlightEvent</name></member>
-    <member refid="classendstone_1_1PlayerFlightEvent_1a3bbee244ff8d621c0c08189a0570957d" kind="function"><name>isFlying</name></member>
-  </compound>
   <compound refid="classendstone_1_1PlayerGameModeChangeEvent" kind="class"><name>endstone::PlayerGameModeChangeEvent</name>
     <member refid="classendstone_1_1PlayerGameModeChangeEvent_1a04a813980762f492edc3db56907da5b5" kind="variable"><name>new_game_mode_</name></member>
     <member refid="classendstone_1_1PlayerGameModeChangeEvent_1a6a40c884adc4e5b9f09c99aa8369e8a4" kind="function"><name>ENDSTONE_EVENT</name></member>
     <member refid="classendstone_1_1PlayerGameModeChangeEvent_1a5e4a9eaed65c0886aaf01610a8c5d4eb" kind="function"><name>PlayerGameModeChangeEvent</name></member>
     <member refid="classendstone_1_1PlayerGameModeChangeEvent_1aef8569884e4cbdbabb945eef9c4ec9eb" kind="function"><name>~PlayerGameModeChangeEvent</name></member>
     <member refid="classendstone_1_1PlayerGameModeChangeEvent_1a422c30eafa2b703fd105138e45da4540" kind="function"><name>getNewGameMode</name></member>
-  </compound>
-  <compound refid="classendstone_1_1PlayerGlideEvent" kind="class"><name>endstone::PlayerGlideEvent</name>
-    <member refid="classendstone_1_1PlayerGlideEvent_1adf92c49c6881481ea6f8f9fb3294d0f6" kind="variable"><name>gliding_</name></member>
-    <member refid="classendstone_1_1PlayerGlideEvent_1a5cb69f01da55ef3b6810a2828703b7e4" kind="function"><name>PlayerGlideEvent</name></member>
-    <member refid="classendstone_1_1PlayerGlideEvent_1a3f5161b779c7d74e953a238d8f719493" kind="function"><name>isGliding</name></member>
   </compound>
   <compound refid="classendstone_1_1PlayerInputEvent" kind="class"><name>endstone::PlayerInputEvent</name>
     <member refid="classendstone_1_1PlayerInputEvent_1a7e32fd166d83d33b9e2f8675565f8fa1" kind="variable"><name>input_</name></member>
@@ -2248,14 +2233,24 @@
     <member refid="classendstone_1_1PlayerSkinChangeEvent_1a243027ad8b931684bf1c0d0aa6bdac30" kind="function"><name>getSkinChangeMessage</name></member>
     <member refid="classendstone_1_1PlayerSkinChangeEvent_1a1c36f45cb1c6f64c234efedefa12f834" kind="function"><name>setSkinChangeMessage</name></member>
   </compound>
-  <compound refid="classendstone_1_1PlayerSwimEvent" kind="class"><name>endstone::PlayerSwimEvent</name>
-    <member refid="classendstone_1_1PlayerSwimEvent_1ac1b2bcbac403af0c5aac76cfe2929089" kind="variable"><name>swimming_</name></member>
-    <member refid="classendstone_1_1PlayerSwimEvent_1ad17419b6a9c83a45bfa452720ec379ae" kind="function"><name>PlayerSwimEvent</name></member>
-    <member refid="classendstone_1_1PlayerSwimEvent_1a3642e5ba6ff1306c0a0950a28ee78cd2" kind="function"><name>isSwimming</name></member>
-  </compound>
   <compound refid="classendstone_1_1PlayerTeleportEvent" kind="class"><name>endstone::PlayerTeleportEvent</name>
     <member refid="classendstone_1_1PlayerTeleportEvent_1a43539d2448ad4540de9a2be61bbe47e8" kind="function"><name>ENDSTONE_EVENT</name></member>
     <member refid="classendstone_1_1PlayerTeleportEvent_1a8a1cf3638b2074e1d7845129adbbfed5" kind="function"><name>PlayerMoveEvent</name></member>
+  </compound>
+  <compound refid="classendstone_1_1PlayerToggleCrawlEvent" kind="class"><name>endstone::PlayerToggleCrawlEvent</name>
+    <member refid="classendstone_1_1PlayerToggleCrawlEvent_1afdbdc7dd12f199554b91a27f774479e0" kind="variable"><name>crawling_</name></member>
+    <member refid="classendstone_1_1PlayerToggleCrawlEvent_1ab13b97734a4f4f3b24f9e0b40ea9c858" kind="function"><name>PlayerToggleCrawlEvent</name></member>
+    <member refid="classendstone_1_1PlayerToggleCrawlEvent_1abc5347760dc1656fc03bab4cfb85458b" kind="function"><name>isCrawling</name></member>
+  </compound>
+  <compound refid="classendstone_1_1PlayerToggleFlightEvent" kind="class"><name>endstone::PlayerToggleFlightEvent</name>
+    <member refid="classendstone_1_1PlayerToggleFlightEvent_1a256e77ce6986ec367580918af2b964da" kind="variable"><name>flying_</name></member>
+    <member refid="classendstone_1_1PlayerToggleFlightEvent_1a9810e806a36848b0c32bcb6a9af55c5a" kind="function"><name>PlayerToggleFlightEvent</name></member>
+    <member refid="classendstone_1_1PlayerToggleFlightEvent_1a3fb706344aa08c52433d3060968aed08" kind="function"><name>isFlying</name></member>
+  </compound>
+  <compound refid="classendstone_1_1PlayerToggleGlideEvent" kind="class"><name>endstone::PlayerToggleGlideEvent</name>
+    <member refid="classendstone_1_1PlayerToggleGlideEvent_1ac6b58a4ee877bf540e22546c35046bc8" kind="variable"><name>gliding_</name></member>
+    <member refid="classendstone_1_1PlayerToggleGlideEvent_1a9ce04de1bcd06ba8970d3f61d4deb359" kind="function"><name>PlayerToggleGlideEvent</name></member>
+    <member refid="classendstone_1_1PlayerToggleGlideEvent_1a312bccb7e3fc9fd5a2d8772cd5a3faab" kind="function"><name>isGliding</name></member>
   </compound>
   <compound refid="classendstone_1_1PlayerToggleSneakEvent" kind="class"><name>endstone::PlayerToggleSneakEvent</name>
     <member refid="classendstone_1_1PlayerToggleSneakEvent_1acbe1a330786ae5b4c9a8a2e1c14be434" kind="variable"><name>sneaking_</name></member>
@@ -2266,6 +2261,11 @@
     <member refid="classendstone_1_1PlayerToggleSprintEvent_1a86538cb125c63750640c5004f698a04b" kind="variable"><name>sprinting_</name></member>
     <member refid="classendstone_1_1PlayerToggleSprintEvent_1a6da8c1346b145c9ba3449264b928d832" kind="function"><name>PlayerToggleSprintEvent</name></member>
     <member refid="classendstone_1_1PlayerToggleSprintEvent_1aa958106f33ef770d01c637864779e056" kind="function"><name>isSprinting</name></member>
+  </compound>
+  <compound refid="classendstone_1_1PlayerToggleSwimEvent" kind="class"><name>endstone::PlayerToggleSwimEvent</name>
+    <member refid="classendstone_1_1PlayerToggleSwimEvent_1a3f64785a04a8800794790744e5287297" kind="variable"><name>swimming_</name></member>
+    <member refid="classendstone_1_1PlayerToggleSwimEvent_1afe5dac892adf9c5b6680c87a3a62305b" kind="function"><name>PlayerToggleSwimEvent</name></member>
+    <member refid="classendstone_1_1PlayerToggleSwimEvent_1a5f1ee2271d2fea56e951c21e89a43f41" kind="function"><name>isSwimming</name></member>
   </compound>
   <compound refid="classendstone_1_1PlayerVelocityEvent" kind="class"><name>endstone::PlayerVelocityEvent</name>
     <member refid="classendstone_1_1PlayerVelocityEvent_1aee5fdbabc46d7abf2b146630556f24e4" kind="variable"><name>velocity_</name></member>
@@ -3268,8 +3268,6 @@
   </compound>
   <compound refid="player__command__event_8h" kind="file"><name>player_command_event.h</name>
   </compound>
-  <compound refid="player__crawl__event_8h" kind="file"><name>player_crawl_event.h</name>
-  </compound>
   <compound refid="player__dimension__change__event_8h" kind="file"><name>player_dimension_change_event.h</name>
   </compound>
   <compound refid="player__drop__item__event_8h" kind="file"><name>player_drop_item_event.h</name>
@@ -3280,11 +3278,7 @@
   </compound>
   <compound refid="player__event_8h" kind="file"><name>player_event.h</name>
   </compound>
-  <compound refid="player__flight__event_8h" kind="file"><name>player_flight_event.h</name>
-  </compound>
   <compound refid="player__game__mode__change__event_8h" kind="file"><name>player_game_mode_change_event.h</name>
-  </compound>
-  <compound refid="player__glide__event_8h" kind="file"><name>player_glide_event.h</name>
   </compound>
   <compound refid="player__input__event_8h" kind="file"><name>player_input_event.h</name>
   </compound>
@@ -3328,13 +3322,19 @@
   </compound>
   <compound refid="player__skin__change__event_8h" kind="file"><name>player_skin_change_event.h</name>
   </compound>
-  <compound refid="player__swim__event_8h" kind="file"><name>player_swim_event.h</name>
-  </compound>
   <compound refid="player__teleport__event_8h" kind="file"><name>player_teleport_event.h</name>
+  </compound>
+  <compound refid="player__toggle__crawl__event_8h" kind="file"><name>player_toggle_crawl_event.h</name>
+  </compound>
+  <compound refid="player__toggle__flight__event_8h" kind="file"><name>player_toggle_flight_event.h</name>
+  </compound>
+  <compound refid="player__toggle__glide__event_8h" kind="file"><name>player_toggle_glide_event.h</name>
   </compound>
   <compound refid="player__toggle__sneak__event_8h" kind="file"><name>player_toggle_sneak_event.h</name>
   </compound>
   <compound refid="player__toggle__sprint__event_8h" kind="file"><name>player_toggle_sprint_event.h</name>
+  </compound>
+  <compound refid="player__toggle__swim__event_8h" kind="file"><name>player_toggle_swim_event.h</name>
   </compound>
   <compound refid="player__velocity__event_8h" kind="file"><name>player_velocity_event.h</name>
   </compound>

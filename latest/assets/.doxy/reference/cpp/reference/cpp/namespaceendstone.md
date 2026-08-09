@@ -158,16 +158,13 @@ _Represents a button with text and an optional icon._
 | class | [**PlayerBucketEntityEvent**](classendstone_1_1PlayerBucketEntityEvent.md) <br>_Represents an event that is called when a player captures an entity with a bucket._  |
 | class | [**PlayerChatEvent**](classendstone_1_1PlayerChatEvent.md) <br>_Called when a player sends a chat message._  |
 | class | [**PlayerCommandEvent**](classendstone_1_1PlayerCommandEvent.md) <br>_Called whenever a player runs a command._  |
-| class | [**PlayerCrawlEvent**](classendstone_1_1PlayerCrawlEvent.md) <br>_Called when a player starts or stops crawling._  |
 | class | [**PlayerDeathEvent**](classendstone_1_1PlayerDeathEvent.md) <br>_Called when a_ [_**Player**_](classendstone_1_1Player.md) _dies._ |
 | class | [**PlayerDimensionChangeEvent**](classendstone_1_1PlayerDimensionChangeEvent.md) <br>_Called when a player switches to another dimension._  |
 | class | [**PlayerDropItemEvent**](classendstone_1_1PlayerDropItemEvent.md) <br>_Called when a player drops an item from their inventory._  |
 | class | [**PlayerEditBookEvent**](classendstone_1_1PlayerEditBookEvent.md) <br>_Called when a player edits or signs a book._  |
 | class | [**PlayerEmoteEvent**](classendstone_1_1PlayerEmoteEvent.md) <br>_Called when a player uses an emote._  |
 | class | [**PlayerEvent**](classendstone_1_1PlayerEvent.md) <br>_Represents a player related event._  |
-| class | [**PlayerFlightEvent**](classendstone_1_1PlayerFlightEvent.md) <br>_Called when a player starts or stops flying._  |
 | class | [**PlayerGameModeChangeEvent**](classendstone_1_1PlayerGameModeChangeEvent.md) <br>_Called when the GameMode of the player is changed._  |
-| class | [**PlayerGlideEvent**](classendstone_1_1PlayerGlideEvent.md) <br>_Called when a player starts or stops gliding._  |
 | class | [**PlayerInputEvent**](classendstone_1_1PlayerInputEvent.md) <br>_Represents an event that is called when a player sends updated input to the server._  |
 | class | [**PlayerInteractActorEvent**](classendstone_1_1PlayerInteractActorEvent.md) <br>_Represents an event that is called when a player right-clicks an actor._  |
 | class | [**PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md) <br>_Represents an event that is called when a player interacts with an object or air._  |
@@ -190,10 +187,13 @@ _Represents a button with text and an optional icon._
 | class | [**PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md) <br>_Called when a player starts or stops a riptide attack._  |
 | class | [**PlayerShearEntityEvent**](classendstone_1_1PlayerShearEntityEvent.md) <br>_Called when a player shears an entity._  |
 | class | [**PlayerSkinChangeEvent**](classendstone_1_1PlayerSkinChangeEvent.md) <br>_Called when a player changes their skin._  |
-| class | [**PlayerSwimEvent**](classendstone_1_1PlayerSwimEvent.md) <br>_Called when a player starts or stops swimming._  |
 | class | [**PlayerTeleportEvent**](classendstone_1_1PlayerTeleportEvent.md) <br>_Called when a player is teleported from one location to another._  |
+| class | [**PlayerToggleCrawlEvent**](classendstone_1_1PlayerToggleCrawlEvent.md) <br>_Called when a player starts or stops crawling._  |
+| class | [**PlayerToggleFlightEvent**](classendstone_1_1PlayerToggleFlightEvent.md) <br>_Called when a player starts or stops flying._  |
+| class | [**PlayerToggleGlideEvent**](classendstone_1_1PlayerToggleGlideEvent.md) <br>_Called when a player starts or stops gliding._  |
 | class | [**PlayerToggleSneakEvent**](classendstone_1_1PlayerToggleSneakEvent.md) <br>_Called when a player toggles their sneaking state._  |
 | class | [**PlayerToggleSprintEvent**](classendstone_1_1PlayerToggleSprintEvent.md) <br>_Called when a player toggles their sprinting state._  |
+| class | [**PlayerToggleSwimEvent**](classendstone_1_1PlayerToggleSwimEvent.md) <br>_Called when a player starts or stops swimming._  |
 | class | [**PlayerVelocityEvent**](classendstone_1_1PlayerVelocityEvent.md) <br>_Represents an event that is called when the velocity of a player changes._  |
 | class | [**Plugin**](classendstone_1_1Plugin.md) <br>_Represents a_ [_**Plugin**_](classendstone_1_1Plugin.md) _._ |
 | class | [**PluginCommand**](classendstone_1_1PluginCommand.md) <br>_Represents a_ [_**Command**_](classendstone_1_1Command.md) _belonging to a_[_**Plugin**_](classendstone_1_1Plugin.md) _._ |

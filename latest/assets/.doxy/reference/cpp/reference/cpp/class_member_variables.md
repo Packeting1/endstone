@@ -100,9 +100,9 @@
 * **caption\_** ([**endstone::MapCursor**](classendstone_1_1MapCursor.md))
 * **children\_** ([**endstone::Permission**](classendstone_1_1Permission.md), [**endstone::detail::PermissionBuilder**](classendstone_1_1detail_1_1PermissionBuilder.md))
 * **command\_** ([**endstone::PlayerCommandEvent**](classendstone_1_1PlayerCommandEvent.md), [**endstone::ServerCommandEvent**](classendstone_1_1ServerCommandEvent.md))
-* **crawling\_** ([**endstone::PlayerCrawlEvent**](classendstone_1_1PlayerCrawlEvent.md))
 * **clicked\_position\_** ([**endstone::PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md))
 * **current\_** ([**endstone::PlayerItemHeldEvent**](classendstone_1_1PlayerItemHeldEvent.md))
+* **crawling\_** ([**endstone::PlayerToggleCrawlEvent**](classendstone_1_1PlayerToggleCrawlEvent.md))
 * **commands\_** ([**endstone::PluginDescription**](classendstone_1_1PluginDescription.md))
 * **contributors\_** ([**endstone::PluginDescription**](classendstone_1_1PluginDescription.md))
 * **cape\_id\_** ([**endstone::Skin**](classendstone_1_1Skin.md))
@@ -197,7 +197,7 @@
 * **FrostWalker** ([**endstone::Enchantment**](classendstone_1_1Enchantment.md))
 * **forward\_** ([**endstone::Input**](classendstone_1_1Input.md))
 * **format\_** ([**endstone::PlayerChatEvent**](classendstone_1_1PlayerChatEvent.md))
-* **flying\_** ([**endstone::PlayerFlightEvent**](classendstone_1_1PlayerFlightEvent.md))
+* **flying\_** ([**endstone::PlayerToggleFlightEvent**](classendstone_1_1PlayerToggleFlightEvent.md))
 * **full\_name\_** ([**endstone::PluginDescription**](classendstone_1_1PluginDescription.md))
 
 
@@ -211,7 +211,7 @@
 * **Gold** ([**endstone::ColorFormat**](structendstone_1_1ColorFormat.md))
 * **Gray** ([**endstone::ColorFormat**](structendstone_1_1ColorFormat.md))
 * **Green** ([**endstone::ColorFormat**](structendstone_1_1ColorFormat.md))
-* **gliding\_** ([**endstone::PlayerGlideEvent**](classendstone_1_1PlayerGlideEvent.md))
+* **gliding\_** ([**endstone::PlayerToggleGlideEvent**](classendstone_1_1PlayerToggleGlideEvent.md))
 * **game\_mode\_** ([**endstone::ServerListPingEvent**](classendstone_1_1ServerListPingEvent.md))
 
 
@@ -517,9 +517,9 @@
 * **sub\_client\_id\_** ([**endstone::PacketReceiveEvent**](classendstone_1_1PacketReceiveEvent.md), [**endstone::PacketSendEvent**](classendstone_1_1PacketSendEvent.md))
 * **slot\_** ([**endstone::PlayerArmorStandManipulateEvent**](classendstone_1_1PlayerArmorStandManipulateEvent.md), [**endstone::PlayerEditBookEvent**](classendstone_1_1PlayerEditBookEvent.md))
 * **signing\_** ([**endstone::PlayerEditBookEvent**](classendstone_1_1PlayerEditBookEvent.md))
-* **swimming\_** ([**endstone::PlayerSwimEvent**](classendstone_1_1PlayerSwimEvent.md))
 * **sneaking\_** ([**endstone::PlayerToggleSneakEvent**](classendstone_1_1PlayerToggleSneakEvent.md))
 * **sprinting\_** ([**endstone::PlayerToggleSprintEvent**](classendstone_1_1PlayerToggleSprintEvent.md))
+* **swimming\_** ([**endstone::PlayerToggleSwimEvent**](classendstone_1_1PlayerToggleSwimEvent.md))
 * **server\_** ([**endstone::Plugin**](classendstone_1_1Plugin.md), [**endstone::PluginLoader**](classendstone_1_1PluginLoader.md))
 * **soft\_depend\_** ([**endstone::PluginDescription**](classendstone_1_1PluginDescription.md))
 * **StrongHarming** ([**endstone::PotionType**](classendstone_1_1PotionType.md))

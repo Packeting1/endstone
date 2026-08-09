@@ -124,16 +124,13 @@
     <innerclass refid="classendstone_1_1PlayerBucketEntityEvent" prot="public">endstone::PlayerBucketEntityEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerChatEvent" prot="public">endstone::PlayerChatEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerCommandEvent" prot="public">endstone::PlayerCommandEvent</innerclass>
-    <innerclass refid="classendstone_1_1PlayerCrawlEvent" prot="public">endstone::PlayerCrawlEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerDeathEvent" prot="public">endstone::PlayerDeathEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerDimensionChangeEvent" prot="public">endstone::PlayerDimensionChangeEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerDropItemEvent" prot="public">endstone::PlayerDropItemEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerEditBookEvent" prot="public">endstone::PlayerEditBookEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerEmoteEvent" prot="public">endstone::PlayerEmoteEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerEvent" prot="public">endstone::PlayerEvent</innerclass>
-    <innerclass refid="classendstone_1_1PlayerFlightEvent" prot="public">endstone::PlayerFlightEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerGameModeChangeEvent" prot="public">endstone::PlayerGameModeChangeEvent</innerclass>
-    <innerclass refid="classendstone_1_1PlayerGlideEvent" prot="public">endstone::PlayerGlideEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerInputEvent" prot="public">endstone::PlayerInputEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerInteractActorEvent" prot="public">endstone::PlayerInteractActorEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerInteractEvent" prot="public">endstone::PlayerInteractEvent</innerclass>
@@ -156,10 +153,13 @@
     <innerclass refid="classendstone_1_1PlayerRiptideEvent" prot="public">endstone::PlayerRiptideEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerShearEntityEvent" prot="public">endstone::PlayerShearEntityEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerSkinChangeEvent" prot="public">endstone::PlayerSkinChangeEvent</innerclass>
-    <innerclass refid="classendstone_1_1PlayerSwimEvent" prot="public">endstone::PlayerSwimEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerTeleportEvent" prot="public">endstone::PlayerTeleportEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerToggleCrawlEvent" prot="public">endstone::PlayerToggleCrawlEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerToggleFlightEvent" prot="public">endstone::PlayerToggleFlightEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerToggleGlideEvent" prot="public">endstone::PlayerToggleGlideEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerToggleSneakEvent" prot="public">endstone::PlayerToggleSneakEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerToggleSprintEvent" prot="public">endstone::PlayerToggleSprintEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerToggleSwimEvent" prot="public">endstone::PlayerToggleSwimEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerVelocityEvent" prot="public">endstone::PlayerVelocityEvent</innerclass>
     <innerclass refid="classendstone_1_1Plugin" prot="public">endstone::Plugin</innerclass>
     <innerclass refid="classendstone_1_1PluginCommand" prot="public">endstone::PluginCommand</innerclass>
