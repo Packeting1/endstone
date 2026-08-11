@@ -21,14 +21,14 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
-      <memberdef kind="function" id="classendstone_1_1PlayerRiptideEvent_1acaca0944f238e4840be52efd958b45d6" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classendstone_1_1PlayerRiptideEvent_1a254951e1123f415ac1fb667554b75014" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
         <definition>endstone::PlayerRiptideEvent::PlayerRiptideEvent</definition>
-        <argsstring>(const NotNull&lt; Player &gt; &amp;player, bool riptiding)</argsstring>
+        <argsstring>(Player &amp;player, bool riptiding)</argsstring>
         <name>PlayerRiptideEvent</name>
         <qualifiedname>endstone::PlayerRiptideEvent::PlayerRiptideEvent</qualifiedname>
         <param>
-          <type><ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> <ref refid="classendstone_1_1NotNull" kindref="compound">NotNull</ref>&lt; <ref refid="classendstone_1_1Player" kindref="compound">Player</ref> &gt; &amp;</type>
+          <type><ref refid="classendstone_1_1Player" kindref="compound">Player</ref> &amp;</type>
           <declname>player</declname>
         </param>
         <param>
@@ -123,7 +123,7 @@
       <member refid="classendstone_1_1Event_1a1d7fc5400782d20be99a3636aa7f53b9" prot="public" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>operator=</name></member>
       <member refid="classendstone_1_1PlayerEvent_1ae0f8240e8c7c3a66281295c43b1d522a" prot="protected" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>player_</name></member>
       <member refid="classendstone_1_1PlayerEvent_1afee42449de6752241c5472a38f7d94a9" prot="public" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>PlayerEvent</name></member>
-      <member refid="classendstone_1_1PlayerRiptideEvent_1acaca0944f238e4840be52efd958b45d6" prot="public" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>PlayerRiptideEvent</name></member>
+      <member refid="classendstone_1_1PlayerRiptideEvent_1a254951e1123f415ac1fb667554b75014" prot="public" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>PlayerRiptideEvent</name></member>
       <member refid="classendstone_1_1PlayerRiptideEvent_1a1118b1d70bd1101b9ecbb2c4fe5960d3" prot="private" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>riptiding_</name></member>
       <member refid="classendstone_1_1Event_1a6aeaa8096baba90f8ace94106e0e05f3" prot="public" virt="virtual"><scope>endstone::PlayerRiptideEvent</scope><name>~Event</name></member>
       <member refid="classendstone_1_1PlayerEvent_1ab31b937251b8ccc1c72c275d1c7a522b" prot="public" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>~PlayerEvent</name></member>

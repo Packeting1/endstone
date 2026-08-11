@@ -94,8 +94,8 @@ Inherits the following classes: [endstone::Cancellable](classendstone_1_1Cancell
 | Type | Name |
 | ---: | :--- |
 |   | [**ENDSTONE\_EVENT**](#function-endstone_event) ([**PlayerShearEntityEvent**](classendstone_1_1PlayerShearEntityEvent.md)) <br> |
-|   | [**PlayerShearEntityEvent**](#function-playershearentityevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Actor**](classendstone_1_1Actor.md) &gt; & entity, [**EquipmentSlot**](namespaceendstone.md#enum-equipmentslot) hand, [**ItemStack**](classendstone_1_1ItemStack.md) item) <br>_Constructs a player shear entity event._  |
-|  [**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Actor**](classendstone_1_1Actor.md) &gt; & | [**getEntity**](#function-getentity) () const<br>_Gets the entity that was sheared._  |
+|   | [**PlayerShearEntityEvent**](#function-playershearentityevent) ([**Player**](classendstone_1_1Player.md) & player, [**Actor**](classendstone_1_1Actor.md) & entity, [**EquipmentSlot**](namespaceendstone.md#enum-equipmentslot) hand, [**ItemStack**](classendstone_1_1ItemStack.md) item) <br>_Constructs a player shear entity event._  |
+|  [**Actor**](classendstone_1_1Actor.md) & | [**getEntity**](#function-getentity) () const<br>_Gets the entity that was sheared._  |
 |  [**EquipmentSlot**](namespaceendstone.md#enum-equipmentslot) | [**getHand**](#function-gethand) () const<br>_Gets the hand used to shear the entity._  |
 |  [**const**](classendstone_1_1Identifier.md) [**ItemStack**](classendstone_1_1ItemStack.md) & | [**getItem**](#function-getitem) () const<br>_Gets the item used to shear the entity._  |
 
@@ -226,8 +226,8 @@ endstone::PlayerShearEntityEvent::ENDSTONE_EVENT (
 _Constructs a player shear entity event._ 
 ```C++
 inline endstone::PlayerShearEntityEvent::PlayerShearEntityEvent (
-    const  NotNull < Player > & player,
-    const  NotNull < Actor > & entity,
+    Player & player,
+    Actor & entity,
     EquipmentSlot hand,
     ItemStack item
 ) 
@@ -258,7 +258,7 @@ inline endstone::PlayerShearEntityEvent::PlayerShearEntityEvent (
 
 _Gets the entity that was sheared._ 
 ```C++
-inline const  NotNull < Actor > & endstone::PlayerShearEntityEvent::getEntity () const
+inline Actor & endstone::PlayerShearEntityEvent::getEntity () const
 ```
 
 

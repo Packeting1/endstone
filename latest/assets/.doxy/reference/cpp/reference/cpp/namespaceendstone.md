@@ -74,6 +74,7 @@ _Represents a button with text and an optional icon._
 | class | [**BossBar**](classendstone_1_1BossBar.md) <br>_Represents a boss bar that is displayed to players._  |
 | class | [**BroadcastMessageEvent**](classendstone_1_1BroadcastMessageEvent.md) <br>[_**Event**_](classendstone_1_1Event.md) _triggered for server broadcast messages such as from_[_**Server::broadcast()**_](classendstone_1_1Server.md#function-broadcast) _._ |
 | class | [**Button**](classendstone_1_1Button.md) <br>_Represents a button with text and an optional icon._  |
+| class | [**Campfire**](classendstone_1_1Campfire.md) <br>_Represents a captured state of a campfire._  |
 | class | [**Cancellable**](classendstone_1_1Cancellable.md) &lt;[**typename**](classendstone_1_1Identifier.md) EventType&gt;<br>_A type characterizing events that may be cancelled by a plugin or the server._  |
 | class | [**Chunk**](classendstone_1_1Chunk.md) <br>_Represents a chunk of blocks._  |
 | class | [**ChunkEvent**](classendstone_1_1ChunkEvent.md) <br>_Represents a_ [_**Chunk**_](classendstone_1_1Chunk.md) _related event._ |
@@ -90,6 +91,7 @@ _Represents a button with text and an optional icon._
 | class | [**CompoundTag**](classendstone_1_1CompoundTag.md) <br>_An NBT tag holding a set of named child tags, keyed by string._  |
 | class | [**ConsoleCommandSender**](classendstone_1_1ConsoleCommandSender.md) <br>_Represents a console command sender._  |
 | class | [**Container**](classendstone_1_1Container.md) <br>_Represents a captured state of a container block, such as a chest._  |
+| class | [**CreatureSpawner**](classendstone_1_1CreatureSpawner.md) <br>_Represents a captured state of a creature spawner._  |
 | class | [**Criteria**](classendstone_1_1Criteria.md) <br>_Represents a scoreboard criteria._  |
 | class | [**CrossbowMeta**](classendstone_1_1CrossbowMeta.md) <br>_Represents the meta for a crossbow that can have a charged projectile._  |
 | class | [**DamageSource**](classendstone_1_1DamageSource.md) <br>_Represents a source of damage._  |
@@ -104,6 +106,7 @@ _Represents a button with text and an optional icon._
 | class | [**Event**](classendstone_1_1Event.md) <br>_Represents an event._  |
 | class | [**EventHandler**](classendstone_1_1EventHandler.md) <br>_Represents a registered_ [_**EventHandler**_](classendstone_1_1EventHandler.md) _which associates with a_[_**Plugin**_](classendstone_1_1Plugin.md) _._ |
 | class | [**Form**](classendstone_1_1Form.md) &lt;[**typename**](classendstone_1_1Identifier.md) [**T**](classendstone_1_1Identifier.md)&gt;<br>_Represents a generic form._  |
+| class | [**Furnace**](classendstone_1_1Furnace.md) <br>_Represents a captured state of a furnace._  |
 | class | [**GameRule**](classendstone_1_1GameRule.md) <br>_Represents a game rule._  |
 | class | [**GameRuleId**](classendstone_1_1GameRuleId.md) &lt;[**typename**](classendstone_1_1Identifier.md) [**T**](classendstone_1_1Identifier.md)&gt;<br>_Represents the identifier of a game rule, carrying the type of the rule's value._  |
 | class | [**HandlerList**](classendstone_1_1HandlerList.md) <br>_A list of event handlers._  |
@@ -118,12 +121,14 @@ _Represents a button with text and an optional icon._
 | class | [**IpBanList**](classendstone_1_1IpBanList.md) <br>_Represents a ban list, containing banned IP addresses._  |
 | class | [**Item**](classendstone_1_1Item.md) <br>_Represents a dropped item that can be picked up by players._  |
 | class | [**ItemFactory**](classendstone_1_1ItemFactory.md) <br>_An interface to the methods used to create item metadata._  |
+| class | [**ItemFrame**](classendstone_1_1ItemFrame.md) <br>_Represents a captured state of an item frame._  |
 | class | [**ItemMeta**](classendstone_1_1ItemMeta.md) <br>_Represents the metadata of a generic item._  |
 | class | [**ItemStack**](classendstone_1_1ItemStack.md) <br>_Represents a stack of items._  |
 | class | [**ItemType**](classendstone_1_1ItemType.md) <br>_Represents an item type._  |
 | class | [**Label**](classendstone_1_1Label.md) <br>_Represents a text label._  |
 | class | [**Language**](classendstone_1_1Language.md) <br>_Represents the interface for translating text into different languages._  |
 | class | [**LeavesDecayEvent**](classendstone_1_1LeavesDecayEvent.md) <br>_Called when leaves are decaying naturally._  |
+| class | [**Lectern**](classendstone_1_1Lectern.md) <br>_Represents a captured state of a lectern._  |
 | class | [**Level**](classendstone_1_1Level.md) <br>_Represents a level, which may contain actors, chunks and blocks._  |
 | class | [**LevelEvent**](classendstone_1_1LevelEvent.md) <br>_Represents events within a level._  |
 | class | [**ListTag**](classendstone_1_1ListTag.md) <br>_An NBT tag holding an ordered sequence of child tags that all share the same type._  |
@@ -219,6 +224,8 @@ _Represents a button with text and an optional icon._
 | class | [**ServerLoadEvent**](classendstone_1_1ServerLoadEvent.md) <br>_Called when either the server startup or reload has completed._  |
 | class | [**Service**](classendstone_1_1Service.md) <br>_Services represent a list of methods._  |
 | class | [**ServiceManager**](classendstone_1_1ServiceManager.md) <br>_Represent a service manager that manages services and service providers._  |
+| class | [**Sign**](classendstone_1_1Sign.md) <br>_Represents a captured state of a sign._  |
+| class | [**SignSide**](classendstone_1_1SignSide.md) <br>_Represents a side of a sign._  |
 | class | [**Skin**](classendstone_1_1Skin.md) <br>_Represents a player skin._  |
 | class | [**Slider**](classendstone_1_1Slider.md) <br>_Represents a slider with a label._  |
 | class | [**SocketAddress**](classendstone_1_1SocketAddress.md) <br>_Represents an IP Socket Address (hostname + port number)._  |
@@ -277,6 +284,7 @@ _Represents a button with text and an optional icon._
 | typedef [**Identifier**](classendstone_1_1Identifier.md)&lt; [**class**](classendstone_1_1Identifier.md) [**PotionType**](classendstone_1_1PotionType.md) &gt; | [**PotionId**](#typedef-potionid)  <br> |
 | enum std::uint8\_t | [**RenderType**](#enum-rendertype)  <br>_Controls the way in which an_ [_**Objective**_](classendstone_1_1Objective.md) _is rendered on the client side._ |
 | typedef nonstd::expected&lt; [**T**](classendstone_1_1Identifier.md), std::string &gt; | [**Result**](#typedef-result)  <br>_Holds either a value of type T on success or an error message on failure._  |
+| enum  | [**Rotation**](#enum-rotation)  <br>_Represents a rotation based orientation, like that on a clock._  |
 | typedef std::variant&lt; std::string, [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt;, [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Actor**](classendstone_1_1Actor.md) &gt; &gt; | [**ScoreEntry**](#typedef-scoreentry)  <br>_An entry for a score._  |
 | enum  | [**ServicePriority**](#enum-servicepriority)  <br>_Represents various priorities of a provider._  |
 | typedef [**nbt::ValueTag**](classendstone_1_1nbt_1_1ValueTag.md)&lt; std::int16\_t &gt; | [**ShortTag**](#typedef-shorttag)  <br> |
@@ -925,6 +933,33 @@ using endstone::Result = typedef nonstd::expected<T, std::string>;
 
 
 
+
+<hr>
+
+
+
+### enum Rotation 
+
+_Represents a rotation based orientation, like that on a clock._ 
+```C++
+enum endstone::Rotation {
+    None = 0,
+    Clockwise45 = 1,
+    Clockwise = 2,
+    Clockwise135 = 3,
+    Flipped = 4,
+    Flipped45 = 5,
+    CounterClockwise = 6,
+    CounterClockwise45 = 7
+};
+```
+
+
+
+It represents how something is viewed, as opposed to cardinal directions. 
+
+
+        
 
 <hr>
 

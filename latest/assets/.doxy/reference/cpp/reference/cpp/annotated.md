@@ -42,6 +42,7 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**BossBar**](classendstone_1_1BossBar.md) _Represents a boss bar that is displayed to players._     
     * **class** [**BroadcastMessageEvent**](classendstone_1_1BroadcastMessageEvent.md) [_**Event**_](classendstone_1_1Event.md) _triggered for server broadcast messages such as from_[_**Server::broadcast()**_](classendstone_1_1Server.md#function-broadcast) _._    
     * **class** [**Button**](classendstone_1_1Button.md) _Represents a button with text and an optional icon._     
+    * **class** [**Campfire**](classendstone_1_1Campfire.md) _Represents a captured state of a campfire._     
     * **class** [**Cancellable**](classendstone_1_1Cancellable.md) _A type characterizing events that may be cancelled by a plugin or the server._     
     * **class** [**Chunk**](classendstone_1_1Chunk.md) _Represents a chunk of blocks._     
     * **class** [**ChunkEvent**](classendstone_1_1ChunkEvent.md) _Represents a_ [_**Chunk**_](classendstone_1_1Chunk.md) _related event._    
@@ -58,6 +59,7 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**CompoundTag**](classendstone_1_1CompoundTag.md) _An NBT tag holding a set of named child tags, keyed by string._     
     * **class** [**ConsoleCommandSender**](classendstone_1_1ConsoleCommandSender.md) _Represents a console command sender._ 
     * **class** [**Container**](classendstone_1_1Container.md) _Represents a captured state of a container block, such as a chest._     
+    * **class** [**CreatureSpawner**](classendstone_1_1CreatureSpawner.md) _Represents a captured state of a creature spawner._     
     * **class** [**Criteria**](classendstone_1_1Criteria.md) _Represents a scoreboard criteria._     
     * **class** [**CrossbowMeta**](classendstone_1_1CrossbowMeta.md) _Represents the meta for a crossbow that can have a charged projectile._     
     * **class** [**DamageSource**](classendstone_1_1DamageSource.md) _Represents a source of damage._     
@@ -72,6 +74,7 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**Event**](classendstone_1_1Event.md) _Represents an event._     
     * **class** [**EventHandler**](classendstone_1_1EventHandler.md) _Represents a registered_ [_**EventHandler**_](classendstone_1_1EventHandler.md) _which associates with a_[_**Plugin**_](classendstone_1_1Plugin.md) _._    
     * **class** [**Form**](classendstone_1_1Form.md) _Represents a generic form._     
+    * **class** [**Furnace**](classendstone_1_1Furnace.md) _Represents a captured state of a furnace._     
     * **class** [**GameRule**](classendstone_1_1GameRule.md) _Represents a game rule._     
     * **class** [**GameRuleId**](classendstone_1_1GameRuleId.md) _Represents the identifier of a game rule, carrying the type of the rule's value._     
     * **class** [**HandlerList**](classendstone_1_1HandlerList.md) _A list of event handlers._     
@@ -86,12 +89,14 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**IpBanList**](classendstone_1_1IpBanList.md) _Represents a ban list, containing banned IP addresses._     
     * **class** [**Item**](classendstone_1_1Item.md) _Represents a dropped item that can be picked up by players._     
     * **class** [**ItemFactory**](classendstone_1_1ItemFactory.md) _An interface to the methods used to create item metadata._     
+    * **class** [**ItemFrame**](classendstone_1_1ItemFrame.md) _Represents a captured state of an item frame._     
     * **class** [**ItemMeta**](classendstone_1_1ItemMeta.md) _Represents the metadata of a generic item._     
     * **class** [**ItemStack**](classendstone_1_1ItemStack.md) _Represents a stack of items._     
     * **class** [**ItemType**](classendstone_1_1ItemType.md) _Represents an item type._     
     * **class** [**Label**](classendstone_1_1Label.md) _Represents a text label._     
     * **class** [**Language**](classendstone_1_1Language.md) _Represents the interface for translating text into different languages._     
     * **class** [**LeavesDecayEvent**](classendstone_1_1LeavesDecayEvent.md) _Called when leaves are decaying naturally._     
+    * **class** [**Lectern**](classendstone_1_1Lectern.md) _Represents a captured state of a lectern._     
     * **class** [**Level**](classendstone_1_1Level.md) _Represents a level, which may contain actors, chunks and blocks._     
     * **class** [**LevelEvent**](classendstone_1_1LevelEvent.md) _Represents events within a level._     
     * **class** [**ListTag**](classendstone_1_1ListTag.md) _An NBT tag holding an ordered sequence of child tags that all share the same type._     
@@ -188,6 +193,8 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**ServerLoadEvent**](classendstone_1_1ServerLoadEvent.md) _Called when either the server startup or reload has completed._     
     * **class** [**Service**](classendstone_1_1Service.md) _Services represent a list of methods._     
     * **class** [**ServiceManager**](classendstone_1_1ServiceManager.md) _Represent a service manager that manages services and service providers._     
+    * **class** [**Sign**](classendstone_1_1Sign.md) _Represents a captured state of a sign._     
+    * **class** [**SignSide**](classendstone_1_1SignSide.md) _Represents a side of a sign._     
     * **class** [**Skin**](classendstone_1_1Skin.md) _Represents a player skin._     
     * **class** [**Slider**](classendstone_1_1Slider.md) _Represents a slider with a label._     
     * **class** [**SocketAddress**](classendstone_1_1SocketAddress.md) _Represents an IP Socket Address (hostname + port number)._     

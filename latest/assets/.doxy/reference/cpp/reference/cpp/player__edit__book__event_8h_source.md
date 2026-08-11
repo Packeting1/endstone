@@ -37,8 +37,7 @@ class PlayerEditBookEvent final : public Cancellable<PlayerEvent> {
 public:
     ENDSTONE_EVENT(PlayerEditBookEvent);
 
-    PlayerEditBookEvent(const NotNull<Player> &player, int slot, const BookMeta &previous_book_meta,
-                        const BookMeta &new_book_meta,
+    PlayerEditBookEvent(Player &player, int slot, const BookMeta &previous_book_meta, const BookMeta &new_book_meta,
                         bool signing)
         : Cancellable(player), slot_(slot), previous_book_meta_(cloneBookMeta(previous_book_meta)),
           new_book_meta_(cloneBookMeta(new_book_meta)), signing_(signing)

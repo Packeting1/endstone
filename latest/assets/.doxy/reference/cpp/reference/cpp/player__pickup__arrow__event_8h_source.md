@@ -29,12 +29,12 @@ class PlayerPickupArrowEvent final : public Cancellable<PlayerEvent> {
 public:
     ENDSTONE_EVENT(PlayerPickupArrowEvent);
 
-    PlayerPickupArrowEvent(const NotNull<Player> &player, const NotNull<Actor> &arrow) : Cancellable(player), arrow_(arrow) {}
+    PlayerPickupArrowEvent(Player &player, Actor &arrow) : Cancellable(player), arrow_(arrow) {}
 
-    [[nodiscard]] const NotNull<Actor> &getArrow() const { return arrow_; }
+    [[nodiscard]] Actor &getArrow() const { return arrow_; }
 
 private:
-    NotNull<Actor> arrow_;
+    Actor &arrow_;
 };
 
 }  // namespace endstone

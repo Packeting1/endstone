@@ -98,7 +98,7 @@ Inherits the following classes: [endstone::Cancellable](classendstone_1_1Cancell
 
 | Type | Name |
 | ---: | :--- |
-|   | [**PlayerBlockDamageEvent**](#function-playerblockdamageevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**Action**](classendstone_1_1PlayerBlockDamageEvent.md#enum-action) action, std::optional&lt; [**ItemStack**](classendstone_1_1ItemStack.md) &gt; item, [**Block**](classendstone_1_1Block.md) \* block, std::optional&lt; [**BlockFace**](namespaceendstone.md#enum-blockface) &gt; block\_face, [**Vector**](classendstone_1_1Vector.md) position) <br> |
+|   | [**PlayerBlockDamageEvent**](#function-playerblockdamageevent) ([**Player**](classendstone_1_1Player.md) & player, [**Action**](classendstone_1_1PlayerBlockDamageEvent.md#enum-action) action, std::optional&lt; [**ItemStack**](classendstone_1_1ItemStack.md) &gt; item, [**Block**](classendstone_1_1Block.md) \* block, std::optional&lt; [**BlockFace**](namespaceendstone.md#enum-blockface) &gt; block\_face, [**Vector**](classendstone_1_1Vector.md) position) <br> |
 |  [**Action**](classendstone_1_1PlayerBlockDamageEvent.md#enum-action) | [**getAction**](#function-getaction) () const<br>_Gets the block damage action that triggered this event._  |
 |  [**Block**](classendstone_1_1Block.md) \* | [**getBlock**](#function-getblock) () const<br>_Gets the block being damaged._  |
 |  std::optional&lt; [**BlockFace**](namespaceendstone.md#enum-blockface) &gt; | [**getBlockFace**](#function-getblockface) () const<br>_Gets the face being damaged._  |
@@ -246,7 +246,7 @@ enum endstone::PlayerBlockDamageEvent::Action {
 
 ```C++
 inline endstone::PlayerBlockDamageEvent::PlayerBlockDamageEvent (
-    const  NotNull < Player > & player,
+    Player & player,
     Action action,
     std::optional< ItemStack > item,
     Block * block,

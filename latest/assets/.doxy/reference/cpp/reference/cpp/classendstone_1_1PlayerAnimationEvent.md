@@ -94,7 +94,7 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 | Type | Name |
 | ---: | :--- |
 |   | [**ENDSTONE\_EVENT**](#function-endstone_event) ([**PlayerAnimationEvent**](classendstone_1_1PlayerAnimationEvent.md)) <br> |
-|   | [**PlayerAnimationEvent**](#function-playeranimationevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**PlayerAnimationType**](namespaceendstone.md#enum-playeranimationtype) animation\_type) <br> |
+|   | [**PlayerAnimationEvent**](#function-playeranimationevent) ([**Player**](classendstone_1_1Player.md) & player, [**PlayerAnimationType**](namespaceendstone.md#enum-playeranimationtype) animation\_type) <br> |
 |  [**PlayerAnimationType**](namespaceendstone.md#enum-playeranimationtype) | [**getAnimationType**](#function-getanimationtype) () const<br>_Gets the type of animation performed by the player._  |
 
 
@@ -234,7 +234,7 @@ endstone::PlayerAnimationEvent::ENDSTONE_EVENT (
 
 ```C++
 inline endstone::PlayerAnimationEvent::PlayerAnimationEvent (
-    const  NotNull < Player > & player,
+    Player & player,
     PlayerAnimationType animation_type
 ) 
 ```

@@ -44,6 +44,7 @@
 ## r
 
 * **RenderType** ([**endstone**](namespaceendstone.md))
+* **Rotation** ([**endstone**](namespaceendstone.md))
 
 
 ## s

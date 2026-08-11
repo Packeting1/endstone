@@ -21,14 +21,14 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
-      <memberdef kind="function" id="classendstone_1_1PlayerToggleFlightEvent_1a27e3d7e2d4f256867cd21b1b4af996ea" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classendstone_1_1PlayerToggleFlightEvent_1a9810e806a36848b0c32bcb6a9af55c5a" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
         <definition>endstone::PlayerToggleFlightEvent::PlayerToggleFlightEvent</definition>
-        <argsstring>(const NotNull&lt; Player &gt; &amp;player, bool flying)</argsstring>
+        <argsstring>(Player &amp;player, bool flying)</argsstring>
         <name>PlayerToggleFlightEvent</name>
         <qualifiedname>endstone::PlayerToggleFlightEvent::PlayerToggleFlightEvent</qualifiedname>
         <param>
-          <type><ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> <ref refid="classendstone_1_1NotNull" kindref="compound">NotNull</ref>&lt; <ref refid="classendstone_1_1Player" kindref="compound">Player</ref> &gt; &amp;</type>
+          <type><ref refid="classendstone_1_1Player" kindref="compound">Player</ref> &amp;</type>
           <declname>player</declname>
         </param>
         <param>
@@ -124,7 +124,7 @@
       <member refid="classendstone_1_1Event_1a1d7fc5400782d20be99a3636aa7f53b9" prot="public" virt="non-virtual"><scope>endstone::PlayerToggleFlightEvent</scope><name>operator=</name></member>
       <member refid="classendstone_1_1PlayerEvent_1ae0f8240e8c7c3a66281295c43b1d522a" prot="protected" virt="non-virtual"><scope>endstone::PlayerToggleFlightEvent</scope><name>player_</name></member>
       <member refid="classendstone_1_1PlayerEvent_1afee42449de6752241c5472a38f7d94a9" prot="public" virt="non-virtual"><scope>endstone::PlayerToggleFlightEvent</scope><name>PlayerEvent</name></member>
-      <member refid="classendstone_1_1PlayerToggleFlightEvent_1a27e3d7e2d4f256867cd21b1b4af996ea" prot="public" virt="non-virtual"><scope>endstone::PlayerToggleFlightEvent</scope><name>PlayerToggleFlightEvent</name></member>
+      <member refid="classendstone_1_1PlayerToggleFlightEvent_1a9810e806a36848b0c32bcb6a9af55c5a" prot="public" virt="non-virtual"><scope>endstone::PlayerToggleFlightEvent</scope><name>PlayerToggleFlightEvent</name></member>
       <member refid="classendstone_1_1Event_1a6aeaa8096baba90f8ace94106e0e05f3" prot="public" virt="virtual"><scope>endstone::PlayerToggleFlightEvent</scope><name>~Event</name></member>
       <member refid="classendstone_1_1PlayerEvent_1ab31b937251b8ccc1c72c275d1c7a522b" prot="public" virt="non-virtual"><scope>endstone::PlayerToggleFlightEvent</scope><name>~PlayerEvent</name></member>
     </listofallmembers>

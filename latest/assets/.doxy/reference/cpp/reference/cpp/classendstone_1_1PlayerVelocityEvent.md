@@ -94,7 +94,7 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 | Type | Name |
 | ---: | :--- |
 |   | [**ENDSTONE\_EVENT**](#function-endstone_event) ([**PlayerVelocityEvent**](classendstone_1_1PlayerVelocityEvent.md)) <br> |
-|   | [**PlayerVelocityEvent**](#function-playervelocityevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**Vector**](classendstone_1_1Vector.md) velocity) <br> |
+|   | [**PlayerVelocityEvent**](#function-playervelocityevent) ([**Player**](classendstone_1_1Player.md) & player, [**Vector**](classendstone_1_1Vector.md) velocity) <br> |
 |  [**Vector**](classendstone_1_1Vector.md) | [**getVelocity**](#function-getvelocity) () const<br>_Gets the velocity vector that will be sent to the player._  |
 |  [**void**](classendstone_1_1Identifier.md) | [**setVelocity**](#function-setvelocity) ([**Vector**](classendstone_1_1Vector.md) velocity) <br>_Sets the velocity vector that will be sent to the player._  |
 
@@ -235,7 +235,7 @@ endstone::PlayerVelocityEvent::ENDSTONE_EVENT (
 
 ```C++
 inline explicit endstone::PlayerVelocityEvent::PlayerVelocityEvent (
-    const  NotNull < Player > & player,
+    Player & player,
     Vector velocity
 ) 
 ```

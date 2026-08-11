@@ -29,7 +29,7 @@ class PlayerRecipeBookClickEvent final : public Cancellable<PlayerEvent> {
 public:
     ENDSTONE_EVENT(PlayerRecipeBookClickEvent);
 
-    PlayerRecipeBookClickEvent(const NotNull<Player> &player, std::string recipe, bool make_all)
+    PlayerRecipeBookClickEvent(Player &player, std::string recipe, bool make_all)
         : Cancellable(player), recipe_(recipe), make_all_(make_all)
     {
     }

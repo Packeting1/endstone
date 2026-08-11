@@ -94,8 +94,8 @@ Inherits the following classes: [endstone::Cancellable](classendstone_1_1Cancell
 | Type | Name |
 | ---: | :--- |
 |   | [**ENDSTONE\_EVENT**](#function-endstone_event) ([**PlayerPickupArrowEvent**](classendstone_1_1PlayerPickupArrowEvent.md)) <br> |
-|   | [**PlayerPickupArrowEvent**](#function-playerpickuparrowevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Actor**](classendstone_1_1Actor.md) &gt; & arrow) <br> |
-|  [**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Actor**](classendstone_1_1Actor.md) &gt; & | [**getArrow**](#function-getarrow) () const<br>_Gets the arrow picked up by the player._  |
+|   | [**PlayerPickupArrowEvent**](#function-playerpickuparrowevent) ([**Player**](classendstone_1_1Player.md) & player, [**Actor**](classendstone_1_1Actor.md) & arrow) <br> |
+|  [**Actor**](classendstone_1_1Actor.md) & | [**getArrow**](#function-getarrow) () const<br>_Gets the arrow picked up by the player._  |
 
 
 ## Public Functions inherited from endstone::Cancellable
@@ -223,8 +223,8 @@ endstone::PlayerPickupArrowEvent::ENDSTONE_EVENT (
 
 ```C++
 inline endstone::PlayerPickupArrowEvent::PlayerPickupArrowEvent (
-    const  NotNull < Player > & player,
-    const  NotNull < Actor > & arrow
+    Player & player,
+    Actor & arrow
 ) 
 ```
 
@@ -239,7 +239,7 @@ inline endstone::PlayerPickupArrowEvent::PlayerPickupArrowEvent (
 
 _Gets the arrow picked up by the player._ 
 ```C++
-inline const  NotNull < Actor > & endstone::PlayerPickupArrowEvent::getArrow () const
+inline Actor & endstone::PlayerPickupArrowEvent::getArrow () const
 ```
 
 

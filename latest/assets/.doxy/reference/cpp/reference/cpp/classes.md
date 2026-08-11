@@ -88,6 +88,8 @@
 
 ## c
 
+* [**Campfire**](classendstone_1_1Campfire.md)
+([**endstone**](namespaceendstone.md))
 * [**Cancellable**](classendstone_1_1Cancellable.md)
 ([**endstone**](namespaceendstone.md))
 * [**Chunk**](classendstone_1_1Chunk.md)
@@ -120,6 +122,8 @@
 * [**ConsoleCommandSender**](classendstone_1_1ConsoleCommandSender.md)
 ([**endstone**](namespaceendstone.md))
 * [**Container**](classendstone_1_1Container.md)
+([**endstone**](namespaceendstone.md))
+* [**CreatureSpawner**](classendstone_1_1CreatureSpawner.md)
 ([**endstone**](namespaceendstone.md))
 * [**Criteria**](classendstone_1_1Criteria.md)
 ([**endstone**](namespaceendstone.md))
@@ -224,6 +228,8 @@
 ([**std**](namespacestd.md))
 * [**formatter&lt; T &gt;**](structstd_1_1formatter_3_01T_01_4.md)
 ([**std**](namespacestd.md))
+* [**Furnace**](classendstone_1_1Furnace.md)
+([**endstone**](namespaceendstone.md))
 
 
 ## g
@@ -275,6 +281,8 @@
 ([**endstone**](namespaceendstone.md))
 * [**ItemFactory**](classendstone_1_1ItemFactory.md)
 ([**endstone**](namespaceendstone.md))
+* [**ItemFrame**](classendstone_1_1ItemFrame.md)
+([**endstone**](namespaceendstone.md))
 * [**ItemMeta**](classendstone_1_1ItemMeta.md)
 ([**endstone**](namespaceendstone.md))
 * [**ItemStack**](classendstone_1_1ItemStack.md)
@@ -296,6 +304,8 @@
 * [**Language**](classendstone_1_1Language.md)
 ([**endstone**](namespaceendstone.md))
 * [**LeavesDecayEvent**](classendstone_1_1LeavesDecayEvent.md)
+([**endstone**](namespaceendstone.md))
+* [**Lectern**](classendstone_1_1Lectern.md)
 ([**endstone**](namespaceendstone.md))
 * [**Level**](classendstone_1_1Level.md)
 ([**endstone**](namespaceendstone.md))
@@ -514,6 +524,10 @@
 * [**Service**](classendstone_1_1Service.md)
 ([**endstone**](namespaceendstone.md))
 * [**ServiceManager**](classendstone_1_1ServiceManager.md)
+([**endstone**](namespaceendstone.md))
+* [**Sign**](classendstone_1_1Sign.md)
+([**endstone**](namespaceendstone.md))
+* [**SignSide**](classendstone_1_1SignSide.md)
 ([**endstone**](namespaceendstone.md))
 * [**Skin**](classendstone_1_1Skin.md)
 ([**endstone**](namespaceendstone.md))

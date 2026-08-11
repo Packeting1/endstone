@@ -93,7 +93,7 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 
 | Type | Name |
 | ---: | :--- |
-|   | [**PlayerToggleCrawlEvent**](#function-playertogglecrawlevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**bool**](classendstone_1_1Identifier.md) crawling) <br> |
+|   | [**PlayerToggleCrawlEvent**](#function-playertogglecrawlevent) ([**Player**](classendstone_1_1Player.md) & player, [**bool**](classendstone_1_1Identifier.md) crawling) <br> |
 |  [**bool**](classendstone_1_1Identifier.md) | [**isCrawling**](#function-iscrawling) () const<br>_Returns whether the player is now crawling or not._  |
 
 
@@ -218,7 +218,7 @@ See [endstone::PlayerEvent](classendstone_1_1PlayerEvent.md)
 
 ```C++
 inline explicit endstone::PlayerToggleCrawlEvent::PlayerToggleCrawlEvent (
-    const  NotNull < Player > & player,
+    Player & player,
     bool crawling
 ) 
 ```

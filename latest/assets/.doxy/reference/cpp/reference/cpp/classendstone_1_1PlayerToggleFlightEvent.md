@@ -93,7 +93,7 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 
 | Type | Name |
 | ---: | :--- |
-|   | [**PlayerToggleFlightEvent**](#function-playertoggleflightevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**bool**](classendstone_1_1Identifier.md) flying) <br> |
+|   | [**PlayerToggleFlightEvent**](#function-playertoggleflightevent) ([**Player**](classendstone_1_1Player.md) & player, [**bool**](classendstone_1_1Identifier.md) flying) <br> |
 |  [**bool**](classendstone_1_1Identifier.md) | [**isFlying**](#function-isflying) () const<br>_Returns whether the player is now flying or not._  |
 
 
@@ -218,7 +218,7 @@ See [endstone::PlayerEvent](classendstone_1_1PlayerEvent.md)
 
 ```C++
 inline explicit endstone::PlayerToggleFlightEvent::PlayerToggleFlightEvent (
-    const  NotNull < Player > & player,
+    Player & player,
     bool flying
 ) 
 ```

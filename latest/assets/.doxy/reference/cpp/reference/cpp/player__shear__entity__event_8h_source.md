@@ -33,20 +33,19 @@ class PlayerShearEntityEvent final : public Cancellable<PlayerEvent> {
 public:
     ENDSTONE_EVENT(PlayerShearEntityEvent);
 
-    PlayerShearEntityEvent(const NotNull<Player> &player, const NotNull<Actor> &entity, EquipmentSlot hand,
-                           ItemStack item)
+    PlayerShearEntityEvent(Player &player, Actor &entity, EquipmentSlot hand, ItemStack item)
         : Cancellable(player), entity_(entity), hand_(hand), item_(std::move(item))
     {
     }
 
-    [[nodiscard]] const NotNull<Actor> &getEntity() const { return entity_; }
+    [[nodiscard]] Actor &getEntity() const { return entity_; }
 
     [[nodiscard]] EquipmentSlot getHand() const { return hand_; }
 
     [[nodiscard]] const ItemStack &getItem() const { return item_; }
 
 private:
-    NotNull<Actor> entity_;
+    Actor &entity_;
     EquipmentSlot hand_;
     ItemStack item_;
 };

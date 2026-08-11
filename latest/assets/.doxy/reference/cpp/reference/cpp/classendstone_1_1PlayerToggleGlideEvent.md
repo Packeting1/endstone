@@ -93,7 +93,7 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 
 | Type | Name |
 | ---: | :--- |
-|   | [**PlayerToggleGlideEvent**](#function-playertoggleglideevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**bool**](classendstone_1_1Identifier.md) gliding) <br> |
+|   | [**PlayerToggleGlideEvent**](#function-playertoggleglideevent) ([**Player**](classendstone_1_1Player.md) & player, [**bool**](classendstone_1_1Identifier.md) gliding) <br> |
 |  [**bool**](classendstone_1_1Identifier.md) | [**isGliding**](#function-isgliding) () const<br>_Returns whether the player is now gliding or not._  |
 
 
@@ -218,7 +218,7 @@ See [endstone::PlayerEvent](classendstone_1_1PlayerEvent.md)
 
 ```C++
 inline explicit endstone::PlayerToggleGlideEvent::PlayerToggleGlideEvent (
-    const  NotNull < Player > & player,
+    Player & player,
     bool gliding
 ) 
 ```

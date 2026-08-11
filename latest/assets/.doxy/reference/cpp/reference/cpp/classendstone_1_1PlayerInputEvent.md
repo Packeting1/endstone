@@ -93,7 +93,7 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 
 | Type | Name |
 | ---: | :--- |
-|   | [**PlayerInputEvent**](#function-playerinputevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**Input**](classendstone_1_1Input.md) input) <br> |
+|   | [**PlayerInputEvent**](#function-playerinputevent) ([**Player**](classendstone_1_1Player.md) & player, [**Input**](classendstone_1_1Input.md) input) <br> |
 |  [**Input**](classendstone_1_1Input.md) | [**getInput**](#function-getinput) () const<br>_Gets the new input received from this player._  |
 
 
@@ -218,7 +218,7 @@ See [endstone::PlayerEvent](classendstone_1_1PlayerEvent.md)
 
 ```C++
 inline explicit endstone::PlayerInputEvent::PlayerInputEvent (
-    const  NotNull < Player > & player,
+    Player & player,
     Input input
 ) 
 ```
