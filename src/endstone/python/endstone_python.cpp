@@ -35,6 +35,7 @@ void init_command(py::module &, py_class<CommandSender> &command_sender);
 void init_damage(py::module_ &);
 void init_enchantments(py::module_ &);
 void init_event(py::module_ &, py::class_<Event, PyEvent> &event);
+void init_slot_type(py::module_ &);
 void init_form(py::module_ &);
 void init_game_mode(py::module_ &);
 void init_game_rule(py::module_ &);
@@ -196,6 +197,7 @@ PYBIND11_MODULE(_python, m)  // NOLINT(*-use-anonymous-namespace)
     auto location =
         py::class_<Location>(m_level, "Location", "Represents a 3-dimensional location in a dimension within a level.");
 
+    init_slot_type(m_event);
     init_attribute(m_attribute);
     init_color_format(m);
     init_damage(m_damage);

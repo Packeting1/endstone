@@ -515,6 +515,31 @@ void init_inventory(py::module_ &m, py::class_<ItemStack> &item_stack)
              "Checks if the inventory contains any ItemStacks with the given ItemStack.")
         .def("__contains__", py::overload_cast<ItemTypeId>(&Inventory::contains, py::const_), py::arg("type"),
              "Checks if the inventory contains any ItemStacks with the given ItemType.");
+    py::classh<InventoryView>(m, "InventoryView", "Represents a player's view of an open container screen.")
+        .def_property_readonly_static("OUTSIDE", constant(InventoryView::OUTSIDE),
+                                      "The raw slot index for an inventory click outside the window.")
+        .def_property_readonly("top_inventory", &InventoryView::getTopInventory, py::return_value_policy::reference,
+                               "The upper inventory involved in this view.")
+        .def_property_readonly("bottom_inventory", &InventoryView::getBottomInventory,
+                               py::return_value_policy::reference, "The lower inventory involved in this view.")
+        .def_property_readonly(
+            "player", py::cpp_function(&InventoryView::getPlayer, py::return_value_policy::automatic),
+            "The player viewing the inventory.")
+        .def("set_item", &InventoryView::setItem, py::arg("raw_slot"), py::arg("item"),
+             "Sets one item in this view by its raw slot index.")
+        .def("get_item", &InventoryView::getItem, py::arg("raw_slot"),
+             "Gets one item in this view by its raw slot index.")
+        .def_property("cursor", &InventoryView::getCursor, &InventoryView::setCursor,
+                      "The item held on the viewing player's cursor.")
+        .def("get_inventory", &InventoryView::getInventory, py::arg("raw_slot"),
+             py::return_value_policy::reference, "Gets the inventory corresponding to a raw slot index.")
+        .def("convert_slot", &InventoryView::convertSlot, py::arg("raw_slot"),
+             "Converts a raw slot index to its local inventory slot index.")
+        .def("get_slot_type", &InventoryView::getSlotType, py::arg("raw_slot"),
+             "Gets the logical type of a raw slot.")
+        .def_property_readonly("count_slots", &InventoryView::countSlots,
+                               "Gets the total number of slots in this view.")
+        .def_property_readonly("viewers", &InventoryView::getViewers, "The players viewing this inventory.");
 
     py::classh<PlayerInventory, Inventory>(
         m, "PlayerInventory",

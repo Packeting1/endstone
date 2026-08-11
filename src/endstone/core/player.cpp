@@ -18,6 +18,7 @@
 
 #include <unordered_map>
 #include <unordered_set>
+#include <utility>
 
 #include <magic_enum/magic_enum.hpp>
 #include <nlohmann/json.hpp>
@@ -590,6 +591,22 @@ void EndstonePlayer::updateCommands() const
 PlayerInventory &EndstonePlayer::getInventory() const
 {
     return *inventory_;
+}
+
+void EndstonePlayer::setOpenContainer(ContainerType type, std::variant<BlockPos, ActorUniqueID> owner,
+                                      DimensionType dimension)
+{
+    open_container_ = OpenContainer{type, std::move(owner), dimension};
+}
+
+void EndstonePlayer::clearOpenContainer()
+{
+    open_container_.reset();
+}
+
+const std::optional<EndstonePlayer::OpenContainer> &EndstonePlayer::getOpenContainer() const
+{
+    return open_container_;
 }
 
 Inventory &EndstonePlayer::getEnderChest() const
@@ -1296,6 +1313,7 @@ void EndstonePlayer::initFromConnectionRequest(std::variant<std::reference_wrapp
 
 void EndstonePlayer::disconnect()
 {
+    clearOpenContainer();
     server_.removePlayerBoard(*this);
 }
 

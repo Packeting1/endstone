@@ -73,6 +73,48 @@ extra = 0
 pattern = "55 41 57 41 56 41 55 41 54 56 57 53 48 81 EC 08 01 00 00 48 8D AC 24 ? ? ? ? 48 C7 85 ? ? ? ? FE FF FF FF 48 89 D3 48 89 CE 48 8B 41"
 
 [[signatures]]
+name = "?_handleTransfer@ItemStackRequestActionHandler@@QEAA?AW4ItemStackNetResult@@AEBVItemStackRequestActionTransferBase@@_N11@Z"
+relative = false
+extra = 0
+# 1. locate ItemStackRequestActionHandler::_handleTransfer, reached from the
+#    ItemStackNetManagerServer request-action switch for action types 0, 1, and 2
+# 2. confirm the handler receives the transfer action and the three transfer flags,
+#    then validates the source and destination slot information before mutating inventory
+# 3. the name is the confirmed platform-decorated BDS member-hook name
+pattern = "55 41 57 41 56 41 55 41 54 56 57 53 48 81 EC F8 00 00 00 48 8D AC 24 ? ? ? ? 48 C7 45 ? ? ? ? ? 0F B6 42"
+
+[[signatures]]
+# Endstone symbol alias; the target was confirmed as ItemStackRequestActionHandler::_handleRemove in IDA,
+# but the current BDS database does not expose a reliable decorated name for it.
+name = "endstone_inventory_remove"
+relative = false
+extra = 0
+# 1. follow ItemStackRequestActionHandler::_processQueue branches for action types 3 (Drop) and 4 (Destroy)
+# 2. confirm the common callee receives (handler, transfer action, ItemStack&, remove type)
+# 3. confirm the function against the current BDS database; resolve this alias by pattern only
+pattern = "55 41 57 41 56 41 54 56 57 53 48 81 EC B0 00 00 00 48 8D AC 24 ? ? ? ? 48 C7 45 ? ? ? ? ? 45 89 CE"
+
+[[signatures]]
+# Endstone symbol alias, not a confirmed Windows BDS/IDA/PDB symbol; the target is resolved by this pattern.
+name = "LevelContainerManagerModel::_getRawContainerForEntity"
+relative = false
+extra = 0
+# 1. find LevelContainerManagerModel::broadcastChanges and follow its entity-owner branch
+# 2. the branch calls this helper with Player and ActorUniqueID, which resolves the entity container
+# 3. confirm it rejects the invalid ID and returns the ContainerComponent container
+pattern = "56 48 83 EC 20 48 8B 12"
+
+[[signatures]]
+# Endstone symbol alias, not a confirmed Windows BDS/IDA/PDB symbol; the target is resolved by this pattern.
+name = "LevelContainerManagerModel::_getRawContainerForBlock"
+relative = false
+extra = 0
+# 1. find LevelContainerManagerModel::broadcastChanges and follow its block-owner branch
+# 2. the branch calls this helper with Player, BlockActorType, and BlockPos
+# 3. confirm it handles EnderChest then validates the block actor before returning its container
+pattern = "56 57 55 53 48 83 EC 28 80 FA 17"
+
+[[signatures]]
 name = "ItemStackRequestActionCraftRecipeAuto::vftable"
 relative = false
 extra = 0

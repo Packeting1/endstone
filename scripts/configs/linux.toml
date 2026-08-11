@@ -44,6 +44,37 @@ extra = 0
 pattern = "55 41 57 41 56 41 55 41 54 53 48 81 EC C8 00 00 00 48 89 F3 48 89 FD 48 8B 47 08 48 8B 80 F8 00 00 00 48 85 C0 74 ? 48 8B B8 B0 00 00 00 48 8B 07 FF 50 18"
 
 [[signatures]]
+name = "_ZN29ItemStackRequestActionHandler15_handleTransferERK34ItemStackRequestActionTransferBasebbb"
+relative = false
+extra = 0
+# 1. locate ItemStackRequestActionHandler::_handleTransfer, reached from the
+#    ItemStackNetManagerServer request-action switch for action types 0, 1, and 2
+# 2. confirm the handler receives the transfer action and the three transfer flags,
+#    then validates the source and destination slot information before mutating inventory
+# 3. the name is the confirmed platform-decorated BDS member-hook name
+pattern = "55 41 57 41 56 41 55 41 54 53 48 81 EC B8 00 00 00 0F B6 4E"
+
+[[signatures]]
+# Endstone symbol alias; the target was confirmed as ItemStackRequestActionHandler::_handleRemove in IDA,
+# but the current BDS database does not expose a reliable decorated name for it.
+name = "endstone_inventory_remove"
+relative = false
+extra = 0
+# 1. follow ItemStackRequestActionHandler::_processQueue branches for action types 3 (Drop) and 4 (Destroy)
+# 2. confirm the common callee receives (handler, transfer action, ItemStack&, remove type)
+# 3. confirm the function against the current BDS database; resolve this alias by pattern only
+pattern = "55 41 57 41 56 41 55 41 54 53 48 83 EC 78 41 89 CF"
+
+[[signatures]]
+name = "_ZN26LevelContainerManagerModel16_getRawContainerEv"
+relative = false
+extra = 0
+# 1. find the LevelContainerManagerModel vtable and select _getRawContainer
+# 2. confirm the entity-owner branch and the block-owner branch both return a raw Container
+# 3. use the confirmed platform-decorated BDS member name for the resolver prologue
+pattern = "55 41 57 41 56 41 54 53 48 83 EC 10 48 89 FB 48 8B 7F"
+
+[[signatures]]
 name = "ItemStackRequestActionCraftRecipeAuto::vftable"
 relative = false
 extra = 0

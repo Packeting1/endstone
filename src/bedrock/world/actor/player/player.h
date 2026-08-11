@@ -44,6 +44,7 @@
 #include "bedrock/world/level/game_type.h"
 #include "bedrock/world/player_ui_container.h"
 
+class ContainerManagerModel;
 class PlayerRespawnRandomizer;
 
 enum class BedSleepingResult : int {  // NOLINTBEGIN
@@ -178,6 +179,10 @@ public:
     [[nodiscard]] GameType getPlayerGameType() const;
     [[nodiscard]] PlayerPermissionLevel getPlayerPermissionLevel() const;
     [[nodiscard]] bool isRespawningFromTheEnd() const { return respawning_from_the_end_; }
+    // Endstone
+    [[nodiscard]] ContainerManagerModel *getContainerManager() const { return container_manager_.get(); }
+    [[nodiscard]] PlayerUIContainer &getPlayerUIContainer() { return player_ui_container_; }
+    [[nodiscard]] const PlayerUIContainer &getPlayerUIContainer() const { return player_ui_container_; }
 
     // Abilities
     [[nodiscard]] LayeredAbilities &getAbilities();

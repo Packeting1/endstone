@@ -90,6 +90,7 @@ add_library(bedrock STATIC
         world/attribute/attribute_modifier.cpp
         world/effect/mob_effect.cpp
         world/inventory/network/item_stack_net_id_variant.cpp
+        world/inventory/network/item_stack_request_action.cpp
         world/inventory/transaction/inventory_source.cpp
         world/item/item.cpp
         world/item/item_descriptor.cpp

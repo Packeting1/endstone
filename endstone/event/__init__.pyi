@@ -10,7 +10,7 @@ from endstone.actor import Actor, Item, Mob
 from endstone.block import Block, BlockFace, BlockState
 from endstone.command import CommandSender
 from endstone.damage import DamageSource
-from endstone.inventory import BookMeta, EquipmentSlot, ItemStack
+from endstone.inventory import BookMeta, EquipmentSlot, Inventory, InventoryView, ItemStack
 from endstone.lang import Translatable
 from endstone.level import Chunk, Dimension, Level, Location
 from endstone.map import MapView
@@ -42,10 +42,15 @@ __all__ = [
     "ChunkEvent",
     "ChunkLoadEvent",
     "ChunkUnloadEvent",
+    "ClickType",
     "DimensionEvent",
     "Event",
     "EventPriority",
     "EventResult",
+    "InventoryAction",
+    "InventoryClickEvent",
+    "InventoryEvent",
+    "InventoryInteractEvent",
     "LeavesDecayEvent",
     "LevelEvent",
     "MapInitializeEvent",
@@ -104,6 +109,7 @@ __all__ = [
     "ServerEvent",
     "ServerListPingEvent",
     "ServerLoadEvent",
+    "SlotType",
     "ThunderChangeEvent",
     "WeatherChangeEvent",
     "WeatherEvent",
@@ -164,6 +170,19 @@ class Event:
         `False` by default, `True` if the event fires asynchronously.
         """
 
+class SlotType(enum.Enum):
+    """
+    Describes the logical type of an inventory slot.
+    """
+
+    RESULT = 0
+    CRAFTING = 1
+    ARMOR = 2
+    CONTAINER = 3
+    QUICKBAR = 4
+    OUTSIDE = 5
+    FUEL = 6
+
 class EventResult(enum.Enum):
     """
     Represents the result a plugin can apply to an event whose default behaviour can be allowed, denied, or left to the server.
@@ -172,6 +191,48 @@ class EventResult(enum.Enum):
     DENY = 0
     DEFAULT = 1
     ALLOW = 2
+
+class ClickType(enum.Enum):
+    """
+    Describes the client input that triggered an inventory click.
+    """
+
+    DROP = 0
+    CONTROL_DROP = 1
+    CREATIVE = 2
+    SWAP_OFFHAND = 3
+    UNKNOWN = 4
+
+class InventoryAction(enum.Enum):
+    """
+    Estimates the inventory operation that will result from a click.
+    """
+
+    NOTHING = 0
+    PICKUP_ALL = 1
+    PICKUP_SOME = 2
+    PICKUP_HALF = 3
+    PICKUP_ONE = 4
+    PLACE_ALL = 5
+    PLACE_SOME = 6
+    PLACE_ONE = 7
+    SWAP_WITH_CURSOR = 8
+    DROP_ALL_CURSOR = 9
+    DROP_ONE_CURSOR = 10
+    DROP_ALL_SLOT = 11
+    DROP_ONE_SLOT = 12
+    MOVE_TO_OTHER_INVENTORY = 13
+    HOTBAR_MOVE_AND_READD = 14
+    HOTBAR_SWAP = 15
+    CLONE_STACK = 16
+    COLLECT_TO_CURSOR = 17
+    UNKNOWN = 18
+    PICKUP_FROM_BUNDLE = 19
+    PICKUP_ALL_INTO_BUNDLE = 20
+    PICKUP_SOME_INTO_BUNDLE = 21
+    PLACE_FROM_BUNDLE = 22
+    PLACE_ALL_INTO_BUNDLE = 23
+    PLACE_SOME_INTO_BUNDLE = 24
 
 class Cancellable:
     """
@@ -544,6 +605,100 @@ class PlayerEvent(Event):
     def player(self) -> Player:
         """
         The `Player` who is involved in this event.
+        """
+
+class InventoryEvent(Event):
+    """
+    Represents an inventory event.
+    """
+    @property
+    def inventory(self) -> Inventory:
+        """
+        The upper inventory involved in this event.
+        """
+
+    @property
+    def view(self) -> InventoryView:
+        """
+        The view object itself.
+        """
+
+    @property
+    def viewers(self) -> list[Player]:
+        """
+        The players viewing the primary inventory involved in this event.
+        """
+
+class InventoryInteractEvent(InventoryEvent, Cancellable):
+    """
+    An event that describes an interaction between a player and the contents of an inventory.
+    """
+    @property
+    def who_clicked(self) -> Player:
+        """
+        The player who performed the click.
+        """
+
+class InventoryClickEvent(InventoryInteractEvent):
+    """
+    Called when a player clicks in an inventory.
+    """
+    @property
+    def slot_type(self) -> SlotType:
+        """
+        The logical type of the clicked slot.
+        """
+
+    @property
+    def cursor(self) -> ItemStack | None:
+        """
+        The item currently held on the cursor.
+        """
+
+    @cursor.setter
+    def cursor(self, arg1: ItemStack | None) -> None: ...
+    @property
+    def current_item(self) -> ItemStack | None:
+        """
+        The item currently in the clicked slot.
+        """
+
+    @current_item.setter
+    def current_item(self, arg1: ItemStack | None) -> None: ...
+    @property
+    def clicked_inventory(self) -> Inventory:
+        """
+        The inventory corresponding to the clicked slot, or `None` if outside.
+        """
+
+    @property
+    def slot(self) -> int:
+        """
+        The slot index in its corresponding inventory.
+        """
+
+    @property
+    def raw_slot(self) -> int:
+        """
+        The slot index in this view.
+        """
+
+    @property
+    def hotbar_button(self) -> int:
+        """
+        The hotbar key index, or -1 when this is not a number-key click.
+        """
+
+    @property
+    def action(self) -> InventoryAction:
+        """
+        The estimated inventory operation.
+        """
+
+    @property
+    def click(self) -> ClickType:
+        """
+        The client click type.
         """
 
 class PlayerAnimationType(enum.Enum):

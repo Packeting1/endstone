@@ -20,6 +20,19 @@ namespace py = pybind11;
 
 namespace endstone::python {
 
+void init_slot_type(py::module_ &m)
+{
+    py::native_enum<SlotType>(m, "SlotType", "enum.Enum", "Describes the logical type of an inventory slot.")
+        .value("RESULT", SlotType::Result)
+        .value("CRAFTING", SlotType::Crafting)
+        .value("ARMOR", SlotType::Armor)
+        .value("CONTAINER", SlotType::Container)
+        .value("QUICKBAR", SlotType::Quickbar)
+        .value("OUTSIDE", SlotType::Outside)
+        .value("FUEL", SlotType::Fuel)
+        .finalize();
+}
+
 void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
 {
     py::native_enum<EventResult>(
@@ -31,6 +44,34 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
         .value("ALLOW", EventResult::Allow)
         .finalize();
 
+    py::native_enum<InventoryAction>(m, "InventoryAction", "enum.Enum",
+                                     "Estimates the inventory operation that will result from a click.")
+        .value("NOTHING", InventoryAction::Nothing)
+        .value("PICKUP_ALL", InventoryAction::PickupAll)
+        .value("PICKUP_SOME", InventoryAction::PickupSome)
+        .value("PICKUP_HALF", InventoryAction::PickupHalf)
+        .value("PICKUP_ONE", InventoryAction::PickupOne)
+        .value("PLACE_ALL", InventoryAction::PlaceAll)
+        .value("PLACE_SOME", InventoryAction::PlaceSome)
+        .value("PLACE_ONE", InventoryAction::PlaceOne)
+        .value("SWAP_WITH_CURSOR", InventoryAction::SwapWithCursor)
+        .value("DROP_ALL_CURSOR", InventoryAction::DropAllCursor)
+        .value("DROP_ONE_CURSOR", InventoryAction::DropOneCursor)
+        .value("DROP_ALL_SLOT", InventoryAction::DropAllSlot)
+        .value("DROP_ONE_SLOT", InventoryAction::DropOneSlot)
+        .value("MOVE_TO_OTHER_INVENTORY", InventoryAction::MoveToOtherInventory)
+        .value("HOTBAR_MOVE_AND_READD", InventoryAction::HotbarMoveAndReadd)
+        .value("HOTBAR_SWAP", InventoryAction::HotbarSwap)
+        .value("CLONE_STACK", InventoryAction::CloneStack)
+        .value("COLLECT_TO_CURSOR", InventoryAction::CollectToCursor)
+        .value("UNKNOWN", InventoryAction::Unknown)
+        .value("PICKUP_FROM_BUNDLE", InventoryAction::PickupFromBundle)
+        .value("PICKUP_ALL_INTO_BUNDLE", InventoryAction::PickupAllIntoBundle)
+        .value("PICKUP_SOME_INTO_BUNDLE", InventoryAction::PickupSomeIntoBundle)
+        .value("PLACE_FROM_BUNDLE", InventoryAction::PlaceFromBundle)
+        .value("PLACE_ALL_INTO_BUNDLE", InventoryAction::PlaceAllIntoBundle)
+        .value("PLACE_SOME_INTO_BUNDLE", InventoryAction::PlaceSomeIntoBundle)
+        .finalize();
     event.def(py::init<bool>(), py::arg("is_async") = false)
         .def_property_readonly("event_name", &Event::getEventName, "A user-friendly identifier for this event.")
         .def_property_readonly("is_asynchronous", &Event::isAsynchronous,
@@ -248,6 +289,41 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
     py::class_<PlayerEvent, Event>(m, "PlayerEvent", "Represents a player related event.")
         .def_property_readonly("player", &PlayerEvent::getPlayer,
                                "The `Player` who is involved in this event.");
+    py::class_<InventoryEvent, Event>(m, "InventoryEvent", "Represents an inventory event.")
+        .def_property_readonly("inventory", &InventoryEvent::getInventory, py::return_value_policy::reference,
+                               "The upper inventory involved in this event.")
+        .def_property_readonly(
+            "view", py::cpp_function(&InventoryEvent::getView, py::return_value_policy::automatic),
+            "The view object itself.")
+        .def_property_readonly("viewers", &InventoryEvent::getViewers,
+                               "The players viewing the primary inventory involved in this event.");
+
+    py::class_<InventoryInteractEvent, InventoryEvent, ICancellable>(
+        m, "InventoryInteractEvent",
+        "An event that describes an interaction between a player and the contents of an inventory.")
+        .def_property_readonly("who_clicked",
+                               py::cpp_function(&InventoryInteractEvent::getWhoClicked,
+                                                py::return_value_policy::automatic),
+                               "The player who performed the click.");
+
+    py::class_<InventoryClickEvent, InventoryInteractEvent>(
+        m, "InventoryClickEvent", "Called when a player clicks in an inventory.")
+        .def_property_readonly("slot_type", &InventoryClickEvent::getSlotType,
+                               "The logical type of the clicked slot.")
+        .def_property("cursor", &InventoryClickEvent::getCursor, &InventoryClickEvent::setCursor,
+                      "The item currently held on the cursor.")
+        .def_property("current_item", &InventoryClickEvent::getCurrentItem, &InventoryClickEvent::setCurrentItem,
+                      "The item currently in the clicked slot.")
+        .def_property_readonly("clicked_inventory", &InventoryClickEvent::getClickedInventory,
+                               py::return_value_policy::reference,
+                               "The inventory corresponding to the clicked slot, or `None` if outside.")
+        .def_property_readonly("slot", &InventoryClickEvent::getSlot,
+                               "The slot index in its corresponding inventory.")
+        .def_property_readonly("raw_slot", &InventoryClickEvent::getRawSlot,
+                               "The slot index in this view.")
+        .def_property_readonly("hotbar_button", &InventoryClickEvent::getHotbarButton,
+                               "The hotbar key index, or -1 when this is not a number-key click.")
+        .def_property_readonly("action", &InventoryClickEvent::getAction, "The estimated inventory operation.");
     py::native_enum<PlayerAnimationType>(m, "PlayerAnimationType", "enum.Enum",
                                          "Represents the type of a player animation.")
         .value("ARM_SWING", PlayerAnimationType::ArmSwing)

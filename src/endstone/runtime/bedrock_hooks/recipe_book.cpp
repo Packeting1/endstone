@@ -100,8 +100,8 @@ ItemStackNetResult dispatchCraftAction(ItemStackRequestActionCraftHandler &handl
     const auto &recipe_action = static_cast<const ItemStackRequestActionCraftRecipe &>(action);
     const auto craft_count = action.craft_count_;
     const auto make_all = action_type == ItemStackRequestActionType::CraftingRecipeAuto || craft_count > 1;
-    const auto *player = handler.getPlayer();
-    auto &recipes = player->getLevel().getRecipes();
+    auto &player = handler.getPlayer();
+    auto &recipes = player.getLevel().getRecipes();
     const auto *native_recipe = recipes.getRecipeByNetId(recipe_action.recipe_net_id_);
     if (native_recipe == nullptr) {
         return call_original(action);
@@ -109,7 +109,7 @@ ItemStackNetResult dispatchCraftAction(ItemStackRequestActionCraftHandler &handl
 
     auto &server = endstone::core::EndstoneServer::getInstance();
     endstone::PlayerRecipeBookClickEvent event{
-        player->getEndstoneActor<endstone::core::EndstonePlayer>(), native_recipe->getRecipeId(), make_all};
+        player.getEndstoneActorPtr<endstone::core::EndstonePlayer>(), native_recipe->getRecipeId(), make_all};
     server.getPluginManager().callEvent(event);
 
     if (event.isCancelled()) {

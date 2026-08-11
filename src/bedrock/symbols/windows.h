@@ -11,12 +11,15 @@
 
 namespace endstone::runtime {
 
-static constexpr std::array<std::pair<std::string_view, std::size_t>, 65> symbols = {{
+static constexpr std::array<std::pair<std::string_view, std::size_t>, 69> symbols = {{
     {"BlockState::StateListNode::mHead", 211163888},
     {"Enchant::mEnchants", 211010840},
     {"ItemStackRequestActionCraftRecipeAuto::vftable", 176340128},
+    {"LevelContainerManagerModel::_getRawContainerForBlock", 74512112},
+    {"LevelContainerManagerModel::_getRawContainerForEntity", 74511840},
     {"MobEffect::mMobEffects", 211293808},
     {"endstone_bucket_entity_use", 29090608},
+    {"endstone_inventory_remove", 41214528},
     // Actor
     {"?addEffect@Actor@@QEAAXAEBVMobEffectInstance@@@Z", 14780848},
     {"?teleportTo@Actor@@UEAAXAEBVVec3@@_NHH1@Z", 14649472},
@@ -72,6 +75,8 @@ static constexpr std::array<std::pair<std::string_view, std::size_t>, 65> symbol
     {"?_setItem@ItemStackBase@@AEAA_NH_N@Z", 29106032},
     // ItemStackRequestActionCraftHandler
     {"?handleCraftAction@ItemStackRequestActionCraftHandler@@QEAA?AW4ItemStackNetResult@@AEBVItemStackRequestActionCraftBase@@@Z", 150302208},
+    // ItemStackRequestActionHandler
+    {"?_handleTransfer@ItemStackRequestActionHandler@@QEAA?AW4ItemStackNetResult@@AEBVItemStackRequestActionTransferBase@@_N11@Z", 41207312},
     // ItemUseOnActorInventoryTransaction
     {"?executeInteraction@ItemUseOnActorInventoryTransaction@@SAXPEAX@Z", 39511152},
     // LeavesBlock

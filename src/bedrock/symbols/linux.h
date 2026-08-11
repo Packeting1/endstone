@@ -11,12 +11,13 @@
 
 namespace endstone::runtime {
 
-static constexpr std::array<std::pair<std::string_view, std::size_t>, 65> symbols = {{
+static constexpr std::array<std::pair<std::string_view, std::size_t>, 68> symbols = {{
     {"BlockState::StateListNode::mHead", 245336464},
     {"Enchant::mEnchants", 245162480},
     {"ItemStackRequestActionCraftRecipeAuto::vftable", 241845976},
     {"MobEffect::mMobEffects", 245142824},
     {"endstone_bucket_entity_use", 196712688},
+    {"endstone_inventory_remove", 197931296},
     {"getI18n::result", 243978864},
     // Actor
     {"_ZN5Actor10teleportToERK4Vec3biib", 180156976},
@@ -73,12 +74,16 @@ static constexpr std::array<std::pair<std::string_view, std::size_t>, 65> symbol
     {"_ZN13ItemStackBase8_setItemEib", 196728288},
     // ItemStackRequestActionCraftHandler
     {"_ZN34ItemStackRequestActionCraftHandler17handleCraftActionERK31ItemStackRequestActionCraftBase", 197796752},
+    // ItemStackRequestActionHandler
+    {"_ZN29ItemStackRequestActionHandler15_handleTransferERK34ItemStackRequestActionTransferBasebbb", 197925776},
     // ItemUseOnActorInventoryTransaction
     {"_ZN34ItemUseOnActorInventoryTransaction18executeInteractionEPv", 197693792},
     // LeavesBlock
     {"_ZN11LeavesBlock10randomTickERN11BlockEvents20BlockRandomTickEventE", 198919072},
     // Level
     {"_ZN5Level4tickEv", 201758512},
+    // LevelContainerManagerModel
+    {"_ZN26LevelContainerManagerModel16_getRawContainerEv", 187431392},
     // LiquidBlock
     {"_ZNK11LiquidBlock12_trySpreadToER11BlockSourceRK8BlockPosiS4_h", 198649600},
     // MapDataManager

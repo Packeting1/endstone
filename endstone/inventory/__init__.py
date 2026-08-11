@@ -9,6 +9,7 @@ __getattr__, __dir__, __all__ = lazy.attach(
             "CrossbowMeta",
             "EquipmentSlot",
             "Inventory",
+            "InventoryView",
             "ItemFactory",
             "ItemMeta",
             "ItemStack",

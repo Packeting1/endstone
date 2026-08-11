@@ -5,8 +5,9 @@ Classes relating to player inventories and item interactions.
 import enum
 import typing
 
-from endstone import Identifier
+from endstone import Identifier, Player
 from endstone.enchantments import Enchantment
+from endstone.event import SlotType
 from endstone.map import MapView
 from endstone.nbt import CompoundTag
 
@@ -16,6 +17,7 @@ __all__ = [
     "CrossbowMeta",
     "EquipmentSlot",
     "Inventory",
+    "InventoryView",
     "ItemFactory",
     "ItemMeta",
     "ItemStack",
@@ -818,6 +820,75 @@ class Inventory:
     def __contains__(self, type: Identifier[ItemType] | str) -> bool:
         """
         Checks if the inventory contains any ItemStacks with the given ItemType.
+        """
+
+class InventoryView:
+    """
+    Represents a player's view of an open container screen.
+    """
+
+    OUTSIDE: int = -999
+    @property
+    def top_inventory(self) -> Inventory:
+        """
+        The upper inventory involved in this view.
+        """
+
+    @property
+    def bottom_inventory(self) -> Inventory:
+        """
+        The lower inventory involved in this view.
+        """
+
+    @property
+    def player(self) -> Player:
+        """
+        The player viewing the inventory.
+        """
+
+    def set_item(self, raw_slot: int, item: ItemStack | None) -> None:
+        """
+        Sets one item in this view by its raw slot index.
+        """
+
+    def get_item(self, raw_slot: int) -> ItemStack | None:
+        """
+        Gets one item in this view by its raw slot index.
+        """
+
+    @property
+    def cursor(self) -> ItemStack | None:
+        """
+        The item held on the viewing player's cursor.
+        """
+
+    @cursor.setter
+    def cursor(self, arg1: ItemStack | None) -> None: ...
+    def get_inventory(self, raw_slot: int) -> Inventory:
+        """
+        Gets the inventory corresponding to a raw slot index.
+        """
+
+    def convert_slot(self, raw_slot: int) -> int:
+        """
+        Converts a raw slot index to its local inventory slot index.
+        """
+
+    def get_slot_type(self, raw_slot: int) -> SlotType:
+        """
+        Gets the logical type of a raw slot.
+        """
+
+    @property
+    def count_slots(self) -> int:
+        """
+        Gets the total number of slots in this view.
+        """
+
+    @property
+    def viewers(self) -> list[Player]:
+        """
+        The players viewing this inventory.
         """
 
 class PlayerInventory(Inventory):

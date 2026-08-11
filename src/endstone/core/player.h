@@ -27,6 +27,7 @@
 #include "bedrock/network/sub_client_connection_request.h"
 #include "bedrock/world/events/player_events.h"
 #include "bedrock/world/level/block_pos.h"
+#include "bedrock/world/level/dimension/dimension_type.h"
 #include "endstone/block/block_face.h"
 #include "endstone/core/actor/mob.h"
 #include "endstone/core/inventory/player_inventory.h"
@@ -117,6 +118,16 @@ public:
     void updateCommands() const override;
 
     [[nodiscard]] PlayerInventory &getInventory() const override;
+    struct OpenContainer {
+        ContainerType type;
+        std::variant<BlockPos, ActorUniqueID> owner;
+        DimensionType dimension;
+
+        bool operator==(const OpenContainer &) const = default;
+    };
+    void setOpenContainer(ContainerType type, std::variant<BlockPos, ActorUniqueID> owner, DimensionType dimension);
+    void clearOpenContainer();
+    [[nodiscard]] const std::optional<OpenContainer> &getOpenContainer() const;
     [[nodiscard]] Inventory &getEnderChest() const override;
     [[nodiscard]] GameMode getGameMode() const override;
     void setGameMode(GameMode mode) override;
@@ -164,6 +175,7 @@ private:
     std::unordered_map<std::uint32_t, FormVariant> forms_;
     std::optional<BlockPos> block_damage_position_;
     std::optional<BlockFace> block_damage_face_;
+    std::optional<OpenContainer> open_container_;
     std::unique_ptr<BookMeta> pending_book_meta_;
     int pending_book_slot_ = -1;
     std::optional<Input> last_input_;

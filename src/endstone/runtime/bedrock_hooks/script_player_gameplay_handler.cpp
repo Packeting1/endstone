@@ -122,6 +122,23 @@ bool handleEvent(const PlayerFormCloseEvent &event)
     return true;
 }
 
+bool handleEvent(const PlayerOpenedContainerEvent &event)
+{
+    if (auto *player = WeakEntityRef(event.player).tryUnwrap<::Player>(); player) {
+        player->getEndstoneActorPtr<endstone::core::EndstonePlayer>()->setOpenContainer(
+            event.container_type, event.owner, player->getDimensionId());
+    }
+    return true;
+}
+
+bool handleEvent(const PlayerClosedContainerEvent &event)
+{
+    if (auto *player = WeakEntityRef(event.player).tryUnwrap<::Player>(); player) {
+        player->getEndstoneActorPtr<endstone::core::EndstonePlayer>()->clearOpenContainer();
+    }
+    return true;
+}
+
 bool handleEvent(const PlayerAddLevelEvent &event)
 {
     if (const auto *player = WeakEntityRef(event.player).tryUnwrap<::Player>(); player) {
@@ -242,6 +259,8 @@ HandlerResult ScriptPlayerGameplayHandler::handleEvent1(const PlayerGameplayEven
                       std::is_same_v<T, Details::ValueOrRef<const PlayerAddLevelEvent>> ||
                       std::is_same_v<T, Details::ValueOrRef<const PlayerFormResponseEvent>> ||
                       std::is_same_v<T, Details::ValueOrRef<const PlayerFormCloseEvent>> ||
+                      std::is_same_v<T, Details::ValueOrRef<const PlayerOpenedContainerEvent>> ||
+                      std::is_same_v<T, Details::ValueOrRef<const PlayerClosedContainerEvent>> ||
                       std::is_same_v<T, Details::ValueOrRef<const ::PlayerRespawnEvent>> ||
                       std::is_same_v<T, Details::ValueOrRef<const PlayerDimensionChangeAfterEvent>>) {
             if (!handleEvent(arg.value())) {
