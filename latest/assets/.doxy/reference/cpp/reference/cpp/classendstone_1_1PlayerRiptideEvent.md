@@ -93,7 +93,7 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 
 | Type | Name |
 | ---: | :--- |
-|   | [**PlayerRiptideEvent**](#function-playerriptideevent) ([**Player**](classendstone_1_1Player.md) & player, [**bool**](classendstone_1_1Identifier.md) riptiding) <br> |
+|   | [**PlayerRiptideEvent**](#function-playerriptideevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**bool**](classendstone_1_1Identifier.md) riptiding) <br> |
 |  [**bool**](classendstone_1_1Identifier.md) | [**isRiptiding**](#function-isriptiding) () const<br>_Gets whether the player is riptiding._  |
 
 
@@ -218,7 +218,7 @@ See [endstone::PlayerEvent](classendstone_1_1PlayerEvent.md)
 
 ```C++
 inline explicit endstone::PlayerRiptideEvent::PlayerRiptideEvent (
-    Player & player,
+    const  NotNull < Player > & player,
     bool riptiding
 ) 
 ```

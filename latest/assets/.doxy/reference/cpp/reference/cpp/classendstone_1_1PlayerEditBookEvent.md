@@ -94,7 +94,7 @@ Inherits the following classes: [endstone::Cancellable](classendstone_1_1Cancell
 | Type | Name |
 | ---: | :--- |
 |   | [**ENDSTONE\_EVENT**](#function-endstone_event) ([**PlayerEditBookEvent**](classendstone_1_1PlayerEditBookEvent.md)) <br> |
-|   | [**PlayerEditBookEvent**](#function-playereditbookevent) ([**Player**](classendstone_1_1Player.md) & player, [**int**](classendstone_1_1Identifier.md) slot, [**const**](classendstone_1_1Identifier.md) [**BookMeta**](classendstone_1_1BookMeta.md) & previous\_book\_meta, [**const**](classendstone_1_1Identifier.md) [**BookMeta**](classendstone_1_1BookMeta.md) & new\_book\_meta, [**bool**](classendstone_1_1Identifier.md) signing) <br> |
+|   | [**PlayerEditBookEvent**](#function-playereditbookevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**int**](classendstone_1_1Identifier.md) slot, [**const**](classendstone_1_1Identifier.md) [**BookMeta**](classendstone_1_1BookMeta.md) & previous\_book\_meta, [**const**](classendstone_1_1Identifier.md) [**BookMeta**](classendstone_1_1BookMeta.md) & new\_book\_meta, [**bool**](classendstone_1_1Identifier.md) signing) <br> |
 |  [**BookMeta**](classendstone_1_1BookMeta.md) & | [**getNewBookMeta**](#function-getnewbookmeta-12) () <br>_Gets the metadata after the edit._  |
 |  [**const**](classendstone_1_1Identifier.md) [**BookMeta**](classendstone_1_1BookMeta.md) & | [**getNewBookMeta**](#function-getnewbookmeta-22) () const<br>_Gets the metadata after the edit._  |
 |  [**const**](classendstone_1_1Identifier.md) [**BookMeta**](classendstone_1_1BookMeta.md) & | [**getPreviousBookMeta**](#function-getpreviousbookmeta) () const<br>_Gets the metadata before the edit._  |
@@ -229,7 +229,7 @@ endstone::PlayerEditBookEvent::ENDSTONE_EVENT (
 
 ```C++
 inline endstone::PlayerEditBookEvent::PlayerEditBookEvent (
-    Player & player,
+    const  NotNull < Player > & player,
     int slot,
     const  BookMeta & previous_book_meta,
     const  BookMeta & new_book_meta,

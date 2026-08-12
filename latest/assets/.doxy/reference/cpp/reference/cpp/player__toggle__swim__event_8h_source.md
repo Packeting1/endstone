@@ -32,7 +32,10 @@ class PlayerToggleSwimEvent final : public PlayerEvent {
 public:
     ENDSTONE_EVENT(PlayerToggleSwimEvent)
 
-    explicit PlayerToggleSwimEvent(Player &player, bool swimming) : PlayerEvent(player), swimming_(swimming) {}
+    explicit PlayerToggleSwimEvent(const NotNull<Player> &player, bool swimming)
+        : PlayerEvent(player), swimming_(swimming)
+    {
+    }
 
     [[nodiscard]] bool isSwimming() const { return swimming_; }
 

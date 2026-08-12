@@ -114,7 +114,7 @@ Inherits the following classes: [endstone::PlayerInteractActorEvent](classendsto
 | Type | Name |
 | ---: | :--- |
 |   | [**ENDSTONE\_EVENT**](#function-endstone_event) ([**PlayerArmorStandManipulateEvent**](classendstone_1_1PlayerArmorStandManipulateEvent.md)) <br> |
-|   | [**PlayerArmorStandManipulateEvent**](#function-playerarmorstandmanipulateevent) ([**Player**](classendstone_1_1Player.md) & player, [**Actor**](classendstone_1_1Actor.md) & right\_clicked, [**ItemStack**](classendstone_1_1ItemStack.md) armor\_stand\_item, [**ItemStack**](classendstone_1_1ItemStack.md) player\_item, [**EquipmentSlot**](namespaceendstone.md#enum-equipmentslot) hand, [**EquipmentSlot**](namespaceendstone.md#enum-equipmentslot) slot) <br> |
+|   | [**PlayerArmorStandManipulateEvent**](#function-playerarmorstandmanipulateevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Actor**](classendstone_1_1Actor.md) &gt; & right\_clicked, [**ItemStack**](classendstone_1_1ItemStack.md) armor\_stand\_item, [**ItemStack**](classendstone_1_1ItemStack.md) player\_item, [**EquipmentSlot**](namespaceendstone.md#enum-equipmentslot) hand, [**EquipmentSlot**](namespaceendstone.md#enum-equipmentslot) slot) <br> |
 |  [**const**](classendstone_1_1Identifier.md) [**ItemStack**](classendstone_1_1ItemStack.md) & | [**getArmorStandItem**](#function-getarmorstanditem) () const<br>_Gets the item held by the armor stand in the affected slot._  |
 |  [**EquipmentSlot**](namespaceendstone.md#enum-equipmentslot) | [**getHand**](#function-gethand) () const<br>_Gets the hand used by the player during the interaction._  |
 |  [**const**](classendstone_1_1Identifier.md) [**ItemStack**](classendstone_1_1ItemStack.md) & | [**getPlayerItem**](#function-getplayeritem) () const<br>_Gets the item held by the player during the interaction._  |
@@ -284,8 +284,8 @@ endstone::PlayerArmorStandManipulateEvent::ENDSTONE_EVENT (
 
 ```C++
 inline endstone::PlayerArmorStandManipulateEvent::PlayerArmorStandManipulateEvent (
-    Player & player,
-    Actor & right_clicked,
+    const  NotNull < Player > & player,
+    const  NotNull < Actor > & right_clicked,
     ItemStack armor_stand_item,
     ItemStack player_item,
     EquipmentSlot hand,

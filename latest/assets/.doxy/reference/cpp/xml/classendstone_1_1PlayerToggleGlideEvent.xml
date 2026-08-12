@@ -17,18 +17,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_toggle_glide_event.h" line="38" column="10" bodyfile="include/endstone/event/player/player_toggle_glide_event.h" bodystart="38" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_toggle_glide_event.h" line="41" column="10" bodyfile="include/endstone/event/player/player_toggle_glide_event.h" bodystart="41" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
-      <memberdef kind="function" id="classendstone_1_1PlayerToggleGlideEvent_1a9ce04de1bcd06ba8970d3f61d4deb359" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classendstone_1_1PlayerToggleGlideEvent_1a7c5681dd15ca99d8efa1f5bfd7f18f0a" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
         <definition>endstone::PlayerToggleGlideEvent::PlayerToggleGlideEvent</definition>
-        <argsstring>(Player &amp;player, bool gliding)</argsstring>
+        <argsstring>(const NotNull&lt; Player &gt; &amp;player, bool gliding)</argsstring>
         <name>PlayerToggleGlideEvent</name>
         <qualifiedname>endstone::PlayerToggleGlideEvent::PlayerToggleGlideEvent</qualifiedname>
         <param>
-          <type><ref refid="classendstone_1_1Player" kindref="compound">Player</ref> &amp;</type>
+          <type><ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> <ref refid="classendstone_1_1NotNull" kindref="compound">NotNull</ref>&lt; <ref refid="classendstone_1_1Player" kindref="compound">Player</ref> &gt; &amp;</type>
           <declname>player</declname>
         </param>
         <param>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_toggle_glide_event.h" line="28" column="14" bodyfile="include/endstone/event/player/player_toggle_glide_event.h" bodystart="28" bodyend="28"/>
+        <location file="include/endstone/event/player/player_toggle_glide_event.h" line="28" column="14" bodyfile="include/endstone/event/player/player_toggle_glide_event.h" bodystart="28" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerToggleGlideEvent_1a312bccb7e3fc9fd5a2d8772cd5a3faab" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_toggle_glide_event.h" line="35" column="11" bodyfile="include/endstone/event/player/player_toggle_glide_event.h" bodystart="35" bodyend="35"/>
+        <location file="include/endstone/event/player/player_toggle_glide_event.h" line="38" column="11" bodyfile="include/endstone/event/player/player_toggle_glide_event.h" bodystart="38" bodyend="38"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -110,7 +110,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/endstone/event/player/player_toggle_glide_event.h" line="24" column="1" bodyfile="include/endstone/event/player/player_toggle_glide_event.h" bodystart="24" bodyend="39"/>
+    <location file="include/endstone/event/player/player_toggle_glide_event.h" line="24" column="1" bodyfile="include/endstone/event/player/player_toggle_glide_event.h" bodystart="24" bodyend="42"/>
     <listofallmembers>
       <member refid="classendstone_1_1Event_1a28cca8d74920493b449d035540acf023" prot="public" virt="non-virtual"><scope>endstone::PlayerToggleGlideEvent</scope><name>Event</name></member>
       <member refid="classendstone_1_1Event_1a7199136ebb40e1441bc61e29f83c3cad" prot="public" virt="non-virtual"><scope>endstone::PlayerToggleGlideEvent</scope><name>Event</name></member>
@@ -124,7 +124,7 @@
       <member refid="classendstone_1_1Event_1a1d7fc5400782d20be99a3636aa7f53b9" prot="public" virt="non-virtual"><scope>endstone::PlayerToggleGlideEvent</scope><name>operator=</name></member>
       <member refid="classendstone_1_1PlayerEvent_1ae0f8240e8c7c3a66281295c43b1d522a" prot="protected" virt="non-virtual"><scope>endstone::PlayerToggleGlideEvent</scope><name>player_</name></member>
       <member refid="classendstone_1_1PlayerEvent_1afee42449de6752241c5472a38f7d94a9" prot="public" virt="non-virtual"><scope>endstone::PlayerToggleGlideEvent</scope><name>PlayerEvent</name></member>
-      <member refid="classendstone_1_1PlayerToggleGlideEvent_1a9ce04de1bcd06ba8970d3f61d4deb359" prot="public" virt="non-virtual"><scope>endstone::PlayerToggleGlideEvent</scope><name>PlayerToggleGlideEvent</name></member>
+      <member refid="classendstone_1_1PlayerToggleGlideEvent_1a7c5681dd15ca99d8efa1f5bfd7f18f0a" prot="public" virt="non-virtual"><scope>endstone::PlayerToggleGlideEvent</scope><name>PlayerToggleGlideEvent</name></member>
       <member refid="classendstone_1_1Event_1a6aeaa8096baba90f8ace94106e0e05f3" prot="public" virt="virtual"><scope>endstone::PlayerToggleGlideEvent</scope><name>~Event</name></member>
       <member refid="classendstone_1_1PlayerEvent_1ab31b937251b8ccc1c72c275d1c7a522b" prot="public" virt="non-virtual"><scope>endstone::PlayerToggleGlideEvent</scope><name>~PlayerEvent</name></member>
     </listofallmembers>

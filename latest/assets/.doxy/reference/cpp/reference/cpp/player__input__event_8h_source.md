@@ -33,7 +33,7 @@ class PlayerInputEvent final : public PlayerEvent {
 public:
     ENDSTONE_EVENT(PlayerInputEvent)
 
-    explicit PlayerInputEvent(Player &player, Input input) : PlayerEvent(player), input_(input) {}
+    explicit PlayerInputEvent(const NotNull<Player> &player, Input input) : PlayerEvent(player), input_(input) {}
 
     [[nodiscard]] Input getInput() const { return input_; }
 

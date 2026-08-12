@@ -99,7 +99,7 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 | Type | Name |
 | ---: | :--- |
 |   | [**ENDSTONE\_EVENT**](#function-endstone_event) ([**PlayerRecipeBookSettingsChangeEvent**](classendstone_1_1PlayerRecipeBookSettingsChangeEvent.md)) <br> |
-|   | [**PlayerRecipeBookSettingsChangeEvent**](#function-playerrecipebooksettingschangeevent) ([**Player**](classendstone_1_1Player.md) & player, [**RecipeBookType**](classendstone_1_1PlayerRecipeBookSettingsChangeEvent.md#enum-recipebooktype) recipe\_book\_type, [**bool**](classendstone_1_1Identifier.md) is\_open, [**bool**](classendstone_1_1Identifier.md) is\_filtering) <br> |
+|   | [**PlayerRecipeBookSettingsChangeEvent**](#function-playerrecipebooksettingschangeevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**RecipeBookType**](classendstone_1_1PlayerRecipeBookSettingsChangeEvent.md#enum-recipebooktype) recipe\_book\_type, [**bool**](classendstone_1_1Identifier.md) is\_open, [**bool**](classendstone_1_1Identifier.md) is\_filtering) <br> |
 |  [**RecipeBookType**](classendstone_1_1PlayerRecipeBookSettingsChangeEvent.md#enum-recipebooktype) | [**getRecipeBookType**](#function-getrecipebooktype) () const<br>_Gets the type of recipe book whose settings changed._  |
 |  [**bool**](classendstone_1_1Identifier.md) | [**isFiltering**](#function-isfiltering) () const<br>_Gets whether recipe filtering is enabled._  |
 |  [**bool**](classendstone_1_1Identifier.md) | [**isOpen**](#function-isopen) () const<br>_Gets whether the recipe book is open._  |
@@ -262,7 +262,7 @@ endstone::PlayerRecipeBookSettingsChangeEvent::ENDSTONE_EVENT (
 
 ```C++
 inline endstone::PlayerRecipeBookSettingsChangeEvent::PlayerRecipeBookSettingsChangeEvent (
-    Player & player,
+    const  NotNull < Player > & player,
     RecipeBookType recipe_book_type,
     bool is_open,
     bool is_filtering

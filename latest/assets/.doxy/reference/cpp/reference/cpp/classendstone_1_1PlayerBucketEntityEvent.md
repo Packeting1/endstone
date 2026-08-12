@@ -94,8 +94,8 @@ Inherits the following classes: [endstone::Cancellable](classendstone_1_1Cancell
 | Type | Name |
 | ---: | :--- |
 |   | [**ENDSTONE\_EVENT**](#function-endstone_event) ([**PlayerBucketEntityEvent**](classendstone_1_1PlayerBucketEntityEvent.md)) <br> |
-|   | [**PlayerBucketEntityEvent**](#function-playerbucketentityevent) ([**Player**](classendstone_1_1Player.md) & player, [**Actor**](classendstone_1_1Actor.md) & entity, [**ItemStack**](classendstone_1_1ItemStack.md) entity\_bucket, [**EquipmentSlot**](namespaceendstone.md#enum-equipmentslot) hand, [**ItemStack**](classendstone_1_1ItemStack.md) original\_bucket) <br> |
-|  [**Actor**](classendstone_1_1Actor.md) & | [**getEntity**](#function-getentity) () const<br>_Gets the entity being captured._  |
+|   | [**PlayerBucketEntityEvent**](#function-playerbucketentityevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Actor**](classendstone_1_1Actor.md) &gt; & entity, [**ItemStack**](classendstone_1_1ItemStack.md) entity\_bucket, [**EquipmentSlot**](namespaceendstone.md#enum-equipmentslot) hand, [**ItemStack**](classendstone_1_1ItemStack.md) original\_bucket) <br> |
+|  [**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Actor**](classendstone_1_1Actor.md) &gt; & | [**getEntity**](#function-getentity) () const<br>_Gets the entity being captured._  |
 |  [**const**](classendstone_1_1Identifier.md) [**ItemStack**](classendstone_1_1ItemStack.md) & | [**getEntityBucket**](#function-getentitybucket) () const<br>_Gets the bucket item that will contain the captured entity._  |
 |  [**EquipmentSlot**](namespaceendstone.md#enum-equipmentslot) | [**getHand**](#function-gethand) () const<br>_Gets the hand used to capture the entity._  |
 |  [**const**](classendstone_1_1Identifier.md) [**ItemStack**](classendstone_1_1ItemStack.md) & | [**getOriginalBucket**](#function-getoriginalbucket) () const<br>_Gets the bucket used to capture the entity._  |
@@ -227,8 +227,8 @@ endstone::PlayerBucketEntityEvent::ENDSTONE_EVENT (
 
 ```C++
 inline endstone::PlayerBucketEntityEvent::PlayerBucketEntityEvent (
-    Player & player,
-    Actor & entity,
+    const  NotNull < Player > & player,
+    const  NotNull < Actor > & entity,
     ItemStack entity_bucket,
     EquipmentSlot hand,
     ItemStack original_bucket
@@ -246,7 +246,7 @@ inline endstone::PlayerBucketEntityEvent::PlayerBucketEntityEvent (
 
 _Gets the entity being captured._ 
 ```C++
-inline Actor & endstone::PlayerBucketEntityEvent::getEntity () const
+inline const  NotNull < Actor > & endstone::PlayerBucketEntityEvent::getEntity () const
 ```
 
 
