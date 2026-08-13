@@ -129,7 +129,6 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**PlayerBanList**](classendstone_1_1PlayerBanList.md) _Represents a ban list, containing banned players._     
     * **class** [**PlayerBedEnterEvent**](classendstone_1_1PlayerBedEnterEvent.md) _Called when a player is almost about to enter the bed._     
     * **class** [**PlayerBedLeaveEvent**](classendstone_1_1PlayerBedLeaveEvent.md) _Called when a player is leaving a bed._     
-    * **class** [**PlayerBlockDamageEvent**](classendstone_1_1PlayerBlockDamageEvent.md) _Called when a player starts, continues, aborts, predicts, stops, or creatively destroys a block._     
     * **class** [**PlayerBucketEntityEvent**](classendstone_1_1PlayerBucketEntityEvent.md) _Represents an event that is called when a player captures an entity with a bucket._     
     * **class** [**PlayerChatEvent**](classendstone_1_1PlayerChatEvent.md) _Called when a player sends a chat message._     
     * **class** [**PlayerCommandEvent**](classendstone_1_1PlayerCommandEvent.md) _Called whenever a player runs a command._     
