@@ -70,6 +70,8 @@ public:
 
     virtual bool performCommand(std::string command) const = 0;  // NOLINT(*-use-nodiscard)
 
+    virtual void setRespawnLocation(Location location) = 0;
+
     [[nodiscard]] virtual bool isSneaking() const = 0;
 
     virtual void setSneaking(bool sneak) = 0;

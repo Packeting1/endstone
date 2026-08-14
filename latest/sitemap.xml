@@ -661,7 +661,19 @@
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
+         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerBucketEmptyEvent/</loc>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
          <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerBucketEntityEvent/</loc>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerBucketEvent/</loc>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerBucketFillEvent/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
@@ -778,6 +790,10 @@
     </url>
     <url>
          <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerRiptideEvent/</loc>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerSetSpawnEvent/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
@@ -1913,11 +1929,35 @@
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__bucket__empty__event_8h/</loc>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__bucket__empty__event_8h_source/</loc>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
          <loc>https://endstone.dev/latest/reference/cpp/player__bucket__entity__event_8h/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
          <loc>https://endstone.dev/latest/reference/cpp/player__bucket__entity__event_8h_source/</loc>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__bucket__event_8h/</loc>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__bucket__event_8h_source/</loc>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__bucket__fill__event_8h/</loc>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__bucket__fill__event_8h_source/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>
@@ -2134,6 +2174,14 @@
     </url>
     <url>
          <loc>https://endstone.dev/latest/reference/cpp/player__riptide__event_8h_source/</loc>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__set__spawn__event_8h/</loc>
+         <lastmod>2026-08-14</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__set__spawn__event_8h_source/</loc>
          <lastmod>2026-08-14</lastmod>
     </url>
     <url>

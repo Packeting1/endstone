@@ -129,7 +129,10 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**PlayerBanList**](classendstone_1_1PlayerBanList.md) _Represents a ban list, containing banned players._     
     * **class** [**PlayerBedEnterEvent**](classendstone_1_1PlayerBedEnterEvent.md) _Called when a player is almost about to enter the bed._     
     * **class** [**PlayerBedLeaveEvent**](classendstone_1_1PlayerBedLeaveEvent.md) _Called when a player is leaving a bed._     
+    * **class** [**PlayerBucketEmptyEvent**](classendstone_1_1PlayerBucketEmptyEvent.md) _Called when a player empties a bucket._     
     * **class** [**PlayerBucketEntityEvent**](classendstone_1_1PlayerBucketEntityEvent.md) _Represents an event that is called when a player captures an entity with a bucket._     
+    * **class** [**PlayerBucketEvent**](classendstone_1_1PlayerBucketEvent.md) _Provides common data for events involving a player's bucket interaction._     
+    * **class** [**PlayerBucketFillEvent**](classendstone_1_1PlayerBucketFillEvent.md) _Called when a player fills a bucket._     
     * **class** [**PlayerChatEvent**](classendstone_1_1PlayerChatEvent.md) _Called when a player sends a chat message._     
     * **class** [**PlayerCommandEvent**](classendstone_1_1PlayerCommandEvent.md) _Called whenever a player runs a command._     
     * **class** [**PlayerDeathEvent**](classendstone_1_1PlayerDeathEvent.md) _Called when a_ [_**Player**_](classendstone_1_1Player.md) _dies._    
@@ -159,6 +162,7 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**PlayerRecipeBookSettingsChangeEvent**](classendstone_1_1PlayerRecipeBookSettingsChangeEvent.md) _Represents an event that is called when a player changes recipe book settings._     
     * **class** [**PlayerRespawnEvent**](classendstone_1_1PlayerRespawnEvent.md) _Called when a player respawns._     
     * **class** [**PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md) _Called when a player starts or stops a riptide attack._     
+    * **class** [**PlayerSetSpawnEvent**](classendstone_1_1PlayerSetSpawnEvent.md) _Called when a player's spawn is set, either by themselves or otherwise._     
     * **class** [**PlayerShearEntityEvent**](classendstone_1_1PlayerShearEntityEvent.md) _Called when a player shears an entity._     
     * **class** [**PlayerSkinChangeEvent**](classendstone_1_1PlayerSkinChangeEvent.md) _Called when a player changes their skin._     
     * **class** [**PlayerTeleportEvent**](classendstone_1_1PlayerTeleportEvent.md) _Called when a player is teleported from one location to another._     

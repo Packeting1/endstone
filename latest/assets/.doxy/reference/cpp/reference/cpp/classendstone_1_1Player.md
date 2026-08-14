@@ -200,6 +200,7 @@ Inherits the following classes: [endstone::Mob](classendstone_1_1Mob.md)
 | virtual [**void**](classendstone_1_1Identifier.md) | [**setFlying**](#function-setflying) ([**bool**](classendstone_1_1Identifier.md) value) = 0<br>_Makes this player start or stop flying._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**setGameMode**](#function-setgamemode) ([**GameMode**](namespaceendstone.md#enum-gamemode) mode) = 0<br>_Sets this player's current GameMode._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**setOp**](#function-setop) ([**bool**](classendstone_1_1Identifier.md) value) = 0<br>_Sets the operator status of this player._  |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**setRespawnLocation**](#function-setrespawnlocation) ([**Location**](classendstone_1_1Location.md) location) = 0<br>_Sets this player's respawn location._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**setScoreboard**](#function-setscoreboard) ([**NotNull**](classendstone_1_1NotNull.md)&lt; [**Scoreboard**](classendstone_1_1Scoreboard.md) &gt; scoreboard) = 0<br>_Sets the player's visible_ [_**Scoreboard**_](classendstone_1_1Scoreboard.md) _._ |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**setSneaking**](#function-setsneaking) ([**bool**](classendstone_1_1Identifier.md) sneak) = 0<br>_Sets the sneak mode of the player._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**setSprinting**](#function-setsprinting) ([**bool**](classendstone_1_1Identifier.md) sprinting) = 0<br>_Sets whether the player is sprinting or not._  |
@@ -1718,6 +1719,33 @@ virtual void endstone::Player::setOp (
 
 
 * `value` New operator value 
+
+
+
+
+        
+
+<hr>
+
+
+
+### function setRespawnLocation 
+
+_Sets this player's respawn location._ 
+```C++
+virtual void endstone::Player::setRespawnLocation (
+    Location location
+) = 0
+```
+
+
+
+
+
+**Parameters:**
+
+
+* `location` Respawn location. Its dimension must be loaded. 
 
 
 
