@@ -181,7 +181,7 @@
 * **EvocationIllager** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
 * **EyeOfEnderSignal** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
 * **expiration\_** ([**endstone::BanEntry**](classendstone_1_1BanEntry.md))
-* **entity\_** ([**endstone::CauldronLevelChangeEvent**](classendstone_1_1CauldronLevelChangeEvent.md), [**endstone::PlayerBucketEntityEvent**](classendstone_1_1PlayerBucketEntityEvent.md), [**endstone::PlayerHideEntityEvent**](classendstone_1_1PlayerHideEntityEvent.md), [**endstone::PlayerShearEntityEvent**](classendstone_1_1PlayerShearEntityEvent.md))
+* **entity\_** ([**endstone::CauldronLevelChangeEvent**](classendstone_1_1CauldronLevelChangeEvent.md), [**endstone::PlayerBucketEntityEvent**](classendstone_1_1PlayerBucketEntityEvent.md), [**endstone::PlayerHideEntityEvent**](classendstone_1_1PlayerHideEntityEvent.md), [**endstone::PlayerShearEntityEvent**](classendstone_1_1PlayerShearEntityEvent.md), [**endstone::PlayerShowEntityEvent**](classendstone_1_1PlayerShowEntityEvent.md))
 * **Escape** ([**endstone::ColorFormat**](structendstone_1_1ColorFormat.md))
 * **entries\_** ([**endstone::CompoundTag**](classendstone_1_1CompoundTag.md))
 * **Efficiency** ([**endstone::Enchantment**](classendstone_1_1Enchantment.md))

@@ -4554,7 +4554,7 @@ For latest updates join the chat on
 </span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">    </span><span class="n">Sign</span><span class="o">::</span><span class="n">Side</span><span class="w"> </span><span class="n">side</span>
 </span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 </span></code></pre></div></p>
-<p>The sign only needs to be present on the player's client. No sign is required to be placed in the dimension. The dimension component of <code>location</code> is ignored; only its block coordinates are used. This does not trigger <a href="../classendstone_1_1PlayerOpenSignEvent/"><strong>PlayerOpenSignEvent</strong></a>.</p>
+<p>The sign must only be placed locally for this player before calling this method. Use <a href="./#function-sendblockchange"><strong>sendBlockChange()</strong></a> to send the sign block to the player's client; this method does not create it automatically. No sign is required to be placed in the dimension. The dimension component of <code>location</code> is ignored; only its block coordinates are used. The client may enforce distance limits to the opened position. This does not trigger <a href="../classendstone_1_1PlayerOpenSignEvent/"><strong>PlayerOpenSignEvent</strong></a>.</p>
 <p><strong>Parameters:</strong></p>
 <ul>
 <li><code>location</code> the block location of the sign </li>

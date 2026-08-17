@@ -821,6 +821,10 @@
          <lastmod>2026-08-17</lastmod>
     </url>
     <url>
+         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerShowEntityEvent/</loc>
+         <lastmod>2026-08-17</lastmod>
+    </url>
+    <url>
          <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerSkinChangeEvent/</loc>
          <lastmod>2026-08-17</lastmod>
     </url>
@@ -2250,6 +2254,14 @@
     </url>
     <url>
          <loc>https://endstone.dev/latest/reference/cpp/player__shear__entity__event_8h_source/</loc>
+         <lastmod>2026-08-17</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__show__entity__event_8h/</loc>
+         <lastmod>2026-08-17</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__show__entity__event_8h_source/</loc>
          <lastmod>2026-08-17</lastmod>
     </url>
     <url>

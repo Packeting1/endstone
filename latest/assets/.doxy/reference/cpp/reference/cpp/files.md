@@ -141,6 +141,7 @@ Here is a list of all files with brief descriptions:
                 * **file** [**player\_riptide\_event.h**](player__riptide__event_8h.md)     
                 * **file** [**player\_set\_spawn\_event.h**](player__set__spawn__event_8h.md)     
                 * **file** [**player\_shear\_entity\_event.h**](player__shear__entity__event_8h.md)     
+                * **file** [**player\_show\_entity\_event.h**](player__show__entity__event_8h.md)     
                 * **file** [**player\_skin\_change\_event.h**](player__skin__change__event_8h.md)     
                 * **file** [**player\_teleport\_event.h**](player__teleport__event_8h.md)     
                 * **file** [**player\_toggle\_crawl\_event.h**](player__toggle__crawl__event_8h.md)     

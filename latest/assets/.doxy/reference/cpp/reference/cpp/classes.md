@@ -470,6 +470,8 @@
 ([**endstone**](namespaceendstone.md))
 * [**PlayerShearEntityEvent**](classendstone_1_1PlayerShearEntityEvent.md)
 ([**endstone**](namespaceendstone.md))
+* [**PlayerShowEntityEvent**](classendstone_1_1PlayerShowEntityEvent.md)
+([**endstone**](namespaceendstone.md))
 * [**PlayerSkinChangeEvent**](classendstone_1_1PlayerSkinChangeEvent.md)
 ([**endstone**](namespaceendstone.md))
 * [**PlayerTeleportEvent**](classendstone_1_1PlayerTeleportEvent.md)

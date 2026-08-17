@@ -2413,6 +2413,12 @@
     <member refid="classendstone_1_1PlayerShearEntityEvent_1a52e9993dde8adb063ebf9a07f79df8f3" kind="function"><name>getDrops</name></member>
     <member refid="classendstone_1_1PlayerShearEntityEvent_1a02d81f7dccb48657a4d24d4267bc4899" kind="function"><name>setDrops</name></member>
   </compound>
+  <compound refid="classendstone_1_1PlayerShowEntityEvent" kind="class"><name>endstone::PlayerShowEntityEvent</name>
+    <member refid="classendstone_1_1PlayerShowEntityEvent_1ae45b360df9e8f4e34100bd1b38e32ba4" kind="variable"><name>entity_</name></member>
+    <member refid="classendstone_1_1PlayerShowEntityEvent_1ad3ce2e93c601b867317bc56053519594" kind="function"><name>ENDSTONE_EVENT</name></member>
+    <member refid="classendstone_1_1PlayerShowEntityEvent_1a142b3ad166f5e5d7a68c897c58cec797" kind="function"><name>PlayerShowEntityEvent</name></member>
+    <member refid="classendstone_1_1PlayerShowEntityEvent_1a66c3c161e8155d28f57f707b2fd7c1c1" kind="function"><name>getEntity</name></member>
+  </compound>
   <compound refid="classendstone_1_1PlayerSkinChangeEvent" kind="class"><name>endstone::PlayerSkinChangeEvent</name>
     <member refid="classendstone_1_1PlayerSkinChangeEvent_1a57dfa1e3c9e9fe052d06911c8665dae2" kind="variable"><name>new_skin_</name></member>
     <member refid="classendstone_1_1PlayerSkinChangeEvent_1a1d15c271ad8e7efc269f237d5f3e06d4" kind="variable"><name>message_</name></member>
@@ -3568,6 +3574,8 @@
   <compound refid="player__set__spawn__event_8h" kind="file"><name>player_set_spawn_event.h</name>
   </compound>
   <compound refid="player__shear__entity__event_8h" kind="file"><name>player_shear_entity_event.h</name>
+  </compound>
+  <compound refid="player__show__entity__event_8h" kind="file"><name>player_show_entity_event.h</name>
   </compound>
   <compound refid="player__skin__change__event_8h" kind="file"><name>player_skin_change_event.h</name>
   </compound>

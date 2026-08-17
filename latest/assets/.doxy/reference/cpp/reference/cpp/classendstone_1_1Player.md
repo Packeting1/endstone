@@ -1374,7 +1374,7 @@ virtual void endstone::Player::openVirtualSign (
 
 
 
-The sign only needs to be present on the player's client. No sign is required to be placed in the dimension. The dimension component of `location` is ignored; only its block coordinates are used. This does not trigger [**PlayerOpenSignEvent**](classendstone_1_1PlayerOpenSignEvent.md).
+The sign must only be placed locally for this player before calling this method. Use [**sendBlockChange()**](classendstone_1_1Player.md#function-sendblockchange) to send the sign block to the player's client; this method does not create it automatically. No sign is required to be placed in the dimension. The dimension component of `location` is ignored; only its block coordinates are used. The client may enforce distance limits to the opened position. This does not trigger [**PlayerOpenSignEvent**](classendstone_1_1PlayerOpenSignEvent.md).
 
 
 

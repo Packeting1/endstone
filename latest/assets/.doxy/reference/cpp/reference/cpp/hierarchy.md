@@ -64,6 +64,7 @@ This inheritance list is sorted roughly, but not completely, alphabetically:
         * **class** [**endstone::PlayerRecipeBookSettingsChangeEvent**](classendstone_1_1PlayerRecipeBookSettingsChangeEvent.md) _Represents an event that is called when a player changes recipe book settings._ 
         * **class** [**endstone::PlayerRespawnEvent**](classendstone_1_1PlayerRespawnEvent.md) _Called when a player respawns._ 
         * **class** [**endstone::PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md) _Called when a player starts or stops a riptide attack._ 
+        * **class** [**endstone::PlayerShowEntityEvent**](classendstone_1_1PlayerShowEntityEvent.md) _Called when a hidden actor is shown to a player._ 
         * **class** [**endstone::PlayerToggleCrawlEvent**](classendstone_1_1PlayerToggleCrawlEvent.md) _Called when a player toggles their crawling state._ 
         * **class** [**endstone::PlayerToggleFlightEvent**](classendstone_1_1PlayerToggleFlightEvent.md) _Called when a player toggles their flying state._ 
         * **class** [**endstone::PlayerToggleGlideEvent**](classendstone_1_1PlayerToggleGlideEvent.md) _Called when a player toggles their gliding state._ 
