@@ -725,6 +725,10 @@
          <lastmod>2026-08-17</lastmod>
     </url>
     <url>
+         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerHideEntityEvent/</loc>
+         <lastmod>2026-08-17</lastmod>
+    </url>
+    <url>
          <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerInputEvent/</loc>
          <lastmod>2026-08-17</lastmod>
     </url>
@@ -2062,6 +2066,14 @@
     </url>
     <url>
          <loc>https://endstone.dev/latest/reference/cpp/player__game__mode__change__event_8h_source/</loc>
+         <lastmod>2026-08-17</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__hide__entity__event_8h/</loc>
+         <lastmod>2026-08-17</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__hide__entity__event_8h_source/</loc>
          <lastmod>2026-08-17</lastmod>
     </url>
     <url>

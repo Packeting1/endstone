@@ -56,6 +56,7 @@ This inheritance list is sorted roughly, but not completely, alphabetically:
         * **class** [**endstone::PlayerAnimationEvent**](classendstone_1_1PlayerAnimationEvent.md) _Represents an event that is called when a player performs an animation._ 
         * **class** [**endstone::PlayerBedLeaveEvent**](classendstone_1_1PlayerBedLeaveEvent.md) _Called when a player is leaving a bed._ 
         * **class** [**endstone::PlayerDimensionChangeEvent**](classendstone_1_1PlayerDimensionChangeEvent.md) _Called when a player switches to another dimension._ 
+        * **class** [**endstone::PlayerHideEntityEvent**](classendstone_1_1PlayerHideEntityEvent.md) _Called when a visible actor is hidden from a player._ 
         * **class** [**endstone::PlayerInputEvent**](classendstone_1_1PlayerInputEvent.md) _Represents an event that is called when a player sends updated input to the server._ 
         * **class** [**endstone::PlayerJoinEvent**](classendstone_1_1PlayerJoinEvent.md) _Called when a player joins a server._ 
         * **class** [**endstone::PlayerLevelChangeEvent**](classendstone_1_1PlayerLevelChangeEvent.md) _Represents an event that is called when a player's level changes._ 

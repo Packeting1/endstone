@@ -2196,6 +2196,12 @@
     <member refid="classendstone_1_1PlayerGameModeChangeEvent_1aef8569884e4cbdbabb945eef9c4ec9eb" kind="function"><name>~PlayerGameModeChangeEvent</name></member>
     <member refid="classendstone_1_1PlayerGameModeChangeEvent_1a422c30eafa2b703fd105138e45da4540" kind="function"><name>getNewGameMode</name></member>
   </compound>
+  <compound refid="classendstone_1_1PlayerHideEntityEvent" kind="class"><name>endstone::PlayerHideEntityEvent</name>
+    <member refid="classendstone_1_1PlayerHideEntityEvent_1a89d57f30d9098815a6e69902d78e79a3" kind="variable"><name>entity_</name></member>
+    <member refid="classendstone_1_1PlayerHideEntityEvent_1a356eb34c7ac1291540672ac05bc266ac" kind="function"><name>ENDSTONE_EVENT</name></member>
+    <member refid="classendstone_1_1PlayerHideEntityEvent_1af5037a895961f91ad9eb4c9da3862d5d" kind="function"><name>PlayerHideEntityEvent</name></member>
+    <member refid="classendstone_1_1PlayerHideEntityEvent_1a9c1421defb967e910bb2c4994210b505" kind="function"><name>getEntity</name></member>
+  </compound>
   <compound refid="classendstone_1_1PlayerInputEvent" kind="class"><name>endstone::PlayerInputEvent</name>
     <member refid="classendstone_1_1PlayerInputEvent_1a7e32fd166d83d33b9e2f8675565f8fa1" kind="variable"><name>input_</name></member>
     <member refid="classendstone_1_1PlayerInputEvent_1a4e98911453a5296f56270ab710ef70d8" kind="function"><name>PlayerInputEvent</name></member>
@@ -3516,6 +3522,8 @@
   <compound refid="player__event_8h" kind="file"><name>player_event.h</name>
   </compound>
   <compound refid="player__game__mode__change__event_8h" kind="file"><name>player_game_mode_change_event.h</name>
+  </compound>
+  <compound refid="player__hide__entity__event_8h" kind="file"><name>player_hide_entity_event.h</name>
   </compound>
   <compound refid="player__input__event_8h" kind="file"><name>player_input_event.h</name>
   </compound>

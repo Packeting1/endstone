@@ -177,6 +177,7 @@ _Represents a button with text and an optional icon._
 | class | [**PlayerEmoteEvent**](classendstone_1_1PlayerEmoteEvent.md) <br>_Called when a player uses an emote._  |
 | class | [**PlayerEvent**](classendstone_1_1PlayerEvent.md) <br>_Represents a player related event._  |
 | class | [**PlayerGameModeChangeEvent**](classendstone_1_1PlayerGameModeChangeEvent.md) <br>_Called when the GameMode of the player is changed._  |
+| class | [**PlayerHideEntityEvent**](classendstone_1_1PlayerHideEntityEvent.md) <br>_Called when a visible actor is hidden from a player._  |
 | class | [**PlayerInputEvent**](classendstone_1_1PlayerInputEvent.md) <br>_Represents an event that is called when a player sends updated input to the server._  |
 | class | [**PlayerInteractActorEvent**](classendstone_1_1PlayerInteractActorEvent.md) <br>_Represents an event that is called when a player right-clicks an actor._  |
 | class | [**PlayerInteractEvent**](classendstone_1_1PlayerInteractEvent.md) <br>_Represents an event that is called when a player interacts with an object or air._  |

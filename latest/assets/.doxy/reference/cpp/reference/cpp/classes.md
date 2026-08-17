@@ -422,6 +422,8 @@
 ([**endstone**](namespaceendstone.md))
 * [**PlayerGameModeChangeEvent**](classendstone_1_1PlayerGameModeChangeEvent.md)
 ([**endstone**](namespaceendstone.md))
+* [**PlayerHideEntityEvent**](classendstone_1_1PlayerHideEntityEvent.md)
+([**endstone**](namespaceendstone.md))
 * [**PlayerInputEvent**](classendstone_1_1PlayerInputEvent.md)
 ([**endstone**](namespaceendstone.md))
 * [**PlayerInteractActorEvent**](classendstone_1_1PlayerInteractActorEvent.md)

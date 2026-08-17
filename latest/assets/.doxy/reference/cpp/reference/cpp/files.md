@@ -118,6 +118,7 @@ Here is a list of all files with brief descriptions:
                 * **file** [**player\_emote\_event.h**](player__emote__event_8h.md)     
                 * **file** [**player\_event.h**](player__event_8h.md)     
                 * **file** [**player\_game\_mode\_change\_event.h**](player__game__mode__change__event_8h.md)     
+                * **file** [**player\_hide\_entity\_event.h**](player__hide__entity__event_8h.md)     
                 * **file** [**player\_input\_event.h**](player__input__event_8h.md)     
                 * **file** [**player\_interact\_actor\_event.h**](player__interact__actor__event_8h.md)     
                 * **file** [**player\_interact\_event.h**](player__interact__event_8h.md)     
