@@ -39,10 +39,12 @@ _Represents a button with text and an optional icon._
 | ---: | :--- |
 | class | [**ActionForm**](classendstone_1_1ActionForm.md) <br>_Represents a form with buttons that let the player take action._  |
 | class | [**Actor**](classendstone_1_1Actor.md) <br>_Represents a base actor in the level._  |
+| class | [**ActorCollideWithActorEvent**](classendstone_1_1ActorCollideWithActorEvent.md) <br>_Called when two Actors collide with each other._  |
 | class | [**ActorDamageEvent**](classendstone_1_1ActorDamageEvent.md) <br>_Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _is damaged._ |
 | class | [**ActorDeathEvent**](classendstone_1_1ActorDeathEvent.md) <br>_Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _dies._ |
 | class | [**ActorEvent**](classendstone_1_1ActorEvent.md) &lt;[**typename**](classendstone_1_1Identifier.md) [**ActorType**](classendstone_1_1ActorType.md)&gt;<br>_Represents an Actor-related event._  |
 | class | [**ActorExplodeEvent**](classendstone_1_1ActorExplodeEvent.md) <br>_Called when an actor explodes._  |
+| class | [**ActorInsideBlockEvent**](classendstone_1_1ActorInsideBlockEvent.md) <br>_Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _is inside a supported block._ |
 | class | [**ActorKnockbackEvent**](classendstone_1_1ActorKnockbackEvent.md) <br>_Called when a living entity receives knockback._  |
 | class | [**ActorRemoveEvent**](classendstone_1_1ActorRemoveEvent.md) <br>_Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _is removed._ |
 | class | [**ActorSpawnEvent**](classendstone_1_1ActorSpawnEvent.md) <br>_Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _is spawned into a world._ |
@@ -76,6 +78,7 @@ _Represents a button with text and an optional icon._
 | class | [**Button**](classendstone_1_1Button.md) <br>_Represents a button with text and an optional icon._  |
 | class | [**Campfire**](classendstone_1_1Campfire.md) <br>_Represents a captured state of a campfire._  |
 | class | [**Cancellable**](classendstone_1_1Cancellable.md) &lt;[**typename**](classendstone_1_1Identifier.md) EventType&gt;<br>_A type characterizing events that may be cancelled by a plugin or the server._  |
+| class | [**CauldronLevelChangeEvent**](classendstone_1_1CauldronLevelChangeEvent.md) <br>_Called when a cauldron's level or contents change._  |
 | class | [**Chunk**](classendstone_1_1Chunk.md) <br>_Represents a chunk of blocks._  |
 | class | [**ChunkEvent**](classendstone_1_1ChunkEvent.md) <br>_Represents a_ [_**Chunk**_](classendstone_1_1Chunk.md) _related event._ |
 | class | [**ChunkLoadEvent**](classendstone_1_1ChunkLoadEvent.md) <br>_Called when a chunk is loaded._  |
@@ -186,6 +189,7 @@ _Represents a button with text and an optional icon._
 | class | [**PlayerLevelChangeEvent**](classendstone_1_1PlayerLevelChangeEvent.md) <br>_Represents an event that is called when a player's level changes._  |
 | class | [**PlayerLoginEvent**](classendstone_1_1PlayerLoginEvent.md) <br>_Called when a player attempts to login in._  |
 | class | [**PlayerMoveEvent**](classendstone_1_1PlayerMoveEvent.md) <br>_Called when a player moves._  |
+| class | [**PlayerOpenSignEvent**](classendstone_1_1PlayerOpenSignEvent.md) <br>_Called when a player begins editing a sign's text._  |
 | class | [**PlayerPickupArrowEvent**](classendstone_1_1PlayerPickupArrowEvent.md) <br>_Represents an event that is called when a player picks up an arrow from the ground._  |
 | class | [**PlayerPickupItemEvent**](classendstone_1_1PlayerPickupItemEvent.md) <br>_Called when a player picks an item up from the ground._  |
 | class | [**PlayerPortalEvent**](classendstone_1_1PlayerPortalEvent.md) <br>_Called when a player is about to teleport because it is in contact with a portal._  |
@@ -325,9 +329,11 @@ _Represents a button with text and an optional icon._
 |  [**bool**](classendstone_1_1Identifier.md) | [**operator&lt;=**](#function-operator_4) ([**UUID**](classendstone_1_1UUID.md) [**const**](classendstone_1_1Identifier.md) & lhs, [**UUID**](classendstone_1_1UUID.md) [**const**](classendstone_1_1Identifier.md) & rhs) noexcept<br> |
 |  [**bool**](classendstone_1_1Identifier.md) | [**operator==**](#function-operator_5) ([**const**](classendstone_1_1Identifier.md) [**ListTag**](classendstone_1_1ListTag.md) & a, [**const**](classendstone_1_1Identifier.md) [**ListTag**](classendstone_1_1ListTag.md) & b) noexcept<br> |
 |  [**bool**](classendstone_1_1Identifier.md) | [**operator==**](#function-operator_6) ([**const**](classendstone_1_1Identifier.md) [**CompoundTag**](classendstone_1_1CompoundTag.md) & a, [**const**](classendstone_1_1Identifier.md) [**CompoundTag**](classendstone_1_1CompoundTag.md) & b) noexcept<br> |
-|  [**bool**](classendstone_1_1Identifier.md) | [**operator==**](#function-operator_7) ([**UUID**](classendstone_1_1UUID.md) [**const**](classendstone_1_1Identifier.md) & lhs, [**UUID**](classendstone_1_1UUID.md) [**const**](classendstone_1_1Identifier.md) & rhs) noexcept<br> |
-|  [**bool**](classendstone_1_1Identifier.md) | [**operator&gt;**](#function-operator_8) ([**UUID**](classendstone_1_1UUID.md) [**const**](classendstone_1_1Identifier.md) & lhs, [**UUID**](classendstone_1_1UUID.md) [**const**](classendstone_1_1Identifier.md) & rhs) noexcept<br> |
-|  [**bool**](classendstone_1_1Identifier.md) | [**operator&gt;=**](#function-operator_9) ([**UUID**](classendstone_1_1UUID.md) [**const**](classendstone_1_1Identifier.md) & lhs, [**UUID**](classendstone_1_1UUID.md) [**const**](classendstone_1_1Identifier.md) & rhs) noexcept<br> |
+|  [**bool**](classendstone_1_1Identifier.md) | [**operator==**](#function-operator_7) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**T**](classendstone_1_1Identifier.md) &gt; & lhs, [**const**](classendstone_1_1Identifier.md) [**Nullable**](classendstone_1_1Nullable.md)&lt; [**U**](classendstone_1_1Identifier.md) &gt; & rhs) noexcept<br> |
+|  [**bool**](classendstone_1_1Identifier.md) | [**operator==**](#function-operator_8) ([**const**](classendstone_1_1Identifier.md) [**Nullable**](classendstone_1_1Nullable.md)&lt; [**T**](classendstone_1_1Identifier.md) &gt; & lhs, [**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**U**](classendstone_1_1Identifier.md) &gt; & rhs) noexcept<br> |
+|  [**bool**](classendstone_1_1Identifier.md) | [**operator==**](#function-operator_9) ([**UUID**](classendstone_1_1UUID.md) [**const**](classendstone_1_1Identifier.md) & lhs, [**UUID**](classendstone_1_1UUID.md) [**const**](classendstone_1_1Identifier.md) & rhs) noexcept<br> |
+|  [**bool**](classendstone_1_1Identifier.md) | [**operator&gt;**](#function-operator_10) ([**UUID**](classendstone_1_1UUID.md) [**const**](classendstone_1_1Identifier.md) & lhs, [**UUID**](classendstone_1_1UUID.md) [**const**](classendstone_1_1Identifier.md) & rhs) noexcept<br> |
+|  [**bool**](classendstone_1_1Identifier.md) | [**operator&gt;=**](#function-operator_11) ([**UUID**](classendstone_1_1UUID.md) [**const**](classendstone_1_1Identifier.md) & lhs, [**UUID**](classendstone_1_1UUID.md) [**const**](classendstone_1_1Identifier.md) & rhs) noexcept<br> |
 |   | [**overloaded**](#function-overloaded) (Func...) <br>_Deduction guide._  |
 |  [**void**](classendstone_1_1Identifier.md) | [**swap**](#function-swap) ([**UUID**](classendstone_1_1UUID.md) & lhs, [**UUID**](classendstone_1_1UUID.md) & rhs) noexcept<br> |
 
@@ -1161,6 +1167,40 @@ inline bool endstone::operator== (
 inline bool endstone::operator== (
     const  CompoundTag & a,
     const  CompoundTag & b
+) noexcept
+```
+
+
+
+
+<hr>
+
+
+
+### function operator== 
+
+```C++
+template<class T, class U>
+bool endstone::operator== (
+    const  NotNull < T > & lhs,
+    const  Nullable < U > & rhs
+) noexcept
+```
+
+
+
+
+<hr>
+
+
+
+### function operator== 
+
+```C++
+template<class T, class U>
+bool endstone::operator== (
+    const  Nullable < T > & lhs,
+    const  NotNull < U > & rhs
 ) noexcept
 ```
 

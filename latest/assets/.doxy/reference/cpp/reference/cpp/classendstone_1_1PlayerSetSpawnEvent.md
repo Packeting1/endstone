@@ -29,6 +29,11 @@ Inherits the following classes: [endstone::Cancellable](classendstone_1_1Cancell
 
 
 
+## Public Types
+
+| Type | Name |
+| ---: | :--- |
+| enum  | [**Cause**](#enum-cause)  <br>_Represents the cause of the spawn change._  |
 
 
 
@@ -94,9 +99,10 @@ Inherits the following classes: [endstone::Cancellable](classendstone_1_1Cancell
 | Type | Name |
 | ---: | :--- |
 |   | [**ENDSTONE\_EVENT**](#function-endstone_event) ([**PlayerSetSpawnEvent**](classendstone_1_1PlayerSetSpawnEvent.md)) <br> |
-|   | [**PlayerSetSpawnEvent**](#function-playersetspawnevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**Location**](classendstone_1_1Location.md) location) <br> |
-|  [**const**](classendstone_1_1Identifier.md) [**Location**](classendstone_1_1Location.md) & | [**getLocation**](#function-getlocation) () const<br>_Gets the spawn location._  |
-|  [**void**](classendstone_1_1Identifier.md) | [**setLocation**](#function-setlocation) ([**const**](classendstone_1_1Identifier.md) [**Location**](classendstone_1_1Location.md) & location) <br>_Sets the spawn location._  |
+|   | [**PlayerSetSpawnEvent**](#function-playersetspawnevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**Cause**](classendstone_1_1PlayerSetSpawnEvent.md#enum-cause) cause, std::optional&lt; [**Location**](classendstone_1_1Location.md) &gt; location) <br> |
+|  [**Cause**](classendstone_1_1PlayerSetSpawnEvent.md#enum-cause) | [**getCause**](#function-getcause) () const<br>_Gets the cause of this event._  |
+|  [**const**](classendstone_1_1Identifier.md) std::optional&lt; [**Location**](classendstone_1_1Location.md) &gt; & | [**getLocation**](#function-getlocation) () const<br>_Gets the location that the spawn is set to._  |
+|  [**void**](classendstone_1_1Identifier.md) | [**setLocation**](#function-setlocation) (std::optional&lt; [**Location**](classendstone_1_1Location.md) &gt; location) <br>_Sets the location to be set as the spawn location._  |
 
 
 ## Public Functions inherited from endstone::Cancellable
@@ -203,10 +209,42 @@ See [endstone::ICancellable](classendstone_1_1ICancellable.md)
 ## Detailed Description
 
 
-Cancelling this event prevents the spawn change on supported native paths. 
+Cancelling this event prevents the spawn change on supported native paths.
+
+
+
+
+**Note:**
+
+On Bedrock, only the location's block coordinates and dimension are written back. Yaw/pitch are not persisted. The native respawn invalidation path does not emit this event. Cancelling this event prevents the supported native setter from writing the respawn state, but `/spawnpoint` may still report success because its native Player::setRespawnPosition() setter returns void. 
+
+
+
 
 
     
+## Public Types Documentation
+
+
+
+
+### enum Cause 
+
+_Represents the cause of the spawn change._ 
+```C++
+enum endstone::PlayerSetSpawnEvent::Cause {
+    Bed,
+    RespawnAnchor,
+    Command,
+    Plugin,
+    Unknown
+};
+```
+
+
+
+
+<hr>
 ## Public Functions Documentation
 
 
@@ -232,12 +270,38 @@ endstone::PlayerSetSpawnEvent::ENDSTONE_EVENT (
 ```C++
 inline endstone::PlayerSetSpawnEvent::PlayerSetSpawnEvent (
     const  NotNull < Player > & player,
-    Location location
+    Cause cause,
+    std::optional< Location > location
 ) 
 ```
 
 
 
+
+<hr>
+
+
+
+### function getCause 
+
+_Gets the cause of this event._ 
+```C++
+inline Cause endstone::PlayerSetSpawnEvent::getCause () const
+```
+
+
+
+
+
+**Returns:**
+
+the cause 
+
+
+
+
+
+        
 
 <hr>
 
@@ -245,13 +309,24 @@ inline endstone::PlayerSetSpawnEvent::PlayerSetSpawnEvent (
 
 ### function getLocation 
 
-_Gets the spawn location._ 
+_Gets the location that the spawn is set to._ 
 ```C++
-inline const  Location & endstone::PlayerSetSpawnEvent::getLocation () const
+inline const std::optional< Location > & endstone::PlayerSetSpawnEvent::getLocation () const
 ```
 
 
 
+
+
+**Returns:**
+
+the spawn location, or std::nullopt if removing the location 
+
+
+
+
+
+        
 
 <hr>
 
@@ -259,15 +334,26 @@ inline const  Location & endstone::PlayerSetSpawnEvent::getLocation () const
 
 ### function setLocation 
 
-_Sets the spawn location._ 
+_Sets the location to be set as the spawn location._ 
 ```C++
 inline void endstone::PlayerSetSpawnEvent::setLocation (
-    const  Location & location
+    std::optional< Location > location
 ) 
 ```
 
 
 
+
+
+**Parameters:**
+
+
+* `location` the spawn location, or std::nullopt to remove the spawn location 
+
+
+
+
+        
 
 <hr>
 

@@ -24,6 +24,7 @@
 
 #pragma once
 
+#include <optional>
 #include <utility>
 
 #include "endstone/event/cancellable.h"
@@ -36,17 +37,28 @@ class PlayerSetSpawnEvent final : public Cancellable<PlayerEvent> {
 public:
     ENDSTONE_EVENT(PlayerSetSpawnEvent);
 
-    PlayerSetSpawnEvent(const NotNull<Player> &player, Location location)
-        : Cancellable(player), location_(std::move(location))
+    enum class Cause {
+        Bed,
+        RespawnAnchor,
+        Command,
+        Plugin,
+        Unknown,
+    };
+
+    PlayerSetSpawnEvent(const NotNull<Player> &player, Cause cause, std::optional<Location> location)
+        : Cancellable(player), cause_(cause), location_(std::move(location))
     {
     }
 
-    [[nodiscard]] const Location &getLocation() const { return location_; }
+    [[nodiscard]] Cause getCause() const { return cause_; }
 
-    void setLocation(const Location &location) { location_ = location; }
+    [[nodiscard]] const std::optional<Location> &getLocation() const { return location_; }
+
+    void setLocation(std::optional<Location> location) { location_ = std::move(location); }
 
 private:
-    Location location_;
+    Cause cause_;
+    std::optional<Location> location_;
 };
 
 }  // namespace endstone

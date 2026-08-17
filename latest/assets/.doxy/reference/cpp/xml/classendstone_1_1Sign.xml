@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/block/sign.h" line="30" column="5" bodyfile="include/endstone/block/sign.h" bodystart="30" bodyend="40"/>
+        <location file="include/endstone/block/sign.h" line="32" column="5" bodyfile="include/endstone/block/sign.h" bodystart="32" bodyend="42"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/block/sign.h" line="48" column="23"/>
+        <location file="include/endstone/block/sign.h" line="50" column="23"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1Sign_1ac454bca51b3afe8b1080cf72511f4044" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/block/sign.h" line="58" column="19"/>
+        <location file="include/endstone/block/sign.h" line="60" column="19"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1Sign_1a1773b7ad2067719b35fb92b9c398c428" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type><ref refid="classendstone_1_1Identifier" kindref="compound">void</ref></type>
@@ -115,13 +115,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/block/sign.h" line="65" column="18"/>
+        <location file="include/endstone/block/sign.h" line="67" column="18"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
 <para>Represents a captured state of a sign. </para>
     </briefdescription>
     <detaileddescription>
+<para>Changes are kept in the captured state until <ref refid="classendstone_1_1BlockState_1aeaca92e63b3fa7bf37eb82e59bb9a45d" kindref="member">update()</ref> is called. </para>
     </detaileddescription>
     <inheritancegraph>
       <node id="2">
@@ -159,7 +160,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/endstone/block/sign.h" line="25" column="1" bodyfile="include/endstone/block/sign.h" bodystart="25" bodyend="66"/>
+    <location file="include/endstone/block/sign.h" line="27" column="1" bodyfile="include/endstone/block/sign.h" bodystart="27" bodyend="68"/>
     <listofallmembers>
       <member refid="classendstone_1_1Object_1a798b5128ce018bbbe8ca949ba78c3db1" prot="public" virt="non-virtual"><scope>endstone::Sign</scope><name>as</name></member>
       <member refid="classendstone_1_1Object_1ae0f38a62da4c186fce272145e2590cc1" prot="public" virt="non-virtual"><scope>endstone::Sign</scope><name>as</name></member>

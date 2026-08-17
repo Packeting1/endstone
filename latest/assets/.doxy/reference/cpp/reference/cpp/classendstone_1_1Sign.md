@@ -8,7 +8,7 @@
 
 
 
-_Represents a captured state of a sign._ 
+_Represents a captured state of a sign._ [More...](#detailed-description)
 
 * `#include <endstone/block/sign.h>`
 
@@ -217,6 +217,13 @@ See [endstone::Object](classendstone_1_1Object.md)
 
 
 
+## Detailed Description
+
+
+Changes are kept in the captured state until [**update()**](classendstone_1_1BlockState.md#function-update-13) is called. 
+
+
+    
 ## Public Types Documentation
 
 

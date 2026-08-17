@@ -7,10 +7,12 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
 * **namespace** [**endstone**](namespaceendstone.md) _Represents a button with text and an optional icon._     
     * **class** [**ActionForm**](classendstone_1_1ActionForm.md) _Represents a form with buttons that let the player take action._     
     * **class** [**Actor**](classendstone_1_1Actor.md) _Represents a base actor in the level._     
+    * **class** [**ActorCollideWithActorEvent**](classendstone_1_1ActorCollideWithActorEvent.md) _Called when two Actors collide with each other._     
     * **class** [**ActorDamageEvent**](classendstone_1_1ActorDamageEvent.md) _Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _is damaged._    
     * **class** [**ActorDeathEvent**](classendstone_1_1ActorDeathEvent.md) _Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _dies._    
     * **class** [**ActorEvent**](classendstone_1_1ActorEvent.md) _Represents an Actor-related event._     
     * **class** [**ActorExplodeEvent**](classendstone_1_1ActorExplodeEvent.md) _Called when an actor explodes._     
+    * **class** [**ActorInsideBlockEvent**](classendstone_1_1ActorInsideBlockEvent.md) _Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _is inside a supported block._    
     * **class** [**ActorKnockbackEvent**](classendstone_1_1ActorKnockbackEvent.md) _Called when a living entity receives knockback._     
     * **class** [**ActorRemoveEvent**](classendstone_1_1ActorRemoveEvent.md) _Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _is removed._    
     * **class** [**ActorSpawnEvent**](classendstone_1_1ActorSpawnEvent.md) _Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _is spawned into a world._    
@@ -44,6 +46,7 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**Button**](classendstone_1_1Button.md) _Represents a button with text and an optional icon._     
     * **class** [**Campfire**](classendstone_1_1Campfire.md) _Represents a captured state of a campfire._     
     * **class** [**Cancellable**](classendstone_1_1Cancellable.md) _A type characterizing events that may be cancelled by a plugin or the server._     
+    * **class** [**CauldronLevelChangeEvent**](classendstone_1_1CauldronLevelChangeEvent.md) _Called when a cauldron's level or contents change._     
     * **class** [**Chunk**](classendstone_1_1Chunk.md) _Represents a chunk of blocks._     
     * **class** [**ChunkEvent**](classendstone_1_1ChunkEvent.md) _Represents a_ [_**Chunk**_](classendstone_1_1Chunk.md) _related event._    
     * **class** [**ChunkLoadEvent**](classendstone_1_1ChunkLoadEvent.md) _Called when a chunk is loaded._     
@@ -154,6 +157,7 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**PlayerLevelChangeEvent**](classendstone_1_1PlayerLevelChangeEvent.md) _Represents an event that is called when a player's level changes._     
     * **class** [**PlayerLoginEvent**](classendstone_1_1PlayerLoginEvent.md) _Called when a player attempts to login in._     
     * **class** [**PlayerMoveEvent**](classendstone_1_1PlayerMoveEvent.md) _Called when a player moves._     
+    * **class** [**PlayerOpenSignEvent**](classendstone_1_1PlayerOpenSignEvent.md) _Called when a player begins editing a sign's text._     
     * **class** [**PlayerPickupArrowEvent**](classendstone_1_1PlayerPickupArrowEvent.md) _Represents an event that is called when a player picks up an arrow from the ground._     
     * **class** [**PlayerPickupItemEvent**](classendstone_1_1PlayerPickupItemEvent.md) _Called when a player picks an item up from the ground._     
     * **class** [**PlayerPortalEvent**](classendstone_1_1PlayerPortalEvent.md) _Called when a player is about to teleport because it is in contact with a portal._     

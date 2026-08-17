@@ -153,8 +153,10 @@ Inherits the following classes: [endstone::Mob](classendstone_1_1Mob.md)
 
 | Type | Name |
 | ---: | :--- |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**canSee**](#function-cansee-12) ([**const**](classendstone_1_1Identifier.md) [**Actor**](classendstone_1_1Actor.md) & entity) const = 0<br>_Checks to see if an entity has been visually hidden from this player._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**canSee**](#function-cansee-22) ([**const**](classendstone_1_1Identifier.md) [**Player**](classendstone_1_1Player.md) & player) const = 0<br>_Checks to see if a player has been hidden from this player._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**closeForm**](#function-closeform) () = 0<br>_Closes the forms that are currently open for the player._  |
-| virtual [**SocketAddress**](classendstone_1_1SocketAddress.md) | [**getAddress**](#function-getaddress) () const = 0<br>_Gets the socket address of this player._  |
+| virtual [**const**](classendstone_1_1Identifier.md) [**SocketAddress**](classendstone_1_1SocketAddress.md) & | [**getAddress**](#function-getaddress) () const = 0<br>_Gets the socket address of this player._  |
 | virtual [**bool**](classendstone_1_1Identifier.md) | [**getAllowFlight**](#function-getallowflight) () const = 0<br>_Determines if the_ [_**Player**_](classendstone_1_1Player.md) _is allowed to fly via jump key double-tap._ |
 | virtual std::string | [**getDeviceId**](#function-getdeviceid) () const = 0<br>_Gets the player's current device id._  |
 | virtual std::string | [**getDeviceOS**](#function-getdeviceos) () const = 0<br>_Gets the player's current device's operation system (OS)._  |
@@ -168,6 +170,7 @@ Inherits the following classes: [endstone::Mob](classendstone_1_1Mob.md)
 | virtual std::string | [**getLocale**](#function-getlocale) () const = 0<br>_Gets the player's current locale._  |
 | virtual std::string | [**getName**](#function-getname) () override const = 0<br>_Returns the name of this player._  |
 | virtual std::chrono::milliseconds | [**getPing**](#function-getping) () const = 0<br>_Gets the player's average ping._  |
+| virtual std::optional&lt; [**Location**](classendstone_1_1Location.md) &gt; | [**getRespawnLocation**](#function-getrespawnlocation) () const = 0<br>_Gets the location where the player will spawn, or std::nullopt if they don't have a valid respawn point._  |
 | virtual [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Scoreboard**](classendstone_1_1Scoreboard.md) &gt; | [**getScoreboard**](#function-getscoreboard) () const = 0<br>_Gets the_ [_**Scoreboard**_](classendstone_1_1Scoreboard.md) _displayed to this player._ |
 | virtual [**Skin**](classendstone_1_1Skin.md) | [**getSkin**](#function-getskin) () const = 0<br>_Gets the player's skin._  |
 | virtual [**int**](classendstone_1_1Identifier.md) | [**getTotalExp**](#function-gettotalexp) () const = 0<br>_Gets the players total experience points._  |
@@ -176,15 +179,19 @@ Inherits the following classes: [endstone::Mob](classendstone_1_1Mob.md)
 | virtual std::string | [**getXuid**](#function-getxuid) () const = 0<br>_Returns the Xbox User ID (XUID) of this player._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**giveExp**](#function-giveexp) ([**int**](classendstone_1_1Identifier.md) amount) = 0<br>_Gives the player the amount of experience specified._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**giveExpLevels**](#function-giveexplevels) ([**int**](classendstone_1_1Identifier.md) amount) = 0<br>_Gives the player the amount of experience levels specified._  |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**hideEntity**](#function-hideentity) ([**Plugin**](classendstone_1_1Plugin.md) & plugin, [**Actor**](classendstone_1_1Actor.md) & entity) = 0<br>_Hides an entity from this player._  |
 | virtual [**bool**](classendstone_1_1Identifier.md) | [**isFlying**](#function-isflying) () const = 0<br>_Checks to see if this player is currently flying or not._  |
 | virtual [**bool**](classendstone_1_1Identifier.md) | [**isOp**](#function-isop) () const = 0<br>_Checks if this player is a server operator._  |
 | virtual [**bool**](classendstone_1_1Identifier.md) | [**isSneaking**](#function-issneaking) () const = 0<br>_Returns if the player is in sneak mode._  |
 | virtual [**bool**](classendstone_1_1Identifier.md) | [**isSprinting**](#function-issprinting) () const = 0<br>_Gets whether the player is sprinting or not._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**kick**](#function-kick) (std::string message) const = 0<br>_Kicks player with custom kick message._  |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**openSign**](#function-opensign) ([**const**](classendstone_1_1Identifier.md) [**Sign**](classendstone_1_1Sign.md) & sign, [**Sign::Side**](classendstone_1_1Sign.md#enum-side) side) = 0<br>_Opens a sign editor for this player._  |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**openVirtualSign**](#function-openvirtualsign) ([**const**](classendstone_1_1Identifier.md) [**Location**](classendstone_1_1Location.md) & location, [**Sign::Side**](classendstone_1_1Sign.md#enum-side) side) = 0<br>_Opens a sign editor for this player at the given location._  |
 | virtual [**bool**](classendstone_1_1Identifier.md) | [**performCommand**](#function-performcommand) (std::string command) const = 0<br>_Makes the player perform the given command._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**playSound**](#function-playsound) ([**Location**](classendstone_1_1Location.md) location, std::string sound, [**float**](classendstone_1_1Identifier.md) volume, [**float**](classendstone_1_1Identifier.md) pitch) = 0<br>_Play a sound for a player at the location._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**resetTitle**](#function-resettitle) () const = 0<br>_Resets the title displayed to the player._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**sendActionBar**](#function-sendactionbar) (std::string message) const = 0<br>_Sends this player an action bar message._  |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**sendBlockChange**](#function-sendblockchange) ([**const**](classendstone_1_1Identifier.md) [**Location**](classendstone_1_1Location.md) & location, [**const**](classendstone_1_1Identifier.md) [**BlockData**](classendstone_1_1BlockData.md) & block) = 0<br>_Sends a block change to this player._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**sendForm**](#function-sendform) (FormVariant form) = 0<br>_Sends a form to the player._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**sendMap**](#function-sendmap) ([**MapView**](classendstone_1_1MapView.md) & map) = 0<br>_Render a map and send it to the player in its entirety._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**sendPacket**](#function-sendpacket) ([**int**](classendstone_1_1Identifier.md) packet\_id, std::string\_view payload) const = 0<br>_Sends a packet to the player._  |
@@ -200,11 +207,12 @@ Inherits the following classes: [endstone::Mob](classendstone_1_1Mob.md)
 | virtual [**void**](classendstone_1_1Identifier.md) | [**setFlying**](#function-setflying) ([**bool**](classendstone_1_1Identifier.md) value) = 0<br>_Makes this player start or stop flying._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**setGameMode**](#function-setgamemode) ([**GameMode**](namespaceendstone.md#enum-gamemode) mode) = 0<br>_Sets this player's current GameMode._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**setOp**](#function-setop) ([**bool**](classendstone_1_1Identifier.md) value) = 0<br>_Sets the operator status of this player._  |
-| virtual [**void**](classendstone_1_1Identifier.md) | [**setRespawnLocation**](#function-setrespawnlocation) ([**Location**](classendstone_1_1Location.md) location) = 0<br>_Sets this player's respawn location._  |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**setRespawnLocation**](#function-setrespawnlocation) (std::optional&lt; [**Location**](classendstone_1_1Location.md) &gt; location) = 0<br>_Sets the location where the player will respawn._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**setScoreboard**](#function-setscoreboard) ([**NotNull**](classendstone_1_1NotNull.md)&lt; [**Scoreboard**](classendstone_1_1Scoreboard.md) &gt; scoreboard) = 0<br>_Sets the player's visible_ [_**Scoreboard**_](classendstone_1_1Scoreboard.md) _._ |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**setSneaking**](#function-setsneaking) ([**bool**](classendstone_1_1Identifier.md) sneak) = 0<br>_Sets the sneak mode of the player._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**setSprinting**](#function-setsprinting) ([**bool**](classendstone_1_1Identifier.md) sprinting) = 0<br>_Sets whether the player is sprinting or not._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**setWalkSpeed**](#function-setwalkspeed) ([**float**](classendstone_1_1Identifier.md) value) const = 0<br>_Sets the speed at which a client will walk._  |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**showEntity**](#function-showentity) ([**Plugin**](classendstone_1_1Plugin.md) & plugin, [**Actor**](classendstone_1_1Actor.md) & entity) = 0<br>_Allows this player to see an entity that was previously hidden._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**spawnParticle**](#function-spawnparticle-14) (std::string name, [**Location**](classendstone_1_1Location.md) location) const = 0<br>_Spawns the particle at the target location._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**spawnParticle**](#function-spawnparticle-24) (std::string name, [**float**](classendstone_1_1Identifier.md) x, [**float**](classendstone_1_1Identifier.md) y, [**float**](classendstone_1_1Identifier.md) z) const = 0<br>_Spawns the particle at the target location._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**spawnParticle**](#function-spawnparticle-34) (std::string name, [**Location**](classendstone_1_1Location.md) location, std::optional&lt; std::string &gt; molang\_variables\_json) const = 0<br>_Spawns the particle at the target location._  |
@@ -268,7 +276,7 @@ See [endstone::Actor](classendstone_1_1Actor.md)
 | virtual [**void**](classendstone_1_1Identifier.md) | [**setRotation**](classendstone_1_1Actor.md#function-setrotation) ([**float**](classendstone_1_1Identifier.md) yaw, [**float**](classendstone_1_1Identifier.md) pitch) = 0<br>_Sets the actor's rotation._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**setScoreTag**](classendstone_1_1Actor.md#function-setscoretag) (std::string score) = 0<br>_Sets the score tag for the actor._  |
 | virtual [**bool**](classendstone_1_1Identifier.md) | [**teleport**](classendstone_1_1Actor.md#function-teleport-12) ([**const**](classendstone_1_1Identifier.md) [**Location**](classendstone_1_1Location.md) & location) = 0<br>_Teleports this actor to the given location._  |
-| virtual [**bool**](classendstone_1_1Identifier.md) | [**teleport**](classendstone_1_1Actor.md#function-teleport-22) ([**const**](classendstone_1_1Identifier.md) [**Actor**](classendstone_1_1Actor.md) & target) = 0<br>_Teleports this actor to the target_ [_**Actor**_](classendstone_1_1Actor.md) _._ |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**teleport**](classendstone_1_1Actor.md#function-teleport-22) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Actor**](classendstone_1_1Actor.md) &gt; & target) = 0<br>_Teleports this actor to the target_ [_**Actor**_](classendstone_1_1Actor.md) _._ |
 
 
 ## Public Functions inherited from endstone::CommandSender
@@ -483,6 +491,74 @@ See [endstone::Object](classendstone_1_1Object.md)
 
 
 
+### function canSee [1/2]
+
+_Checks to see if an entity has been visually hidden from this player._ 
+```C++
+virtual bool endstone::Player::canSee (
+    const  Actor & entity
+) const = 0
+```
+
+
+
+
+
+**Parameters:**
+
+
+* `entity` Entity to check 
+
+
+
+**Returns:**
+
+`true` if the entity is not being hidden from this player 
+
+
+
+
+
+        
+
+<hr>
+
+
+
+### function canSee [2/2]
+
+_Checks to see if a player has been hidden from this player._ 
+```C++
+virtual bool endstone::Player::canSee (
+    const  Player & player
+) const = 0
+```
+
+
+
+
+
+**Parameters:**
+
+
+* `player` [**Player**](classendstone_1_1Player.md) to check 
+
+
+
+**Returns:**
+
+`true` if the player is not being hidden from this player 
+
+
+
+
+
+        
+
+<hr>
+
+
+
 ### function closeForm 
 
 _Closes the forms that are currently open for the player._ 
@@ -501,7 +577,7 @@ virtual void endstone::Player::closeForm () = 0
 
 _Gets the socket address of this player._ 
 ```C++
-virtual SocketAddress endstone::Player::getAddress () const = 0
+virtual const  SocketAddress & endstone::Player::getAddress () const = 0
 ```
 
 
@@ -852,6 +928,38 @@ player ping
 
 
 
+### function getRespawnLocation 
+
+_Gets the location where the player will spawn, or std::nullopt if they don't have a valid respawn point._ 
+```C++
+virtual std::optional< Location > endstone::Player::getRespawnLocation () const = 0
+```
+
+
+
+
+
+**Note:**
+
+Bedrock does not persist yaw/pitch for respawn locations; the returned location has pitch/yaw 0. 
+
+
+
+
+**Returns:**
+
+respawn location if exists, otherwise std::nullopt 
+
+
+
+
+
+        
+
+<hr>
+
+
+
 ### function getScoreboard 
 
 _Gets the_ [_**Scoreboard**_](classendstone_1_1Scoreboard.md) _displayed to this player._
@@ -1059,6 +1167,35 @@ virtual void endstone::Player::giveExpLevels (
 
 
 
+### function hideEntity 
+
+_Hides an entity from this player._ 
+```C++
+virtual void endstone::Player::hideEntity (
+    Plugin & plugin,
+    Actor & entity
+) = 0
+```
+
+
+
+
+
+**Parameters:**
+
+
+* `plugin` [**Plugin**](classendstone_1_1Plugin.md) that wants to hide the entity 
+* `entity` Entity to hide 
+
+
+
+
+        
+
+<hr>
+
+
+
 ### function isFlying 
 
 _Checks to see if this player is currently flying or not._ 
@@ -1186,6 +1323,77 @@ virtual void endstone::Player::kick (
 
 
 
+### function openSign 
+
+_Opens a sign editor for this player._ 
+```C++
+virtual void endstone::Player::openSign (
+    const  Sign & sign,
+    Sign::Side side
+) = 0
+```
+
+
+
+The sign must be placed in the same dimension as this player.
+
+
+
+
+**Parameters:**
+
+
+* `sign` the sign to open 
+* `side` the side of the sign to edit 
+
+
+
+**Exception:**
+
+
+* `std::invalid_argument` if the sign is not placed or is in another dimension 
+
+
+
+
+        
+
+<hr>
+
+
+
+### function openVirtualSign 
+
+_Opens a sign editor for this player at the given location._ 
+```C++
+virtual void endstone::Player::openVirtualSign (
+    const  Location & location,
+    Sign::Side side
+) = 0
+```
+
+
+
+The sign only needs to be present on the player's client. No sign is required to be placed in the dimension. The dimension component of `location` is ignored; only its block coordinates are used. This does not trigger [**PlayerOpenSignEvent**](classendstone_1_1PlayerOpenSignEvent.md).
+
+
+
+
+**Parameters:**
+
+
+* `location` the block location of the sign 
+* `side` the side of the sign to edit 
+
+
+
+
+        
+
+<hr>
+
+
+
 ### function performCommand 
 
 _Makes the player perform the given command._ 
@@ -1288,6 +1496,38 @@ virtual void endstone::Player::sendActionBar (
 
 
 * `message` Message to be displayed 
+
+
+
+
+        
+
+<hr>
+
+
+
+### function sendBlockChange 
+
+_Sends a block change to this player._ 
+```C++
+virtual void endstone::Player::sendBlockChange (
+    const  Location & location,
+    const  BlockData & block
+) = 0
+```
+
+
+
+This fakes a block change packet for a user at a certain location. This will not actually change the world in any way.
+
+
+
+
+**Parameters:**
+
+
+* `location` The location of the changed block 
+* `block` The new block data 
 
 
 
@@ -1731,10 +1971,10 @@ virtual void endstone::Player::setOp (
 
 ### function setRespawnLocation 
 
-_Sets this player's respawn location._ 
+_Sets the location where the player will respawn._ 
 ```C++
 virtual void endstone::Player::setRespawnLocation (
-    Location location
+    std::optional< Location > location
 ) = 0
 ```
 
@@ -1745,7 +1985,14 @@ virtual void endstone::Player::setRespawnLocation (
 **Parameters:**
 
 
-* `location` Respawn location. Its dimension must be loaded. 
+* `location` Respawn location, or std::nullopt to clear it. Its dimension must be loaded when set. 
+
+
+
+**Note:**
+
+Clearing via std::nullopt fires [**PlayerSetSpawnEvent**](classendstone_1_1PlayerSetSpawnEvent.md) with Cause::Plugin on supported native paths. 
+
 
 
 
@@ -1854,6 +2101,38 @@ virtual void endstone::Player::setWalkSpeed (
 
 
 * `value` The new speed. 
+
+
+
+
+        
+
+<hr>
+
+
+
+### function showEntity 
+
+_Allows this player to see an entity that was previously hidden._ 
+```C++
+virtual void endstone::Player::showEntity (
+    Plugin & plugin,
+    Actor & entity
+) = 0
+```
+
+
+
+If another plugin had hidden the entity too, the entity will remain hidden until the other plugin calls this method too.
+
+
+
+
+**Parameters:**
+
+
+* `plugin` [**Plugin**](classendstone_1_1Plugin.md) that wants to show the entity 
+* `entity` Entity to show 
 
 
 

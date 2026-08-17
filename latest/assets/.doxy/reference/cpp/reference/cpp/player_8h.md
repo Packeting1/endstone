@@ -16,6 +16,8 @@
 * `#include <string_view>`
 * `#include <variant>`
 * `#include "endstone/actor/mob.h"`
+* `#include "endstone/block/block_data.h"`
+* `#include "endstone/block/sign.h"`
 * `#include "endstone/form/action_form.h"`
 * `#include "endstone/form/message_form.h"`
 * `#include "endstone/form/modal_form.h"`
