@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_shear_entity_event.h" line="65" column="13" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="65" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_shear_entity_event.h" line="81" column="13" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="81" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classendstone_1_1PlayerShearEntityEvent_1a225c4e937c44ff659c13180dab48e02d" prot="private" static="no" mutable="no">
         <type><ref refid="namespaceendstone_1afad3b218f2082aec71169d21f2493a39" kindref="member">EquipmentSlot</ref></type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_shear_entity_event.h" line="66" column="19" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="66" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_shear_entity_event.h" line="82" column="19" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="82" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classendstone_1_1PlayerShearEntityEvent_1ae3bf1d962a47f8d7c0ae9c31448dd920" prot="private" static="no" mutable="no">
         <type><ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref></type>
@@ -45,7 +45,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_shear_entity_event.h" line="67" column="15" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="67" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_shear_entity_event.h" line="83" column="15" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classendstone_1_1PlayerShearEntityEvent_1a450f014c5a0bbfa64a77203d16ab4d93" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref> &gt;</type>
+        <definition>std::vector&lt;ItemStack&gt; endstone::PlayerShearEntityEvent::drops_</definition>
+        <argsstring></argsstring>
+        <name>drops_</name>
+        <qualifiedname>endstone::PlayerShearEntityEvent::drops_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_shear_entity_event.h" line="84" column="17" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="84" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -64,12 +78,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_shear_entity_event.h" line="27" column="5"/>
+        <location file="include/endstone/event/player/player_shear_entity_event.h" line="28" column="5"/>
       </memberdef>
-      <memberdef kind="function" id="classendstone_1_1PlayerShearEntityEvent_1a05175636c2e66980ca4832247a2dc0af" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classendstone_1_1PlayerShearEntityEvent_1a0e6197ceb83979c30ada2eac6dd6b967" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>endstone::PlayerShearEntityEvent::PlayerShearEntityEvent</definition>
-        <argsstring>(const NotNull&lt; Player &gt; &amp;player, const NotNull&lt; Actor &gt; &amp;entity, EquipmentSlot hand, ItemStack item)</argsstring>
+        <argsstring>(const NotNull&lt; Player &gt; &amp;player, const NotNull&lt; Actor &gt; &amp;entity, EquipmentSlot hand, ItemStack item, std::vector&lt; ItemStack &gt; drops)</argsstring>
         <name>PlayerShearEntityEvent</name>
         <qualifiedname>endstone::PlayerShearEntityEvent::PlayerShearEntityEvent</qualifiedname>
         <param>
@@ -87,6 +101,10 @@
         <param>
           <type><ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref></type>
           <declname>item</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref> &gt;</type>
+          <declname>drops</declname>
         </param>
         <briefdescription>
 <para>Constructs a player shear entity event. </para>
@@ -124,12 +142,20 @@
 <para>item used to shear the entity </para>
 </parameterdescription>
 </parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>drops</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>items dropped when the entity is sheared </para>
+</parameterdescription>
+</parameteritem>
 </parameterlist>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_shear_entity_event.h" line="37" column="5" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="37" bodyend="41"/>
+        <location file="include/endstone/event/player/player_shear_entity_event.h" line="39" column="5" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="39" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerShearEntityEvent_1a152edc923442121765ada3c8a8684382" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> <ref refid="classendstone_1_1NotNull" kindref="compound">NotNull</ref>&lt; <ref refid="classendstone_1_1Actor" kindref="compound">Actor</ref> &gt; &amp;</type>
@@ -147,7 +173,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_shear_entity_event.h" line="48" column="20" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="48" bodyend="48"/>
+        <location file="include/endstone/event/player/player_shear_entity_event.h" line="50" column="20" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="50" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerShearEntityEvent_1ad8eccd4ab31bc6bd6a70183b0ec61352" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="namespaceendstone_1afad3b218f2082aec71169d21f2493a39" kindref="member">EquipmentSlot</ref></type>
@@ -165,7 +191,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_shear_entity_event.h" line="55" column="20" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="55" bodyend="55"/>
+        <location file="include/endstone/event/player/player_shear_entity_event.h" line="57" column="20" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="57" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerShearEntityEvent_1aba0f8f68dab3ee5ac697d0b1211ae9b5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> <ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref> &amp;</type>
@@ -183,7 +209,54 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_shear_entity_event.h" line="62" column="22" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="62" bodyend="62"/>
+        <location file="include/endstone/event/player/player_shear_entity_event.h" line="64" column="22" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerShearEntityEvent_1a52e9993dde8adb063ebf9a07f79df8f3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> std::vector&lt; <ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref> &gt; &amp;</type>
+        <definition>const std::vector&lt; ItemStack &gt; &amp; endstone::PlayerShearEntityEvent::getDrops</definition>
+        <argsstring>() const</argsstring>
+        <name>getDrops</name>
+        <qualifiedname>endstone::PlayerShearEntityEvent::getDrops</qualifiedname>
+        <briefdescription>
+<para>Gets the items dropped when the entity is sheared. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>items dropped when the entity is sheared </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_shear_entity_event.h" line="71" column="24" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerShearEntityEvent_1a02d81f7dccb48657a4d24d4267bc4899" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">void</ref></type>
+        <definition>void endstone::PlayerShearEntityEvent::setDrops</definition>
+        <argsstring>(std::vector&lt; ItemStack &gt; drops)</argsstring>
+        <name>setDrops</name>
+        <qualifiedname>endstone::PlayerShearEntityEvent::setDrops</qualifiedname>
+        <param>
+          <type>std::vector&lt; <ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref> &gt;</type>
+          <declname>drops</declname>
+        </param>
+        <briefdescription>
+<para>Sets the items dropped when the entity is sheared. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>drops</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>items to drop when the entity is sheared </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_shear_entity_event.h" line="78" column="10" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="78" bodyend="78"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -258,14 +331,16 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/endstone/event/player/player_shear_entity_event.h" line="25" column="1" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="25" bodyend="68"/>
+    <location file="include/endstone/event/player/player_shear_entity_event.h" line="26" column="1" bodyfile="include/endstone/event/player/player_shear_entity_event.h" bodystart="26" bodyend="85"/>
     <listofallmembers>
       <member refid="classendstone_1_1Cancellable_1a3512b47db69c6001f5c0450051308327" prot="public" virt="virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>cancel</name></member>
+      <member refid="classendstone_1_1PlayerShearEntityEvent_1a450f014c5a0bbfa64a77203d16ab4d93" prot="private" virt="non-virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>drops_</name></member>
       <member refid="classendstone_1_1PlayerShearEntityEvent_1a7194ded93a28a6b29d4501d43471c5b6" prot="public" virt="non-virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>ENDSTONE_EVENT</name></member>
       <member refid="classendstone_1_1PlayerShearEntityEvent_1a725426162e1c2eb0ebbfc072517395b7" prot="private" virt="non-virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>entity_</name></member>
       <member refid="classendstone_1_1Event_1a28cca8d74920493b449d035540acf023" prot="public" virt="non-virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>Event</name></member>
       <member refid="classendstone_1_1Event_1a7199136ebb40e1441bc61e29f83c3cad" prot="public" virt="non-virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>Event</name></member>
       <member refid="classendstone_1_1Event_1ad20bafd16e0671578e37390b95e5104c" prot="public" virt="non-virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>Event</name></member>
+      <member refid="classendstone_1_1PlayerShearEntityEvent_1a52e9993dde8adb063ebf9a07f79df8f3" prot="public" virt="non-virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>getDrops</name></member>
       <member refid="classendstone_1_1PlayerShearEntityEvent_1a152edc923442121765ada3c8a8684382" prot="public" virt="non-virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>getEntity</name></member>
       <member refid="classendstone_1_1Event_1a826fe74f9c4195a36a364b9aeeb321bb" prot="public" virt="pure-virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>getEventName</name></member>
       <member refid="classendstone_1_1PlayerShearEntityEvent_1ad8eccd4ab31bc6bd6a70183b0ec61352" prot="public" virt="non-virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>getHand</name></member>
@@ -279,8 +354,9 @@
       <member refid="classendstone_1_1Event_1a1d7fc5400782d20be99a3636aa7f53b9" prot="public" virt="non-virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>operator=</name></member>
       <member refid="classendstone_1_1PlayerEvent_1ae0f8240e8c7c3a66281295c43b1d522a" prot="protected" virt="non-virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>player_</name></member>
       <member refid="classendstone_1_1PlayerEvent_1afee42449de6752241c5472a38f7d94a9" prot="public" virt="non-virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>PlayerEvent</name></member>
-      <member refid="classendstone_1_1PlayerShearEntityEvent_1a05175636c2e66980ca4832247a2dc0af" prot="public" virt="non-virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>PlayerShearEntityEvent</name></member>
+      <member refid="classendstone_1_1PlayerShearEntityEvent_1a0e6197ceb83979c30ada2eac6dd6b967" prot="public" virt="non-virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>PlayerShearEntityEvent</name></member>
       <member refid="classendstone_1_1Cancellable_1aa12df44bcb66924d06a689d0dd07865e" prot="public" virt="virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>setCancelled</name></member>
+      <member refid="classendstone_1_1PlayerShearEntityEvent_1a02d81f7dccb48657a4d24d4267bc4899" prot="public" virt="non-virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>setDrops</name></member>
       <member refid="classendstone_1_1Event_1a6aeaa8096baba90f8ace94106e0e05f3" prot="public" virt="virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>~Event</name></member>
       <member refid="classendstone_1_1ICancellable_1ab6d311fcaa18971f69a1b23f5a856301" prot="public" virt="virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>~ICancellable</name></member>
       <member refid="classendstone_1_1PlayerEvent_1ab31b937251b8ccc1c72c275d1c7a522b" prot="public" virt="non-virtual"><scope>endstone::PlayerShearEntityEvent</scope><name>~PlayerEvent</name></member>

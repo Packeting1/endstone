@@ -19,6 +19,7 @@
 #pragma once
 
 #include <utility>
+#include <vector>
 
 #include "endstone/event/cancellable.h"
 #include "endstone/event/player/player_event.h"
@@ -34,8 +35,8 @@ public:
     ENDSTONE_EVENT(PlayerShearEntityEvent);
 
     PlayerShearEntityEvent(const NotNull<Player> &player, const NotNull<Actor> &entity, EquipmentSlot hand,
-                           ItemStack item)
-        : Cancellable(player), entity_(entity), hand_(hand), item_(std::move(item))
+                           ItemStack item, std::vector<ItemStack> drops)
+        : Cancellable(player), entity_(entity), hand_(hand), item_(std::move(item)), drops_(std::move(drops))
     {
     }
 
@@ -45,10 +46,15 @@ public:
 
     [[nodiscard]] const ItemStack &getItem() const { return item_; }
 
+    [[nodiscard]] const std::vector<ItemStack> &getDrops() const { return drops_; }
+
+    void setDrops(std::vector<ItemStack> drops) { drops_ = std::move(drops); }
+
 private:
     NotNull<Actor> entity_;
     EquipmentSlot hand_;
     ItemStack item_;
+    std::vector<ItemStack> drops_;
 };
 
 }  // namespace endstone

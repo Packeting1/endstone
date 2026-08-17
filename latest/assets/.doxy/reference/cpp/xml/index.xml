@@ -2328,11 +2328,14 @@
     <member refid="classendstone_1_1PlayerShearEntityEvent_1a725426162e1c2eb0ebbfc072517395b7" kind="variable"><name>entity_</name></member>
     <member refid="classendstone_1_1PlayerShearEntityEvent_1a225c4e937c44ff659c13180dab48e02d" kind="variable"><name>hand_</name></member>
     <member refid="classendstone_1_1PlayerShearEntityEvent_1ae3bf1d962a47f8d7c0ae9c31448dd920" kind="variable"><name>item_</name></member>
+    <member refid="classendstone_1_1PlayerShearEntityEvent_1a450f014c5a0bbfa64a77203d16ab4d93" kind="variable"><name>drops_</name></member>
     <member refid="classendstone_1_1PlayerShearEntityEvent_1a7194ded93a28a6b29d4501d43471c5b6" kind="function"><name>ENDSTONE_EVENT</name></member>
-    <member refid="classendstone_1_1PlayerShearEntityEvent_1a05175636c2e66980ca4832247a2dc0af" kind="function"><name>PlayerShearEntityEvent</name></member>
+    <member refid="classendstone_1_1PlayerShearEntityEvent_1a0e6197ceb83979c30ada2eac6dd6b967" kind="function"><name>PlayerShearEntityEvent</name></member>
     <member refid="classendstone_1_1PlayerShearEntityEvent_1a152edc923442121765ada3c8a8684382" kind="function"><name>getEntity</name></member>
     <member refid="classendstone_1_1PlayerShearEntityEvent_1ad8eccd4ab31bc6bd6a70183b0ec61352" kind="function"><name>getHand</name></member>
     <member refid="classendstone_1_1PlayerShearEntityEvent_1aba0f8f68dab3ee5ac697d0b1211ae9b5" kind="function"><name>getItem</name></member>
+    <member refid="classendstone_1_1PlayerShearEntityEvent_1a52e9993dde8adb063ebf9a07f79df8f3" kind="function"><name>getDrops</name></member>
+    <member refid="classendstone_1_1PlayerShearEntityEvent_1a02d81f7dccb48657a4d24d4267bc4899" kind="function"><name>setDrops</name></member>
   </compound>
   <compound refid="classendstone_1_1PlayerSkinChangeEvent" kind="class"><name>endstone::PlayerSkinChangeEvent</name>
     <member refid="classendstone_1_1PlayerSkinChangeEvent_1a57dfa1e3c9e9fe052d06911c8665dae2" kind="variable"><name>new_skin_</name></member>

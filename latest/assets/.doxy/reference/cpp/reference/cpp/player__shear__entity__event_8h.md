@@ -11,6 +11,7 @@
 
 
 * `#include <utility>`
+* `#include <vector>`
 * `#include "endstone/event/cancellable.h"`
 * `#include "endstone/event/player/player_event.h"`
 * `#include "endstone/inventory/equipment_slot.h"`
