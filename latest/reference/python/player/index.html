@@ -1692,6 +1692,19 @@ For latest updates join the chat on
             
                 
                     <li class="md-nav__item">
+    <a href="#endstone.Player.send_block_update" class="md-nav__link">
+      <span class="md-ellipsis">
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;send_block_update
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
     <a href="#endstone.Player.send_form" class="md-nav__link">
       <span class="md-ellipsis">
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;send_form
@@ -3957,6 +3970,19 @@ For latest updates join the chat on
             
                 
                     <li class="md-nav__item">
+    <a href="#endstone.Player.send_block_update" class="md-nav__link">
+      <span class="md-ellipsis">
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;send_block_update
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+                
+                    <li class="md-nav__item">
     <a href="#endstone.Player.send_form" class="md-nav__link">
       <span class="md-ellipsis">
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;send_form
@@ -4429,6 +4455,14 @@ For latest updates join the chat on
               <td>
                 <div class="doc-md-description">
                   <p>Sends a block change to this player.</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><a class="autorefs autorefs-internal" title="            send_block_update (endstone.Player.send_block_update)" href="#endstone.Player.send_block_update">send_block_update</a></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Sends a tile state change to this player.</p>
                 </div>
               </td>
             </tr>
@@ -5973,8 +6007,8 @@ displayed to the client.</p>
 the sign block to the player's client; this method does not create it automatically. No sign is required to be
 placed in the dimension.
 The dimension component of <code>location</code> is ignored; only its block coordinates are used.
-This does not trigger <code>PlayerOpenSignEvent</code>.
-The client may enforce distance limits to the opened position.</p>
+The client may enforce distance limits to the opened position.
+This does not trigger <code>PlayerOpenSignEvent</code>.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -6335,6 +6369,79 @@ way.</p>
             <td>
               <div class="doc-md-description">
                 <p>The new block data.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="endstone.Player.send_block_update" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">send_block_update</span>
+
+
+<a href="#endstone.Player.send_block_update" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">send_block_update</span><span class="p">(</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">location</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Location (endstone.level.Location)" href="../level/#endstone.level.Location">Location</a></span><span class="p">,</span> <span class="n">tile_state</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            TileState (endstone.block.TileState)" href="../block/#endstone.block.TileState">TileState</a></span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</span></code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Sends a tile state change to this player.</p>
+<p>This fakes a tile state change for a user at the given location. This will not actually change the world in any
+way.</p>
+<p>If the block at the location is client-side only, call <code>send_block_change()</code> before this method. The tile state is
+sent only to this player and does not update the world.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>location</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="            Location (endstone.level.Location)" href="../level/#endstone.level.Location">Location</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The location of the changed block.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>tile_state</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="            TileState (endstone.block.TileState)" href="../block/#endstone.block.TileState">TileState</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The new tile state.</p>
               </div>
             </td>
             <td>

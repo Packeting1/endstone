@@ -393,7 +393,8 @@
     <member refid="classendstone_1_1Block_1a390b31ef485c4b5176842bd3a59b01bc" kind="function"><name>getY</name></member>
     <member refid="classendstone_1_1Block_1a9509b72c86339e30a4b50567f6d5279c" kind="function"><name>getZ</name></member>
     <member refid="classendstone_1_1Block_1a19e164bc3cf23481d01886dfeda41c85" kind="function"><name>getLocation</name></member>
-    <member refid="classendstone_1_1Block_1a95bac5d6f459fcfe924ba470d9b9da81" kind="function"><name>captureState</name></member>
+    <member refid="classendstone_1_1Block_1af390da2dbe119965fee1ebb9645a9836" kind="function"><name>captureState</name></member>
+    <member refid="classendstone_1_1Block_1a8b1b44ee743fc52e212d6a93f1c5ced7" kind="function"><name>captureState</name></member>
     <member refid="classendstone_1_1Block_1acf80e005f3032354d7cd7ed0057be6e7" kind="function"><name>clone</name></member>
   </compound>
   <compound refid="classendstone_1_1BlockBreakEvent" kind="class"><name>endstone::BlockBreakEvent</name>
@@ -1974,6 +1975,7 @@
     <member refid="classendstone_1_1Player_1a6d6c2f5f7d06af6b8a17d84acf355a67" kind="function"><name>canSee</name></member>
     <member refid="classendstone_1_1Player_1aa7be07ba39d551e840d0fb9dad53ec57" kind="function"><name>canSee</name></member>
     <member refid="classendstone_1_1Player_1ada52e8714d2008cb850d0740b9dfcd40" kind="function"><name>sendBlockChange</name></member>
+    <member refid="classendstone_1_1Player_1a2bdc5a77cec12a58881d322c2f62ff84" kind="function"><name>sendBlockUpdate</name></member>
     <member refid="classendstone_1_1Player_1a5cdb79fdd152c6c6ed8f251bd1e31523" kind="function"><name>isSneaking</name></member>
     <member refid="classendstone_1_1Player_1a23622b02f067bad332947a0b9459fd0a" kind="function"><name>setSneaking</name></member>
     <member refid="classendstone_1_1Player_1abb2a1b9ae99b24fc1e80ed5f73d55646" kind="function"><name>isSprinting</name></member>
@@ -3005,6 +3007,10 @@
     <member refid="classendstone_1_1ThunderChangeEvent_1a1f20d7ce8209c6817797bca7b2e1db5c" kind="function"><name>~ThunderChangeEvent</name></member>
     <member refid="classendstone_1_1ThunderChangeEvent_1ae3e78b8cabe8c813b36f186c3573c476" kind="function"><name>toThunderState</name></member>
   </compound>
+  <compound refid="classendstone_1_1TileState" kind="class"><name>endstone::TileState</name>
+    <member refid="classendstone_1_1TileState_1a0ec89ef069fad2f8d7e9a76d91502f42" kind="function"><name>~TileState</name></member>
+    <member refid="classendstone_1_1TileState_1acbbf3049584be7901333a766547d1e7e" kind="function"><name>isSnapshot</name></member>
+  </compound>
   <compound refid="classendstone_1_1Toggle" kind="class"><name>endstone::Toggle</name>
     <member refid="classendstone_1_1Toggle_1ab70b5d10613173b8cbe80b53c5f769a3" kind="variable"><name>label_</name></member>
     <member refid="classendstone_1_1Toggle_1a3229768ec0b1d6a3e3254177f74f7eff" kind="variable"><name>default_value_</name></member>
@@ -3393,6 +3399,8 @@
   <compound refid="sign_8h" kind="file"><name>sign.h</name>
   </compound>
   <compound refid="sign__side_8h" kind="file"><name>sign_side.h</name>
+  </compound>
+  <compound refid="tile__state_8h" kind="file"><name>tile_state.h</name>
   </compound>
   <compound refid="bar__color_8h" kind="file"><name>bar_color.h</name>
   </compound>

@@ -192,6 +192,7 @@ Inherits the following classes: [endstone::Mob](classendstone_1_1Mob.md)
 | virtual [**void**](classendstone_1_1Identifier.md) | [**resetTitle**](#function-resettitle) () const = 0<br>_Resets the title displayed to the player._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**sendActionBar**](#function-sendactionbar) (std::string message) const = 0<br>_Sends this player an action bar message._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**sendBlockChange**](#function-sendblockchange) ([**const**](classendstone_1_1Identifier.md) [**Location**](classendstone_1_1Location.md) & location, [**const**](classendstone_1_1Identifier.md) [**BlockData**](classendstone_1_1BlockData.md) & block) = 0<br>_Sends a block change to this player._  |
+| virtual [**void**](classendstone_1_1Identifier.md) | [**sendBlockUpdate**](#function-sendblockupdate) ([**const**](classendstone_1_1Identifier.md) [**Location**](classendstone_1_1Location.md) & location, [**const**](classendstone_1_1Identifier.md) [**TileState**](classendstone_1_1TileState.md) & tile\_state) = 0<br>_Sends a tile state change to this player._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**sendForm**](#function-sendform) (FormVariant form) = 0<br>_Sends a form to the player._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**sendMap**](#function-sendmap) ([**MapView**](classendstone_1_1MapView.md) & map) = 0<br>_Render a map and send it to the player in its entirety._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**sendPacket**](#function-sendpacket) ([**int**](classendstone_1_1Identifier.md) packet\_id, std::string\_view payload) const = 0<br>_Sends a packet to the player._  |
@@ -1528,6 +1529,41 @@ This fakes a block change packet for a user at a certain location. This will not
 
 * `location` The location of the changed block 
 * `block` The new block data 
+
+
+
+
+        
+
+<hr>
+
+
+
+### function sendBlockUpdate 
+
+_Sends a tile state change to this player._ 
+```C++
+virtual void endstone::Player::sendBlockUpdate (
+    const  Location & location,
+    const  TileState & tile_state
+) = 0
+```
+
+
+
+This fakes a tile state change for a user at the given location. This will not actually change the world in any way.
+
+
+If the block at the location is client-side only, call [**sendBlockChange()**](classendstone_1_1Player.md#function-sendblockchange) before this method. The tile state is sent only to this player and does not update the world.
+
+
+
+
+**Parameters:**
+
+
+* `location` The location of the changed block 
+* `tile_state` The new tile state 
 
 
 

@@ -242,6 +242,7 @@ _Represents a button with text and an optional icon._
 | class | [**Task**](classendstone_1_1Task.md) <br>_Represents a task being executed by the scheduler._  |
 | class | [**TextInput**](classendstone_1_1TextInput.md) <br>_Represents a text input field._  |
 | class | [**ThunderChangeEvent**](classendstone_1_1ThunderChangeEvent.md) <br>_Called when the thunder state in a world is changing._  |
+| class | [**TileState**](classendstone_1_1TileState.md) <br>_Represents a captured state of a block entity._  |
 | class | [**Toggle**](classendstone_1_1Toggle.md) <br>_Represents a toggle button with a label._  |
 | class | [**Translatable**](classendstone_1_1Translatable.md) <br>_Represents an object with a text representation that can be translated by the Minecraft client._  |
 | class | [**UUID**](classendstone_1_1UUID.md) <br>_Implementation of Universally Unique_ [_**Identifier**_](classendstone_1_1Identifier.md) _(_[_**UUID**_](classendstone_1_1UUID.md) _)._ |

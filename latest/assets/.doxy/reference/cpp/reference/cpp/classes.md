@@ -569,6 +569,8 @@
 ([**endstone**](namespaceendstone.md))
 * [**ThunderChangeEvent**](classendstone_1_1ThunderChangeEvent.md)
 ([**endstone**](namespaceendstone.md))
+* [**TileState**](classendstone_1_1TileState.md)
+([**endstone**](namespaceendstone.md))
 * [**Toggle**](classendstone_1_1Toggle.md)
 ([**endstone**](namespaceendstone.md))
 * [**Translatable**](classendstone_1_1Translatable.md)

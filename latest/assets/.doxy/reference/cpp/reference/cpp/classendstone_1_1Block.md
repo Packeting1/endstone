@@ -52,7 +52,8 @@ _Represents a block._ [More...](#detailed-description)
 
 | Type | Name |
 | ---: | :--- |
-| virtual std::unique\_ptr&lt; [**BlockState**](classendstone_1_1BlockState.md) &gt; | [**captureState**](#function-capturestate) () const = 0<br>_Captures the current state of this block._  |
+| virtual std::unique\_ptr&lt; [**BlockState**](classendstone_1_1BlockState.md) &gt; | [**captureState**](#function-capturestate-12) () const<br>_Captures the current state of this block as an independent snapshot._  |
+| virtual std::unique\_ptr&lt; [**BlockState**](classendstone_1_1BlockState.md) &gt; | [**captureState**](#function-capturestate-22) ([**bool**](classendstone_1_1Identifier.md) use\_snapshot) const = 0<br>_Captures the current state of this block._  |
 | virtual std::unique\_ptr&lt; [**Block**](classendstone_1_1Block.md) &gt; | [**clone**](#function-clone) () const = 0<br>_Creates a copy of the current block._  |
 | virtual [**const**](classendstone_1_1Identifier.md) [**Biome**](classendstone_1_1Biome.md) & | [**getBiome**](#function-getbiome) () const = 0<br>_Gets the biome that this block resides in._  |
 | virtual std::unique\_ptr&lt; [**BlockData**](classendstone_1_1BlockData.md) &gt; | [**getData**](#function-getdata) () const = 0<br>_Gets the complete block data for this block._  |
@@ -110,17 +111,51 @@ This is a live object, and only one [**Block**](classendstone_1_1Block.md) may e
 
 
 
-### function captureState 
+### function captureState [1/2]
 
-_Captures the current state of this block._ 
+_Captures the current state of this block as an independent snapshot._ 
 ```C++
-virtual std::unique_ptr< BlockState > endstone::Block::captureState () const = 0
+virtual std::unique_ptr< BlockState > endstone::Block::captureState () const
 ```
 
 
 
 The returned object will never be updated, and you are not guaranteed that (for example) a sign is still a sign after you capture its state.
 
+
+
+
+**Returns:**
+
+[**BlockState**](classendstone_1_1BlockState.md) with the current state of this block. 
+
+
+
+
+
+        
+
+<hr>
+
+
+
+### function captureState [2/2]
+
+_Captures the current state of this block._ 
+```C++
+virtual std::unique_ptr< BlockState > endstone::Block::captureState (
+    bool use_snapshot
+) const = 0
+```
+
+
+
+
+
+**Parameters:**
+
+
+* `use_snapshot` Whether a tile state should use an independent block entity snapshot. If `false`, the tile state is backed by the block entity currently residing in the world. 
 
 
 

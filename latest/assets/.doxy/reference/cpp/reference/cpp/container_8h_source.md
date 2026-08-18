@@ -24,12 +24,12 @@
 
 #pragma once
 
-#include "endstone/block/block_state.h"
+#include "endstone/block/tile_state.h"
 #include "endstone/inventory/inventory.h"
 
 namespace endstone {
 
-class Container : public BlockState {
+class Container : public TileState {
 public:
     [[nodiscard]] virtual Inventory &getInventory() const = 0;
 };

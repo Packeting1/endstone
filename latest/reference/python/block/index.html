@@ -2490,6 +2490,38 @@ For latest updates join the chat on
 </li>
                 
             
+                
+                    <li class="md-nav__item">
+    <a href="#endstone.block.TileState" class="md-nav__link">
+      <span class="md-ellipsis">
+        <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;TileState
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label=" TileState">
+        <ul class="md-nav__list">
+            
+                
+                    <li class="md-nav__item">
+    <a href="#endstone.block.TileState.is_snapshot" class="md-nav__link">
+      <span class="md-ellipsis">
+        <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;is_snapshot
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+                
+            
         </ul>
     </nav>
     
@@ -5037,6 +5069,38 @@ For latest updates join the chat on
 </li>
                 
             
+                
+                    <li class="md-nav__item">
+    <a href="#endstone.block.TileState" class="md-nav__link">
+      <span class="md-ellipsis">
+        <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;TileState
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+    <nav class="md-nav" aria-label=" TileState">
+        <ul class="md-nav__list">
+            
+                
+                    <li class="md-nav__item">
+    <a href="#endstone.block.TileState.is_snapshot" class="md-nav__link">
+      <span class="md-ellipsis">
+        <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;is_snapshot
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
+            
+        </ul>
+    </nav>
+    
+</li>
+                
+            
         </ul>
     </nav>
     
@@ -5218,6 +5282,14 @@ For latest updates join the chat on
             <td>
               <div class="doc-md-description">
                 <p>Represents a side of a sign.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><a class="autorefs autorefs-internal" title="            TileState (endstone.block.TileState)" href="#endstone.block.TileState">TileState</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Represents a captured state of a block entity.</p>
               </div>
             </td>
           </tr>
@@ -5919,7 +5991,7 @@ For latest updates join the chat on
 
 
 <a href="#endstone.block.Block.capture_state" class="headerlink" title="Permanent link">&para;</a></h4>
-<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">capture_state</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="            BlockState (endstone.block.BlockState)" href="#endstone.block.BlockState">BlockState</a></span>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">capture_state</span><span class="p">(</span><span class="n">use_snapshot</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="            BlockState (endstone.block.BlockState)" href="#endstone.block.BlockState">BlockState</a></span>
 </span></code></pre></div>
 
     <div class="doc doc-contents ">
@@ -5927,6 +5999,39 @@ For latest updates join the chat on
         <p>Captures the current state of this block.</p>
 <p>The returned object will never be updated, and you are not guaranteed that (for example) a
 sign is still a sign after you capture its state.</p>
+<p>By default, tile states use an independent block entity snapshot. Pass <code>False</code> to use the
+block entity currently residing in the world.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>use_snapshot</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to use an independent block entity snapshot.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
 
     <p><span class="doc-section-title">Returns:</span></p>
@@ -7556,7 +7661,7 @@ could cause them to update or disappear.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="            BlockState (endstone.block.BlockState)" href="#endstone.block.BlockState">BlockState</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="            TileState (endstone.block.TileState)" href="#endstone.block.TileState">TileState</a></code></p>
 
 
 
@@ -7990,7 +8095,7 @@ could cause them to update or disappear.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="            BlockState (endstone.block.BlockState)" href="#endstone.block.BlockState">BlockState</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="            TileState (endstone.block.TileState)" href="#endstone.block.TileState">TileState</a></code></p>
 
 
 
@@ -8099,7 +8204,7 @@ longer be valid.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="            BlockState (endstone.block.BlockState)" href="#endstone.block.BlockState">BlockState</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="            TileState (endstone.block.TileState)" href="#endstone.block.TileState">TileState</a></code></p>
 
 
 
@@ -8656,7 +8761,7 @@ than 0 will cause this block to be lit, whilst a time less than 0 will extinguis
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="            BlockState (endstone.block.BlockState)" href="#endstone.block.BlockState">BlockState</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="            TileState (endstone.block.TileState)" href="#endstone.block.TileState">TileState</a></code></p>
 
 
 
@@ -8963,7 +9068,7 @@ than 0 will cause this block to be lit, whilst a time less than 0 will extinguis
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="            BlockState (endstone.block.BlockState)" href="#endstone.block.BlockState">BlockState</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="            TileState (endstone.block.TileState)" href="#endstone.block.TileState">TileState</a></code></p>
 
 
 
@@ -9676,6 +9781,113 @@ than 0 will cause this block to be lit, whilst a time less than 0 will extinguis
     </div>
 
 </div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="endstone.block.TileState" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <span class="doc doc-object-name doc-class-name">TileState</span>
+
+
+<a href="#endstone.block.TileState" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="            BlockState (endstone.block.BlockState)" href="#endstone.block.BlockState">BlockState</a></code></p>
+
+
+
+        <p>Represents a captured state of a block entity.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><a class="autorefs autorefs-internal" title="            is_snapshot
+
+
+  
+      property
+   (endstone.block.TileState.is_snapshot)" href="#endstone.block.TileState.is_snapshot">is_snapshot</a></code></td>
+            <td>
+                  <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether this state is backed by an independent block entity snapshot.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="endstone.block.TileState.is_snapshot" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">is_snapshot</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+<a href="#endstone.block.TileState.is_snapshot" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">is_snapshot</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</span></code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Whether this state is backed by an independent block entity snapshot.</p>
+
+    </div>
+
+</div>
+
+
+
 
 
 

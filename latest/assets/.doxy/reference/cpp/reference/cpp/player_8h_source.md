@@ -47,6 +47,8 @@
 
 namespace endstone {
 
+class TileState;
+
 class Player : public Mob {
 protected:
     using FormVariant = std::variant<MessageForm, ActionForm, ModalForm>;
@@ -89,6 +91,8 @@ public:
     [[nodiscard]] virtual bool canSee(const Player &player) const = 0;
 
     virtual void sendBlockChange(const Location &location, const BlockData &block) = 0;
+
+    virtual void sendBlockUpdate(const Location &location, const TileState &tile_state) = 0;
 
     [[nodiscard]] virtual bool isSneaking() const = 0;
 

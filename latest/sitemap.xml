@@ -989,6 +989,10 @@
          <lastmod>2026-08-18</lastmod>
     </url>
     <url>
+         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1TileState/</loc>
+         <lastmod>2026-08-18</lastmod>
+    </url>
+    <url>
          <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1Toggle/</loc>
          <lastmod>2026-08-18</lastmod>
     </url>
@@ -1518,6 +1522,14 @@
     </url>
     <url>
          <loc>https://endstone.dev/latest/reference/cpp/sign_8h_source/</loc>
+         <lastmod>2026-08-18</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/tile__state_8h/</loc>
+         <lastmod>2026-08-18</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/tile__state_8h_source/</loc>
          <lastmod>2026-08-18</lastmod>
     </url>
     <url>

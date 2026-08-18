@@ -44,6 +44,7 @@ Here is a list of all files with brief descriptions:
             * **file** [**item\_frame.h**](item__frame_8h.md)     
             * **file** [**lectern.h**](lectern_8h.md)     
             * **file** [**sign.h**](sign_8h.md)     
+            * **file** [**tile\_state.h**](tile__state_8h.md)     
         * **dir** [**boss**](dir_d0a7fd8d5b72659767e2a2651b1ff51c.md)     
             * **file** [**bar\_color.h**](bar__color_8h.md)     
             * **file** [**bar\_flag.h**](bar__flag_8h.md)     

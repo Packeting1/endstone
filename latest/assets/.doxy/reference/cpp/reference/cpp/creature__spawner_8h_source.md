@@ -25,11 +25,11 @@
 #pragma once
 
 #include "endstone/actor/actor_type.h"
-#include "endstone/block/block_state.h"
+#include "endstone/block/tile_state.h"
 
 namespace endstone {
 
-class CreatureSpawner : public BlockState {
+class CreatureSpawner : public TileState {
 public:
     [[nodiscard]] virtual const ActorType &getSpawnedType() const = 0;
 
