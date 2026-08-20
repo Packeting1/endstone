@@ -176,6 +176,7 @@ Inherits the following classes: [endstone::Mob](classendstone_1_1Mob.md)
 | virtual std::string | [**getXuid**](#function-getxuid) () const = 0<br>_Returns the Xbox User ID (XUID) of this player._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**giveExp**](#function-giveexp) ([**int**](classendstone_1_1Identifier.md) amount) = 0<br>_Gives the player the amount of experience specified._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**giveExpLevels**](#function-giveexplevels) ([**int**](classendstone_1_1Identifier.md) amount) = 0<br>_Gives the player the amount of experience levels specified._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**isCrawling**](#function-iscrawling) () const = 0<br>_Gets whether the player is crawling or not._  |
 | virtual [**bool**](classendstone_1_1Identifier.md) | [**isFlying**](#function-isflying) () const = 0<br>_Checks to see if this player is currently flying or not._  |
 | virtual [**bool**](classendstone_1_1Identifier.md) | [**isOp**](#function-isop) () const = 0<br>_Checks if this player is a server operator._  |
 | virtual [**bool**](classendstone_1_1Identifier.md) | [**isSneaking**](#function-issneaking) () const = 0<br>_Returns if the player is in sneak mode._  |
@@ -230,6 +231,7 @@ See [endstone::Mob](classendstone_1_1Mob.md)
 | virtual [**bool**](classendstone_1_1Identifier.md) | [**hasAttribute**](classendstone_1_1Mob.md#function-hasattribute) ([**AttributeId**](classendstone_1_1Identifier.md) id) const = 0<br>_Checks whether the given attribute is present on the object._  |
 | virtual [**bool**](classendstone_1_1Identifier.md) | [**hasEffect**](classendstone_1_1Mob.md#function-haseffect) ([**EffectId**](classendstone_1_1Identifier.md) type) const = 0<br>_Returns whether the entity already has an existing effect of the given type applied to it._  |
 | virtual [**bool**](classendstone_1_1Identifier.md) | [**isGliding**](classendstone_1_1Mob.md#function-isgliding) () const = 0<br>_Checks to see if an actor is gliding, such as using an Elytra._  |
+| virtual [**bool**](classendstone_1_1Identifier.md) | [**isSwimming**](classendstone_1_1Mob.md#function-isswimming) () const = 0<br>_Checks to see if an actor is swimming._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**removeEffect**](classendstone_1_1Mob.md#function-removeeffect) ([**EffectId**](classendstone_1_1Identifier.md) type) = 0<br>_Removes any effects of the given type that are present on this entity._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**setHealth**](classendstone_1_1Mob.md#function-sethealth) ([**int**](classendstone_1_1Identifier.md) health) const = 0<br>_Sets the entity's health from 0 to its possible value, where 0 is dead._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**setMaxHealth**](classendstone_1_1Mob.md#function-setmaxhealth) ([**int**](classendstone_1_1Identifier.md) health) const = 0<br>_Sets the maximum health this entity can have._  |
@@ -1048,6 +1050,34 @@ virtual void endstone::Player::giveExpLevels (
 
 
 * `amount` amount of experience levels to give or take 
+
+
+
+
+        
+
+<hr>
+
+
+
+### function isCrawling 
+
+_Gets whether the player is crawling or not._ 
+```C++
+virtual bool endstone::Player::isCrawling () const = 0
+```
+
+
+
+Bukkit has no equivalent, as crawling is a pose there rather than a state the server tracks.
+
+
+
+
+**Returns:**
+
+`true` if the player is crawling. 
+
 
 
 
