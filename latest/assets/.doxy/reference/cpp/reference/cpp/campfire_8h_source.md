@@ -26,12 +26,12 @@
 
 #include <optional>
 
-#include "endstone/block/tile_state.h"
+#include "endstone/block/block_state.h"
 #include "endstone/inventory/item_stack.h"
 
 namespace endstone {
 
-class Campfire : public TileState {
+class Campfire : public BlockState {
 public:
     [[nodiscard]] virtual int getSize() const = 0;
 

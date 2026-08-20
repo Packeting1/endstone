@@ -193,13 +193,13 @@
         <childnode refid="16" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="4">
+      <node id="3">
         <label>endstone::Campfire</label>
         <link refid="classendstone_1_1Campfire"/>
-        <childnode refid="3" relation="public-inheritance">
+        <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="11">
+      <node id="10">
         <label>endstone::Command</label>
         <link refid="classendstone_1_1Command"/>
         <childnode refid="1" relation="public-inheritance">
@@ -223,28 +223,28 @@
         <childnode refid="19" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="5">
+      <node id="4">
         <label>endstone::Container</label>
         <link refid="classendstone_1_1Container"/>
-        <childnode refid="3" relation="public-inheritance">
+        <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="8">
+      <node id="7">
         <label>endstone::CreatureSpawner</label>
         <link refid="classendstone_1_1CreatureSpawner"/>
-        <childnode refid="3" relation="public-inheritance">
+        <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="14">
+      <node id="13">
         <label>endstone::CrossbowMeta</label>
         <link refid="classendstone_1_1CrossbowMeta"/>
-        <childnode refid="13" relation="public-inheritance">
+        <childnode refid="12" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="6">
+      <node id="5">
         <label>endstone::Furnace</label>
         <link refid="classendstone_1_1Furnace"/>
-        <childnode refid="5" relation="public-inheritance">
+        <childnode refid="4" relation="public-inheritance">
         </childnode>
       </node>
       <node id="21">
@@ -253,28 +253,28 @@
         <childnode refid="20" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="9">
+      <node id="8">
         <label>endstone::ItemFrame</label>
         <link refid="classendstone_1_1ItemFrame"/>
-        <childnode refid="3" relation="public-inheritance">
+        <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="13">
+      <node id="12">
         <label>endstone::ItemMeta</label>
         <link refid="classendstone_1_1ItemMeta"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="7">
+      <node id="6">
         <label>endstone::Lectern</label>
         <link refid="classendstone_1_1Lectern"/>
-        <childnode refid="5" relation="public-inheritance">
+        <childnode refid="4" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="15">
+      <node id="14">
         <label>endstone::MapMeta</label>
         <link refid="classendstone_1_1MapMeta"/>
-        <childnode refid="13" relation="public-inheritance">
+        <childnode refid="12" relation="public-inheritance">
         </childnode>
       </node>
       <node id="22">
@@ -299,28 +299,28 @@
         <childnode refid="22" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="12">
+      <node id="11">
         <label>endstone::PluginCommand</label>
         <link refid="classendstone_1_1PluginCommand"/>
-        <childnode refid="11" relation="public-inheritance">
+        <childnode refid="10" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="10">
+      <node id="15">
+        <label>endstone::PotionMeta</label>
+        <link refid="classendstone_1_1PotionMeta"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
         <label>endstone::Sign</label>
         <link refid="classendstone_1_1Sign"/>
-        <childnode refid="3" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>endstone::TileState</label>
-        <link refid="classendstone_1_1TileState"/>
         <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
       <node id="16">
         <label>endstone::WritableBookMeta</label>
         <link refid="classendstone_1_1WritableBookMeta"/>
-        <childnode refid="13" relation="public-inheritance">
+        <childnode refid="12" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>

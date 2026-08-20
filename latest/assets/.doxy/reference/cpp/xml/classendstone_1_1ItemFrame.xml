@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="classendstone_1_1ItemFrame" kind="class" language="C++" prot="public" abstract="yes">
     <compoundname>endstone::ItemFrame</compoundname>
-    <basecompoundref refid="classendstone_1_1TileState" prot="public" virt="non-virtual">endstone::TileState</basecompoundref>
+    <basecompoundref refid="classendstone_1_1BlockState" prot="public" virt="non-virtual">endstone::BlockState</basecompoundref>
     <includes refid="item__frame_8h" local="no">endstone/block/item_frame.h</includes>
     <sectiondef kind="public-func">
       <memberdef kind="function" id="classendstone_1_1ItemFrame_1a028e5c9152a2f02b01dac98921116abf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
@@ -172,10 +172,10 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="3">
+      <node id="2">
         <label>endstone::BlockState</label>
         <link refid="classendstone_1_1BlockState"/>
-        <childnode refid="4" relation="public-inheritance">
+        <childnode refid="3" relation="public-inheritance">
         </childnode>
       </node>
       <node id="1">
@@ -184,22 +184,16 @@
         <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="4">
+      <node id="3">
         <label>endstone::Object</label>
         <link refid="classendstone_1_1Object"/>
-      </node>
-      <node id="2">
-        <label>endstone::TileState</label>
-        <link refid="classendstone_1_1TileState"/>
-        <childnode refid="3" relation="public-inheritance">
-        </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="3">
+      <node id="2">
         <label>endstone::BlockState</label>
         <link refid="classendstone_1_1BlockState"/>
-        <childnode refid="4" relation="public-inheritance">
+        <childnode refid="3" relation="public-inheritance">
         </childnode>
       </node>
       <node id="1">
@@ -208,15 +202,9 @@
         <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="4">
+      <node id="3">
         <label>endstone::Object</label>
         <link refid="classendstone_1_1Object"/>
-      </node>
-      <node id="2">
-        <label>endstone::TileState</label>
-        <link refid="classendstone_1_1TileState"/>
-        <childnode refid="3" relation="public-inheritance">
-        </childnode>
       </node>
     </collaborationgraph>
     <location file="include/endstone/block/item_frame.h" line="28" column="1" bodyfile="include/endstone/block/item_frame.h" bodystart="28" bodyend="84"/>
@@ -237,7 +225,6 @@
       <member refid="classendstone_1_1BlockState_1a1d4ccdc3539f2d549ef3d98393bb89af" prot="public" virt="pure-virtual"><scope>endstone::ItemFrame</scope><name>getZ</name></member>
       <member refid="classendstone_1_1Object_1ae8213ae15ad1b14e4631399c6b18960a" prot="public" virt="non-virtual"><scope>endstone::ItemFrame</scope><name>is</name></member>
       <member refid="classendstone_1_1Object_1a20376536a5f64ef02b2569af132171d4" prot="public" virt="pure-virtual"><scope>endstone::ItemFrame</scope><name>isInstanceOf</name></member>
-      <member refid="classendstone_1_1TileState_1acbbf3049584be7901333a766547d1e7e" prot="public" virt="pure-virtual"><scope>endstone::ItemFrame</scope><name>isSnapshot</name></member>
       <member refid="classendstone_1_1BlockState_1ac85e292da7159b3835cc3919e68c08c7" prot="public" virt="pure-virtual"><scope>endstone::ItemFrame</scope><name>setData</name></member>
       <member refid="classendstone_1_1ItemFrame_1abb68493efbfa0c6a2776e245fa24b6c7" prot="public" virt="pure-virtual"><scope>endstone::ItemFrame</scope><name>setItem</name></member>
       <member refid="classendstone_1_1ItemFrame_1a4e27ad5cceeb0e412adf8a532482823d" prot="public" virt="pure-virtual"><scope>endstone::ItemFrame</scope><name>setItemDropChance</name></member>
@@ -248,7 +235,6 @@
       <member refid="classendstone_1_1BlockState_1a6bb9b025f0e02b8ec732e6a74c27b599" prot="public" virt="pure-virtual"><scope>endstone::ItemFrame</scope><name>update</name></member>
       <member refid="classendstone_1_1BlockState_1a0f5a2bfe6eb4e93737f1cb9f47b54154" prot="public" virt="non-virtual"><scope>endstone::ItemFrame</scope><name>~BlockState</name></member>
       <member refid="classendstone_1_1Object_1adfddc886af4b1d0e09ddac7d0391b4d2" prot="public" virt="virtual"><scope>endstone::ItemFrame</scope><name>~Object</name></member>
-      <member refid="classendstone_1_1TileState_1a0ec89ef069fad2f8d7e9a76d91502f42" prot="public" virt="non-virtual"><scope>endstone::ItemFrame</scope><name>~TileState</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

@@ -76,9 +76,7 @@ public:
 
     [[nodiscard]] virtual Location getLocation() const = 0;
 
-    [[nodiscard]] virtual std::unique_ptr<BlockState> captureState() const;
-
-    [[nodiscard]] virtual std::unique_ptr<BlockState> captureState(bool use_snapshot) const = 0;
+    [[nodiscard]] virtual std::unique_ptr<BlockState> captureState() const = 0;
 
     [[nodiscard]] virtual std::unique_ptr<Block> clone() const = 0;
 };

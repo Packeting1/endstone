@@ -8,7 +8,7 @@
 
 
 
-_Called when a player starts or stops a riptide attack._ 
+_Called when a player activates the riptide enchantment, using their trident to propel them through the air._ [More...](#detailed-description)
 
 * `#include <endstone/event/player/player_riptide_event.h>`
 
@@ -93,8 +93,9 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 
 | Type | Name |
 | ---: | :--- |
-|   | [**PlayerRiptideEvent**](#function-playerriptideevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**bool**](classendstone_1_1Identifier.md) riptiding) <br> |
-|  [**bool**](classendstone_1_1Identifier.md) | [**isRiptiding**](#function-isriptiding) () const<br>_Gets whether the player is riptiding._  |
+|   | [**ENDSTONE\_EVENT**](#function-endstone_event) ([**PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md)) <br> |
+|   | [**PlayerRiptideEvent**](#function-playerriptideevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**ItemStack**](classendstone_1_1ItemStack.md) item) <br> |
+|  [**const**](classendstone_1_1Identifier.md) [**ItemStack**](classendstone_1_1ItemStack.md) & | [**getItem**](#function-getitem) () const<br>_Gets the item containing the used enchantment._  |
 
 
 ## Public Functions inherited from endstone::PlayerEvent
@@ -209,17 +210,30 @@ See [endstone::PlayerEvent](classendstone_1_1PlayerEvent.md)
 
 
 
+## Detailed Description
+
+
+
+
+**Note:**
+
+The riptide action is currently performed client side, so manipulating the player in this event may have undesired effects. 
+
+
+
+
+
+    
 ## Public Functions Documentation
 
 
 
 
-### function PlayerRiptideEvent 
+### function ENDSTONE\_EVENT 
 
 ```C++
-inline explicit endstone::PlayerRiptideEvent::PlayerRiptideEvent (
-    const  NotNull < Player > & player,
-    bool riptiding
+endstone::PlayerRiptideEvent::ENDSTONE_EVENT (
+    PlayerRiptideEvent
 ) 
 ```
 
@@ -230,11 +244,27 @@ inline explicit endstone::PlayerRiptideEvent::PlayerRiptideEvent (
 
 
 
-### function isRiptiding 
+### function PlayerRiptideEvent 
 
-_Gets whether the player is riptiding._ 
 ```C++
-inline bool endstone::PlayerRiptideEvent::isRiptiding () const
+inline explicit endstone::PlayerRiptideEvent::PlayerRiptideEvent (
+    const  NotNull < Player > & player,
+    ItemStack item
+) 
+```
+
+
+
+
+<hr>
+
+
+
+### function getItem 
+
+_Gets the item containing the used enchantment._ 
+```C++
+inline const  ItemStack & endstone::PlayerRiptideEvent::getItem () const
 ```
 
 
@@ -243,7 +273,7 @@ inline bool endstone::PlayerRiptideEvent::isRiptiding () const
 
 **Returns:**
 
-true when starting riptide, false when stopping 
+an [**ItemStack**](classendstone_1_1ItemStack.md) for the trident being used 
 
 
 

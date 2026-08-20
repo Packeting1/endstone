@@ -34,7 +34,6 @@
 | file | [**item\_frame.h**](item__frame_8h.md) <br> |
 | file | [**lectern.h**](lectern_8h.md) <br> |
 | file | [**sign.h**](sign_8h.md) <br> |
-| file | [**tile\_state.h**](tile__state_8h.md) <br> |
 
 
 ## Directories

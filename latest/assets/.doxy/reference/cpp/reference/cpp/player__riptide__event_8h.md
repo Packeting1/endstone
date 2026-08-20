@@ -10,7 +10,9 @@
 
 
 
+* `#include <utility>`
 * `#include "endstone/event/player/player_event.h"`
+* `#include "endstone/inventory/item_stack.h"`
 
 
 
@@ -35,7 +37,7 @@
 
 | Type | Name |
 | ---: | :--- |
-| class | [**PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md) <br>_Called when a player starts or stops a riptide attack._  |
+| class | [**PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md) <br>_Called when a player activates the riptide enchantment, using their trident to propel them through the air._  |
 
 
 

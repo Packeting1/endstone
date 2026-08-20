@@ -14,27 +14,7 @@ _Represents a captured state of a campfire._
 
 
 
-Inherits the following classes: [endstone::TileState](classendstone_1_1TileState.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Inherits the following classes: [endstone::BlockState](classendstone_1_1BlockState.md)
 
 
 
@@ -120,16 +100,6 @@ Inherits the following classes: [endstone::TileState](classendstone_1_1TileState
 | virtual [**void**](classendstone_1_1Identifier.md) | [**setItem**](#function-setitem) ([**int**](classendstone_1_1Identifier.md) index, [**const**](classendstone_1_1Identifier.md) std::optional&lt; [**ItemStack**](classendstone_1_1ItemStack.md) &gt; & item) = 0<br>_Sets the item currently cooking in the given slot._  |
 
 
-## Public Functions inherited from endstone::TileState
-
-See [endstone::TileState](classendstone_1_1TileState.md)
-
-| Type | Name |
-| ---: | :--- |
-| virtual [**bool**](classendstone_1_1Identifier.md) | [**isSnapshot**](classendstone_1_1TileState.md#function-issnapshot) () const = 0<br>_Gets whether this state is backed by an independent block entity snapshot._  |
-|   | [**~TileState**](classendstone_1_1TileState.md#function-tilestate) () override<br> |
-
-
 ## Public Functions inherited from endstone::BlockState
 
 See [endstone::BlockState](classendstone_1_1BlockState.md)
@@ -164,32 +134,6 @@ See [endstone::Object](classendstone_1_1Object.md)
 |  [**bool**](classendstone_1_1Identifier.md) | [**is**](classendstone_1_1Object.md#function-is) () const<br>_Checks if this object is an instance of the given type T (or a subclass of T)._  |
 | virtual [**bool**](classendstone_1_1Identifier.md) | [**isInstanceOf**](classendstone_1_1Object.md#function-isinstanceof) ([**const**](classendstone_1_1Identifier.md) std::type\_info & target) const = 0<br> |
 | virtual  | [**~Object**](classendstone_1_1Object.md#function-object) () = default<br> |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

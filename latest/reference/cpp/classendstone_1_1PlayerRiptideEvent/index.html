@@ -2629,6 +2629,17 @@ For latest updates join the chat on
 </li>
       
         <li class="md-nav__item">
+    <a href="#detailed-description" class="md-nav__link">
+      <span class="md-ellipsis">
+        Detailed Description
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+      
+        <li class="md-nav__item">
     <a href="#public-functions-documentation" class="md-nav__link">
       <span class="md-ellipsis">
         Public Functions Documentation
@@ -2639,6 +2650,19 @@ For latest updates join the chat on
     
     <nav class="md-nav" aria-label="Public Functions Documentation">
         <ul class="md-nav__list">
+            
+                
+                    <li class="md-nav__item">
+    <a href="#function-endstone_event" class="md-nav__link">
+      <span class="md-ellipsis">
+        function ENDSTONE_EVENT
+      </span>
+    </a>
+
+    <!-- Table of contents list -->
+    
+</li>
+                
             
                 
                     <li class="md-nav__item">
@@ -2655,9 +2679,9 @@ For latest updates join the chat on
             
                 
                     <li class="md-nav__item">
-    <a href="#function-isriptiding" class="md-nav__link">
+    <a href="#function-getitem" class="md-nav__link">
       <span class="md-ellipsis">
-        function isRiptiding
+        function getItem
       </span>
     </a>
 
@@ -2706,7 +2730,7 @@ For latest updates join the chat on
 
 <h1 id="class-endstoneplayerriptideevent">Class endstone::PlayerRiptideEvent<a class="headerlink" href="#class-endstoneplayerriptideevent" title="Permanent link">&para;</a></h1>
 <p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="../namespaceendstone/"><strong>endstone</strong></a> <strong>&gt;</strong> <a href="./"><strong>PlayerRiptideEvent</strong></a></p>
-<p><em>Called when a player starts or stops a riptide attack.</em> </p>
+<p><em>Called when a player activates the riptide enchantment, using their trident to propel them through the air.</em> <a href="#detailed-description">More...</a></p>
 <ul>
 <li><code>#include &lt;endstone/event/player/player_riptide_event.h&gt;</code></li>
 </ul>
@@ -2722,11 +2746,15 @@ For latest updates join the chat on
 <tbody>
 <tr>
 <td style="text-align: right;"></td>
-<td style="text-align: left;"><a href="#function-playerriptideevent"><strong>PlayerRiptideEvent</strong></a> (<a href="../classendstone_1_1Identifier/"><strong>const</strong></a> <a href="../classendstone_1_1NotNull/"><strong>NotNull</strong></a>&lt; <a href="../classendstone_1_1Player/"><strong>Player</strong></a> &gt; &amp; player, <a href="../classendstone_1_1Identifier/"><strong>bool</strong></a> riptiding) <br></td>
+<td style="text-align: left;"><a href="#function-endstone_event"><strong>ENDSTONE_EVENT</strong></a> (<a href="./"><strong>PlayerRiptideEvent</strong></a>) <br></td>
 </tr>
 <tr>
-<td style="text-align: right;"><a href="../classendstone_1_1Identifier/"><strong>bool</strong></a></td>
-<td style="text-align: left;"><a href="#function-isriptiding"><strong>isRiptiding</strong></a> () const<br><em>Gets whether the player is riptiding.</em></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-playerriptideevent"><strong>PlayerRiptideEvent</strong></a> (<a href="../classendstone_1_1Identifier/"><strong>const</strong></a> <a href="../classendstone_1_1NotNull/"><strong>NotNull</strong></a>&lt; <a href="../classendstone_1_1Player/"><strong>Player</strong></a> &gt; &amp; player, <a href="../classendstone_1_1ItemStack/"><strong>ItemStack</strong></a> item) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="../classendstone_1_1Identifier/"><strong>const</strong></a> <a href="../classendstone_1_1ItemStack/"><strong>ItemStack</strong></a> &amp;</td>
+<td style="text-align: left;"><a href="#function-getitem"><strong>getItem</strong></a> () const<br><em>Gets the item containing the used enchantment.</em></td>
 </tr>
 </tbody>
 </table>
@@ -2814,21 +2842,31 @@ For latest updates join the chat on
 </tr>
 </tbody>
 </table>
+<h2 id="detailed-description">Detailed Description<a class="headerlink" href="#detailed-description" title="Permanent link">&para;</a></h2>
+<p><strong>Note:</strong></p>
+<p>The riptide action is currently performed client side, so manipulating the player in this event may have undesired effects. </p>
 <h2 id="public-functions-documentation">Public Functions Documentation<a class="headerlink" href="#public-functions-documentation" title="Permanent link">&para;</a></h2>
-<h3 id="function-playerriptideevent">function PlayerRiptideEvent<a class="headerlink" href="#function-playerriptideevent" title="Permanent link">&para;</a></h3>
-<div class="language-C++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">endstone</span><span class="o">::</span><span class="n">PlayerRiptideEvent</span><span class="o">::</span><span class="n">PlayerRiptideEvent</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">const</span><span class="w">  </span><span class="n">NotNull</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Player</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">player</span><span class="p">,</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">riptiding</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">)</span><span class="w"> </span>
+<h3 id="function-endstone_event">function ENDSTONE_EVENT<a class="headerlink" href="#function-endstone_event" title="Permanent link">&para;</a></h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">endstone</span><span class="o">::</span><span class="n">PlayerRiptideEvent</span><span class="o">::</span><span class="n">ENDSTONE_EVENT</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">PlayerRiptideEvent</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">)</span><span class="w"> </span>
 </span></code></pre></div>
 <hr>
 
-<h3 id="function-isriptiding">function isRiptiding<a class="headerlink" href="#function-isriptiding" title="Permanent link">&para;</a></h3>
-<p><em>Gets whether the player is riptiding.</em> 
-<div class="language-C++ highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">endstone</span><span class="o">::</span><span class="n">PlayerRiptideEvent</span><span class="o">::</span><span class="n">isRiptiding</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<h3 id="function-playerriptideevent">function PlayerRiptideEvent<a class="headerlink" href="#function-playerriptideevent" title="Permanent link">&para;</a></h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">endstone</span><span class="o">::</span><span class="n">PlayerRiptideEvent</span><span class="o">::</span><span class="n">PlayerRiptideEvent</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="k">const</span><span class="w">  </span><span class="n">NotNull</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Player</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">player</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">ItemStack</span><span class="w"> </span><span class="n">item</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-getitem">function getItem<a class="headerlink" href="#function-getitem" title="Permanent link">&para;</a></h3>
+<p><em>Gets the item containing the used enchantment.</em> 
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w">  </span><span class="n">ItemStack</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">endstone</span><span class="o">::</span><span class="n">PlayerRiptideEvent</span><span class="o">::</span><span class="n">getItem</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </span></code></pre></div></p>
 <p><strong>Returns:</strong></p>
-<p>true when starting riptide, false when stopping </p>
+<p>an <a href="../classendstone_1_1ItemStack/"><strong>ItemStack</strong></a> for the trident being used </p>
 <hr>
 
 <hr />

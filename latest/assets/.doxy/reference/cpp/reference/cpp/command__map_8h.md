@@ -12,6 +12,8 @@
 
 * `#include <memory>`
 * `#include <string>`
+* `#include <type_traits>`
+* `#include <utility>`
 * `#include <vector>`
 * `#include "endstone/command/command_sender.h"`
 * `#include "endstone/util/pointers.h"`

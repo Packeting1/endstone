@@ -36,7 +36,7 @@
 
 | Type | Name |
 | ---: | :--- |
-| class | [**PlayerInputEvent**](classendstone_1_1PlayerInputEvent.md) <br>_Represents an event that is called when a player sends updated input to the server._  |
+| class | [**PlayerInputEvent**](classendstone_1_1PlayerInputEvent.md) <br>_Called when a player sends updated input to the server._  |
 
 
 

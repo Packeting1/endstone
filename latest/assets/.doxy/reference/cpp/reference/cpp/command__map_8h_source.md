@@ -26,6 +26,8 @@
 
 #include <memory>
 #include <string>
+#include <type_traits>
+#include <utility>
 #include <vector>
 
 #include "endstone/command/command_sender.h"
@@ -45,13 +47,20 @@ public:
 
     virtual ~CommandMap() = default;
 
-    virtual bool registerCommand(std::shared_ptr<Command> command) = 0;
+    virtual bool registerCommand(NotNull<Command> command) = 0;
+
+    template <class T, class... Args>
+        requires std::is_base_of_v<Command, T>
+    bool registerCommand(Args &&...args)
+    {
+        return registerCommand(std::make_shared<T>(std::forward<Args>(args)...));
+    }
 
     virtual bool dispatch(const NotNull<CommandSender> &sender, std::string command_line) const = 0;
 
     virtual void clearCommands() = 0;
 
-    [[nodiscard]] virtual std::shared_ptr<Command> getCommand(std::string name) const = 0;
+    [[nodiscard]] virtual Nullable<Command> getCommand(std::string name) const = 0;
 };
 }  // namespace endstone
 ```

@@ -8,13 +8,13 @@
 
 
 
-_Represents a captured state of a sign._ [More...](#detailed-description)
+_Represents a captured state of a sign._ 
 
 * `#include <endstone/block/sign.h>`
 
 
 
-Inherits the following classes: [endstone::TileState](classendstone_1_1TileState.md)
+Inherits the following classes: [endstone::BlockState](classendstone_1_1BlockState.md)
 
 
 
@@ -94,26 +94,6 @@ Inherits the following classes: [endstone::TileState](classendstone_1_1TileState
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Public Functions
 
 | Type | Name |
@@ -121,16 +101,6 @@ Inherits the following classes: [endstone::TileState](classendstone_1_1TileState
 | virtual [**SignSide**](classendstone_1_1SignSide.md) & | [**getSide**](#function-getside) ([**Side**](classendstone_1_1Sign.md#enum-side) side) const = 0<br>_Gets the side of this sign._  |
 | virtual [**bool**](classendstone_1_1Identifier.md) | [**isWaxed**](#function-iswaxed) () const = 0<br>_Gets whether this sign is waxed._  |
 | virtual [**void**](classendstone_1_1Identifier.md) | [**setWaxed**](#function-setwaxed) ([**bool**](classendstone_1_1Identifier.md) waxed) = 0<br>_Sets whether this sign is waxed._  |
-
-
-## Public Functions inherited from endstone::TileState
-
-See [endstone::TileState](classendstone_1_1TileState.md)
-
-| Type | Name |
-| ---: | :--- |
-| virtual [**bool**](classendstone_1_1Identifier.md) | [**isSnapshot**](classendstone_1_1TileState.md#function-issnapshot) () const = 0<br>_Gets whether this state is backed by an independent block entity snapshot._  |
-|   | [**~TileState**](classendstone_1_1TileState.md#function-tilestate) () override<br> |
 
 
 ## Public Functions inherited from endstone::BlockState
@@ -247,39 +217,6 @@ See [endstone::Object](classendstone_1_1Object.md)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Detailed Description
-
-
-Changes are kept in the captured state until [**update()**](classendstone_1_1BlockState.md#function-update-13) is called. 
-
-
-    
 ## Public Types Documentation
 
 

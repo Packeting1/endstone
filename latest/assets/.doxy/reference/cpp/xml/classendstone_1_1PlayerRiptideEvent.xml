@@ -5,26 +5,43 @@
     <basecompoundref refid="classendstone_1_1PlayerEvent" prot="public" virt="non-virtual">endstone::PlayerEvent</basecompoundref>
     <includes refid="player__riptide__event_8h" local="no">endstone/event/player/player_riptide_event.h</includes>
     <sectiondef kind="private-attrib">
-      <memberdef kind="variable" id="classendstone_1_1PlayerRiptideEvent_1a1118b1d70bd1101b9ecbb2c4fe5960d3" prot="private" static="no" mutable="no">
-        <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>
-        <definition>bool endstone::PlayerRiptideEvent::riptiding_</definition>
+      <memberdef kind="variable" id="classendstone_1_1PlayerRiptideEvent_1ab65d73b770528468e3cb83581cd7c8ca" prot="private" static="no" mutable="no">
+        <type><ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref></type>
+        <definition>ItemStack endstone::PlayerRiptideEvent::item_</definition>
         <argsstring></argsstring>
-        <name>riptiding_</name>
-        <qualifiedname>endstone::PlayerRiptideEvent::riptiding_</qualifiedname>
+        <name>item_</name>
+        <qualifiedname>endstone::PlayerRiptideEvent::item_</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_riptide_event.h" line="41" column="10" bodyfile="include/endstone/event/player/player_riptide_event.h" bodystart="41" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_riptide_event.h" line="47" column="15" bodyfile="include/endstone/event/player/player_riptide_event.h" bodystart="47" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
-      <memberdef kind="function" id="classendstone_1_1PlayerRiptideEvent_1acaca0944f238e4840be52efd958b45d6" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classendstone_1_1PlayerRiptideEvent_1af1ed91b1cdbc6edfc9179f6297fcbcb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>endstone::PlayerRiptideEvent::ENDSTONE_EVENT</definition>
+        <argsstring>(PlayerRiptideEvent)</argsstring>
+        <name>ENDSTONE_EVENT</name>
+        <qualifiedname>endstone::PlayerRiptideEvent::ENDSTONE_EVENT</qualifiedname>
+        <param>
+          <type><ref refid="classendstone_1_1PlayerRiptideEvent" kindref="compound">PlayerRiptideEvent</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/endstone/event/player/player_riptide_event.h" line="32" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classendstone_1_1PlayerRiptideEvent_1ae91951af777fa806cf92a42b2f20a49a" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
         <definition>endstone::PlayerRiptideEvent::PlayerRiptideEvent</definition>
-        <argsstring>(const NotNull&lt; Player &gt; &amp;player, bool riptiding)</argsstring>
+        <argsstring>(const NotNull&lt; Player &gt; &amp;player, ItemStack item)</argsstring>
         <name>PlayerRiptideEvent</name>
         <qualifiedname>endstone::PlayerRiptideEvent::PlayerRiptideEvent</qualifiedname>
         <param>
@@ -32,8 +49,8 @@
           <declname>player</declname>
         </param>
         <param>
-          <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>
-          <declname>riptiding</declname>
+          <type><ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref></type>
+          <declname>item</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -41,31 +58,34 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_riptide_event.h" line="28" column="14" bodyfile="include/endstone/event/player/player_riptide_event.h" bodystart="28" bodyend="31"/>
+        <location file="include/endstone/event/player/player_riptide_event.h" line="34" column="14" bodyfile="include/endstone/event/player/player_riptide_event.h" bodystart="34" bodyend="37"/>
       </memberdef>
-      <memberdef kind="function" id="classendstone_1_1PlayerRiptideEvent_1a0c0da9d8980df9a53e025bc69a853333" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>
-        <definition>bool endstone::PlayerRiptideEvent::isRiptiding</definition>
+      <memberdef kind="function" id="classendstone_1_1PlayerRiptideEvent_1a06eaa93f42fea6e7eea2141a1d2670eb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classendstone_1_1Identifier" kindref="compound">const</ref> <ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref> &amp;</type>
+        <definition>const ItemStack &amp; endstone::PlayerRiptideEvent::getItem</definition>
         <argsstring>() const</argsstring>
-        <name>isRiptiding</name>
-        <qualifiedname>endstone::PlayerRiptideEvent::isRiptiding</qualifiedname>
+        <name>getItem</name>
+        <qualifiedname>endstone::PlayerRiptideEvent::getItem</qualifiedname>
         <briefdescription>
-<para>Gets whether the player is riptiding. </para>
+<para>Gets the item containing the used enchantment. </para>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>true when starting riptide, false when stopping </para>
+<para><simplesect kind="return"><para>an <ref refid="classendstone_1_1ItemStack" kindref="compound">ItemStack</ref> for the trident being used </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_riptide_event.h" line="38" column="11" bodyfile="include/endstone/event/player/player_riptide_event.h" bodystart="38" bodyend="38"/>
+        <location file="include/endstone/event/player/player_riptide_event.h" line="44" column="22" bodyfile="include/endstone/event/player/player_riptide_event.h" bodystart="44" bodyend="44"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
-<para>Called when a player starts or stops a riptide attack. </para>
+<para>Called when a player activates the riptide enchantment, using their trident to propel them through the air. </para>
     </briefdescription>
     <detaileddescription>
+<para><simplesect kind="note"><para>The riptide action is currently performed client side, so manipulating the player in this event may have undesired effects. </para>
+</simplesect>
+</para>
     </detaileddescription>
     <inheritancegraph>
       <node id="3">
@@ -110,21 +130,22 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/endstone/event/player/player_riptide_event.h" line="24" column="1" bodyfile="include/endstone/event/player/player_riptide_event.h" bodystart="24" bodyend="42"/>
+    <location file="include/endstone/event/player/player_riptide_event.h" line="30" column="1" bodyfile="include/endstone/event/player/player_riptide_event.h" bodystart="30" bodyend="48"/>
     <listofallmembers>
+      <member refid="classendstone_1_1PlayerRiptideEvent_1af1ed91b1cdbc6edfc9179f6297fcbcb8" prot="public" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>ENDSTONE_EVENT</name></member>
       <member refid="classendstone_1_1Event_1a28cca8d74920493b449d035540acf023" prot="public" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>Event</name></member>
       <member refid="classendstone_1_1Event_1a7199136ebb40e1441bc61e29f83c3cad" prot="public" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>Event</name></member>
       <member refid="classendstone_1_1Event_1ad20bafd16e0671578e37390b95e5104c" prot="public" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>Event</name></member>
       <member refid="classendstone_1_1Event_1a826fe74f9c4195a36a364b9aeeb321bb" prot="public" virt="pure-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>getEventName</name></member>
+      <member refid="classendstone_1_1PlayerRiptideEvent_1a06eaa93f42fea6e7eea2141a1d2670eb" prot="public" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>getItem</name></member>
       <member refid="classendstone_1_1PlayerEvent_1abad8f8bca3e2be851c4b37075adf2cbc" prot="public" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>getPlayer</name></member>
       <member refid="classendstone_1_1Event_1ae89b54f63dc32b0c8797a59db69b6931" prot="public" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>isAsynchronous</name></member>
-      <member refid="classendstone_1_1PlayerRiptideEvent_1a0c0da9d8980df9a53e025bc69a853333" prot="public" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>isRiptiding</name></member>
+      <member refid="classendstone_1_1PlayerRiptideEvent_1ab65d73b770528468e3cb83581cd7c8ca" prot="private" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>item_</name></member>
       <member refid="classendstone_1_1Event_1a44a4ff424a8b690c01a2afe10ae68d8f" prot="public" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>operator=</name></member>
       <member refid="classendstone_1_1Event_1a1d7fc5400782d20be99a3636aa7f53b9" prot="public" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>operator=</name></member>
       <member refid="classendstone_1_1PlayerEvent_1ae0f8240e8c7c3a66281295c43b1d522a" prot="protected" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>player_</name></member>
       <member refid="classendstone_1_1PlayerEvent_1afee42449de6752241c5472a38f7d94a9" prot="public" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>PlayerEvent</name></member>
-      <member refid="classendstone_1_1PlayerRiptideEvent_1acaca0944f238e4840be52efd958b45d6" prot="public" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>PlayerRiptideEvent</name></member>
-      <member refid="classendstone_1_1PlayerRiptideEvent_1a1118b1d70bd1101b9ecbb2c4fe5960d3" prot="private" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>riptiding_</name></member>
+      <member refid="classendstone_1_1PlayerRiptideEvent_1ae91951af777fa806cf92a42b2f20a49a" prot="public" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>PlayerRiptideEvent</name></member>
       <member refid="classendstone_1_1Event_1a6aeaa8096baba90f8ace94106e0e05f3" prot="public" virt="virtual"><scope>endstone::PlayerRiptideEvent</scope><name>~Event</name></member>
       <member refid="classendstone_1_1PlayerEvent_1ab31b937251b8ccc1c72c275d1c7a522b" prot="public" virt="non-virtual"><scope>endstone::PlayerRiptideEvent</scope><name>~PlayerEvent</name></member>
     </listofallmembers>

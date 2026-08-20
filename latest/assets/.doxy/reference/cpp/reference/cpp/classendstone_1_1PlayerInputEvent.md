@@ -8,7 +8,7 @@
 
 
 
-_Represents an event that is called when a player sends updated input to the server._ 
+_Called when a player sends updated input to the server._ 
 
 * `#include <endstone/event/player/player_input_event.h>`
 
@@ -93,6 +93,7 @@ Inherits the following classes: [endstone::PlayerEvent](classendstone_1_1PlayerE
 
 | Type | Name |
 | ---: | :--- |
+|   | [**ENDSTONE\_EVENT**](#function-endstone_event) ([**PlayerInputEvent**](classendstone_1_1PlayerInputEvent.md)) <br> |
 |   | [**PlayerInputEvent**](#function-playerinputevent) ([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; & player, [**Input**](classendstone_1_1Input.md) input) <br> |
 |  [**Input**](classendstone_1_1Input.md) | [**getInput**](#function-getinput) () const<br>_Gets the new input received from this player._  |
 
@@ -211,6 +212,21 @@ See [endstone::PlayerEvent](classendstone_1_1PlayerEvent.md)
 
 ## Public Functions Documentation
 
+
+
+
+### function ENDSTONE\_EVENT 
+
+```C++
+endstone::PlayerInputEvent::ENDSTONE_EVENT (
+    PlayerInputEvent
+) 
+```
+
+
+
+
+<hr>
 
 
 

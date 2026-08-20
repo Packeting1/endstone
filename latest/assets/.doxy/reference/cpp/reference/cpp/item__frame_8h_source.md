@@ -26,13 +26,13 @@
 
 #include <optional>
 
-#include "endstone/block/tile_state.h"
+#include "endstone/block/block_state.h"
 #include "endstone/inventory/item_stack.h"
 #include "endstone/rotation.h"
 
 namespace endstone {
 
-class ItemFrame : public TileState {
+class ItemFrame : public BlockState {
 public:
     [[nodiscard]] virtual std::optional<ItemStack> getItem() const = 0;
 

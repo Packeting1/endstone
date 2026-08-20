@@ -31,7 +31,7 @@ namespace endstone {
 
 class PlayerInputEvent final : public PlayerEvent {
 public:
-    ENDSTONE_EVENT(PlayerInputEvent)
+    ENDSTONE_EVENT(PlayerInputEvent);
 
     explicit PlayerInputEvent(const NotNull<Player> &player, Input input) : PlayerEvent(player), input_(input) {}
 

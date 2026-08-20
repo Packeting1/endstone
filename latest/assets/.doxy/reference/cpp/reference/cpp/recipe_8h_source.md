@@ -27,7 +27,6 @@
 #include "endstone/inventory/item_stack.h"
 
 namespace endstone {
-
 class Recipe {
 public:
     virtual ~Recipe() = default;

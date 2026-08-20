@@ -432,14 +432,14 @@
         </inbodydescription>
         <location file="include/endstone/block/block.h" line="158" column="23"/>
       </memberdef>
-      <memberdef kind="function" id="classendstone_1_1Block_1af390da2dbe119965fee1ebb9645a9836" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="classendstone_1_1Block_1a95bac5d6f459fcfe924ba470d9b9da81" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>std::unique_ptr&lt; <ref refid="classendstone_1_1BlockState" kindref="compound">BlockState</ref> &gt;</type>
         <definition>virtual std::unique_ptr&lt; BlockState &gt; endstone::Block::captureState</definition>
-        <argsstring>() const</argsstring>
+        <argsstring>() const =0</argsstring>
         <name>captureState</name>
         <qualifiedname>endstone::Block::captureState</qualifiedname>
         <briefdescription>
-<para>Captures the current state of this block as an independent snapshot. </para>
+<para>Captures the current state of this block. </para>
         </briefdescription>
         <detaileddescription>
 <para>The returned object will never be updated, and you are not guaranteed that (for example) a sign is still a sign after you capture its state.</para>
@@ -450,37 +450,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="include/endstone/block/block.h" line="168" column="30"/>
-      </memberdef>
-      <memberdef kind="function" id="classendstone_1_1Block_1a8b1b44ee743fc52e212d6a93f1c5ced7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
-        <type>std::unique_ptr&lt; <ref refid="classendstone_1_1BlockState" kindref="compound">BlockState</ref> &gt;</type>
-        <definition>virtual std::unique_ptr&lt; BlockState &gt; endstone::Block::captureState</definition>
-        <argsstring>(bool use_snapshot) const =0</argsstring>
-        <name>captureState</name>
-        <qualifiedname>endstone::Block::captureState</qualifiedname>
-        <param>
-          <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>
-          <declname>use_snapshot</declname>
-        </param>
-        <briefdescription>
-<para>Captures the current state of this block. </para>
-        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>use_snapshot</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Whether a tile state should use an independent block entity snapshot. If <computeroutput>false</computeroutput>, the tile state is backed by the block entity currently residing in the world. </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para><ref refid="classendstone_1_1BlockState" kindref="compound">BlockState</ref> with the current state of this block. </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/endstone/block/block.h" line="177" column="30"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1Block_1acf80e005f3032354d7cd7ed0057be6e7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>std::unique_ptr&lt; <ref refid="classendstone_1_1Block" kindref="compound">Block</ref> &gt;</type>
@@ -498,7 +467,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/block/block.h" line="184" column="30"/>
+        <location file="include/endstone/block/block.h" line="175" column="30"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -507,10 +476,9 @@
     <detaileddescription>
 <para>This is a live object, and only one <ref refid="classendstone_1_1Block" kindref="compound">Block</ref> may exist for any given location in a dimension. </para>
     </detaileddescription>
-    <location file="include/endstone/block/block.h" line="41" column="1" bodyfile="include/endstone/block/block.h" bodystart="41" bodyend="185"/>
+    <location file="include/endstone/block/block.h" line="41" column="1" bodyfile="include/endstone/block/block.h" bodystart="41" bodyend="176"/>
     <listofallmembers>
-      <member refid="classendstone_1_1Block_1af390da2dbe119965fee1ebb9645a9836" prot="public" virt="virtual"><scope>endstone::Block</scope><name>captureState</name></member>
-      <member refid="classendstone_1_1Block_1a8b1b44ee743fc52e212d6a93f1c5ced7" prot="public" virt="pure-virtual"><scope>endstone::Block</scope><name>captureState</name></member>
+      <member refid="classendstone_1_1Block_1a95bac5d6f459fcfe924ba470d9b9da81" prot="public" virt="pure-virtual"><scope>endstone::Block</scope><name>captureState</name></member>
       <member refid="classendstone_1_1Block_1acf80e005f3032354d7cd7ed0057be6e7" prot="public" virt="pure-virtual"><scope>endstone::Block</scope><name>clone</name></member>
       <member refid="classendstone_1_1Block_1ac5f09887cfba8b183dcc71af4f21ce41" prot="public" virt="pure-virtual"><scope>endstone::Block</scope><name>getBiome</name></member>
       <member refid="classendstone_1_1Block_1a5293fd07d6c423a5a7132944eec13282" prot="public" virt="pure-virtual"><scope>endstone::Block</scope><name>getData</name></member>

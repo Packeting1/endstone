@@ -31,8 +31,6 @@
 #include <variant>
 
 #include "endstone/actor/mob.h"
-#include "endstone/block/block_data.h"
-#include "endstone/block/sign.h"
 #include "endstone/form/action_form.h"
 #include "endstone/form/message_form.h"
 #include "endstone/form/modal_form.h"
@@ -46,8 +44,6 @@
 #include "endstone/util/uuid.h"
 
 namespace endstone {
-
-class TileState;
 
 class Player : public Mob {
 protected:
@@ -73,26 +69,6 @@ public:
     // TODO: chat
 
     virtual bool performCommand(std::string command) const = 0;  // NOLINT(*-use-nodiscard)
-
-    [[nodiscard]] virtual std::optional<Location> getRespawnLocation() const = 0;
-
-    virtual void setRespawnLocation(std::optional<Location> location) = 0;
-
-    virtual void openSign(const Sign &sign, Sign::Side side) = 0;
-
-    virtual void openVirtualSign(const Location &location, Sign::Side side) = 0;
-
-    virtual void hideEntity(Plugin &plugin, Actor &entity) = 0;
-
-    virtual void showEntity(Plugin &plugin, Actor &entity) = 0;
-
-    [[nodiscard]] virtual bool canSee(const Actor &entity) const = 0;
-
-    [[nodiscard]] virtual bool canSee(const Player &player) const = 0;
-
-    virtual void sendBlockChange(const Location &location, const BlockData &block) = 0;
-
-    virtual void sendBlockUpdate(const Location &location, const TileState &tile_state) = 0;
 
     [[nodiscard]] virtual bool isSneaking() const = 0;
 

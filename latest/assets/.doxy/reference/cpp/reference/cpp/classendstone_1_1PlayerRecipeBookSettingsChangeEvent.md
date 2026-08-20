@@ -8,7 +8,7 @@
 
 
 
-_Represents an event that is called when a player changes recipe book settings._ 
+_Called when a player changes recipe book settings._ 
 
 * `#include <endstone/event/player/player_recipe_book_settings_change_event.h>`
 

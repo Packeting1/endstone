@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_toggle_flight_event.h" line="41" column="10" bodyfile="include/endstone/event/player/player_toggle_flight_event.h" bodystart="41" bodyend="-1"/>
+        <location file="include/endstone/event/player/player_toggle_flight_event.h" line="40" column="10" bodyfile="include/endstone/event/player/player_toggle_flight_event.h" bodystart="40" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_toggle_flight_event.h" line="28" column="14" bodyfile="include/endstone/event/player/player_toggle_flight_event.h" bodystart="28" bodyend="31"/>
+        <location file="include/endstone/event/player/player_toggle_flight_event.h" line="28" column="14" bodyfile="include/endstone/event/player/player_toggle_flight_event.h" bodystart="28" bodyend="30"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1PlayerToggleFlightEvent_1a3fb706344aa08c52433d3060968aed08" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/event/player/player_toggle_flight_event.h" line="38" column="11" bodyfile="include/endstone/event/player/player_toggle_flight_event.h" bodystart="38" bodyend="38"/>
+        <location file="include/endstone/event/player/player_toggle_flight_event.h" line="37" column="11" bodyfile="include/endstone/event/player/player_toggle_flight_event.h" bodystart="37" bodyend="37"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -110,7 +110,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/endstone/event/player/player_toggle_flight_event.h" line="24" column="1" bodyfile="include/endstone/event/player/player_toggle_flight_event.h" bodystart="24" bodyend="42"/>
+    <location file="include/endstone/event/player/player_toggle_flight_event.h" line="24" column="1" bodyfile="include/endstone/event/player/player_toggle_flight_event.h" bodystart="24" bodyend="41"/>
     <listofallmembers>
       <member refid="classendstone_1_1Event_1a28cca8d74920493b449d035540acf023" prot="public" virt="non-virtual"><scope>endstone::PlayerToggleFlightEvent</scope><name>Event</name></member>
       <member refid="classendstone_1_1Event_1a7199136ebb40e1441bc61e29f83c3cad" prot="public" virt="non-virtual"><scope>endstone::PlayerToggleFlightEvent</scope><name>Event</name></member>

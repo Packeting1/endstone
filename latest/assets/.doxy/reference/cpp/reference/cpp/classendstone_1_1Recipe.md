@@ -8,7 +8,7 @@
 
 
 
-_Represents a crafting recipe._ 
+_Represents some type of crafting recipe._ 
 
 * `#include <endstone/inventory/recipe.h>`
 

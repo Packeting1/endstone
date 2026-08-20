@@ -69,6 +69,8 @@ _Represents a dimension within a_ [_**Level**_](classendstone_1_1Level.md) _._
 | virtual [**DimensionId**](classendstone_1_1Identifier.md) | [**getId**](#function-getid) () const = 0<br>_Return the identifier of this dimension._  |
 | virtual [**Level**](classendstone_1_1Level.md) & | [**getLevel**](#function-getlevel) () const = 0<br>_Gets the level to which this dimension belongs._  |
 | virtual std::vector&lt; std::unique\_ptr&lt; [**Chunk**](classendstone_1_1Chunk.md) &gt; &gt; | [**getLoadedChunks**](#function-getloadedchunks) () = 0<br>_Gets a list of all loaded Chunks._  |
+| virtual std::vector&lt; [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Mob**](classendstone_1_1Mob.md) &gt; &gt; | [**getMobs**](#function-getmobs) () const = 0<br>_Get a list of all mobs in this dimension._  |
+| virtual std::vector&lt; [**NotNull**](classendstone_1_1NotNull.md)&lt; [**Player**](classendstone_1_1Player.md) &gt; &gt; | [**getPlayers**](#function-getplayers) () const = 0<br>_Get a list of all players in this dimension._  |
 | virtual std::string | [**getTranslationKey**](#function-gettranslationkey) () const = 0<br>_Get the translation key, suitable for use in a translation component._  |
 | virtual [**bool**](classendstone_1_1Identifier.md) | [**isChunkLoaded**](#function-ischunkloaded) ([**int**](classendstone_1_1Identifier.md) x, [**int**](classendstone_1_1Identifier.md) z) const = 0<br>_Checks if the_ [_**Chunk**_](classendstone_1_1Chunk.md) _at the given coordinates is loaded._ |
 | virtual [**bool**](classendstone_1_1Identifier.md) | [**isValid**](#function-isvalid) () const = 0<br>_Checks whether this dimension is still valid (loaded)._  |
@@ -464,6 +466,56 @@ All loaded chunks
 
 
 
+### function getMobs 
+
+_Get a list of all mobs in this dimension._ 
+```C++
+virtual std::vector< NotNull < Mob > > endstone::Dimension::getMobs () const = 0
+```
+
+
+
+
+
+**Returns:**
+
+A List of all mobs currently residing in this dimension 
+
+
+
+
+
+        
+
+<hr>
+
+
+
+### function getPlayers 
+
+_Get a list of all players in this dimension._ 
+```C++
+virtual std::vector< NotNull < Player > > endstone::Dimension::getPlayers () const = 0
+```
+
+
+
+
+
+**Returns:**
+
+A List of all players currently residing in this dimension 
+
+
+
+
+
+        
+
+<hr>
+
+
+
 ### function getTranslationKey 
 
 _Get the translation key, suitable for use in a translation component._ 
@@ -565,7 +617,7 @@ virtual bool endstone::Dimension::loadChunk (
 
 
 
-The chunk is loaded and then held resident by Endstone until removed with `unloadChunk()` or the server restarts. Intended for keeping a handful of chunks resident; it is not suited to loading large regions.
+The chunk is held resident by Endstone from the moment this returns until removed with `unloadChunk()` or the server restarts. Loading itself is asynchronous: unless the chunk was already resident, it finishes on a later tick, so `isChunkLoaded()` may still report `false` immediately afterwards. Intended for keeping a handful of chunks resident; it is not suited to loading large regions.
 
 
 
@@ -580,7 +632,7 @@ The chunk is loaded and then held resident by Endstone until removed with `unloa
 
 **Returns:**
 
-`true` if the chunk was loaded (or already resident), otherwise `false` 
+`true` if the request was accepted, otherwise `false` 
 
 
 

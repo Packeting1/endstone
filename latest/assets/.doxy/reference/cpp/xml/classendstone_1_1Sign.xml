@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="classendstone_1_1Sign" kind="class" language="C++" prot="public" abstract="yes">
     <compoundname>endstone::Sign</compoundname>
-    <basecompoundref refid="classendstone_1_1TileState" prot="public" virt="non-virtual">endstone::TileState</basecompoundref>
+    <basecompoundref refid="classendstone_1_1BlockState" prot="public" virt="non-virtual">endstone::BlockState</basecompoundref>
     <includes refid="sign_8h" local="no">endstone/block/sign.h</includes>
     <sectiondef kind="public-type">
       <memberdef kind="enum" id="classendstone_1_1Sign_1a929cbf8d4588c069d839517313ed3afa" prot="public" static="no" strong="yes">
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/block/sign.h" line="32" column="5" bodyfile="include/endstone/block/sign.h" bodystart="32" bodyend="42"/>
+        <location file="include/endstone/block/sign.h" line="30" column="5" bodyfile="include/endstone/block/sign.h" bodystart="30" bodyend="40"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/block/sign.h" line="50" column="23"/>
+        <location file="include/endstone/block/sign.h" line="48" column="23"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1Sign_1ac454bca51b3afe8b1080cf72511f4044" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type><ref refid="classendstone_1_1Identifier" kindref="compound">bool</ref></type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/block/sign.h" line="60" column="19"/>
+        <location file="include/endstone/block/sign.h" line="58" column="19"/>
       </memberdef>
       <memberdef kind="function" id="classendstone_1_1Sign_1a1773b7ad2067719b35fb92b9c398c428" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type><ref refid="classendstone_1_1Identifier" kindref="compound">void</ref></type>
@@ -115,23 +115,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/endstone/block/sign.h" line="67" column="18"/>
+        <location file="include/endstone/block/sign.h" line="65" column="18"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
 <para>Represents a captured state of a sign. </para>
     </briefdescription>
     <detaileddescription>
-<para>Changes are kept in the captured state until <ref refid="classendstone_1_1BlockState_1aeaca92e63b3fa7bf37eb82e59bb9a45d" kindref="member">update()</ref> is called. </para>
     </detaileddescription>
     <inheritancegraph>
-      <node id="3">
+      <node id="2">
         <label>endstone::BlockState</label>
         <link refid="classendstone_1_1BlockState"/>
-        <childnode refid="4" relation="public-inheritance">
+        <childnode refid="3" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="4">
+      <node id="3">
         <label>endstone::Object</label>
         <link refid="classendstone_1_1Object"/>
       </node>
@@ -139,23 +138,17 @@
         <label>endstone::Sign</label>
         <link refid="classendstone_1_1Sign"/>
         <childnode refid="2" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>endstone::TileState</label>
-        <link refid="classendstone_1_1TileState"/>
-        <childnode refid="3" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="3">
+      <node id="2">
         <label>endstone::BlockState</label>
         <link refid="classendstone_1_1BlockState"/>
-        <childnode refid="4" relation="public-inheritance">
+        <childnode refid="3" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="4">
+      <node id="3">
         <label>endstone::Object</label>
         <link refid="classendstone_1_1Object"/>
       </node>
@@ -165,14 +158,8 @@
         <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="2">
-        <label>endstone::TileState</label>
-        <link refid="classendstone_1_1TileState"/>
-        <childnode refid="3" relation="public-inheritance">
-        </childnode>
-      </node>
     </collaborationgraph>
-    <location file="include/endstone/block/sign.h" line="27" column="1" bodyfile="include/endstone/block/sign.h" bodystart="27" bodyend="68"/>
+    <location file="include/endstone/block/sign.h" line="25" column="1" bodyfile="include/endstone/block/sign.h" bodystart="25" bodyend="66"/>
     <listofallmembers>
       <member refid="classendstone_1_1Object_1a798b5128ce018bbbe8ca949ba78c3db1" prot="public" virt="non-virtual"><scope>endstone::Sign</scope><name>as</name></member>
       <member refid="classendstone_1_1Object_1ae0f38a62da4c186fce272145e2590cc1" prot="public" virt="non-virtual"><scope>endstone::Sign</scope><name>as</name></member>
@@ -188,7 +175,6 @@
       <member refid="classendstone_1_1BlockState_1a1d4ccdc3539f2d549ef3d98393bb89af" prot="public" virt="pure-virtual"><scope>endstone::Sign</scope><name>getZ</name></member>
       <member refid="classendstone_1_1Object_1ae8213ae15ad1b14e4631399c6b18960a" prot="public" virt="non-virtual"><scope>endstone::Sign</scope><name>is</name></member>
       <member refid="classendstone_1_1Object_1a20376536a5f64ef02b2569af132171d4" prot="public" virt="pure-virtual"><scope>endstone::Sign</scope><name>isInstanceOf</name></member>
-      <member refid="classendstone_1_1TileState_1acbbf3049584be7901333a766547d1e7e" prot="public" virt="pure-virtual"><scope>endstone::Sign</scope><name>isSnapshot</name></member>
       <member refid="classendstone_1_1Sign_1ac454bca51b3afe8b1080cf72511f4044" prot="public" virt="pure-virtual"><scope>endstone::Sign</scope><name>isWaxed</name></member>
       <member refid="classendstone_1_1BlockState_1ac85e292da7159b3835cc3919e68c08c7" prot="public" virt="pure-virtual"><scope>endstone::Sign</scope><name>setData</name></member>
       <member refid="classendstone_1_1BlockState_1adf633410dbefd527bd7a7e423223de02" prot="public" virt="pure-virtual"><scope>endstone::Sign</scope><name>setType</name></member>
@@ -199,7 +185,6 @@
       <member refid="classendstone_1_1BlockState_1a6bb9b025f0e02b8ec732e6a74c27b599" prot="public" virt="pure-virtual"><scope>endstone::Sign</scope><name>update</name></member>
       <member refid="classendstone_1_1BlockState_1a0f5a2bfe6eb4e93737f1cb9f47b54154" prot="public" virt="non-virtual"><scope>endstone::Sign</scope><name>~BlockState</name></member>
       <member refid="classendstone_1_1Object_1adfddc886af4b1d0e09ddac7d0391b4d2" prot="public" virt="virtual"><scope>endstone::Sign</scope><name>~Object</name></member>
-      <member refid="classendstone_1_1TileState_1a0ec89ef069fad2f8d7e9a76d91502f42" prot="public" virt="non-virtual"><scope>endstone::Sign</scope><name>~TileState</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

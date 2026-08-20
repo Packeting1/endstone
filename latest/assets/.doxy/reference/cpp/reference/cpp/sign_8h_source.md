@@ -24,12 +24,12 @@
 
 #pragma once
 
-#include "endstone/block/tile_state.h"
+#include "endstone/block/block_state.h"
 #include "endstone/block/sign/sign_side.h"
 
 namespace endstone {
 
-class Sign : public TileState {
+class Sign : public BlockState {
 public:
     enum class Side {
         Front = 0,

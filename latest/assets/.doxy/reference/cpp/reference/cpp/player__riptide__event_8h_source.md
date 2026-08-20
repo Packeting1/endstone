@@ -24,23 +24,26 @@
 
 #pragma once
 
+#include <utility>
+
 #include "endstone/event/player/player_event.h"
+#include "endstone/inventory/item_stack.h"
 
 namespace endstone {
 
 class PlayerRiptideEvent final : public PlayerEvent {
 public:
-    ENDSTONE_EVENT(PlayerRiptideEvent)
+    ENDSTONE_EVENT(PlayerRiptideEvent);
 
-    explicit PlayerRiptideEvent(const NotNull<Player> &player, bool riptiding)
-        : PlayerEvent(player), riptiding_(riptiding)
+    explicit PlayerRiptideEvent(const NotNull<Player> &player, ItemStack item)
+        : PlayerEvent(player), item_(std::move(item))
     {
     }
 
-    [[nodiscard]] bool isRiptiding() const { return riptiding_; }
+    [[nodiscard]] const ItemStack &getItem() const { return item_; }
 
 private:
-    bool riptiding_;
+    ItemStack item_;
 };
 
 }  // namespace endstone

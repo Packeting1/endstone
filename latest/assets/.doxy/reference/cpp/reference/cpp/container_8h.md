@@ -10,7 +10,7 @@
 
 
 
-* `#include "endstone/block/tile_state.h"`
+* `#include "endstone/block/block_state.h"`
 * `#include "endstone/inventory/inventory.h"`
 
 
