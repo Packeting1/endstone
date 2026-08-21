@@ -56,6 +56,7 @@ __all__ = [
     "EventResult",
     "LeavesDecayEvent",
     "LevelEvent",
+    "LevelLoadEvent",
     "MapInitializeEvent",
     "MobEvent",
     "PacketReceiveEvent",
@@ -632,6 +633,11 @@ class DimensionEvent(LevelEvent):
         """
         The `Dimension` primarily involved with this event.
         """
+
+class LevelLoadEvent(LevelEvent):
+    """
+    Called when a level is loaded.
+    """
 
 class ChunkEvent(DimensionEvent):
     """

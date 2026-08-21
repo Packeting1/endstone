@@ -1,6 +1,11 @@
 from endstone_test.recorder import EventRecorder
 
 
+def test_level_load(recorder: EventRecorder) -> None:
+    snapshot = recorder.require("LevelLoadEvent")[0]
+    assert snapshot["level"]
+
+
 def test_chunk_load(recorder: EventRecorder) -> None:
     """Verify ChunkLoadEvent reports the chunk coordinates and dimension."""
     snapshot = recorder.require("ChunkLoadEvent")[0]

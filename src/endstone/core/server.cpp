@@ -76,6 +76,7 @@
 #include "endstone/core/util/uuid.h"
 #include "endstone/event/chunk/chunk_load_event.h"
 #include "endstone/event/chunk/chunk_unload_event.h"
+#include "endstone/event/level/level_load_event.h"
 #include "endstone/event/server/broadcast_message_event.h"
 #include "endstone/event/server/map_initialize_event.h"
 #include "endstone/event/server/server_load_event.h"
@@ -273,6 +274,10 @@ void EndstoneServer::setLevel(::Level &level)
 
     fixServerAnnouncement();
     enablePlugins(PluginLoadOrder::PostWorld);
+    if (getEndstonePluginManager().isEventRegistered<LevelLoadEvent>()) {
+        LevelLoadEvent event{*level_};
+        getPluginManager().callEvent(event);
+    }
     ServerLoadEvent event{ServerLoadEvent::LoadType::Startup};
     getPluginManager().callEvent(event);
 

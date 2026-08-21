@@ -32,6 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `PlayerRespawnEvent.respawn_reason` (`RespawnReason.DEATH` / `RespawnReason.END_PORTAL`).
 - `ActorExplodeEvent::setBlockList()` and `BlockExplodeEvent::setBlockList()`, with the `BlockList` alias made public.
 - Support for custom Python events with optional cancellation.
+- `LevelLoadEvent`, called during server startup once the level has finished loading and PostWorld plugins are enabled, before `ServerLoadEvent`.
 
 #### Actors and players
 
