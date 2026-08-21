@@ -236,10 +236,11 @@ void EndstoneServer::setLevel(::Level &level)
         Bedrock::PubSub::ConnectPosition::AtBack, nullptr);
 
     on_chunk_load_ = level.getLevelChunkEventManager()->getOnChunkLoadedConnector().connect(
-        [&](ChunkSource & /*chunk_source*/, LevelChunk &lc, int /*closest_player_distance_squared*/) -> void {
+        [&](ChunkSource &chunk_source, LevelChunk &lc, int /*closest_player_distance_squared*/) -> void {
             if (lc.getState() >= ChunkState::Loaded) {
                 const auto chunk = std::make_unique<EndstoneChunk>(lc);
-                ChunkLoadEvent e(*chunk);
+                const bool new_chunk = !chunk_source.isChunkSaved(lc.getPosition());
+                ChunkLoadEvent e(*chunk, new_chunk);
                 getPluginManager().callEvent(e);
             }
         },
