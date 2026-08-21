@@ -288,6 +288,8 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
     py::class_<LevelEvent, Event>(m, "LevelEvent", "Represents events within a level.")
         .def_property_readonly("level", &LevelEvent::getLevel, py::return_value_policy::reference,
                                "The `Level` primarily involved with this event.");
+    py::class_<TimeSkipEvent, ClockTimeSkipEvent>(m, "TimeSkipEvent",
+                                                "Represents an event that is fired when the time of a level is skipped.");
     py::class_<DimensionEvent, LevelEvent>(m, "DimensionEvent", "Represents events within a dimension.")
         .def_property_readonly("dimension", &DimensionEvent::getDimension,
                                "The `Dimension` primarily involved with this event.");
