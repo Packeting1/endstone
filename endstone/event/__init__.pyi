@@ -633,12 +633,10 @@ class PortalCreateEvent(LevelEvent, Cancellable):
         FIRE = 0
         NETHER_PAIR = 1
         END_PLATFORM = 2
-        CUSTOM = 3
 
     FIRE = CreateReason.FIRE
     NETHER_PAIR = CreateReason.NETHER_PAIR
     END_PLATFORM = CreateReason.END_PLATFORM
-    CUSTOM = CreateReason.CUSTOM
     @property
     def blocks(self) -> list[BlockState]:
         """
@@ -646,7 +644,7 @@ class PortalCreateEvent(LevelEvent, Cancellable):
         """
 
     @property
-    def entity(self) -> Actor | None:
+    def actor(self) -> Actor | None:
         """
         The `Actor` involved in the portal creation, or `None` if no actor was involved.
         """
