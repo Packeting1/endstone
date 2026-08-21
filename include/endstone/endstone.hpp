@@ -104,6 +104,7 @@ static_assert(_ITERATOR_DEBUG_LEVEL == 0,
 #include "event/handler_list.h"
 #include "event/level/dimension_event.h"
 #include "event/level/level_event.h"
+#include "event/level/world_unload_event.h"
 #include "event/player/player_arm_swing_event.h"
 #include "event/player/player_armor_stand_manipulate_event.h"
 #include "event/player/player_bed_enter_event.h"
