@@ -89,6 +89,7 @@ __getattr__, __dir__, __all__ = lazy.attach(
             "BroadcastMessageEvent",
             "ChunkEvent",
             "ChunkLoadEvent",
+            "ChunkPopulateEvent",
             "ChunkUnloadEvent",
             "DimensionEvent",
             "Event",
