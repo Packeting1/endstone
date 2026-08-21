@@ -106,6 +106,7 @@ __all__ = [
     "ServerEvent",
     "ServerListPingEvent",
     "ServerLoadEvent",
+    "SpawnChangeEvent",
     "ThunderChangeEvent",
     "WeatherChangeEvent",
     "WeatherEvent",
@@ -616,6 +617,16 @@ class LevelEvent(Event):
     def level(self) -> Level:
         """
         The `Level` primarily involved with this event.
+        """
+
+class SpawnChangeEvent(LevelEvent):
+    """
+    Called when the spawn location of a level changes.
+    """
+    @property
+    def previous_location(self) -> Location:
+        """
+        The previous spawn location.
         """
 
 class DimensionEvent(LevelEvent):

@@ -145,6 +145,7 @@ __getattr__, __dir__, __all__ = lazy.attach(
             "ServerEvent",
             "ServerListPingEvent",
             "ServerLoadEvent",
+            "SpawnChangeEvent",
             "ThunderChangeEvent",
             "WeatherChangeEvent",
             "WeatherEvent",
