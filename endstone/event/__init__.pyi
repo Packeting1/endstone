@@ -109,6 +109,7 @@ __all__ = [
     "ThunderChangeEvent",
     "WeatherChangeEvent",
     "WeatherEvent",
+    "WorldSaveEvent",
     "event_handler",
 ]
 
@@ -627,6 +628,11 @@ class DimensionEvent(LevelEvent):
         """
         The `Dimension` primarily involved with this event.
         """
+
+class WorldSaveEvent(LevelEvent):
+    """
+    Called when a level is saved.
+    """
 
 class ChunkEvent(DimensionEvent):
     """
