@@ -34,7 +34,7 @@ public:
      * @param chunk Chunk from which the entities are being unloaded
      * @param entities Entities being unloaded
      */
-    explicit EntitiesUnloadEvent(Chunk &chunk, const std::vector<Actor *> &entities)
+    explicit EntitiesUnloadEvent(Chunk &chunk, const std::vector<NotNull<Actor>> &entities)
         : ChunkEvent(chunk), entities_(entities) {}
     ~EntitiesUnloadEvent() override = default;
 
@@ -43,10 +43,10 @@ public:
      *
      * @return Read-only collection of entities being unloaded
      */
-    [[nodiscard]] const std::vector<Actor *> &getEntities() const { return entities_; }
+    [[nodiscard]] const std::vector<NotNull<Actor>> &getEntities() const { return entities_; }
 
 private:
-    std::vector<Actor *> entities_;
+    std::vector<NotNull<Actor>> entities_;
 };
 
 }
