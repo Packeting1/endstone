@@ -28,16 +28,16 @@ public:
     explicit ChunkUnloadEvent(Chunk &chunk) : ChunkEvent(chunk) {}
 
     /**
-     * Gets whether this chunk will be saved to disk.
+     * Gets whether this chunk should be saved to disk.
      *
-     * @return `true` if this chunk will be saved to disk, `false` otherwise.
+     * @return `true` if this chunk should be saved to disk, `false` otherwise.
      */
     [[nodiscard]] bool isSaveChunk() const { return save_chunk_; }
 
     /**
-     * Sets whether this chunk will be saved to disk.
+     * Sets whether this chunk should be saved to disk.
      *
-     * @param save_chunk `true` to save this chunk to disk, `false` otherwise.
+     * @param save_chunk `true` to request that this chunk be saved to disk, `false` otherwise.
      */
     void setSaveChunk(bool save_chunk) { save_chunk_ = save_chunk; }
 

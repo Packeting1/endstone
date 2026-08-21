@@ -648,6 +648,12 @@ class ChunkUnloadEvent(ChunkEvent):
     Called when a chunk is unloaded.
     """
 
+    @property
+    def save_chunk(self) -> bool:
+        """
+        Gets or sets whether this chunk should be saved to disk.
+        """
+
 class PlayerEvent(Event):
     """
     Represents a player related event.
