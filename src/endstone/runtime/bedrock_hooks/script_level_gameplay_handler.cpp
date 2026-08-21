@@ -21,6 +21,7 @@
 #include "endstone/core/entity/components/flag_components.h"
 #include "endstone/core/server.h"
 #include "endstone/event/actor/actor_spawn_event.h"
+#include "endstone/event/level/world_init_event.h"
 #include "endstone/runtime/vtable_hook.h"
 
 namespace {
@@ -48,6 +49,11 @@ HandlerResult ScriptLevelGameplayHandler::handleEvent1(LevelGameplayEvent<void> 
             if (!handleEvent(arg.value())) {
                 return HandlerResult::BypassListeners;
             }
+        }
+        else if constexpr (std::is_same_v<T, Details::ValueOrRef<const ScriptingWorldInitializeEvent>>) {
+            const auto &server = endstone::core::EndstoneServer::getInstance();
+            endstone::WorldInitEvent e{server.getLevel()};
+            server.getPluginManager().callEvent(e);
         }
         return ENDSTONE_VHOOK_CALL_ORIGINAL(&ScriptLevelGameplayHandler::handleEvent1, this, event);
     };

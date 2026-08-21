@@ -291,6 +291,7 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
     py::class_<DimensionEvent, LevelEvent>(m, "DimensionEvent", "Represents events within a dimension.")
         .def_property_readonly("dimension", &DimensionEvent::getDimension,
                                "The `Dimension` primarily involved with this event.");
+    py::class_<WorldInitEvent, LevelEvent>(m, "WorldInitEvent", "Called when a level is initializing.");
 
     // Chunk events
     py::class_<ChunkEvent, DimensionEvent>(m, "ChunkEvent", "Represents a `Chunk` related event.")

@@ -148,6 +148,7 @@ __getattr__, __dir__, __all__ = lazy.attach(
             "ThunderChangeEvent",
             "WeatherChangeEvent",
             "WeatherEvent",
+            "WorldInitEvent",
         ],
     },
 )
