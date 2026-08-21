@@ -109,6 +109,7 @@ __all__ = [
     "ThunderChangeEvent",
     "WeatherChangeEvent",
     "WeatherEvent",
+    "WorldUnloadEvent",
     "event_handler",
 ]
 
@@ -617,6 +618,16 @@ class LevelEvent(Event):
         """
         The `Level` primarily involved with this event.
         """
+
+class WorldUnloadEvent(LevelEvent, Cancellable):
+    """
+    Called when a level is unloaded.
+
+    Cancelling this event prevents the level from being unloaded.
+
+    This is the Endstone equivalent of Paper's `WorldUnloadEvent`, with Paper's
+    `World` represented by `Level`.
+    """
 
 class DimensionEvent(LevelEvent):
     """
