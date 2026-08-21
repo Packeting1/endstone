@@ -54,6 +54,7 @@ __all__ = [
     "Event",
     "EventPriority",
     "EventResult",
+    "GenericGameEvent",
     "LeavesDecayEvent",
     "LevelEvent",
     "MapInitializeEvent",
@@ -626,6 +627,34 @@ class DimensionEvent(LevelEvent):
     def dimension(self) -> Dimension:
         """
         The `Dimension` primarily involved with this event.
+        """
+
+class GenericGameEvent(LevelEvent, Cancellable):
+    """
+    Represents a generic game event.
+    """
+    @property
+    def event(self) -> str:
+        """
+        The identifier of the event.
+        """
+
+    @property
+    def location(self) -> Location:
+        """
+        The location where the event occurred.
+        """
+
+    @property
+    def actor(self) -> Actor | None:
+        """
+        The actor associated with the event, or `None` if there is none.
+        """
+
+    @property
+    def radius(self) -> int:
+        """
+        The radius associated with the event.
         """
 
 class ChunkEvent(DimensionEvent):
