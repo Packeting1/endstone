@@ -98,6 +98,7 @@ static_assert(_ITERATOR_DEBUG_LEVEL == 0,
 #include "event/chunk/chunk_event.h"
 #include "event/chunk/chunk_load_event.h"
 #include "event/chunk/chunk_unload_event.h"
+#include "event/chunk/entities_unload_event.h"
 #include "event/event.h"
 #include "event/event_handler.h"
 #include "event/event_priority.h"

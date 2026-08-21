@@ -298,6 +298,10 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
                                "The `Chunk` being loaded/unloaded.");
     py::class_<ChunkLoadEvent, ChunkEvent>(m, "ChunkLoadEvent", "Called when a chunk is loaded.");
     py::class_<ChunkUnloadEvent, ChunkEvent>(m, "ChunkUnloadEvent", "Called when a chunk is unloaded.");
+    py::class_<EntitiesUnloadEvent, ChunkEvent>(m, "EntitiesUnloadEvent",
+                                                 "Called when entities are unloaded from a chunk.")
+        .def_property_readonly("entities", &EntitiesUnloadEvent::getEntities,
+                               "The entities being unloaded.");
 
     // Player events
     py::class_<PlayerEvent, Event>(m, "PlayerEvent", "Represents a player related event.")
