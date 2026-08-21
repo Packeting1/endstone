@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `Player.send_action_bar()` for sending a message above the player's hotbar.
 - Added `/restart` command (console-only) that gracefully restarts the server without manually relaunching.
 - Added support for custom Python events with optional cancellation.
+- Added the public `StructureGrowEvent` API with tree species, the growth location, the source player and affected block states.
 - Added `ActorType` to the registry API, along with the missing `ActorType.SULFUR_CUBE` constant.
 - Added an attribute API: `Mob.get_attribute()`, `Mob.has_attribute()` and `Mob.attributes` expose a living entity's attributes (health, movement speed, attack damage, etc.). Each `AttributeInstance` reports its current, base, minimum and maximum value, and takes `AttributeModifier`s at runtime.
 - Added `endstone.Identifier` for namespaced ids, so `dim.id.namespace` and `dim.id.key` are separable and a type checker can tell `Identifier[Dimension]` apart from `Identifier[ActorType]`. Plain strings are still accepted wherever an `Identifier` is required.

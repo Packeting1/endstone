@@ -284,6 +284,53 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
     If a Leaves Decay event is cancelled, the leaves will not decay.
 )doc");
 
+    py::native_enum<TreeType>(m, "TreeType", "enum.Enum", "Represents the type of tree that will grow.")
+        .value("TREE", TreeType::Tree)
+        .value("BIG_TREE", TreeType::BigTree)
+        .value("REDWOOD", TreeType::Redwood)
+        .value("TALL_REDWOOD", TreeType::TallRedwood)
+        .value("BIRCH", TreeType::Birch)
+        .value("JUNGLE", TreeType::Jungle)
+        .value("SMALL_JUNGLE", TreeType::SmallJungle)
+        .value("COCOA_TREE", TreeType::CocoaTree)
+        .value("JUNGLE_BUSH", TreeType::JungleBush)
+        .value("RED_MUSHROOM", TreeType::RedMushroom)
+        .value("BROWN_MUSHROOM", TreeType::BrownMushroom)
+        .value("SWAMP", TreeType::Swamp)
+        .value("ACACIA", TreeType::Acacia)
+        .value("DARK_OAK", TreeType::DarkOak)
+        .value("MEGA_REDWOOD", TreeType::MegaRedwood)
+        .value("MEGA_PINE", TreeType::MegaPine)
+        .value("TALL_MANGROVE", TreeType::TallMangrove)
+        .value("CHERRY", TreeType::Cherry)
+        .value("PALE_OAK", TreeType::PaleOak)
+        .export_values()
+        .finalize();
+    py::class_<StructureGrowEvent, Event, ICancellable>(m, "StructureGrowEvent", R"doc(
+    Called when a tree or other structure grows.
+
+    If a `StructureGrowEvent` is cancelled, the structure will not grow.
+)doc")
+        .def_property_readonly("location", &StructureGrowEvent::getLocation,
+                               "The location where the structure will be generated.")
+        .def_property_readonly("species", &StructureGrowEvent::getSpecies, "The type of tree that will grow.")
+        .def_property_readonly("from_bonemeal", &StructureGrowEvent::isFromBonemeal,
+                               "Whether bonemeal caused the structure to grow.")
+        .def_property_readonly("player", &StructureGrowEvent::getPlayer,
+                               "The `Player` who caused the structure to grow, or `None` if no player caused it.")
+        .def_property_readonly(
+            "blocks",
+            [](const StructureGrowEvent &self) {
+                std::vector<BlockState *> blocks;
+                for (const auto &block : self.getBlocks()) {
+                    if (block) {
+                        blocks.emplace_back(block.get());
+                    }
+                }
+                return blocks;
+            },
+            py::return_value_policy::reference_internal,
+            "The block states that will be changed by this event.");
     // Level events
     py::class_<LevelEvent, Event>(m, "LevelEvent", "Represents events within a level.")
         .def_property_readonly("level", &LevelEvent::getLevel, py::return_value_policy::reference,
