@@ -49,6 +49,7 @@ __all__ = [
     "Cancellable",
     "ChunkEvent",
     "ChunkLoadEvent",
+    "ChunkPopulateEvent",
     "ChunkUnloadEvent",
     "DimensionEvent",
     "Event",
@@ -641,6 +642,13 @@ class ChunkEvent(DimensionEvent):
 class ChunkLoadEvent(ChunkEvent):
     """
     Called when a chunk is loaded.
+    """
+
+class ChunkPopulateEvent(ChunkEvent):
+    """
+    Called when a newly generated chunk has finished being populated.
+
+    Do not use this event to generate blocks in a newly generated chunk.
     """
 
 class ChunkUnloadEvent(ChunkEvent):
