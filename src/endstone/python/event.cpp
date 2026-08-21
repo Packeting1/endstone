@@ -291,6 +291,15 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
     py::class_<DimensionEvent, LevelEvent>(m, "DimensionEvent", "Represents events within a dimension.")
         .def_property_readonly("dimension", &DimensionEvent::getDimension,
                                "The `Dimension` primarily involved with this event.");
+    py::class_<GenericGameEvent, LevelEvent, ICancellable>(m, "GenericGameEvent",
+                                                         "Represents a generic game event.")
+        .def_property_readonly("event", &GenericGameEvent::getEvent, "The identifier of the event.")
+        .def_property_readonly("location", &GenericGameEvent::getLocation,
+                               "The location where the event occurred.")
+        .def_property_readonly("actor", &GenericGameEvent::getActor,
+                               "The actor associated with the event, or `None` if there is none.")
+        .def_property_readonly("radius", &GenericGameEvent::getRadius,
+                               "The radius associated with the event.");
 
     // Chunk events
     py::class_<ChunkEvent, DimensionEvent>(m, "ChunkEvent", "Represents a `Chunk` related event.")

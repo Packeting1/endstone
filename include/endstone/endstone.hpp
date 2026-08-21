@@ -103,6 +103,7 @@ static_assert(_ITERATOR_DEBUG_LEVEL == 0,
 #include "event/event_priority.h"
 #include "event/handler_list.h"
 #include "event/level/dimension_event.h"
+#include "event/level/generic_game_event.h"
 #include "event/level/level_event.h"
 #include "event/player/player_arm_swing_event.h"
 #include "event/player/player_armor_stand_manipulate_event.h"
