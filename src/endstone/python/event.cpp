@@ -297,7 +297,9 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
         .def_property_readonly("chunk", &ChunkEvent::getChunk, py::return_value_policy::reference,
                                "The `Chunk` being loaded/unloaded.");
     py::class_<ChunkLoadEvent, ChunkEvent>(m, "ChunkLoadEvent", "Called when a chunk is loaded.");
-    py::class_<ChunkUnloadEvent, ChunkEvent>(m, "ChunkUnloadEvent", "Called when a chunk is unloaded.");
+    py::class_<ChunkUnloadEvent, ChunkEvent>(m, "ChunkUnloadEvent", "Called when a chunk is unloaded.")
+        .def_property("save_chunk", &ChunkUnloadEvent::isSaveChunk, &ChunkUnloadEvent::setSaveChunk,
+                      "Gets or sets whether this chunk will be saved to disk.");
 
     // Player events
     py::class_<PlayerEvent, Event>(m, "PlayerEvent", "Represents a player related event.")
