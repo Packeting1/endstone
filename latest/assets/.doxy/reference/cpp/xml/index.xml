@@ -1987,6 +1987,8 @@
     <member refid="classendstone_1_1Player_1a1eb6fe0de5da814e8d7467817e935603" kind="function"><name>transfer</name></member>
     <member refid="classendstone_1_1Player_1a6dbf34f6330cf0c9e17872426e1c2eb0" kind="function"><name>kick</name></member>
     <member refid="classendstone_1_1Player_1a9484ec57ceb309acfcfe4b2d61026f56" kind="function"><name>performCommand</name></member>
+    <member refid="classendstone_1_1Player_1afca7774ebf09e8f3f77f0e1dc7b298ec" kind="function"><name>getRespawnLocation</name></member>
+    <member refid="classendstone_1_1Player_1a5bffefb78ba5e5dea934c249a4d30229" kind="function"><name>setRespawnLocation</name></member>
     <member refid="classendstone_1_1Player_1a5cdb79fdd152c6c6ed8f251bd1e31523" kind="function"><name>isSneaking</name></member>
     <member refid="classendstone_1_1Player_1a23622b02f067bad332947a0b9459fd0a" kind="function"><name>setSneaking</name></member>
     <member refid="classendstone_1_1Player_1abb2a1b9ae99b24fc1e80ed5f73d55646" kind="function"><name>isSprinting</name></member>
@@ -2153,6 +2155,20 @@
     <member refid="classendstone_1_1PlayerDropItemEvent_1abdb5218e8beba230340ec6bf0e5f4dc2" kind="function"><name>ENDSTONE_EVENT</name></member>
     <member refid="classendstone_1_1PlayerDropItemEvent_1a91db643cdc05fbe3b16e2278ca9d6fb2" kind="function"><name>PlayerDropItemEvent</name></member>
     <member refid="classendstone_1_1PlayerDropItemEvent_1a40ad469ac2c8a5035ba526833ca3c638" kind="function"><name>getItem</name></member>
+  </compound>
+  <compound refid="classendstone_1_1PlayerEditBookEvent" kind="class"><name>endstone::PlayerEditBookEvent</name>
+    <member refid="classendstone_1_1PlayerEditBookEvent_1ab77fd53052f2adb1c8c2be9f56c4f4a9" kind="variable"><name>slot_</name></member>
+    <member refid="classendstone_1_1PlayerEditBookEvent_1a0017d6c958df55e8ae55ba8d4fbe6e79" kind="variable"><name>previous_book_meta_</name></member>
+    <member refid="classendstone_1_1PlayerEditBookEvent_1a58b7f9640d19fcb1f51cdad27b899650" kind="variable"><name>new_book_meta_</name></member>
+    <member refid="classendstone_1_1PlayerEditBookEvent_1a303d9ce81c2079c465cdadee3822446a" kind="variable"><name>signing_</name></member>
+    <member refid="classendstone_1_1PlayerEditBookEvent_1ab1ed0f44304e1df2b04e0d92b3630df8" kind="function"><name>ENDSTONE_EVENT</name></member>
+    <member refid="classendstone_1_1PlayerEditBookEvent_1a22580776b96d2b46daf0f1b764063298" kind="function"><name>PlayerEditBookEvent</name></member>
+    <member refid="classendstone_1_1PlayerEditBookEvent_1af71ffebeffdbd6948d0bca262fda3bf2" kind="function"><name>getSlot</name></member>
+    <member refid="classendstone_1_1PlayerEditBookEvent_1abead36c8bdae6c55e36192e886590c24" kind="function"><name>getPreviousBookMeta</name></member>
+    <member refid="classendstone_1_1PlayerEditBookEvent_1abbbab07f5338507af631d68570c7f37d" kind="function"><name>getNewBookMeta</name></member>
+    <member refid="classendstone_1_1PlayerEditBookEvent_1a84df742e7a63cb2f2c17956f467006e7" kind="function"><name>setNewBookMeta</name></member>
+    <member refid="classendstone_1_1PlayerEditBookEvent_1ae872bda3627b53d486bea898fc0a53be" kind="function"><name>isSigning</name></member>
+    <member refid="classendstone_1_1PlayerEditBookEvent_1a33306c08313104acddedf584e0f60dfc" kind="function"><name>setSigning</name></member>
   </compound>
   <compound refid="classendstone_1_1PlayerEmoteEvent" kind="class"><name>endstone::PlayerEmoteEvent</name>
     <member refid="classendstone_1_1PlayerEmoteEvent_1a74fb29919f23124f944930495dccc486" kind="variable"><name>emote_id_</name></member>
@@ -2322,6 +2338,15 @@
     <member refid="classendstone_1_1PlayerQuitEvent_1a1dc49d81c8a458e1a45d8d2c33f03f15" kind="function"><name>getQuitMessage</name></member>
     <member refid="classendstone_1_1PlayerQuitEvent_1a33ac4f643cbabfbaec170ba5ef88551a" kind="function"><name>setQuitMessage</name></member>
   </compound>
+  <compound refid="classendstone_1_1PlayerRecipeBookClickEvent" kind="class"><name>endstone::PlayerRecipeBookClickEvent</name>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a3f294c49e9615c3f4e30c3f7c32a184a" kind="variable"><name>recipe_</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a8fdff0aca18ca1220ac5cdf316c5e105" kind="variable"><name>amount_</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1ac8369533e374a734dda5edd17923c0eb" kind="function"><name>ENDSTONE_EVENT</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a55bd221fccec8c2a3e27bd686dab6590" kind="function"><name>PlayerRecipeBookClickEvent</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a9077d11f8f6683293e4c15980d485e64" kind="function"><name>getRecipe</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a1a82063a5d6f0fe9fe73ac4b706eba70" kind="function"><name>getAmount</name></member>
+    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a1353797221774a6dc2b3323976a305e6" kind="function"><name>setAmount</name></member>
+  </compound>
   <compound refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent" kind="class"><name>endstone::PlayerRecipeBookSettingsChangeEvent</name>
     <member refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent_1ab5709b487202d4c52eacf9e8b54ce67f" kind="enum"><name>RecipeBookType</name></member>
     <member refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent_1ab5709b487202d4c52eacf9e8b54ce67fa8c1a0a596c9fa42f02fe9c59eb1a83b6" kind="enumvalue"><name>Crafting</name></member>
@@ -2352,6 +2377,21 @@
     <member refid="classendstone_1_1PlayerRiptideEvent_1af1ed91b1cdbc6edfc9179f6297fcbcb8" kind="function"><name>ENDSTONE_EVENT</name></member>
     <member refid="classendstone_1_1PlayerRiptideEvent_1ae91951af777fa806cf92a42b2f20a49a" kind="function"><name>PlayerRiptideEvent</name></member>
     <member refid="classendstone_1_1PlayerRiptideEvent_1a06eaa93f42fea6e7eea2141a1d2670eb" kind="function"><name>getItem</name></member>
+  </compound>
+  <compound refid="classendstone_1_1PlayerSetSpawnEvent" kind="class"><name>endstone::PlayerSetSpawnEvent</name>
+    <member refid="classendstone_1_1PlayerSetSpawnEvent_1acfffd40b297c5ebdb54d39ec9f811d21" kind="enum"><name>Cause</name></member>
+    <member refid="classendstone_1_1PlayerSetSpawnEvent_1acfffd40b297c5ebdb54d39ec9f811d21ad19c65bc26ec025653d95586db2c31de" kind="enumvalue"><name>Bed</name></member>
+    <member refid="classendstone_1_1PlayerSetSpawnEvent_1acfffd40b297c5ebdb54d39ec9f811d21aa08d7e095dd721b2ecdb05aab5641067" kind="enumvalue"><name>RespawnAnchor</name></member>
+    <member refid="classendstone_1_1PlayerSetSpawnEvent_1acfffd40b297c5ebdb54d39ec9f811d21aee97be03cb04119af45014d815621ce1" kind="enumvalue"><name>Command</name></member>
+    <member refid="classendstone_1_1PlayerSetSpawnEvent_1acfffd40b297c5ebdb54d39ec9f811d21a409c1892b68cb394799262ac57f6d4f1" kind="enumvalue"><name>Plugin</name></member>
+    <member refid="classendstone_1_1PlayerSetSpawnEvent_1acfffd40b297c5ebdb54d39ec9f811d21a88183b946cc5f0e8c96b2e66e1c74a7e" kind="enumvalue"><name>Unknown</name></member>
+    <member refid="classendstone_1_1PlayerSetSpawnEvent_1ab9d9c27238f4ddcc2447924e3c3a49ec" kind="variable"><name>cause_</name></member>
+    <member refid="classendstone_1_1PlayerSetSpawnEvent_1a2e5e1dab1a1624c165c4875898baf315" kind="variable"><name>location_</name></member>
+    <member refid="classendstone_1_1PlayerSetSpawnEvent_1ae72fcf0305034b29a7958c840773c2f0" kind="function"><name>ENDSTONE_EVENT</name></member>
+    <member refid="classendstone_1_1PlayerSetSpawnEvent_1a79ed210e2b9cf0d6c259e0dfdb776c53" kind="function"><name>PlayerSetSpawnEvent</name></member>
+    <member refid="classendstone_1_1PlayerSetSpawnEvent_1a41541505a893b1cfb775caa0a1ead598" kind="function"><name>getCause</name></member>
+    <member refid="classendstone_1_1PlayerSetSpawnEvent_1aafb9d8122969b9078e3cd182cdc35b03" kind="function"><name>getLocation</name></member>
+    <member refid="classendstone_1_1PlayerSetSpawnEvent_1aba9e572ea6156c957e24c013ce745f52" kind="function"><name>setLocation</name></member>
   </compound>
   <compound refid="classendstone_1_1PlayerShearActorEvent" kind="class"><name>endstone::PlayerShearActorEvent</name>
     <member refid="classendstone_1_1PlayerShearActorEvent_1a171fe86a126769e52ba6d6953c58439c" kind="variable"><name>actor_</name></member>
@@ -2610,6 +2650,10 @@
   <compound refid="classendstone_1_1Preconditions" kind="class"><name>endstone::Preconditions</name>
     <member refid="classendstone_1_1Preconditions_1a67ef7267ef07164ae88052ed43750426" kind="function"><name>checkArgument</name></member>
     <member refid="classendstone_1_1Preconditions_1a5fb6820ed9c6e4629a00776f25d11ef5" kind="function"><name>checkState</name></member>
+  </compound>
+  <compound refid="classendstone_1_1ProxiedCommandSender" kind="class"><name>endstone::ProxiedCommandSender</name>
+    <member refid="classendstone_1_1ProxiedCommandSender_1ad6d120eab4f0abc48ff747e94954f0a1" kind="function"><name>getCaller</name></member>
+    <member refid="classendstone_1_1ProxiedCommandSender_1a8c828f34db5e1330837faee2c6e2ba36" kind="function"><name>getCallee</name></member>
   </compound>
   <compound refid="classendstone_1_1Recipe" kind="class"><name>endstone::Recipe</name>
     <member refid="classendstone_1_1Recipe_1a7c54e5660b82baa721fa86ebb1e55638" kind="function"><name>~Recipe</name></member>
@@ -3353,6 +3397,8 @@
   </compound>
   <compound refid="plugin__command_8h" kind="file"><name>plugin_command.h</name>
   </compound>
+  <compound refid="proxied__command__sender_8h" kind="file"><name>proxied_command_sender.h</name>
+  </compound>
   <compound refid="damage__source_8h" kind="file"><name>damage_source.h</name>
   </compound>
   <compound refid="detail_8h" kind="file"><name>detail.h</name>
@@ -3456,6 +3502,8 @@
   </compound>
   <compound refid="player__drop__item__event_8h" kind="file"><name>player_drop_item_event.h</name>
   </compound>
+  <compound refid="player__edit__book__event_8h" kind="file"><name>player_edit_book_event.h</name>
+  </compound>
   <compound refid="player__emote__event_8h" kind="file"><name>player_emote_event.h</name>
   </compound>
   <compound refid="player__event_8h" kind="file"><name>player_event.h</name>
@@ -3496,11 +3544,15 @@
   </compound>
   <compound refid="player__quit__event_8h" kind="file"><name>player_quit_event.h</name>
   </compound>
+  <compound refid="player__recipe__book__click__event_8h" kind="file"><name>player_recipe_book_click_event.h</name>
+  </compound>
   <compound refid="player__recipe__book__settings__change__event_8h" kind="file"><name>player_recipe_book_settings_change_event.h</name>
   </compound>
   <compound refid="player__respawn__event_8h" kind="file"><name>player_respawn_event.h</name>
   </compound>
   <compound refid="player__riptide__event_8h" kind="file"><name>player_riptide_event.h</name>
+  </compound>
+  <compound refid="player__set__spawn__event_8h" kind="file"><name>player_set_spawn_event.h</name>
   </compound>
   <compound refid="player__shear__actor__event_8h" kind="file"><name>player_shear_actor_event.h</name>
   </compound>

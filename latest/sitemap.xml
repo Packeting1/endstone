@@ -717,6 +717,10 @@
          <lastmod>2026-08-21</lastmod>
     </url>
     <url>
+         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerEditBookEvent/</loc>
+         <lastmod>2026-08-21</lastmod>
+    </url>
+    <url>
          <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerEmoteEvent/</loc>
          <lastmod>2026-08-21</lastmod>
     </url>
@@ -801,6 +805,10 @@
          <lastmod>2026-08-21</lastmod>
     </url>
     <url>
+         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerRecipeBookClickEvent/</loc>
+         <lastmod>2026-08-21</lastmod>
+    </url>
+    <url>
          <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerRecipeBookSettingsChangeEvent/</loc>
          <lastmod>2026-08-21</lastmod>
     </url>
@@ -810,6 +818,10 @@
     </url>
     <url>
          <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerRiptideEvent/</loc>
+         <lastmod>2026-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1PlayerSetSpawnEvent/</loc>
          <lastmod>2026-08-21</lastmod>
     </url>
     <url>
@@ -878,6 +890,10 @@
     </url>
     <url>
          <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1Preconditions/</loc>
+         <lastmod>2026-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/classendstone_1_1ProxiedCommandSender/</loc>
          <lastmod>2026-08-21</lastmod>
     </url>
     <url>
@@ -1609,6 +1625,14 @@
          <lastmod>2026-08-21</lastmod>
     </url>
     <url>
+         <loc>https://endstone.dev/latest/reference/cpp/proxied__command__sender_8h/</loc>
+         <lastmod>2026-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/proxied__command__sender_8h_source/</loc>
+         <lastmod>2026-08-21</lastmod>
+    </url>
+    <url>
          <loc>https://endstone.dev/latest/reference/cpp/dir_d35032eb9ca22acb8eface5f2c8b6a35/</loc>
          <lastmod>2026-08-21</lastmod>
     </url>
@@ -2041,6 +2065,14 @@
          <lastmod>2026-08-21</lastmod>
     </url>
     <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__edit__book__event_8h/</loc>
+         <lastmod>2026-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__edit__book__event_8h_source/</loc>
+         <lastmod>2026-08-21</lastmod>
+    </url>
+    <url>
          <loc>https://endstone.dev/latest/reference/cpp/player__emote__event_8h/</loc>
          <lastmod>2026-08-21</lastmod>
     </url>
@@ -2201,6 +2233,14 @@
          <lastmod>2026-08-21</lastmod>
     </url>
     <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__recipe__book__click__event_8h/</loc>
+         <lastmod>2026-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__recipe__book__click__event_8h_source/</loc>
+         <lastmod>2026-08-21</lastmod>
+    </url>
+    <url>
          <loc>https://endstone.dev/latest/reference/cpp/player__recipe__book__settings__change__event_8h/</loc>
          <lastmod>2026-08-21</lastmod>
     </url>
@@ -2222,6 +2262,14 @@
     </url>
     <url>
          <loc>https://endstone.dev/latest/reference/cpp/player__riptide__event_8h_source/</loc>
+         <lastmod>2026-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__set__spawn__event_8h/</loc>
+         <lastmod>2026-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://endstone.dev/latest/reference/cpp/player__set__spawn__event_8h_source/</loc>
          <lastmod>2026-08-21</lastmod>
     </url>
     <url>

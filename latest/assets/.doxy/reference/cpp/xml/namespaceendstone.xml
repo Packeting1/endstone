@@ -141,6 +141,7 @@
     <innerclass refid="classendstone_1_1PlayerDeathEvent" prot="public">endstone::PlayerDeathEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerDimensionChangeEvent" prot="public">endstone::PlayerDimensionChangeEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerDropItemEvent" prot="public">endstone::PlayerDropItemEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerEditBookEvent" prot="public">endstone::PlayerEditBookEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerEmoteEvent" prot="public">endstone::PlayerEmoteEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerEvent" prot="public">endstone::PlayerEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerExpChangeEvent" prot="public">endstone::PlayerExpChangeEvent</innerclass>
@@ -162,9 +163,11 @@
     <innerclass refid="classendstone_1_1PlayerPickupItemEvent" prot="public">endstone::PlayerPickupItemEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerPortalEvent" prot="public">endstone::PlayerPortalEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerQuitEvent" prot="public">endstone::PlayerQuitEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerRecipeBookClickEvent" prot="public">endstone::PlayerRecipeBookClickEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent" prot="public">endstone::PlayerRecipeBookSettingsChangeEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerRespawnEvent" prot="public">endstone::PlayerRespawnEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerRiptideEvent" prot="public">endstone::PlayerRiptideEvent</innerclass>
+    <innerclass refid="classendstone_1_1PlayerSetSpawnEvent" prot="public">endstone::PlayerSetSpawnEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerShearActorEvent" prot="public">endstone::PlayerShearActorEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerSkinChangeEvent" prot="public">endstone::PlayerSkinChangeEvent</innerclass>
     <innerclass refid="classendstone_1_1PlayerTeleportEvent" prot="public">endstone::PlayerTeleportEvent</innerclass>
@@ -182,6 +185,7 @@
     <innerclass refid="classendstone_1_1PotionMeta" prot="public">endstone::PotionMeta</innerclass>
     <innerclass refid="classendstone_1_1PotionType" prot="public">endstone::PotionType</innerclass>
     <innerclass refid="classendstone_1_1Preconditions" prot="public">endstone::Preconditions</innerclass>
+    <innerclass refid="classendstone_1_1ProxiedCommandSender" prot="public">endstone::ProxiedCommandSender</innerclass>
     <innerclass refid="classendstone_1_1Recipe" prot="public">endstone::Recipe</innerclass>
     <innerclass refid="classendstone_1_1Registry" prot="public">endstone::Registry</innerclass>
     <innerclass refid="classendstone_1_1Scheduler" prot="public">endstone::Scheduler</innerclass>
