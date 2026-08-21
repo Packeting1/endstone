@@ -171,6 +171,7 @@ _Represents a button with text and an optional icon._
 | class | [**PlayerBucketActorEvent**](classendstone_1_1PlayerBucketActorEvent.md) <br>_Represents an event that is called when a player captures an actor in a bucket._  |
 | class | [**PlayerChatEvent**](classendstone_1_1PlayerChatEvent.md) <br>_Called when a player sends a chat message._  |
 | class | [**PlayerCommandEvent**](classendstone_1_1PlayerCommandEvent.md) <br>_Called whenever a player runs a command._  |
+| class | [**PlayerCraftItemEvent**](classendstone_1_1PlayerCraftItemEvent.md) <br>_Called when a player crafts an item._  |
 | class | [**PlayerDeathEvent**](classendstone_1_1PlayerDeathEvent.md) <br>_Called when a_ [_**Player**_](classendstone_1_1Player.md) _dies._ |
 | class | [**PlayerDimensionChangeEvent**](classendstone_1_1PlayerDimensionChangeEvent.md) <br>_Called when a player switches to another dimension._  |
 | class | [**PlayerDropItemEvent**](classendstone_1_1PlayerDropItemEvent.md) <br>_Called when a player drops an item from their inventory._  |
@@ -198,6 +199,7 @@ _Represents a button with text and an optional icon._
 | class | [**PlayerRecipeBookSettingsChangeEvent**](classendstone_1_1PlayerRecipeBookSettingsChangeEvent.md) <br>_Called when a player changes recipe book settings._  |
 | class | [**PlayerRespawnEvent**](classendstone_1_1PlayerRespawnEvent.md) <br>_Called when a player respawns._  |
 | class | [**PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md) <br>_Called when a player activates the riptide enchantment, using their trident to propel them through the air._  |
+| class | [**PlayerShearActorEvent**](classendstone_1_1PlayerShearActorEvent.md) <br>_Called when a player shears an_ [_**Actor**_](classendstone_1_1Actor.md) _._ |
 | class | [**PlayerSkinChangeEvent**](classendstone_1_1PlayerSkinChangeEvent.md) <br>_Called when a player changes their skin._  |
 | class | [**PlayerTeleportEvent**](classendstone_1_1PlayerTeleportEvent.md) <br>_Called when a player is teleported from one location to another._  |
 | class | [**PlayerToggleCrawlEvent**](classendstone_1_1PlayerToggleCrawlEvent.md) <br>_Called when a player toggles their crawling state._  |
@@ -281,7 +283,7 @@ _Represents a button with text and an optional icon._
 | enum  | [**ObjectiveSortOrder**](#enum-objectivesortorder)  <br>_Represents the sort order of objectives on a DisplaySlot._  |
 | enum  | [**PermissionDefault**](#enum-permissiondefault)  <br>_Represents the possible default values for permissions._  |
 | enum  | [**PermissionLevel**](#enum-permissionlevel)  <br>_Represents the permission level of a_ [_**Permissible**_](classendstone_1_1Permissible.md) _._ |
-| typedef std::function&lt; [**void**](classendstone_1_1Identifier.md)([**const**](classendstone_1_1Identifier.md) [**PermissionAttachment**](classendstone_1_1PermissionAttachment.md) &)&gt; | [**PermissionRemovedExecutor**](#typedef-permissionremovedexecutor)  <br> |
+| typedef std::function&lt; [**void**](classendstone_1_1Identifier.md)([**const**](classendstone_1_1Identifier.md) [**NotNull**](classendstone_1_1NotNull.md)&lt; [**PermissionAttachment**](classendstone_1_1PermissionAttachment.md) &gt; &)&gt; | [**PermissionRemovedExecutor**](#typedef-permissionremovedexecutor)  <br> |
 | enum  | [**PluginLoadOrder**](#enum-pluginloadorder)  <br>_Represents the order in which a plugin should be initialized and enabled._  |
 | typedef [**Identifier**](classendstone_1_1Identifier.md)&lt; [**PotionType**](classendstone_1_1PotionType.md) &gt; | [**PotionId**](#typedef-potionid)  <br> |
 | enum std::uint8\_t | [**RenderType**](#enum-rendertype)  <br>_Controls the way in which an_ [_**Objective**_](classendstone_1_1Objective.md) _is rendered on the client side._ |
@@ -854,7 +856,7 @@ enum endstone::PermissionLevel {
 ### typedef PermissionRemovedExecutor 
 
 ```C++
-using endstone::PermissionRemovedExecutor = typedef std::function<void(const PermissionAttachment &)>;
+using endstone::PermissionRemovedExecutor = typedef std::function<void(const NotNull<PermissionAttachment> &)>;
 ```
 
 
