@@ -99,6 +99,7 @@ __all__ = [
     "PlayerToggleFlightEvent",
     "PlayerToggleSneakEvent",
     "PlayerToggleSprintEvent",
+    "PortalCreateEvent",
     "PluginDisableEvent",
     "PluginEnableEvent",
     "ScriptMessageEvent",
@@ -616,6 +617,44 @@ class LevelEvent(Event):
     def level(self) -> Level:
         """
         The `Level` primarily involved with this event.
+        """
+
+class PortalCreateEvent(LevelEvent, Cancellable):
+    """
+    Called when a portal is created.
+
+    If a `PortalCreateEvent` is cancelled, the portal will not be created.
+    """
+    class CreateReason(enum.Enum):
+        """
+        Specifies the reason that a portal was created.
+        """
+
+        FIRE = 0
+        NETHER_PAIR = 1
+        END_PLATFORM = 2
+        CUSTOM = 3
+
+    FIRE = CreateReason.FIRE
+    NETHER_PAIR = CreateReason.NETHER_PAIR
+    END_PLATFORM = CreateReason.END_PLATFORM
+    CUSTOM = CreateReason.CUSTOM
+    @property
+    def blocks(self) -> list[BlockState]:
+        """
+        The block states that will be used to create the portal.
+        """
+
+    @property
+    def entity(self) -> Actor | None:
+        """
+        The `Actor` involved in the portal creation, or `None` if no actor was involved.
+        """
+
+    @property
+    def reason(self) -> CreateReason:
+        """
+        The reason the portal was created.
         """
 
 class DimensionEvent(LevelEvent):

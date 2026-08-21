@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added the public `PortalCreateEvent` API with portal block states, the optional creating `Actor`, and the `CreateReason` enum. Runtime dispatch remains unavailable until a BDS portal event path is reconstructed and verified.
+
 - Added `Player.send_action_bar()` for sending a message above the player's hotbar.
 - Added `/restart` command (console-only) that gracefully restarts the server without manually relaunching.
 - Added support for custom Python events with optional cancellation.

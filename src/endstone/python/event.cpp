@@ -288,6 +288,37 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
     py::class_<LevelEvent, Event>(m, "LevelEvent", "Represents events within a level.")
         .def_property_readonly("level", &LevelEvent::getLevel, py::return_value_policy::reference,
                                "The `Level` primarily involved with this event.");
+    auto portal_create_event = py::class_<PortalCreateEvent, LevelEvent, ICancellable>(m, "PortalCreateEvent", R"doc(
+    Called when a portal is created.
+
+    If a `PortalCreateEvent` is cancelled, the portal will not be created.
+)doc");
+    py::native_enum<PortalCreateEvent::CreateReason>(portal_create_event, "CreateReason", "enum.Enum",
+                                                      "Specifies the reason that a portal was created.")
+        .value("FIRE", PortalCreateEvent::CreateReason::Fire)
+        .value("NETHER_PAIR", PortalCreateEvent::CreateReason::NetherPair)
+        .value("END_PLATFORM", PortalCreateEvent::CreateReason::EndPlatform)
+        .value("CUSTOM", PortalCreateEvent::CreateReason::Custom)
+        .export_values()
+        .finalize();
+    portal_create_event
+        .def_property_readonly(
+            "blocks",
+            [](const PortalCreateEvent &self) {
+                std::vector<BlockState *> blocks;
+                for (const auto &block : self.getBlocks()) {
+                    if (block) {
+                        blocks.emplace_back(block.get());
+                    }
+                }
+                return blocks;
+            },
+            py::return_value_policy::reference_internal,
+            "The block states that will be used to create the portal.")
+        .def_property_readonly("entity", &PortalCreateEvent::getEntity,
+                               "The `Actor` involved in the portal creation, or `None` if no actor was involved.")
+        .def_property_readonly("reason", &PortalCreateEvent::getReason,
+                               "The reason the portal was created.");
     py::class_<DimensionEvent, LevelEvent>(m, "DimensionEvent", "Represents events within a dimension.")
         .def_property_readonly("dimension", &DimensionEvent::getDimension,
                                "The `Dimension` primarily involved with this event.");
