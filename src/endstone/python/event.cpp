@@ -288,6 +288,24 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
     py::class_<LevelEvent, Event>(m, "LevelEvent", "Represents events within a level.")
         .def_property_readonly("level", &LevelEvent::getLevel, py::return_value_policy::reference,
                                "The `Level` primarily involved with this event.");
+    auto clock_time_skip_event = py::class_<ClockTimeSkipEvent, LevelEvent, ICancellable>(
+        m, "ClockTimeSkipEvent", R"doc(
+    Represents an event that is fired when the clock of a level is advanced.
+
+    The event may be cancelled to prevent the time skip from occurring.
+)doc");
+    py::native_enum<ClockTimeSkipEvent::SkipReason>(
+        clock_time_skip_event, "SkipReason", "enum.Enum", "Represents the reason for a level clock time skip.")
+        .value("COMMAND", ClockTimeSkipEvent::SkipReason::Command)
+        .value("CUSTOM", ClockTimeSkipEvent::SkipReason::Custom)
+        .value("NIGHT_SKIP", ClockTimeSkipEvent::SkipReason::NightSkip)
+        .export_values()
+        .finalize();
+    clock_time_skip_event
+        .def_property_readonly("skip_reason", &ClockTimeSkipEvent::getSkipReason,
+                               "The immutable reason for the time skip.")
+        .def_property("skip_amount", &ClockTimeSkipEvent::getSkipAmount, &ClockTimeSkipEvent::setSkipAmount,
+                      "The signed amount of time to skip. Negative values move the level clock backwards.");
     py::class_<TimeSkipEvent, ClockTimeSkipEvent>(m, "TimeSkipEvent",
                                                 "Represents an event that is fired when the time of a level is skipped.");
     py::class_<DimensionEvent, LevelEvent>(m, "DimensionEvent", "Represents events within a dimension.")

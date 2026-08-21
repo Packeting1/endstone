@@ -102,6 +102,7 @@ static_assert(_ITERATOR_DEBUG_LEVEL == 0,
 #include "event/event_handler.h"
 #include "event/event_priority.h"
 #include "event/handler_list.h"
+#include "event/level/clock_time_skip_event.h"
 #include "event/level/dimension_event.h"
 #include "event/level/level_event.h"
 #include "event/level/time_skip_event.h"
