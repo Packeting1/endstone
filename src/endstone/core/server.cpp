@@ -40,6 +40,7 @@
 #include "bedrock/server/server_map_data_manager.h"
 #include "bedrock/shared_constants.h"
 #include "bedrock/world/item/enchanting/enchant.h"
+#include "bedrock/world/actor/actor.h"
 #include "bedrock/world/level/block/block_descriptor.h"
 #include "bedrock/world/scores/server_scoreboard.h"
 #include "endstone/actor/actor_type.h"
