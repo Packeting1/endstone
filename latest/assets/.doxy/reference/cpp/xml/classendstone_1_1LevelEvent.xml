@@ -4,6 +4,7 @@
     <compoundname>endstone::LevelEvent</compoundname>
     <basecompoundref refid="classendstone_1_1Event" prot="public" virt="non-virtual">endstone::Event</basecompoundref>
     <derivedcompoundref refid="classendstone_1_1DimensionEvent" prot="public" virt="non-virtual">endstone::DimensionEvent</derivedcompoundref>
+    <derivedcompoundref refid="classendstone_1_1LevelLoadEvent" prot="public" virt="non-virtual">endstone::LevelLoadEvent</derivedcompoundref>
     <includes refid="level__event_8h" local="no">endstone/event/level/level_event.h</includes>
     <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classendstone_1_1LevelEvent_1ab3a3f5c2858709f045ea2195567b7892" prot="private" static="no" mutable="no">
@@ -97,6 +98,12 @@
         <label>endstone::LevelEvent</label>
         <link refid="classendstone_1_1LevelEvent"/>
         <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>endstone::LevelLoadEvent</label>
+        <link refid="classendstone_1_1LevelLoadEvent"/>
+        <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>

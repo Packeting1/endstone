@@ -1526,6 +1526,11 @@
     <member refid="classendstone_1_1LevelEvent_1a75f2817cfb11480dedbf70c1d3ddc162" kind="function"><name>LevelEvent</name></member>
     <member refid="classendstone_1_1LevelEvent_1ac3be77ffb5a5416fe0c6b138ac01a709" kind="function"><name>getLevel</name></member>
   </compound>
+  <compound refid="classendstone_1_1LevelLoadEvent" kind="class"><name>endstone::LevelLoadEvent</name>
+    <member refid="classendstone_1_1LevelLoadEvent_1a9cdc211dbaedc5a1330e247209d58948" kind="function"><name>ENDSTONE_EVENT</name></member>
+    <member refid="classendstone_1_1LevelLoadEvent_1ae52ccf1cdca81ae99e198839163c31d6" kind="function"><name>LevelLoadEvent</name></member>
+    <member refid="classendstone_1_1LevelLoadEvent_1a84f293ee77feb5d1117304f412bd27ba" kind="function"><name>~LevelLoadEvent</name></member>
+  </compound>
   <compound refid="classendstone_1_1ListTag" kind="class"><name>endstone::ListTag</name>
     <member refid="classendstone_1_1ListTag_1a74f3034e0b1eee2fc7b34bf78e93cbba" kind="typedef"><name>value_type</name></member>
     <member refid="classendstone_1_1ListTag_1a56bf98e823ea2c41d1d9ca021c37ec6e" kind="typedef"><name>size_type</name></member>
@@ -3481,6 +3486,8 @@
   <compound refid="dimension__event_8h" kind="file"><name>dimension_event.h</name>
   </compound>
   <compound refid="level__event_8h" kind="file"><name>level_event.h</name>
+  </compound>
+  <compound refid="level__load__event_8h" kind="file"><name>level_load_event.h</name>
   </compound>
   <compound refid="player__arm__swing__event_8h" kind="file"><name>player_arm_swing_event.h</name>
   </compound>

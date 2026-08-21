@@ -138,6 +138,7 @@ _Represents a button with text and an optional icon._
 | class | [**Lectern**](classendstone_1_1Lectern.md) <br>_Represents a captured state of a lectern._  |
 | class | [**Level**](classendstone_1_1Level.md) <br>_Represents a level, which may contain actors, chunks and blocks._  |
 | class | [**LevelEvent**](classendstone_1_1LevelEvent.md) <br>_Represents events within a level._  |
+| class | [**LevelLoadEvent**](classendstone_1_1LevelLoadEvent.md) <br>_Called when a level is loaded._  |
 | class | [**ListTag**](classendstone_1_1ListTag.md) <br>_An NBT tag holding an ordered sequence of child tags that all share the same type._  |
 | class | [**Location**](classendstone_1_1Location.md) <br>_Represents a 3-dimensional location in a dimension within a level._  |
 | class | [**Logger**](classendstone_1_1Logger.md) <br>[_**Logger**_](classendstone_1_1Logger.md) _class which can format and output varies levels of logs._ |

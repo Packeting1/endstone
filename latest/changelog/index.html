@@ -5547,6 +5547,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><code>PlayerRespawnEvent.respawn_reason</code> (<code>RespawnReason.DEATH</code> / <code>RespawnReason.END_PORTAL</code>).</li>
 <li><code>ActorExplodeEvent::setBlockList()</code> and <code>BlockExplodeEvent::setBlockList()</code>, with the <code>BlockList</code> alias made public.</li>
 <li>Support for custom Python events with optional cancellation.</li>
+<li><code>LevelLoadEvent</code>, called during server startup once the level has finished loading and PostWorld plugins are enabled, before <code>ServerLoadEvent</code>.</li>
 </ul>
 <h4 id="actors-and-players">Actors and players<a class="headerlink" href="#actors-and-players" title="Permanent link">&para;</a></h4>
 <ul>

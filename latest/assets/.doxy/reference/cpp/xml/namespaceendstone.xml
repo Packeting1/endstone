@@ -103,6 +103,7 @@
     <innerclass refid="classendstone_1_1Lectern" prot="public">endstone::Lectern</innerclass>
     <innerclass refid="classendstone_1_1Level" prot="public">endstone::Level</innerclass>
     <innerclass refid="classendstone_1_1LevelEvent" prot="public">endstone::LevelEvent</innerclass>
+    <innerclass refid="classendstone_1_1LevelLoadEvent" prot="public">endstone::LevelLoadEvent</innerclass>
     <innerclass refid="classendstone_1_1ListTag" prot="public">endstone::ListTag</innerclass>
     <innerclass refid="classendstone_1_1Location" prot="public">endstone::Location</innerclass>
     <innerclass refid="classendstone_1_1Logger" prot="public">endstone::Logger</innerclass>

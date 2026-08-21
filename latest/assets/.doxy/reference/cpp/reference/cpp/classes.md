@@ -325,6 +325,8 @@
 ([**endstone**](namespaceendstone.md))
 * [**LevelEvent**](classendstone_1_1LevelEvent.md)
 ([**endstone**](namespaceendstone.md))
+* [**LevelLoadEvent**](classendstone_1_1LevelLoadEvent.md)
+([**endstone**](namespaceendstone.md))
 * [**ListTag**](classendstone_1_1ListTag.md)
 ([**endstone**](namespaceendstone.md))
 * [**Location**](classendstone_1_1Location.md)
