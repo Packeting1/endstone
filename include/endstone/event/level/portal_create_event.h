@@ -46,14 +46,12 @@ public:
         NetherPair,
         /** An end platform was created. */
         EndPlatform,
-        /** A portal was created by a custom source. */
-        Custom,
     };
 
     ENDSTONE_EVENT(PortalCreateEvent);
 
-    PortalCreateEvent(BlockList blocks, Level &level, const Nullable<Actor> &entity, CreateReason reason)
-        : Cancellable(level), blocks_(std::move(blocks)), entity_(entity), reason_(reason)
+    PortalCreateEvent(BlockList blocks, Level &level, const Nullable<Actor> &actor, CreateReason reason)
+        : Cancellable(level), blocks_(std::move(blocks)), actor_(actor), reason_(reason)
     {
     }
     ~PortalCreateEvent() override = default;
@@ -77,7 +75,7 @@ public:
      *
      * @return The Actor involved in the portal creation, or an empty handle if no Actor was involved.
      */
-    [[nodiscard]] const Nullable<Actor> &getEntity() const { return entity_; }
+    [[nodiscard]] const Nullable<Actor> &getActor() const { return actor_; }
 
     /**
      * Gets the reason for the portal creation.
@@ -88,7 +86,7 @@ public:
 
 private:
     BlockList blocks_;
-    Nullable<Actor> entity_;
+    Nullable<Actor> actor_;
     CreateReason reason_;
 };
 

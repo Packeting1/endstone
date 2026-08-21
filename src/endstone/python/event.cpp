@@ -298,7 +298,6 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
         .value("FIRE", PortalCreateEvent::CreateReason::Fire)
         .value("NETHER_PAIR", PortalCreateEvent::CreateReason::NetherPair)
         .value("END_PLATFORM", PortalCreateEvent::CreateReason::EndPlatform)
-        .value("CUSTOM", PortalCreateEvent::CreateReason::Custom)
         .export_values()
         .finalize();
     portal_create_event
@@ -315,7 +314,7 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
             },
             py::return_value_policy::reference_internal,
             "The block states that will be used to create the portal.")
-        .def_property_readonly("entity", &PortalCreateEvent::getEntity,
+        .def_property_readonly("actor", &PortalCreateEvent::getActor,
                                "The `Actor` involved in the portal creation, or `None` if no actor was involved.")
         .def_property_readonly("reason", &PortalCreateEvent::getReason,
                                "The reason the portal was created.");
