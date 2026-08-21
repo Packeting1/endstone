@@ -296,7 +296,9 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
     py::class_<ChunkEvent, DimensionEvent>(m, "ChunkEvent", "Represents a `Chunk` related event.")
         .def_property_readonly("chunk", &ChunkEvent::getChunk, py::return_value_policy::reference,
                                "The `Chunk` being loaded/unloaded.");
-    py::class_<ChunkLoadEvent, ChunkEvent>(m, "ChunkLoadEvent", "Called when a chunk is loaded.");
+    py::class_<ChunkLoadEvent, ChunkEvent>(m, "ChunkLoadEvent", "Called when a chunk is loaded.")
+        .def_property_readonly("is_new_chunk", &ChunkLoadEvent::isNewChunk,
+                               "Whether the chunk was newly created.");
     py::class_<ChunkUnloadEvent, ChunkEvent>(m, "ChunkUnloadEvent", "Called when a chunk is unloaded.");
 
     // Player events

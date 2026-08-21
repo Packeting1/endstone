@@ -25,8 +25,25 @@ class ChunkLoadEvent : public ChunkEvent {
 public:
     ENDSTONE_EVENT(ChunkLoadEvent);
 
-    explicit ChunkLoadEvent(Chunk &chunk) : ChunkEvent(chunk) {}
+    /**
+     * Constructs a chunk load event for the given chunk.
+     *
+     * @param chunk The chunk that was loaded.
+     * @param new_chunk Whether the chunk was newly created.
+     */
+    explicit ChunkLoadEvent(Chunk &chunk, bool new_chunk) : ChunkEvent(chunk), new_chunk_(new_chunk) {}
+
+    /**
+     * Gets whether this chunk was newly created.
+     *
+     * @return `true` if this chunk was newly created, otherwise `false`.
+     */
+    [[nodiscard]] bool isNewChunk() const { return new_chunk_; }
+
     ~ChunkLoadEvent() override = default;
+
+private:
+    bool new_chunk_;
 };
 
 }  // namespace endstone
