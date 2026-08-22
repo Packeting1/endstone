@@ -15,7 +15,6 @@
 #include "bedrock/world/actor/mob.h"
 
 #include <iostream>
-#include <optional>
 
 #include "bedrock/entity/components/damage_sensor_component.h"
 #include "bedrock/entity/components/no_action_time_component.h"
@@ -29,10 +28,6 @@
 #include "endstone/event/actor/actor_knockback_event.h"
 #include "endstone/runtime/hook.h"
 
-namespace endstone::runtime {
-const std::optional<Vec3> &getLastExplosionPos();
-}
-
 void Mob::knockback(Actor *source, float damage, float dx, float dz, const KnockbackParameters &parameters)
 {
     const auto before = getPosDelta();
@@ -41,11 +36,6 @@ void Mob::knockback(Actor *source, float damage, float dx, float dz, const Knock
     auto diff = after - before;
 
     const auto &server = endstone::core::EndstoneServer::getInstance();
-    const bool explosion_knockback_disabled =
-        server.isExplosionKnockbackDisabled() && endstone::runtime::getLastExplosionPos();
-    if (explosion_knockback_disabled) {
-        diff = Vec3::ZERO;
-    }
     endstone::ActorKnockbackEvent e{getEndstoneActor<endstone::core::EndstoneMob>(),
                                     source == nullptr ? nullptr : source->getEndstoneActor(),
                                     {diff.x, diff.y, diff.z}};
@@ -53,9 +43,6 @@ void Mob::knockback(Actor *source, float damage, float dx, float dz, const Knock
 
     const auto knockback = e.getKnockback();
     diff = e.isCancelled() ? Vec3::ZERO : Vec3{knockback.getX(), knockback.getY(), knockback.getZ()};
-    if (explosion_knockback_disabled) {
-        diff = Vec3::ZERO;
-    }
     setPosDelta(before + diff);
 }
 
