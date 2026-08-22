@@ -5,7 +5,7 @@ comments: true
 # Paper configuration compatibility
 
 The two Paper configuration files are generated with Paper's current version `31` layout. The status below describes
-the Bedrock implementation boundary, not whether Endstone already has a wrapper for the setting.
+what this PR wires into Endstone; the detailed 1.26.40 audits separately record whether a BDS adapter is feasible.
 
 | Status | Meaning |
 | --- | --- |
@@ -122,6 +122,43 @@ missing. The addresses are 1.26.40 research evidence, not 1.26.44 offsets.
 | `packet-limiter.overrides.minecraft:place_recipe.interval` | `4.0` | BDS has packet-id buckets, but no Java `PlaceRecipe` packet; mapping this key to Bedrock recipe/item-stack requests would cover a wider protocol operation. | N |
 | `packet-limiter.overrides.minecraft:place_recipe.max-packet-rate` | `5.0` | The native table is real, but the named Java packet has no Bedrock equivalent and a broad substitute could reject valid requests. | N |
 | `packet-limiter.overrides.minecraft:place_recipe.action` | `DROP` | BDS can drop or disconnect at its packet-security path, but applying it to `ItemStackRequest` is not Java-equivalent. | N |
+| `messages.kick.authentication-servers-down` | `<lang:multiplayer.disconnect.authservers_down>` | Linux login (`0x84D72D0`) and unified disconnect (`0x84C4000`) paths accept a message; a reason-specific adapter is feasible. | E |
+| `messages.kick.connection-throttle` | `Connection throttled! Please wait before reconnecting.` | BDS has a connection admission/disconnect path; the throttle branch still needs a targeted caller hook. | E |
+| `messages.kick.flying-player` | `<lang:multiplayer.disconnect.flying>` | BDS flying validation ultimately uses the unified disconnect path; the player-specific caller needs a targeted hook. | E |
+| `messages.kick.flying-vehicle` | `<lang:multiplayer.disconnect.flying>` | BDS vehicle flying validation ultimately uses the unified disconnect path; the vehicle-specific caller needs a targeted hook. | E |
+| `messages.no-permission` | `<red>I'm sorry, but you do not have permission to perform this command. Please contact the server administrators if you believe this is an error.` | Endstone's command permission layer can supply the configured text at the command compiler/dispatch boundary (`0x98A52B0`). | E |
+| `messages.use-display-name-in-quit-message` | `false` | Endstone already has player disconnect/quit broadcast handling; choose the display-name source at that event boundary. | E |
+| `console.enable-brigadier-highlighting` | `true` | BDS command compiler (`0x98A52B0`) is not Java Brigadier console UI. | X |
+| `console.enable-brigadier-completions` | `true` | BDS command compiler (`0x98A52B0`) is not Java Brigadier console UI. | X |
+| `console.has-all-permissions` | `false` | Endstone `PermissionLevel::Console` evaluation already provides the equivalent switch. | E |
+| `watchdog.early-warning-every` | `5000` | BDS `Level::tick` (`0xC069730`) is the heartbeat boundary, but Paper's early warning cadence needs a separate monitor. | I |
+| `watchdog.early-warning-delay` | `10000` | BDS has a heartbeat/tick boundary but no established Paper early-warning delay field. | I |
+| `commands.suggest-player-names-when-null-tab-completions` | `true` | No Java null tab-completion semantic was found in Bedrock command handling. | X |
+| `commands.ride-command-allow-player-as-vehicle` | `false` | BDS command compilation exists, but the Ride executor and player-as-vehicle check need a targeted hook. | I |
+| `time.affects-all-worlds` | `false` | BDS exposes `Level_getTime` (`0xC070CB0`) and `Level_setTime` (`0xC070A60`), but not Paper's shared dimension-type policy. | I |
+| `player-auto-save.rate` | `-1` | BDS save paths (`0xC075740`, `0xC0720E0`, `0xC072860`) exist; per-player interval scheduling needs a hook. | I |
+| `player-auto-save.max-per-tick` | `-1` | BDS save queues exist, but a Paper-style per-tick player budget is not an exposed field. | I |
+| `misc.chat-threads.chat-executor-core-size` | `-1` | No Bedrock chat-specific executor with Java's core-size contract was established. | X |
+| `misc.chat-threads.chat-executor-max-size` | `-1` | No Bedrock chat-specific executor with Java's max-size contract was established. | X |
+| `misc.max-joins-per-tick` | `5` | Linux player-load path (`0x84EB200`) exists; admission batching has no Paper cap field. | I |
+| `misc.catchup-ticks` | `default` | BDS `Level::tick` (`0xC069730`) is a single tick boundary; catch-up policy needs a server-loop hook. | I |
+| `misc.send-full-pos-for-item-entities` | `false` | BDS packet send (`0x6E4B9C0`) exists; item-entity precision fields need a packet-specific hook. | I |
+| `misc.load-permissions-yml-before-plugins` | `true` | BDS/Endstone has no Bukkit `permissions.yml` loading phase. | X |
+| `misc.region-file-cache-size` | `256` | BDS chunk/storage loading (`0xC191870`) exists, but Java Anvil region-cache semantics do not. | I |
+| `misc.use-alternative-luck-formula` | `false` | Java loot luck formula has no safe Bedrock equivalent. | X |
+| `misc.use-dimension-type-for-custom-spawners` | `false` | BDS dimension/spawner initialization exists, but Paper custom-spawner dimension selection is only partially mappable. | N |
+| `misc.strict-advancement-dimension-check` | `false` | Bedrock has no Java advancement dimension-check mechanism. | X |
+| `misc.compression-level` | `default` | Bedrock compression/threshold handling exists, but Java zlib-level semantics are not shared. | N |
+| `misc.client-interaction-leniency-distance` | `default` | BDS interaction validation (`0xBC85B20`) is a real hook candidate; the distance field/caller needs ABI confirmation. | I |
+| `misc.xp-orb-groups-per-area` | `default` | Bedrock XP-orb merging exists, but its area grouping path needs a targeted hook. | I |
+| `misc.prevent-negative-villager-demand` | `false` | Bedrock trading exists, but Java demand values and update rules are not proven equivalent. | N |
+| `misc.enable-nether` | `true` | BDS dimension initialization (`0x9A15F00`) is a real startup/transfer hook candidate. | I |
+| `misc.fix-far-end-terrain-generation` | `true` | Paper's Java End terrain fix has no established Bedrock equivalent. | X |
+| `misc.max-tracking-combat-entries` | `10240` | No Java CombatTracker-equivalent Bedrock storage path was established. | X |
+| `block-updates.disable-noteblock-updates` | `false` | Linux NoteBlock vtable (`0xE75F2D8`) and event paths (`0xC7145E0`, `0xC7147D0`) provide targeted update hooks. | I |
+| `block-updates.disable-tripwire-updates` | `false` | Linux TripWire vtable (`0xE74B5E8`) and update paths (`0xC6C3710`, `0xBE14DC0`) provide targeted hooks. | I |
+| `block-updates.disable-chorus-plant-updates` | `false` | Linux Chorus vtable (`0xE6E1010`) and survival/update paths (`0xBDF4EA0`, `0xBDF4F50`) provide targeted hooks. | I |
+| `block-updates.disable-mushroom-block-updates` | `false` | Bedrock has a HugeMushroom vtable (`0xE6C6488`), but no isolated update override was confirmed; a generic neighbour-update hook risks unrelated blocks. | I |
 
 ## Detailed 1.26.40 world audit
 
@@ -148,6 +185,67 @@ equivalent.
 | `entities.markers.tick` | `true` | No Bedrock/Levi Java Marker actor or actor type was found. | X |
 | `entities.sniffer.hatch-time` | `default` | Levi has Sniffer actors and Bedrock has the egg/block tick subsystem; the SnifferEgg timer caller remains to be located. | I |
 | `entities.sniffer.boosted-hatch-time` | `default` | Same SnifferEgg path, with the boosted timer as a separate branch. | I |
+| `entities.spawning.non-player-arrow-despawn-rate` | `default` | Bedrock `AbstractArrow` actors have tick/lifetime state; the Paper fallback rate needs a targeted despawn hook. | I |
+| `entities.spawning.creative-arrow-despawn-rate` | `default` | The same arrow lifecycle has creative-state branches; the Paper category-specific fallback is not a BDS field. | I |
+| `entities.spawning.max-arrow-despawn-invulnerability` | `200` | Bedrock arrow tick state can carry an invulnerability window; the 200-tick cap needs an ABI-verified hook. | I |
+| `entities.spawning.filter-bad-tile-entity-nbt-from-falling-blocks` | `true` | Bedrock `FallingBlockActor` and block-actor NBT load paths exist; filter before actor creation. | I |
+| `entities.spawning.filtered-entity-tag-nbt-paths` | `[Pos, Motion, sleeping_pos]` | Bedrock actor load/spawn-egg factories have NBT paths, but the Paper permission-gated filter must be added. | I |
+| `entities.spawning.disable-mob-spawner-spawn-egg-transformation` | `false` | Bedrock `MobSpawnerBlock`/`BaseMobSpawner` and SpawnEgg use paths exist; block-actor transformation needs a targeted hook. | I |
+| `entities.spawning.per-player-mob-spawns` | `true` | Levi `NaturalSpawner`/`BedrockSpawner` expose per-player candidate and cap logic; the BDS scheduler needs a per-player adapter. | I |
+| `entities.spawning.scan-for-legacy-ender-dragon` | `true` | Bedrock `EndDragonFight` and dragon state loading exist; the legacy scan/kill-state branch needs a hook. | I |
+| `entities.spawning.spawn-limits.monster` | `-1` | Bedrock natural spawners expose monster category counts; negative Paper values fall back to the world default. | I |
+| `entities.spawning.spawn-limits.creature` | `-1` | Bedrock natural spawners expose creature category counts; negative Paper values fall back to the world default. | I |
+| `entities.spawning.spawn-limits.ambient` | `-1` | Bedrock natural spawners expose ambient category counts; negative Paper values fall back to the world default. | I |
+| `entities.spawning.spawn-limits.axolotls` | `-1` | Bedrock natural spawners expose axolotl category counts; negative Paper values fall back to the world default. | I |
+| `entities.spawning.spawn-limits.underground-water-creature` | `-1` | Bedrock natural spawners expose underground-water category counts; negative Paper values fall back to the world default. | I |
+| `entities.spawning.spawn-limits.water-creature` | `-1` | Bedrock natural spawners expose water-creature category counts; negative Paper values fall back to the world default. | I |
+| `entities.spawning.spawn-limits.water-ambient` | `-1` | Bedrock natural spawners expose water-ambient category counts; negative Paper values fall back to the world default. | I |
+| `entities.spawning.despawn-ranges.monster.hard` | `default` | Bedrock actor despawn checks have category/range inputs; Paper hard-distance semantics need a hook. | I |
+| `entities.spawning.despawn-ranges.monster.soft` | `default` | Bedrock actor despawn checks have category/range inputs; Paper soft-distance/random semantics need a hook. | I |
+| `entities.spawning.despawn-ranges.creature.hard` | `default` | Bedrock actor despawn checks have category/range inputs; Paper hard-distance semantics need a hook. | I |
+| `entities.spawning.despawn-ranges.creature.soft` | `default` | Bedrock actor despawn checks have category/range inputs; Paper soft-distance/random semantics need a hook. | I |
+| `entities.spawning.despawn-ranges.ambient.hard` | `default` | Bedrock actor despawn checks have category/range inputs; Paper hard-distance semantics need a hook. | I |
+| `entities.spawning.despawn-ranges.ambient.soft` | `default` | Bedrock actor despawn checks have category/range inputs; Paper soft-distance/random semantics need a hook. | I |
+| `entities.spawning.despawn-ranges.axolotls.hard` | `default` | Bedrock actor despawn checks have category/range inputs; Paper hard-distance semantics need a hook. | I |
+| `entities.spawning.despawn-ranges.axolotls.soft` | `default` | Bedrock actor despawn checks have category/range inputs; Paper soft-distance/random semantics need a hook. | I |
+| `entities.spawning.despawn-ranges.underground-water-creature.hard` | `default` | Bedrock actor despawn checks have category/range inputs; Paper hard-distance semantics need a hook. | I |
+| `entities.spawning.despawn-ranges.underground-water-creature.soft` | `default` | Bedrock actor despawn checks have category/range inputs; Paper soft-distance/random semantics need a hook. | I |
+| `entities.spawning.despawn-ranges.water-creature.hard` | `default` | Bedrock actor despawn checks have category/range inputs; Paper hard-distance semantics need a hook. | I |
+| `entities.spawning.despawn-ranges.water-creature.soft` | `default` | Bedrock actor despawn checks have category/range inputs; Paper soft-distance/random semantics need a hook. | I |
+| `entities.spawning.despawn-ranges.water-ambient.hard` | `default` | Bedrock actor despawn checks have category/range inputs; Paper hard-distance semantics need a hook. | I |
+| `entities.spawning.despawn-ranges.water-ambient.soft` | `default` | Bedrock actor despawn checks have category/range inputs; Paper soft-distance/random semantics need a hook. | I |
+| `entities.spawning.despawn-ranges.misc.hard` | `default` | Bedrock actor despawn checks have category/range inputs; Paper hard-distance semantics need a hook. | I |
+| `entities.spawning.despawn-ranges.misc.soft` | `default` | Bedrock actor despawn checks have category/range inputs; Paper soft-distance/random semantics need a hook. | I |
+| `entities.spawning.despawn-range-shape` | `ELLIPSOID` | Bedrock actor position queries exist; selecting ellipsoid versus cylinder requires changing the distance predicate. | I |
+| `entities.spawning.despawn-time.minecraft:snowball` | `disabled` | Bedrock `Snowball` actor lifetime exists; the Paper total-age override needs an actor-tick hook. | I |
+| `entities.spawning.despawn-time.minecraft:llama_spit` | `disabled` | Bedrock `LlamaSpit` actor lifetime exists; the Paper total-age override needs an actor-tick hook. | I |
+| `entities.spawning.ticks-per-spawn.monster` | `-1` | Bedrock natural-spawner tick scheduling has monster categories; negative values fall back to the world scheduler. | I |
+| `entities.spawning.ticks-per-spawn.creature` | `-1` | Bedrock natural-spawner tick scheduling has creature categories; negative values fall back to the world scheduler. | I |
+| `entities.spawning.ticks-per-spawn.ambient` | `-1` | Bedrock natural-spawner tick scheduling has ambient categories; negative values fall back to the world scheduler. | I |
+| `entities.spawning.ticks-per-spawn.axolotls` | `-1` | Bedrock natural-spawner tick scheduling has axolotl categories; negative values fall back to the world scheduler. | I |
+| `entities.spawning.ticks-per-spawn.underground-water-creature` | `-1` | Bedrock natural-spawner tick scheduling has underground-water categories; negative values fall back to the world scheduler. | I |
+| `entities.spawning.ticks-per-spawn.water-creature` | `-1` | Bedrock natural-spawner tick scheduling has water-creature categories; negative values fall back to the world scheduler. | I |
+| `entities.spawning.ticks-per-spawn.water-ambient` | `-1` | Bedrock natural-spawner tick scheduling has water-ambient categories; negative values fall back to the world scheduler. | I |
+| `entities.spawning.despawn-time.<entity-type>` | `disabled` when absent | Bedrock actor/item lifetime fields exist; arbitrary Paper entity-type age limits require a type-aware actor-tick hook. | I |
+| `entities.spawning.wateranimal-spawn-height.maximum` | `default` | Bedrock water-animal spawn rules expose Y checks and sea-level fallbacks; add a configured boundary. | I |
+| `entities.spawning.wateranimal-spawn-height.minimum` | `default` | Bedrock water-animal spawn rules expose Y checks; add a configured lower boundary. | I |
+| `entities.spawning.slime-spawn-height.surface-biome.minimum` | `50` | Bedrock slime spawn rules expose surface-biome Y checks; add a configured lower boundary. | I |
+| `entities.spawning.slime-spawn-height.surface-biome.maximum` | `70` | Bedrock slime spawn rules expose surface-biome Y checks; add a configured upper boundary. | I |
+| `entities.spawning.slime-spawn-height.slime-chunk.maximum` | `40` | Bedrock slime-chunk spawn rules expose Y checks; add a configured upper boundary. | I |
+| `entities.spawning.wandering-trader.spawn-minute-length` | `1200` | Bedrock wandering-trader scheduler has attempt timers; Paper's minute interval needs a scheduler hook. | I |
+| `entities.spawning.wandering-trader.spawn-day-length` | `24000` | Bedrock wandering-trader scheduler has daily delay state; Paper's day length needs a scheduler hook. | I |
+| `entities.spawning.wandering-trader.spawn-chance-failure-increment` | `25` | Bedrock wandering-trader scheduler tracks failed attempts/chance; the increment needs a configured branch. | I |
+| `entities.spawning.wandering-trader.spawn-chance-min` | `25` | Bedrock wandering-trader scheduler tracks chance; the lower bound needs a configured branch. | I |
+| `entities.spawning.wandering-trader.spawn-chance-max` | `75` | Bedrock wandering-trader scheduler tracks chance; the upper bound needs a configured branch. | I |
+| `entities.spawning.all-chunks-are-slime-chunks` | `false` | Bedrock chunk seed/slime checks exist; a forced result can be inserted in the slime predicate. | I |
+| `entities.spawning.skeleton-horse-thunder-spawn-chance` | `default` | Bedrock lightning/skeleton-horse trap and spawn paths exist; Paper's fallback chance needs a hook. | I |
+| `entities.spawning.iron-golems-can-spawn-in-air` | `false` | Bedrock iron-golem spawn checks include support/block predicates; remove only the support requirement in a targeted hook. | I |
+| `entities.spawning.count-all-mobs-for-spawning` | `false` | Bedrock natural-spawner entity counts exist; include or exclude non-natural sources in the cap calculation. | I |
+| `entities.spawning.monster-spawn-max-light-level` | `default` | Bedrock monster spawn checks expose dimension/block-light limits; configurable maximum needs a hook. | I |
+| `entities.spawning.duplicate-uuid.mode` | `SAFE_REGEN` | Bedrock `ActorUniqueID` and chunk entity loading exist; duplicate handling needs a load-time policy hook. | I |
+| `entities.spawning.duplicate-uuid.safe-regen-delete-range` | `32` | Bedrock chunk entity lists and actor positions exist; safe-regen deletion range needs a load-time filter. | I |
+| `entities.spawning.alt-item-despawn-rate.enabled` | `false` | Bedrock `ItemActor` age/lifetime fields exist; enable a type-aware lifetime table only when configured. | I |
+| `entities.spawning.alt-item-despawn-rate.items.minecraft:cobblestone` | `300` | Bedrock `ItemActor` exposes item stack and age/lifetime; cobblestone needs a configured per-item lifetime branch. | I |
 | `max-growth-height.cactus` | `3` | Levi `CactusBlock::randomTick`/`tick` are dedicated growth paths; add a targeted hook and check column height before growth. | I |
 | `max-growth-height.reeds` | `3` | Levi `SugarCaneBlock::randomTick`/`tick` are dedicated growth paths; add a targeted hook and check column height. | I |
 | `max-growth-height.bamboo.max` | `16` | Levi `BambooStalkBlock::randomTick`, `tick`, and `getMaxHeight` expose the exact growth subsystem; hook the state decision. | I |
