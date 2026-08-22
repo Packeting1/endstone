@@ -107,6 +107,9 @@ The first global batch below is based on the Windows 1.26.40 IDA database. `E` m
 Endstone adapter is feasible; `I` means a related path exists but the exact caller, field, or runtime contract is still
 missing. The addresses are 1.26.40 research evidence, not 1.26.44 offsets.
 
+The detailed tables cover all 94 scalar leaves in `paper-global.default.yml`; map-valued settings are represented with
+their concrete defaults and an explicit `<...>` entry for extensible keys.
+
 | Paper path | Default | 1.26.40 evidence and implementation boundary | Result |
 | --- | ---: | --- | --- |
 | `chunk-loading-basic.player-max-chunk-send-rate` | `75.0` | BDS `BatchedNetworkPeer::sendPacket` (`0x140FDFFF0`) only batches bytes; no per-player chunk scheduler was established. A chunk-packet dispatch budget is still required. | I |
@@ -115,10 +118,17 @@ missing. The addresses are 1.26.40 research evidence, not 1.26.44 offsets.
 | `chunk-loading-advanced.auto-config-send-distance` | `true` | `RequestChunkRadiusPacket` (id `69`) and Linux `ServerPlayer_updateChunkViewRadius` (`0x98D8AC0`) confirm the client radius path; the policy still needs a targeted hook. | I |
 | `chunk-loading-advanced.player-max-concurrent-chunk-loads` | `0` | BDS has asynchronous chunk work, but no per-player concurrent-load field was confirmed in this batch. | I |
 | `chunk-loading-advanced.player-max-concurrent-chunk-generates` | `0` | BDS has asynchronous generation work, but no per-player concurrent-generate field was confirmed in this batch. | I |
+| `chunk-system.io-threads` | `-1` | BDS has asynchronous chunk/storage tasks, but no safe Paper-compatible I/O thread-count field was confirmed. | I |
+| `chunk-system.worker-threads` | `-1` | BDS has worker/task scheduling, but no safe Paper-compatible generation worker-count field was confirmed. | I |
 | `packet-limiter.kick-message` | `'<red><lang:disconnect.exceeded_packet_rate>'` | Windows `NetworkSystem::_sortAndPacketizeEvents` (`0x140BF9F40`) and Linux `PacketSecurityController_makeLimitError` (`0x85B3D80`) confirm a native violation/disconnect path; Endstone can supply the configured Bedrock disconnect text. | E |
 | `packet-limiter.all-packets.interval` | `7.0` | Windows `NetworkSystem::runEvents` (`0x140BF9700`) and Linux `PacketViolationHandler_updateBucket` (`0x85B49C0`) confirm monotonic/token-bucket windows. A new Endstone adapter still needs the 1.26.44 ABI. | E |
 | `packet-limiter.all-packets.max-packet-rate` | `500.0` | Linux `PacketLimitHandler_checkPacketId` (`0x85B39B0`) and the Windows packet-id table both enforce native limits; an adapter can feed Paper's rate after ABI regeneration. | E |
 | `packet-limiter.all-packets.action` | `KICK` | The BDS violation path marks the connection; Linux's receive path can drop and the existing disconnect hook can kick, but the action adapter is not wired in this change. | E |
+| `spam-limiter.tab-spam-increment` | `1` | Bedrock has no Java command-suggestion request counter. | X |
+| `spam-limiter.tab-spam-limit` | `500` | Bedrock has no Java command-suggestion request counter. | X |
+| `spam-limiter.recipe-spam-increment` | `1` | Bedrock recipe/item-stack request packets can be counted, but their scope is wider than Java recipe-book requests. | N |
+| `spam-limiter.recipe-spam-limit` | `20` | Bedrock recipe/item-stack request packets can be limited, but the Java counter/kick semantics are not equivalent. | N |
+| `spam-limiter.incoming-packet-threshold` | `300` | Linux packet security/violation paths (`0x85B39B0`, `0x85B49C0`) can count per-connection packets, but Bedrock batch/input semantics differ. | N |
 | `packet-limiter.overrides.minecraft:place_recipe.interval` | `4.0` | BDS has packet-id buckets, but no Java `PlaceRecipe` packet; mapping this key to Bedrock recipe/item-stack requests would cover a wider protocol operation. | N |
 | `packet-limiter.overrides.minecraft:place_recipe.max-packet-rate` | `5.0` | The native table is real, but the named Java packet has no Bedrock equivalent and a broad substitute could reject valid requests. | N |
 | `packet-limiter.overrides.minecraft:place_recipe.action` | `DROP` | BDS can drop or disconnect at its packet-security path, but applying it to `ItemStackRequest` is not Java-equivalent. | N |
@@ -202,6 +212,9 @@ The following entries are the first leaf-level audit based on the supplied 1.26.
 LeviLamina reconstructions. `I` means the BDS path is real but still needs a version-specific hook/ABI and runtime test;
 `N` means a Bedrock implementation can only be a documented subset; `X` means the Java behaviour has no safe Bedrock
 equivalent.
+
+The detailed tables cover all 208 scalar leaves in `paper-world-defaults.default.yml`; map-valued settings are shown
+with their concrete defaults and an explicit `<...>` entry for extensible keys.
 
 | Paper path | Default | 1.26.40 evidence and implementation boundary | Result |
 | --- | ---: | --- | --- |
@@ -318,25 +331,80 @@ equivalent.
 | `entities.behavior.pillager-patrols.start.day` | `5` | Bedrock patrol scheduler has world-day state; replace the initial day threshold. | I |
 | `entities.behavior.cooldown-failed-beehive-releases` | `true` | Bedrock BeehiveBlockActor/Bee release and retry paths exist; gate the failure cooldown. | I |
 | `entities.behavior.stuck-entity-poi-retry-delay` | `200` | Bedrock POI/navigation and stuck-goal paths exist; replace the retry delay or disable it. | I |
+| `entities.tracking-range-y.enabled` | `false` | Bedrock `ActorReplication`/`Dimension` relevance and add/remove actor packets provide a vertical tracking filter boundary. | I |
+| `entities.tracking-range-y.player` | `default` | Bedrock player replication/location sender paths exist; use the normal tracking range when unset and add a Y filter when configured. | I |
+| `entities.tracking-range-y.animal` | `default` | Bedrock actor replication and mob categories provide an animal/water/villager filter boundary. | I |
+| `entities.tracking-range-y.monster` | `default` | Bedrock actor replication and monster/raider categories provide a monster filter boundary. | I |
+| `entities.tracking-range-y.misc` | `default` | Bedrock item/XP/hanging actor replication provides a misc filter boundary. | I |
+| `entities.tracking-range-y.display` | `default` | Levi/BDS display actor manager and display entity lists provide a display filter boundary. | I |
+| `entities.tracking-range-y.other` | `default` | Bedrock actor replication provides a fallback other-entity filter boundary. | I |
+| `lootables.auto-replenish` | `false` | Bedrock randomizable block actors have loot tables/fill paths; add timed refill state without changing ordinary containers. | I |
+| `lootables.restrict-player-reloot` | `true` | Bedrock randomizable containers have player identity/open/loot state; add the Paper per-player reloot check. | I |
+| `lootables.restrict-player-reloot-time` | `disabled` | Paper's `disabled` value with the default restriction means a player cannot reloot once recorded; Bedrock container/player time state can represent this. | I |
+| `lootables.reset-seed-on-fill` | `true` | Bedrock randomizable container loot seed and fill paths exist; reset the seed at the configured refill boundary. | I |
+| `lootables.max-refills` | `-1` | Bedrock randomizable container persistent state can track refill count; negative means unlimited. | I |
+| `lootables.refresh-min` | `12h` | Bedrock container tick/level clock can schedule a random refill lower bound. | I |
+| `lootables.refresh-max` | `2d` | Bedrock container tick/level clock can schedule a random refill upper bound. | I |
+| `lootables.retain-unlooted-shulker-box-loot-table-on-non-player-break` | `true` | Bedrock ShulkerBox block/actor and randomizable container removal paths exist; preserve an unfilled loot table on non-player break. | I |
+| `scoreboards.allow-non-player-entities-on-scoreboards` | `true` | Endstone scoreboard identity creation already handles `Actor` entries; BDS `Scoreboard`/`IdentityDictionary` has entity identities. | E |
+| `scoreboards.use-vanilla-world-scoreboard-name-coloring` | `false` | Bedrock scoreboards have objectives/identities but no Java Bukkit `Team`/`teamDisplayName` color abstraction. | X |
+| `spawn.allow-using-signs-inside-spawn-protection` | `false` | Bedrock sign interaction and spawn-protection permission checks exist; bypass only the sign interaction branch. | I |
+| `maps.item-frame-cursor-limit` | `128` | Endstone/BDS map decoration and item-frame tracking paths exist; cap tracked cursors before adding decorations. | I |
+| `maps.item-frame-cursor-update-interval` | `10` | Endstone/BDS map tick and item-frame cursor packet paths exist; schedule updates at the configured interval. | I |
+| `fixes.fix-items-merging-through-walls` | `false` | Bedrock ItemActor merge paths and `BlockSource::clip` exist; reject a merge when a block ray blocks the two item positions. | I |
+| `fixes.disable-unloaded-chunk-enderpearl-exploit` | `false` | Bedrock ThrownEnderpearl owner/tick and chunk lifecycle paths exist; this only has Paper meaning together with `misc.legacy-ender-pearl-behavior`. | I |
+| `fixes.prevent-tnt-from-moving-in-water` | `false` | Bedrock PrimedTnt tick and fluid movement paths exist; suppress fluid impulse while preserving TNT ticking. | I |
+| `fixes.split-overstacked-loot` | `true` | Bedrock LootTable/LootPool and ItemStack output paths exist; split results at the item maximum. | I |
+| `fixes.falling-block-height-nerf` | `disabled` | Bedrock FallingBlockActor tick/position exists; remove or drop the actor above a configured Y threshold. | I |
+| `fixes.tnt-entity-height-nerf` | `disabled` | Bedrock PrimedTnt and MinecartTNT tick/position paths exist; remove entities above a configured Y threshold. | I |
+| `unsupported-settings.fix-invulnerable-end-crystal-exploit` | `true` | Bedrock EnderCrystal/EndDragonFight/SpikeFeature state exists; clear stale invulnerability/beam state at the fight boundary. | I |
+| `unsupported-settings.disable-world-ticking-when-empty` | `false` | Bedrock Level/Dimension, ticking areas, and chunk tick-range managers exist; skip only when no players/tickets require ticking. | I |
+| `unsupported-settings.ticking.chunks` | `true` | Bedrock LevelChunk/TickingLevelChunk and chunk tick-range managers exist; gate chunk ticking independently. | I |
+| `unsupported-settings.ticking.block-entities` | `true` | Bedrock BlockActor/LevelChunk ticker registration and updates exist; gate block-entity ticking independently. | I |
+| `fishing-time-range.minimum` | `100` | Bedrock FishingHook has bite/lure timers and server update paths; replace the lower wait bound. | I |
+| `fishing-time-range.maximum` | `600` | Bedrock FishingHook has bite/lure timers and server update paths; replace the upper wait bound. | I |
+| `tick-rates.grass-spread` | `1` | Bedrock GrassBlock random-tick and block-ticking queues exist; throttle grass spread without changing other random ticks. | I |
+| `tick-rates.container-update` | `1` | Bedrock PlayerTickProxy/container broadcast paths exist; change inventory synchronization cadence. | I |
+| `tick-rates.mob-spawner` | `1` | Bedrock BaseMobSpawner/MobSpawnerBlockActor tick paths exist; gate or retime spawner updates. | I |
+| `tick-rates.wet-farmland` | `1` | Bedrock FarmBlock random-tick path exposes moisture state; throttle only wet farmland. | I |
+| `tick-rates.dry-farmland` | `1` | Bedrock FarmBlock random-tick path exposes moisture state; throttle only dry farmland. | I |
+| `tick-rates.sensor.minecraft:villager.secondarypoisensor` | `40` | Bedrock EntitySensorSystem/BehaviorSystem and villager POI paths exist; retime this sensor key. | I |
+| `tick-rates.behavior.minecraft:villager.validatenearbypoi` | `-1` | Bedrock BehaviorSystem/villager POI paths exist; use the behavior default for negative values. | I |
+| `tick-rates.sensor.<entity-type>.<sensor-key>` | `-1` | Bedrock sensor definitions and EntitySensorSystem provide a type/key scheduling boundary. | I |
+| `tick-rates.behavior.<entity-type>.<behavior-key>` | `-1` | Bedrock behavior definitions and BehaviorSystem provide a type/key scheduling boundary. | I |
+| `feature-seeds.generate-random-seeds-for-all` | `false` | Bedrock levelgen feature registries, WorldGenRandom, and chunk generation exist; generating/persisting configured-feature seeds needs a worldgen hook. | I |
+| `feature-seeds.features.<configured-feature>` | `{}` (missing values use `-1`) | Bedrock feature/chunk generation has seed inputs; mapping a configured feature to Paper's decoration seed chain needs a generator hook. | I |
+| `command-blocks.permissions-level` | `2` | Bedrock BaseCommandBlock/CommandBlockActor and BlockCommandOrigin expose command permission levels; replace the command-block source level. | I |
+| `command-blocks.force-follow-perm-level` | `true` | Bedrock BlockCommandOrigin/command execution paths expose source permissions; enforce or relax the configured level requirement. | I |
+| `misc.update-pathfinding-on-block-update` | `true` | Bedrock Level block updates and PathNavigation/PathFinder paths exist; gate navigation refreshes after shape changes. | I |
+| `misc.show-sign-click-command-failure-msgs-to-player` | `false` | Bedrock SignBlockActor has text/open/edit paths but no Java sign ClickEvent.RunCommand failure message mechanism. | X |
+| `misc.redstone-implementation` | `VANILLA` | Bedrock CircuitSystem/redstone update paths exist, but Java Vanilla/Eigencraft/Alternate Current algorithms are not shared. | I |
+| `misc.alternate-current-update-order` | `HORIZONTAL_FIRST_OUTWARD` | Bedrock redstone update queues exist; porting Java Alternate Current order would be a new algorithm, not a field switch. | I |
+| `misc.disable-end-credits` | `false` | Bedrock EndPortal/player credits and seen-state paths exist; skip the credits transition when configured. | I |
+| `misc.max-leash-distance` | `default` | Bedrock Actor leash tick/holder paths exist; replace the snap-distance predicate. | I |
+| `misc.disable-sprint-interruption-on-attack` | `false` | Bedrock Player attack/AttackParameters and sprint state exist; preserve sprint after a successful attack. | I |
+| `misc.disable-relative-projectile-velocity` | `false` | Bedrock ProjectileFactory/Throwable shoot paths use actor velocity; omit source velocity when configured. | I |
+| `misc.legacy-ender-pearl-behavior` | `false` | Bedrock ThrownEnderpearl/EnderpearlItem and chunk/portal lifecycle paths exist; select legacy ticket behavior. | I |
+| `misc.allow-remote-ender-dragon-respawning` | `false` | Bedrock EndDragonFight/EnderCrystal/portal-frame paths exist; gate the portal-proximity requirement. | I |
 | `max-growth-height.cactus` | `3` | Levi `CactusBlock::randomTick`/`tick` are dedicated growth paths; add a targeted hook and check column height before growth. | I |
 | `max-growth-height.reeds` | `3` | Levi `SugarCaneBlock::randomTick`/`tick` are dedicated growth paths; add a targeted hook and check column height. | I |
 | `max-growth-height.bamboo.max` | `16` | Levi `BambooStalkBlock::randomTick`, `tick`, and `getMaxHeight` expose the exact growth subsystem; hook the state decision. | I |
 | `max-growth-height.bamboo.min` | `11` | Same Bamboo state machine; Java's minimum-height semantics require runtime comparison. | N/I |
 | `environment.disable-thunder` | `false` | BDS `WeatherManager::updateWeather` has independent lightning level/time inputs; Endstone clears both and keeps rain. | E |
-| `environment.disable-ice-and-snow` | `false` | BDS exposes separate snow accumulation and freeze-effect predicates; both paths must be intercepted to preserve the distinction. | N/I |
+| `environment.disable-ice-and-snow` | `false` | Windows 1.26.40 IDA has SnowBlock/IceBlock random-tick registration/executor anchors; the separate accumulation/freeze leaves still need targeted hooks. | I |
 | `environment.optimize-explosions` | `false` | BDS has explosion parameters but no equivalent optimization mode; changing radius/resistance would change gameplay. | X |
 | `environment.disable-explosion-knockback` | `false` | `Explosion::explode` directly applies impulse; `knockback_scaling_` is a candidate but its offset and all variants require ABI proof. | I |
 | `environment.generate-flat-bedrock` | `false` | Bedrock generators exist, but no current flat-bedrock feature switch or safe shared generator hook is established. | X |
-| `environment.frosted-ice.enabled` | `true` | Levi `FrostedIceBlock::onPlace`/`tick` are dedicated paths; skipping them requires a targeted hook. | I |
-| `environment.frosted-ice.delay.min` | `20` | Frosted-ice queued tick logic exists; the delay is generated by BDS scheduling and needs a hook, not a field assignment. | N/I |
-| `environment.frosted-ice.delay.max` | `40` | Same queued tick path and runtime caveat as the minimum. | N/I |
+| `environment.frosted-ice.enabled` | `true` | Windows 1.26.40 IDA has FrostedIce/FrostWalker behavior anchors; the ice generation/melt leaf still needs a targeted hook. | I |
+| `environment.frosted-ice.delay.min` | `20` | Frosted-ice queued tick behavior exists, but no native delay field was confirmed; adjust scheduling only after ABI proof. | N/I |
+| `environment.frosted-ice.delay.max` | `40` | Same queued tick behavior and no confirmed native delay field as the minimum. | N/I |
 | `environment.void-damage-amount` | `4` | BDS has `ActorDamageCause::Void` and Endstone's before-hurt event can modify damage; threshold/timing still require ABI/runtime proof. | N/I |
 | `environment.void-damage-min-build-height-offset` | `-64` | BDS exposes dimension minimum height and block-source minimum height; the original void-damage cadence must be matched. | N/I |
 | `environment.treasure-maps.enabled` | `true` | No BDS equivalent of Paper's Java treasure-map trade/search/reloot configuration was found. | X |
 | `environment.treasure-maps.find-already-discovered.villager-trade` | `false` | No matching Bedrock villager trade discovery state. | X |
 | `environment.treasure-maps.find-already-discovered.loot-tables` | `default` | Bedrock loot tables exist, but not the Java discovered-map decision. | X |
-| `environment.fire-tick-delay` | `30` | BDS FireBlock has queued/random tick paths and fixed delay constants; a targeted queue hook is required. | I |
-| `environment.water-over-lava-flow-speed` | `5` | Endstone already sees `LiquidBlock::_trySpreadTo`; the Bedrock neighbour argument is not proven equivalent to Paper's speed value. | N/I |
+| `environment.fire-tick-delay` | `30` | Windows 1.26.40 IDA confirms FireBlock logic, but the exact random-tick/checkBurn leaf and delay field remain to be located. | I |
+| `environment.water-over-lava-flow-speed` | `5` | Windows 1.26.40 IDA confirms `LiquidBlock::_trySpreadTo` (`0x142E116C0`) and water/lava scheduling; no Paper-style speed field exists. | I |
 | `environment.portal-search-radius` | `128` | BDS exposes `ILevel::getPortalForcer`; PortalForcer search must be located before changing the radius. | I |
 | `environment.portal-create-radius` | `16` | Same PortalForcer ABI requirement for creation. | I |
 | `environment.portal-search-vanilla-dimension-scaling` | `true` | BDS dimension conversion exists, but Java's scaling toggle is not a shared field and changing it can corrupt transfers. | X/N |
@@ -344,18 +412,18 @@ equivalent.
 | `environment.max-fluid-ticks` | `65536` | BDS has LevelChunk tick/random-tick queues; a fluid budget requires locating the queue scheduler. | I |
 | `environment.max-block-ticks` | `65536` | Same scheduler requirement, separated from fluid processing. | I |
 | `environment.locate-structures-outside-world-border` | `false` | No BDS WorldBorder/structure-locator equivalent was established. | X |
-| `chunks.auto-save-interval` | `default` | BDS exposes `ILevel::save`, `saveLevelData`, and storage; per-world scheduling still needs the save tick caller. | I |
-| `chunks.max-auto-save-chunks-per-tick` | `24` | `ChunkSource::saveLiveChunk` is a single-chunk operation; a budget requires the batch scheduler. | I |
-| `chunks.fixed-chunk-inhabited-time` | `-1` | BDS `LevelChunk::last_tick_` is not Java inhabited time. | X |
-| `chunks.prevent-moving-into-unloaded-chunks` | `false` | BDS has `moved_to_unloaded_chunk_` and `BlockSource::hasChunk`; movement correction semantics need a targeted hook. | N/I |
-| `chunks.delay-chunk-unloads-by` | `10s` | BDS discarded-chunk acquisition and flush paths exist; delay must be inserted into unload scheduling. | I |
-| `chunks.entity-per-chunk-save-limit.*` | `-1` | BDS actor/chunk persistence exists, but per-type limits require filtering before serialization and have data-loss risk. | N/I |
-| `chunks.flush-regions-on-save` | `false` | BDS has pending discarded-chunk flush and LevelStorage save paths; thread/lifetime safety needs proof. | I |
-| `hopper.cooldown-when-full` | `true` | Levi Hopper exposes cooldown fields and `HopperBlockActor::tick`; the full-container branch must be identified. | N/I |
+| `chunks.auto-save-interval` | `default` | Windows 1.26.40 confirms the ChunkSource save system, but the exact save scheduler field is not yet isolated. | I |
+| `chunks.max-auto-save-chunks-per-tick` | `24` | BDS chunk save is available, but no native per-tick save budget was confirmed. | I |
+| `chunks.fixed-chunk-inhabited-time` | `-1` | No Java inhabited-time equivalent was confirmed in BDS; do not map `LevelChunk::last_tick_` by name. | X/I |
+| `chunks.prevent-moving-into-unloaded-chunks` | `false` | BDS chunk publisher/movement lifecycle exists; the exact movement correction ABI remains to be isolated. | I |
+| `chunks.delay-chunk-unloads-by` | `10s` | BDS ChunkSource/NetworkChunkPublisher region lifecycle exists, but no delay field was confirmed. | I |
+| `chunks.entity-per-chunk-save-limit.*` | `-1` | BDS actor/chunk persistence exists, but no per-type save-limit field was confirmed; filtering risks data loss. | I |
+| `chunks.flush-regions-on-save` | `false` | BDS chunk save/unload exists, but Java region flush has no confirmed equivalent. | I |
+| `hopper.cooldown-when-full` | `true` | Windows 1.26.40 confirms the HopperSystem registration chain (`0x1417C27C0`, `0x1417C980F`); Levi exposes cooldown fields, but the tick/full branch remains to be located. | I |
 | `hopper.disable-move-event` | `false` | Bedrock has hopper transfer functions but no Java `InventoryMoveItemEvent`; disabling all transfer is not equivalent. | X |
-| `hopper.ignore-occluding-blocks` | `false` | Levi Hopper container lookup and collision-shape paths exist; the actual occlusion predicate needs a targeted hook. | N/I |
+| `hopper.ignore-occluding-blocks` | `false` | Hopper container lookup and collision-shape paths exist; Windows IDA has not yet isolated the occlusion predicate. | I |
 | `collisions.only-players-collide` | `false` | BDS `PushableByEntityUtility::push` and `Actor::isPlayer` provide a precise push-path subset. | E/N |
-| `collisions.allow-vehicle-collisions` | `true` | Boat/minecart actor types and special boarding paths exist; generic push alone is insufficient. | N/I |
+| `collisions.allow-vehicle-collisions` | `true` | `PushableByEntityUtility::push` (`0x142CF1F50`) accepts actor context, but vehicle boarding/special paths need separate validation. | E/I |
 | `collisions.fix-climbing-bypassing-cramming-rule` | `false` | No Java cramming rule or matching BDS counter was established. | X |
-| `collisions.max-entity-collisions` | `8` | BDS has pairwise push, not a Java per-entity collision cap; a new counter would not be native-equivalent. | X/N |
-| `collisions.allow-player-cramming-damage` | `false` | BDS has no `Cramming` damage cause. | X |
+| `collisions.max-entity-collisions` | `8` | Windows 1.26.40 confirms `Mob::pushActors` (`0x14240A4A0`) as the per-owner candidate loop; a counter can be added there, but no native max field exists. | E/I |
+| `collisions.allow-player-cramming-damage` | `false` | Windows 1.26.40 found no explicit cramming/playersqueeze damage path; do not claim a native equivalent until one is located. | I |
