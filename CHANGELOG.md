@@ -33,6 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `ActorExplodeEvent::setBlockList()` and `BlockExplodeEvent::setBlockList()`, with the `BlockList` alias made public.
 - Support for custom Python events with optional cancellation.
 - `LevelLoadEvent`, called during server startup once the level has finished loading and PostWorld plugins are enabled, before `ServerLoadEvent`.
+- `ChunkPopulateEvent`, fired for a freshly generated chunk right before `ChunkLoadEvent`. It does not fire for chunks loaded from disk.
 
 #### Actors and players
 

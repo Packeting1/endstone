@@ -1,4 +1,4 @@
-from endstone.event import ChunkLoadEvent, ChunkUnloadEvent, LevelLoadEvent, event_handler
+from endstone.event import ChunkLoadEvent, ChunkPopulateEvent, ChunkUnloadEvent, LevelLoadEvent, event_handler
 
 from .event_listener import EventListener
 
@@ -10,6 +10,15 @@ class LevelEventListener(EventListener):
             event,
             f"{event.level.name} is loaded",
             level=event.level.name,
+        )
+
+    @event_handler
+    def on_chunk_populate(self, event: ChunkPopulateEvent):
+        self.record(
+            event,
+            f"{event.chunk} is populated",
+            chunk_xz=(event.chunk.x, event.chunk.z),
+            dimension=str(event.dimension.id),
         )
 
     @event_handler

@@ -75,6 +75,7 @@
 #include "endstone/core/type.h"
 #include "endstone/core/util/uuid.h"
 #include "endstone/event/chunk/chunk_load_event.h"
+#include "endstone/event/chunk/chunk_populate_event.h"
 #include "endstone/event/chunk/chunk_unload_event.h"
 #include "endstone/event/level/level_load_event.h"
 #include "endstone/event/server/broadcast_message_event.h"
@@ -242,11 +243,16 @@ void EndstoneServer::setLevel(::Level &level)
 
     on_chunk_load_ = level.getLevelChunkEventManager()->getOnChunkLoadedConnector().connect(
         [&](ChunkSource & /*chunk_source*/, LevelChunk &lc, int /*closest_player_distance_squared*/) -> void {
-            if (lc.getState() >= ChunkState::Loaded) {
-                const auto chunk = std::make_unique<EndstoneChunk>(lc);
-                ChunkLoadEvent e(*chunk);
+            if (lc.getState() < ChunkState::Loaded) {
+                return;
+            }
+            const auto chunk = std::make_unique<EndstoneChunk>(lc);
+            if (!lc.hadSerializedEntities() && getEndstonePluginManager().isEventRegistered<ChunkPopulateEvent>()) {
+                ChunkPopulateEvent e(*chunk);
                 getPluginManager().callEvent(e);
             }
+            ChunkLoadEvent e(*chunk);
+            getPluginManager().callEvent(e);
         },
         Bedrock::PubSub::ConnectPosition::AtBack, nullptr);
 

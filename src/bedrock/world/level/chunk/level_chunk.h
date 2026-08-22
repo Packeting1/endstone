@@ -80,6 +80,7 @@ public:
     [[nodiscard]] Dimension &getDimension() const;
     [[nodiscard]] Level &getLevel() const;
     [[nodiscard]] const Biome &getBiome(const ChunkBlockPos &pos) const;
+    [[nodiscard]] bool hadSerializedEntities() const;  // Endstone
 
 private:
     Bedrock::Threading::Mutex block_entity_access_lock_;

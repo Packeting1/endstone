@@ -29,6 +29,11 @@ Tick LevelChunk::getLastTick() const
     return last_tick_;
 }
 
+bool LevelChunk::hadSerializedEntities() const
+{
+    return had_serialized_entities_;
+}
+
 const BlockPos &LevelChunk::getMin() const
 {
     return min_;

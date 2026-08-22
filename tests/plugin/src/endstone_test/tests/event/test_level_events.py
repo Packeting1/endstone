@@ -13,6 +13,13 @@ def test_chunk_load(recorder: EventRecorder) -> None:
     assert ":" in snapshot["dimension"]
 
 
+def test_chunk_populate(recorder: EventRecorder) -> None:
+    """Verify ChunkPopulateEvent fires for freshly generated chunks with the same payload as ChunkLoadEvent."""
+    snapshot = recorder.require("ChunkPopulateEvent")[0]
+    assert len(snapshot["chunk_xz"]) == 2
+    assert ":" in snapshot["dimension"]
+
+
 def test_chunk_unload(recorder: EventRecorder) -> None:
     """Verify ChunkUnloadEvent reports the chunk coordinates and dimension."""
     snapshot = recorder.require("ChunkUnloadEvent")[0]

@@ -261,6 +261,11 @@ void init_event(py::module_ &m, py::class_<Event, PyEvent> &event)
         .def_property_readonly("chunk", &ChunkEvent::getChunk, py::return_value_policy::reference,
                                "The `Chunk` being loaded/unloaded.");
     py::class_<ChunkLoadEvent, ChunkEvent>(m, "ChunkLoadEvent", "Called when a chunk is loaded.");
+    py::class_<ChunkPopulateEvent, ChunkEvent>(m, "ChunkPopulateEvent", R"doc(
+    Called when a newly generated chunk has finished being populated.
+
+    Do not use this event to generate blocks in a newly generated chunk.
+)doc");
     py::class_<ChunkUnloadEvent, ChunkEvent>(m, "ChunkUnloadEvent", "Called when a chunk is unloaded.");
 
     // Player events
