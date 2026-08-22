@@ -610,6 +610,13 @@
     <member refid="classendstone_1_1Chunk_1aa41c6ad331470b359dc503a9542f6637" kind="function"><name>getZ</name></member>
     <member refid="classendstone_1_1Chunk_1ad6b110bcd41022ffbf923d732debbb93" kind="function"><name>getLevel</name></member>
     <member refid="classendstone_1_1Chunk_1aadc09bebf53d22748a3f49252e6a3487" kind="function"><name>getDimension</name></member>
+    <member refid="classendstone_1_1Chunk_1a5fcde69b5e66c467744b6988d756f812" kind="function"><name>isLoaded</name></member>
+    <member refid="classendstone_1_1Chunk_1aea53b9aef3e4358824bafbc25d0510f9" kind="function"><name>load</name></member>
+    <member refid="classendstone_1_1Chunk_1a1e8b8217b7189639498c39052d5b0f76" kind="function"><name>load</name></member>
+    <member refid="classendstone_1_1Chunk_1a76e6c5eb43fec20961854d5a44aa4430" kind="function"><name>unload</name></member>
+    <member refid="classendstone_1_1Chunk_1ac1fce145e58f2ddc757ea71d2878596b" kind="function"><name>addPluginChunkTicket</name></member>
+    <member refid="classendstone_1_1Chunk_1a582bd646b9010816bd2028c8a48a0423" kind="function"><name>removePluginChunkTicket</name></member>
+    <member refid="classendstone_1_1Chunk_1aac95d98dded6d378a3cf67c18ee61aad" kind="function"><name>getPluginChunkTickets</name></member>
   </compound>
   <compound refid="classendstone_1_1ChunkEvent" kind="class"><name>endstone::ChunkEvent</name>
     <member refid="classendstone_1_1ChunkEvent_1aa4583a861ca944ce8a28202fe959dd60" kind="variable"><name>chunk_</name></member>
@@ -881,8 +888,16 @@
     <member refid="classendstone_1_1Dimension_1acdeb388320140d30f18737b796685029" kind="function"><name>getHighestBlockAt</name></member>
     <member refid="classendstone_1_1Dimension_1aa38c3179eab9158557aeae144833750a" kind="function"><name>getLoadedChunks</name></member>
     <member refid="classendstone_1_1Dimension_1ae5c461371c826a47b3f7cbd060ca9edc" kind="function"><name>isChunkLoaded</name></member>
+    <member refid="classendstone_1_1Dimension_1a688fc40b07119e5984d5f8b21f634db3" kind="function"><name>isChunkGenerated</name></member>
     <member refid="classendstone_1_1Dimension_1ae6267ee9775ae738c3ee34d23f77a4fb" kind="function"><name>loadChunk</name></member>
+    <member refid="classendstone_1_1Dimension_1ae8f1e1b750573c6884c92302c67f3f40" kind="function"><name>loadChunk</name></member>
     <member refid="classendstone_1_1Dimension_1ad609a49160461ba607ca1b0702419538" kind="function"><name>unloadChunk</name></member>
+    <member refid="classendstone_1_1Dimension_1a63cb5a6c2c32a184ec147eed1adcd12d" kind="function"><name>unloadChunkRequest</name></member>
+    <member refid="classendstone_1_1Dimension_1a7ce339f50befc72372d5db326ed5773c" kind="function"><name>addPluginChunkTicket</name></member>
+    <member refid="classendstone_1_1Dimension_1a6b22cb1ce6c6f3df5ccbf2dafdf6b07a" kind="function"><name>removePluginChunkTicket</name></member>
+    <member refid="classendstone_1_1Dimension_1a92f533942a1dfc8eda9b05c5d1c0981e" kind="function"><name>removePluginChunkTickets</name></member>
+    <member refid="classendstone_1_1Dimension_1a8076b841e1458f21a65e8acbfaa47948" kind="function"><name>getPluginChunkTickets</name></member>
+    <member refid="classendstone_1_1Dimension_1aefd191e9414688ec7ae960340c808b21" kind="function"><name>getPluginChunkTickets</name></member>
     <member refid="classendstone_1_1Dimension_1abd639df3fb48522170838960359a3ace" kind="function"><name>dropItem</name></member>
     <member refid="classendstone_1_1Dimension_1aabbe5768489c5b1f9f9d227565e04fa6" kind="function"><name>spawnActor</name></member>
     <member refid="classendstone_1_1Dimension_1ab8476baf719292c340430109fcfdfadc" kind="function"><name>getActors</name></member>
@@ -1366,6 +1381,16 @@
     <member refid="classendstone_1_1Inventory_1af3402b278d0775d48a56593bf49ee52e" kind="function"><name>remove</name></member>
     <member refid="classendstone_1_1Inventory_1a367187fb26cad50974f6a01f0df9e86c" kind="function"><name>clear</name></member>
     <member refid="classendstone_1_1Inventory_1afc114b9f2e5c05fb1e1388963b8c86e8" kind="function"><name>clear</name></member>
+  </compound>
+  <compound refid="classendstone_1_1InventoryEvent" kind="class"><name>endstone::InventoryEvent</name>
+    <member refid="classendstone_1_1InventoryEvent_1ae9ef316bace42b6237891933053fc506" kind="variable"><name>inventory_</name></member>
+    <member refid="classendstone_1_1InventoryEvent_1a5e7d601191283f7541f0620a81b5f82a" kind="function"><name>InventoryEvent</name></member>
+    <member refid="classendstone_1_1InventoryEvent_1ae4d05ecd0e9f81e263ac102d48cdfcf6" kind="function"><name>getInventory</name></member>
+  </compound>
+  <compound refid="classendstone_1_1InventoryInteractEvent" kind="class"><name>endstone::InventoryInteractEvent</name>
+    <member refid="classendstone_1_1InventoryInteractEvent_1a8eddeba8857db9efdb7b180f6c5bdf20" kind="variable"><name>who_clicked_</name></member>
+    <member refid="classendstone_1_1InventoryInteractEvent_1ab4fa458385223dd5cb641e41354a57a5" kind="function"><name>InventoryInteractEvent</name></member>
+    <member refid="classendstone_1_1InventoryInteractEvent_1a525b19538457b9e2b9a36191243cf8d8" kind="function"><name>getWhoClicked</name></member>
   </compound>
   <compound refid="classendstone_1_1IpBanEntry" kind="class"><name>endstone::IpBanEntry</name>
     <member refid="classendstone_1_1IpBanEntry_1a5d1d45ba5dfa2993909e03d945e33125" kind="variable"><name>address_</name></member>
@@ -2342,15 +2367,6 @@
     <member refid="classendstone_1_1PlayerQuitEvent_1aebed8d5f4f30ea56823e599880b6af84" kind="function"><name>PlayerQuitEvent</name></member>
     <member refid="classendstone_1_1PlayerQuitEvent_1a1dc49d81c8a458e1a45d8d2c33f03f15" kind="function"><name>getQuitMessage</name></member>
     <member refid="classendstone_1_1PlayerQuitEvent_1a33ac4f643cbabfbaec170ba5ef88551a" kind="function"><name>setQuitMessage</name></member>
-  </compound>
-  <compound refid="classendstone_1_1PlayerRecipeBookClickEvent" kind="class"><name>endstone::PlayerRecipeBookClickEvent</name>
-    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a3f294c49e9615c3f4e30c3f7c32a184a" kind="variable"><name>recipe_</name></member>
-    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a8fdff0aca18ca1220ac5cdf316c5e105" kind="variable"><name>amount_</name></member>
-    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1ac8369533e374a734dda5edd17923c0eb" kind="function"><name>ENDSTONE_EVENT</name></member>
-    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a55bd221fccec8c2a3e27bd686dab6590" kind="function"><name>PlayerRecipeBookClickEvent</name></member>
-    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a9077d11f8f6683293e4c15980d485e64" kind="function"><name>getRecipe</name></member>
-    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a1a82063a5d6f0fe9fe73ac4b706eba70" kind="function"><name>getAmount</name></member>
-    <member refid="classendstone_1_1PlayerRecipeBookClickEvent_1a1353797221774a6dc2b3323976a305e6" kind="function"><name>setAmount</name></member>
   </compound>
   <compound refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent" kind="class"><name>endstone::PlayerRecipeBookSettingsChangeEvent</name>
     <member refid="classendstone_1_1PlayerRecipeBookSettingsChangeEvent_1ab5709b487202d4c52eacf9e8b54ce67f" kind="enum"><name>RecipeBookType</name></member>
@@ -3483,6 +3499,10 @@
   </compound>
   <compound refid="handler__list_8h" kind="file"><name>handler_list.h</name>
   </compound>
+  <compound refid="inventory__event_8h" kind="file"><name>inventory_event.h</name>
+  </compound>
+  <compound refid="inventory__interact__event_8h" kind="file"><name>inventory_interact_event.h</name>
+  </compound>
   <compound refid="dimension__event_8h" kind="file"><name>dimension_event.h</name>
   </compound>
   <compound refid="level__event_8h" kind="file"><name>level_event.h</name>
@@ -3550,8 +3570,6 @@
   <compound refid="player__portal__event_8h" kind="file"><name>player_portal_event.h</name>
   </compound>
   <compound refid="player__quit__event_8h" kind="file"><name>player_quit_event.h</name>
-  </compound>
-  <compound refid="player__recipe__book__click__event_8h" kind="file"><name>player_recipe_book_click_event.h</name>
   </compound>
   <compound refid="player__recipe__book__settings__change__event_8h" kind="file"><name>player_recipe_book_settings_change_event.h</name>
   </compound>
@@ -3826,6 +3844,8 @@
   <compound refid="dir_0fd3b458603af3963ebb9c312a9238ec" kind="dir"><name>include/endstone/form</name>
   </compound>
   <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_d762bdddaaf949e56af1361197bdc822" kind="dir"><name>include/endstone/event/inventory</name>
   </compound>
   <compound refid="dir_d1e84b530b14f41e8b6f5ec1b5dee76c" kind="dir"><name>include/endstone/inventory</name>
   </compound>

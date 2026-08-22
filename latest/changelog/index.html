@@ -5534,7 +5534,6 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><code>PlayerBucketActorEvent</code> and <code>PlayerShearActorEvent</code>, reporting the <code>actor</code>, the <code>original_bucket</code> or <code>item</code> used and the <code>hand</code>.</li>
 <li><code>PlayerRecipeBookSettingsChangeEvent</code>, reporting <code>recipe_book_type</code>, <code>is_open</code> and <code>is_filtering</code>.</li>
 <li><code>PlayerCraftItemEvent</code> for crafting from a grid or the recipe book, reporting the crafted <code>item</code>, the <code>recipe_id</code> and the <code>amount</code> of crafts.</li>
-<li><code>PlayerRecipeBookClickEvent</code> for crafting straight from the recipe book, reporting the <code>recipe</code> identifier and a writable <code>amount</code>. Cancelling it suppresses the following <code>PlayerCraftItemEvent</code> too.</li>
 <li><code>PlayerEditBookEvent</code> for editing a page of a book and quill or signing it, reporting the book metadata before and after the edit, the inventory <code>slot</code>, and whether the book is being signed. <code>new_book_meta</code> and <code>is_signing</code> are writable.</li>
 <li><code>PlayerSetSpawnEvent</code> for a player's respawn point being set, reporting the <code>cause</code> (<code>BED</code>, <code>RESPAWN_ANCHOR</code>, <code>COMMAND</code>, <code>PLUGIN</code> or <code>UNKNOWN</code>) and a writable <code>location</code>. Cancelling leaves the respawn point untouched, though <code>/spawnpoint</code> still reports success and a respawn anchor still plays its sound. It does not fire when Bedrock clears a respawn point, so <code>/clearspawnpoint</code> and breaking the bed are both silent.</li>
 <li><code>PlayerToggleSneakEvent</code>, <code>PlayerToggleSprintEvent</code>, <code>PlayerToggleFlightEvent</code> and <code>PlayerToggleCrawlEvent</code>, carrying the new state in <code>is_sneaking</code>, <code>is_sprinting</code>, <code>is_flying</code> and <code>is_crawling</code>.</li>
@@ -5546,6 +5545,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><code>ActorChangeBlockEvent</code> for blocks changed by mob behaviour, such as creeper explosions, endermen, ravagers and door-breaking zombies.</li>
 <li><code>PlayerRespawnEvent.respawn_reason</code> (<code>RespawnReason.DEATH</code> / <code>RespawnReason.END_PORTAL</code>).</li>
 <li><code>ActorExplodeEvent::setBlockList()</code> and <code>BlockExplodeEvent::setBlockList()</code>, with the <code>BlockList</code> alias made public.</li>
+<li><code>InventoryEvent</code>, a base class for inventory-related events, reporting the primary <code>inventory</code> involved, and the cancellable <code>InventoryInteractEvent</code> under it, which adds the <code>who_clicked</code> player.</li>
 <li>Support for custom Python events with optional cancellation.</li>
 <li><code>LevelLoadEvent</code>, called during server startup once the level has finished loading and PostWorld plugins are enabled, before <code>ServerLoadEvent</code>.</li>
 </ul>
@@ -5578,7 +5578,8 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li><code>Level.create_dimension()</code> for registering an empty (void) dimension from -64 to 320 at runtime. The registration does not survive a restart, so call it again on every startup.</li>
 <li><code>Dimension.mobs</code> and <code>Dimension.players</code>, both narrowing <code>Dimension.actors</code>.</li>
-<li>Chunk loading API: <code>Dimension.load_chunk()</code>, <code>Dimension.unload_chunk()</code> and <code>Dimension.is_chunk_loaded()</code>.</li>
+<li>Chunk loading API: <code>Dimension.load_chunk()</code>, <code>Dimension.unload_chunk()</code>, <code>Dimension.unload_chunk_request()</code>, <code>Dimension.is_chunk_loaded()</code> and <code>Dimension.is_chunk_generated()</code>, plus <code>Chunk.load()</code>, <code>Chunk.unload()</code> and <code>Chunk.is_loaded()</code>. Bedrock has no synchronous chunk load, so <code>load_chunk()</code> keeps the chunk resident from a later tick onwards and does not make it tick. <code>unload_chunk()</code> reports whether the chunk actually went away, while <code>unload_chunk_request()</code> only releases the hold.</li>
+<li>Plugin chunk tickets: <code>Dimension.add_plugin_chunk_ticket()</code>, <code>remove_plugin_chunk_ticket()</code>, <code>remove_plugin_chunk_tickets()</code>, <code>get_plugin_chunk_tickets()</code> and <code>plugin_chunk_tickets</code>, with the same methods on <code>Chunk</code>. A ticket keeps a chunk loaded until it is removed or the owning plugin is disabled, and <code>unload_chunk()</code> leaves it alone.</li>
 </ul>
 <h4 id="commands-and-permissions">Commands and permissions<a class="headerlink" href="#commands-and-permissions" title="Permanent link">&para;</a></h4>
 <ul>
@@ -5593,6 +5594,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><code>endstone.Identifier</code> for namespaced ids, splitting <code>dim.id.namespace</code> from <code>dim.id.key</code> and distinguishing <code>Identifier[Dimension]</code> from <code>Identifier[ActorType]</code>. Plain strings are still accepted.</li>
 <li><code>ActorType</code>, <code>EffectType</code> and <code>PotionType</code> in the registry API, each entry carrying a <code>translation_key</code>, plus the missing <code>ActorType.SULFUR_CUBE</code> constant.</li>
 <li>Binary NBT serialization (<code>dump</code>/<code>load</code>) with support for multiple formats.</li>
+<li>The logger handles ANSI escape codes alongside <code>§</code> colour codes, so a plugin can log text that is already coloured. Colour sequences reach the console as written, and every escape sequence is stripped from the log file, which previously kept them verbatim.</li>
 </ul>
 <h4 id="server-and-docker">Server and Docker<a class="headerlink" href="#server-and-docker" title="Permanent link">&para;</a></h4>
 <ul>
