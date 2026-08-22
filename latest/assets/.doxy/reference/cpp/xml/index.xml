@@ -628,6 +628,11 @@
     <member refid="classendstone_1_1ChunkLoadEvent_1a9ff79720197da4050b8aebdd39067097" kind="function"><name>ChunkLoadEvent</name></member>
     <member refid="classendstone_1_1ChunkLoadEvent_1a12dd8c991021e5543491629dcd798a00" kind="function"><name>~ChunkLoadEvent</name></member>
   </compound>
+  <compound refid="classendstone_1_1ChunkPopulateEvent" kind="class"><name>endstone::ChunkPopulateEvent</name>
+    <member refid="classendstone_1_1ChunkPopulateEvent_1af114d2d1c088752b79fdebc25c046e91" kind="function"><name>ENDSTONE_EVENT</name></member>
+    <member refid="classendstone_1_1ChunkPopulateEvent_1a625606ed702243c19d9080cf9ade5f0b" kind="function"><name>ChunkPopulateEvent</name></member>
+    <member refid="classendstone_1_1ChunkPopulateEvent_1ad589d8ebb211ec72ae1e7c0c7f24ad62" kind="function"><name>~ChunkPopulateEvent</name></member>
+  </compound>
   <compound refid="classendstone_1_1ChunkUnloadEvent" kind="class"><name>endstone::ChunkUnloadEvent</name>
     <member refid="classendstone_1_1ChunkUnloadEvent_1a3a7ae31d1ab834194f56590d390d2199" kind="function"><name>ENDSTONE_EVENT</name></member>
     <member refid="classendstone_1_1ChunkUnloadEvent_1aaf42a47c7fe2b92eff323ebc9326a18a" kind="function"><name>ChunkUnloadEvent</name></member>
@@ -3487,6 +3492,8 @@
   <compound refid="chunk__event_8h" kind="file"><name>chunk_event.h</name>
   </compound>
   <compound refid="chunk__load__event_8h" kind="file"><name>chunk_load_event.h</name>
+  </compound>
+  <compound refid="chunk__populate__event_8h" kind="file"><name>chunk_populate_event.h</name>
   </compound>
   <compound refid="chunk__unload__event_8h" kind="file"><name>chunk_unload_event.h</name>
   </compound>

@@ -4,6 +4,7 @@
     <compoundname>endstone::ChunkEvent</compoundname>
     <basecompoundref refid="classendstone_1_1DimensionEvent" prot="public" virt="non-virtual">endstone::DimensionEvent</basecompoundref>
     <derivedcompoundref refid="classendstone_1_1ChunkLoadEvent" prot="public" virt="non-virtual">endstone::ChunkLoadEvent</derivedcompoundref>
+    <derivedcompoundref refid="classendstone_1_1ChunkPopulateEvent" prot="public" virt="non-virtual">endstone::ChunkPopulateEvent</derivedcompoundref>
     <derivedcompoundref refid="classendstone_1_1ChunkUnloadEvent" prot="public" virt="non-virtual">endstone::ChunkUnloadEvent</derivedcompoundref>
     <includes refid="chunk__event_8h" local="no">endstone/event/chunk/chunk_event.h</includes>
     <sectiondef kind="private-attrib">
@@ -79,6 +80,12 @@
         </childnode>
       </node>
       <node id="6">
+        <label>endstone::ChunkPopulateEvent</label>
+        <link refid="classendstone_1_1ChunkPopulateEvent"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
         <label>endstone::ChunkUnloadEvent</label>
         <link refid="classendstone_1_1ChunkUnloadEvent"/>
         <childnode refid="1" relation="public-inheritance">

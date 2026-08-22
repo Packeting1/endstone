@@ -968,12 +968,18 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
       </node>
       <node id="7">
         <label>include/endstone/event/chunk/chunk_load_event.h</label>
         <link refid="chunk__load__event_8h_source"/>
       </node>
       <node id="8">
+        <label>include/endstone/event/chunk/chunk_populate_event.h</label>
+        <link refid="chunk__populate__event_8h_source"/>
+      </node>
+      <node id="9">
         <label>include/endstone/event/chunk/chunk_unload_event.h</label>
         <link refid="chunk__unload__event_8h_source"/>
       </node>
@@ -983,15 +989,15 @@
         <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="10">
+      <node id="11">
         <label>include/endstone/event/level/level_event.h</label>
         <link refid="level__event_8h_source"/>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="11">
+      <node id="12">
         <label>include/endstone/event/level/level_load_event.h</label>
         <link refid="level__load__event_8h_source"/>
       </node>
@@ -999,20 +1005,20 @@
         <label>include/endstone/event/player/player_pickup_item_event.h</label>
         <link refid="player__pickup__item__event_8h_source"/>
       </node>
-      <node id="13">
+      <node id="14">
         <label>include/endstone/event/weather/thunder_change_event.h</label>
         <link refid="thunder__change__event_8h_source"/>
       </node>
-      <node id="14">
+      <node id="15">
         <label>include/endstone/event/weather/weather_change_event.h</label>
         <link refid="weather__change__event_8h_source"/>
       </node>
-      <node id="12">
+      <node id="13">
         <label>include/endstone/event/weather/weather_event.h</label>
         <link refid="weather__event_8h_source"/>
-        <childnode refid="13" relation="include">
-        </childnode>
         <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="4">
@@ -1020,15 +1026,15 @@
         <link refid="dimension_8h_source"/>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="9">
-        <label>include/endstone/level/level.h</label>
-        <link refid="level_8h_source"/>
         <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+      </node>
+      <node id="10">
+        <label>include/endstone/level/level.h</label>
+        <link refid="level_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

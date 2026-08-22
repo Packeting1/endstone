@@ -86,6 +86,7 @@ _Represents a button with text and an optional icon._
 | class | [**Chunk**](classendstone_1_1Chunk.md) <br>_Represents a chunk of blocks._  |
 | class | [**ChunkEvent**](classendstone_1_1ChunkEvent.md) <br>_Represents a_ [_**Chunk**_](classendstone_1_1Chunk.md) _related event._ |
 | class | [**ChunkLoadEvent**](classendstone_1_1ChunkLoadEvent.md) <br>_Called when a chunk is loaded._  |
+| class | [**ChunkPopulateEvent**](classendstone_1_1ChunkPopulateEvent.md) <br>_Called when a newly generated chunk has finished being populated._  |
 | class | [**ChunkUnloadEvent**](classendstone_1_1ChunkUnloadEvent.md) <br>_Called when a chunk is unloaded._  |
 | class | [**Color**](classendstone_1_1Color.md) <br>_Represents a color with red, green, blue, and alpha components._  |
 | struct | [**ColorFormat**](structendstone_1_1ColorFormat.md) <br>_All supported color and format codes._  |

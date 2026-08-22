@@ -102,6 +102,7 @@ Here is a list of all files with brief descriptions:
             * **dir** [**chunk**](dir_7eabd153c13720ffd29490c98a6f4dde.md)     
                 * **file** [**chunk\_event.h**](chunk__event_8h.md)     
                 * **file** [**chunk\_load\_event.h**](chunk__load__event_8h.md)     
+                * **file** [**chunk\_populate\_event.h**](chunk__populate__event_8h.md)     
                 * **file** [**chunk\_unload\_event.h**](chunk__unload__event_8h.md)     
             * **dir** [**inventory**](dir_d762bdddaaf949e56af1361197bdc822.md)     
                 * **file** [**inventory\_event.h**](inventory__event_8h.md)     

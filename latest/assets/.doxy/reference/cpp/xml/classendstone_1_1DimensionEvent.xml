@@ -78,6 +78,12 @@
         </childnode>
       </node>
       <node id="6">
+        <label>endstone::ChunkPopulateEvent</label>
+        <link refid="classendstone_1_1ChunkPopulateEvent"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
         <label>endstone::ChunkUnloadEvent</label>
         <link refid="classendstone_1_1ChunkUnloadEvent"/>
         <childnode refid="4" relation="public-inheritance">
