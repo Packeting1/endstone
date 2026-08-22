@@ -216,6 +216,10 @@ equivalent.
 The detailed tables cover all 208 scalar leaves in `paper-world-defaults.default.yml`; map-valued settings are shown
 with their concrete defaults and an explicit `<...>` entry for extensible keys.
 
+The source of truth for this tree is the checked-out Paper `WorldConfiguration.java`/`GlobalConfiguration.java`. The
+live Paper documentation can move ahead of that checkout (for example, it currently exposes an additional
+`entities-target-with-follow-range` entry), so fields absent from the checkout are not invented here.
+
 | Paper path | Default | 1.26.40 evidence and implementation boundary | Result |
 | --- | ---: | --- | --- |
 | `anticheat.anti-xray.enabled` | `false` | Bedrock has `LevelChunkPacket`, `SubChunkPacket`, and subchunk palettes; enabling this needs per-player packet rewriting. | I |
