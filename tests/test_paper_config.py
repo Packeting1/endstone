@@ -31,7 +31,10 @@ def test_prepares_paper_configs_and_applies_values(tmp_path: Path):
         "_version: 31\ncollisions:\n  enable-player-collisions: false\nconsole:\n  has-all-permissions: true\n",
         encoding="utf-8",
     )
-    world_defaults.write_text("_version: 31\nenvironment:\n  disable-thunder: true\n", encoding="utf-8")
+    world_defaults.write_text(
+        "_version: 31\nenvironment:\n  disable-thunder: true\ncollisions:\n  only-players-collide: true\n",
+        encoding="utf-8",
+    )
     bootstrap._prepare()
 
     with (tmp_path / "endstone.toml").open(encoding="utf-8") as f:
@@ -40,3 +43,4 @@ def test_prepares_paper_configs_and_applies_values(tmp_path: Path):
     assert config["paper"]["global"]["collisions"]["enable-player-collisions"] is False
     assert config["paper"]["global"]["console"]["has-all-permissions"] is True
     assert config["paper"]["world-defaults"]["environment"]["disable-thunder"] is True
+    assert config["paper"]["world-defaults"]["collisions"]["only-players-collide"] is True

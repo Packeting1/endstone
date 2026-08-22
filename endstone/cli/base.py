@@ -280,6 +280,12 @@ class Bootstrap:
         if not isinstance(environment, tomlkit.items.Table):
             raise TypeError("Expected [paper.world-defaults.environment] to be a table in endstone.toml")
         environment["disable-thunder"] = self._paper_bool(world_defaults, ("environment", "disable-thunder"), False)
+        world_collisions = world_settings.setdefault("collisions", tomlkit.table())
+        if not isinstance(world_collisions, tomlkit.items.Table):
+            raise TypeError("Expected [paper.world-defaults.collisions] to be a table in endstone.toml")
+        world_collisions["only-players-collide"] = self._paper_bool(
+            world_defaults, ("collisions", "only-players-collide"), False
+        )
 
         with self.config_path.open("w", encoding="utf-8") as f:
             tomlkit.dump(config, f)

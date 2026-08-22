@@ -165,6 +165,7 @@ EndstoneServer::EndstoneServer() : logger_(LoggerFactory::getLogger(""))
         log_commands_ = tbl.at_path("commands.log").value_or(true);
         allow_client_packs_ = tbl.at_path("settings.allow-client-packs").value_or(false);
         player_collision_enabled_ = tbl.at_path("paper.global.collisions.enable-player-collisions").value_or(true);
+        only_players_collide_ = tbl.at_path("paper.world-defaults.collisions.only-players-collide").value_or(false);
         has_all_permissions_ = tbl.at_path("paper.global.console.has-all-permissions").value_or(false);
         thunder_disabled_ = tbl.at_path("paper.world-defaults.environment.disable-thunder").value_or(false);
     }
@@ -329,6 +330,11 @@ bool EndstoneServer::logCommands() const
 bool EndstoneServer::isPlayerCollisionEnabled() const
 {
     return player_collision_enabled_;
+}
+
+bool EndstoneServer::onlyPlayersCollide() const
+{
+    return only_players_collide_;
 }
 
 bool EndstoneServer::hasAllPermissions() const

@@ -132,6 +132,7 @@ public:
     [[nodiscard]] bool getAllowClientPacks() const;
     [[nodiscard]] bool logCommands() const;
     [[nodiscard]] bool isPlayerCollisionEnabled() const;
+    [[nodiscard]] bool onlyPlayersCollide() const;
     [[nodiscard]] bool hasAllPermissions() const;
     [[nodiscard]] bool isThunderDisabled() const;
     [[nodiscard]] bool isServerTextEnabled(ServerTextEvent event) const;
@@ -181,6 +182,7 @@ private:
     bool allow_client_packs_ = false;
     bool log_commands_ = true;
     bool player_collision_enabled_ = true;
+    bool only_players_collide_ = false;
     bool has_all_permissions_ = false;
     bool thunder_disabled_ = false;
     ServerTextSettings text_settings_;

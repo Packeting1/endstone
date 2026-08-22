@@ -29,9 +29,14 @@ mobs, vehicles, or blocks.
 
 ```yaml title="config/paper-world-defaults.yml"
 _version: 31
+collisions:
+  only-players-collide: false
 environment:
   disable-thunder: false
 ```
+
+`collisions.only-players-collide` suppresses BDS push calls where neither actor is a player. It does not change vehicle
+boarding or other collision systems.
 
 `environment.disable-thunder` clears BDS lightning strength and timer while leaving rain enabled.
 
