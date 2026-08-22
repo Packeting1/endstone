@@ -97,8 +97,31 @@ the Bedrock implementation boundary, not whether Endstone already has a wrapper 
 | `misc.update-pathfinding-on-block-update`, `show-sign-click-command-failure-msgs-to-player`, `disable-end-credits`, `max-leash-distance`, `disable-sprint-interruption-on-attack`, `disable-relative-projectile-velocity`, `legacy-ender-pearl-behavior`, `allow-remote-ender-dragon-respawning` | Investigate | BDS has pathfinding, sign, credits, leash, attack, projectile, pearl, and dragon paths; each needs an independent proof. |
 | `misc.redstone-implementation`, `alternate-current-update-order` | Unsupported | Paper selects Java redstone algorithms; Bedrock's redstone implementation is a different engine. |
 
-The `Investigate` entries are intentionally retained in the files because Bedrock has a related subsystem. They are not
-reported as implemented until the 1.26.44 ABI, caller flow, and live-server behavior are verified.
+The `Investigate` entries are intentionally retained in the files because Bedrock has a related subsystem. The detailed
+audits below use the supplied 1.26.40 databases; an implementation still needs the 1.26.44 ABI declarations and live
+server behavior when it introduces a new hook or layout-dependent field.
+
+## Detailed 1.26.40 global audit
+
+The first global batch below is based on the Windows 1.26.40 IDA database. `E` means the BDS path is confirmed and an
+Endstone adapter is feasible; `I` means a related path exists but the exact caller, field, or runtime contract is still
+missing. The addresses are 1.26.40 research evidence, not 1.26.44 offsets.
+
+| Paper path | Default | 1.26.40 evidence and implementation boundary | Result |
+| --- | ---: | --- | --- |
+| `chunk-loading-basic.player-max-chunk-send-rate` | `75.0` | BDS `BatchedNetworkPeer::sendPacket` (`0x140FDFFF0`) only batches bytes; no per-player chunk scheduler was established. A chunk-packet dispatch budget is still required. | I |
+| `chunk-loading-basic.player-max-chunk-load-rate` | `100.0` | The packet path is distinct from chunk loading; `ChunkSource`/generation scheduling remains to be located. | I |
+| `chunk-loading-basic.player-max-chunk-generate-rate` | `-1.0` | The supplied batch did not establish a per-player generation queue or rate field. | I |
+| `chunk-loading-advanced.auto-config-send-distance` | `true` | `RequestChunkRadiusPacket` (id `69`) and Linux `ServerPlayer_updateChunkViewRadius` (`0x98D8AC0`) confirm the client radius path; the policy still needs a targeted hook. | I |
+| `chunk-loading-advanced.player-max-concurrent-chunk-loads` | `0` | BDS has asynchronous chunk work, but no per-player concurrent-load field was confirmed in this batch. | I |
+| `chunk-loading-advanced.player-max-concurrent-chunk-generates` | `0` | BDS has asynchronous generation work, but no per-player concurrent-generate field was confirmed in this batch. | I |
+| `packet-limiter.kick-message` | `'<red><lang:disconnect.exceeded_packet_rate>'` | Windows `NetworkSystem::_sortAndPacketizeEvents` (`0x140BF9F40`) and Linux `PacketSecurityController_makeLimitError` (`0x85B3D80`) confirm a native violation/disconnect path; Endstone can supply the configured Bedrock disconnect text. | E |
+| `packet-limiter.all-packets.interval` | `7.0` | Windows `NetworkSystem::runEvents` (`0x140BF9700`) and Linux `PacketViolationHandler_updateBucket` (`0x85B49C0`) confirm monotonic/token-bucket windows. A new Endstone adapter still needs the 1.26.44 ABI. | E |
+| `packet-limiter.all-packets.max-packet-rate` | `500.0` | Linux `PacketLimitHandler_checkPacketId` (`0x85B39B0`) and the Windows packet-id table both enforce native limits; an adapter can feed Paper's rate after ABI regeneration. | E |
+| `packet-limiter.all-packets.action` | `KICK` | The BDS violation path marks the connection; Linux's receive path can drop and the existing disconnect hook can kick, but the action adapter is not wired in this change. | E |
+| `packet-limiter.overrides.minecraft:place_recipe.interval` | `4.0` | BDS has packet-id buckets, but no Java `PlaceRecipe` packet; mapping this key to Bedrock recipe/item-stack requests would cover a wider protocol operation. | N |
+| `packet-limiter.overrides.minecraft:place_recipe.max-packet-rate` | `5.0` | The native table is real, but the named Java packet has no Bedrock equivalent and a broad substitute could reject valid requests. | N |
+| `packet-limiter.overrides.minecraft:place_recipe.action` | `DROP` | BDS can drop or disconnect at its packet-security path, but applying it to `ItemStackRequest` is not Java-equivalent. | N |
 
 ## Detailed 1.26.40 world audit
 
@@ -109,6 +132,22 @@ equivalent.
 
 | Paper path | Default | 1.26.40 evidence and implementation boundary | Result |
 | --- | ---: | --- | --- |
+| `anticheat.anti-xray.enabled` | `false` | Bedrock has `LevelChunkPacket`, `SubChunkPacket`, and subchunk palettes; enabling this needs per-player packet rewriting. | I |
+| `anticheat.anti-xray.engine-mode` | `1` | Paper serializes `1=HIDE`, `2=OBFUSCATE`, `3=OBFUSCATE_LAYER`; Bedrock palette rewriting is the required implementation boundary. | I |
+| `anticheat.anti-xray.max-block-height` | `64` | Bedrock subchunks expose height/palette data; a height-limited rewrite needs packet and Y-range handling. | I |
+| `anticheat.anti-xray.update-radius` | `2` | Bedrock chunk/block update packets exist, but the post-change neighbour rewrite radius is not an existing field. | I |
+| `anticheat.anti-xray.lava-obscures` | `false` | Block state/palette data can identify lava, but the obscuring policy must be added to the packet rewrite. | I |
+| `anticheat.anti-xray.use-permission` | `false` | Bedrock player permissions and packet subscriptions exist; the Paper bypass permission must be checked before rewriting. | I |
+| `anticheat.anti-xray.hidden-blocks` | `copper_ore`, `deepslate_copper_ore`, `raw_copper_block`, `gold_ore`, `deepslate_gold_ore`, `iron_ore`, `deepslate_iron_ore`, `raw_iron_block`, `coal_ore`, `deepslate_coal_ore`, `lapis_ore`, `deepslate_lapis_ore`, `mossy_cobblestone`, `obsidian`, `chest`, `diamond_ore`, `deepslate_diamond_ore`, `redstone_ore`, `deepslate_redstone_ore`, `clay`, `emerald_ore`, `deepslate_emerald_ore`, `ender_chest` | The Paper registry list can be represented by Bedrock block states, but the per-player SubChunk transformation is new code. | I |
+| `anticheat.anti-xray.replacement-blocks` | `[stone, oak_planks, deepslate]` | Bedrock palettes can encode replacement states; choosing them requires a new per-player packet transformer. | I |
+| `entities.mob-effects.spiders-immune-to-poison-effect` | `true` | Bedrock exposes actor effect application and spider actor types; a targeted `canBeAffected`-equivalent hook is required. | I |
+| `entities.mob-effects.immune-to-wither-effect.wither` | `true` | Bedrock Wither actor/effect paths exist; immunity must be checked at effect application, not by changing the effect registry. | I |
+| `entities.mob-effects.immune-to-wither-effect.wither-skeleton` | `true` | Bedrock skeleton subtype and effect paths exist; subtype-specific immunity needs a targeted hook. | I |
+| `entities.armor-stands.do-collision-entity-lookups` | `true` | Bedrock armor stands have actor collision/push paths; the collision lookup branch needs a targeted hook. | I |
+| `entities.armor-stands.tick` | `true` | Bedrock armor stands have a normal tick path; disabling only ticking must preserve equipment updates. | I |
+| `entities.markers.tick` | `true` | No Bedrock/Levi Java Marker actor or actor type was found. | X |
+| `entities.sniffer.hatch-time` | `default` | Levi has Sniffer actors and Bedrock has the egg/block tick subsystem; the SnifferEgg timer caller remains to be located. | I |
+| `entities.sniffer.boosted-hatch-time` | `default` | Same SnifferEgg path, with the boosted timer as a separate branch. | I |
 | `max-growth-height.cactus` | `3` | Levi `CactusBlock::randomTick`/`tick` are dedicated growth paths; add a targeted hook and check column height before growth. | I |
 | `max-growth-height.reeds` | `3` | Levi `SugarCaneBlock::randomTick`/`tick` are dedicated growth paths; add a targeted hook and check column height. | I |
 | `max-growth-height.bamboo.max` | `16` | Levi `BambooStalkBlock::randomTick`, `tick`, and `getMaxHeight` expose the exact growth subsystem; hook the state decision. | I |
