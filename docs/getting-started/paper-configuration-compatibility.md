@@ -159,6 +159,42 @@ missing. The addresses are 1.26.40 research evidence, not 1.26.44 offsets.
 | `block-updates.disable-tripwire-updates` | `false` | Linux TripWire vtable (`0xE74B5E8`) and update paths (`0xC6C3710`, `0xBE14DC0`) provide targeted hooks. | I |
 | `block-updates.disable-chorus-plant-updates` | `false` | Linux Chorus vtable (`0xE6E1010`) and survival/update paths (`0xBDF4EA0`, `0xBDF4F50`) provide targeted hooks. | I |
 | `block-updates.disable-mushroom-block-updates` | `false` | Bedrock has a HugeMushroom vtable (`0xE6C6488`), but no isolated update override was confirmed; a generic neighbour-update hook risks unrelated blocks. | I |
+| `unsupported-settings.allow-unsafe-end-portal-teleportation` | `false` | BDS dimension initialization exists, but Java End-portal duplication/unsafe teleport semantics have no safe equivalent. | X |
+| `unsupported-settings.skip-tripwire-hook-placement-validation` | `false` | Linux TripWireHookBlock vtable (`0xE73B470`) and update chain exist; placement validation needs a targeted hook. | I |
+| `unsupported-settings.allow-permanent-block-break-exploits` | `false` | BDS piston actor tick (`0xC581B00`) and block update paths exist, but Java exploit behavior is not identical. | I |
+| `unsupported-settings.allow-piston-duplication` | `false` | BDS piston state paths (`0xC581B00`, `0xE726C38`) exist; duplication requires an ABI-level state/sync policy. | I |
+| `unsupported-settings.perform-username-validation` | `true` | BDS login validation (`0x84D72D0`) is a real entry, but the native validation runs before the existing Endstone hook. | I |
+| `unsupported-settings.allow-headless-pistons` | `false` | BDS PistonBlock/PistonBlockActor paths (`0xE7614F8`, `0xC581B00`) exist; headless behavior needs a targeted state hook. | I |
+| `unsupported-settings.skip-vanilla-damage-tick-when-shield-blocked` | `false` | BDS player action/shield path (`0xB35E070`) exists, but Java damage-tick semantics are not a shared field. | I |
+| `unsupported-settings.update-equipment-on-player-actions` | `true` | BDS player action and equipment packet paths (`0xB35E070`) provide a concrete adapter boundary. | E |
+| `unsupported-settings.oversized-item-component-sanitizer.dont-sanitize` | `[]` | BDS ItemStack serialization (`0x85993B0`, `0x6E4B9C0`) exists, but Java item components are not the Bedrock schema. | N |
+| `item-validation.display-name` | `8192` | Linux BookEditPacket/validation paths (`0x8335E20`, `0x85B2A30`, `0x85B2C40`) provide a length-check boundary. | I |
+| `item-validation.lore-line` | `8192` | Bedrock ItemStack/packet serialization (`0x85993B0`) exists, but line/text units need a Bedrock-specific limit. | I |
+| `item-validation.book.title` | `8192` | Linux BookEditPacket deserialization (`0x85B2C40`) provides a targeted title check. | I |
+| `item-validation.book.author` | `8192` | Linux BookEditPacket deserialization (`0x85B2C40`) provides a targeted author check. | I |
+| `item-validation.book.page` | `16384` | Linux BookEditPacket deserialization (`0x85B2C40`) provides a targeted page payload check; formats differ. | I |
+| `item-validation.book-size.page-max` | `2560` | BDS book packet validation can enforce a page maximum, but Paper's book-size semantics are not identical. | N |
+| `item-validation.book-size.total-multiplier` | `0.98` | BDS has packet max-size gates (`0x8335E20`), not Paper's Java total-size multiplier. | N |
+| `item-validation.resolve-selectors-in-books` | `false` | Java book selector expansion has no safe Bedrock equivalent. | X |
+| `proxies.bungee-cord.online-mode` | `true` | RakNet startup (`0x85B91C0`) is not the Java Bungee forwarding protocol. | X |
+| `proxies.velocity.enabled` | `false` | Bedrock has no Velocity modern-forwarding handshake. | X |
+| `proxies.velocity.online-mode` | `true` | Bedrock has no Velocity online-mode handshake. | X |
+| `proxies.velocity.secret` | `''` | Bedrock has no Velocity secret exchange. | X |
+| `proxies.proxy-protocol` | `false` | RakNet startup exists, but HAProxy PROXY protocol is not a Bedrock transport equivalent. | N |
+| `spark.enabled` | `true` | Paper Spark lifecycle has no BDS equivalent. | X |
+| `spark.enable-immediately` | `false` | Paper Spark startup lifecycle has no BDS equivalent. | X |
+| `scoreboards.track-plugin-scoreboards` | `false` | BDS ServerScoreboard (`0xE763B78`) and Endstone player-board tracking exist; ownership semantics need an adapter. | E |
+| `scoreboards.save-empty-scoreboard-teams` | `true` | BDS scoreboard storage (`0xE763B78`) exists; empty-team serialization still needs a save hook. | I |
+| `anticheat.obfuscation.items.enable-item-obfuscation` | `false` | BDS outbound ItemStack serialization (`0x85993B0`, `0x6E4B9C0`) provides a transformer boundary. | I |
+| `anticheat.obfuscation.items.all-models.also-obfuscate` | `[]` | Bedrock item identity exists, but Java DataComponent/model identifiers are not one-to-one. | N |
+| `anticheat.obfuscation.items.all-models.dont-obfuscate` | `[minecraft:lodestone_tracker]` | Bedrock item identity exists, but Java model identifiers are not one-to-one. | N |
+| `anticheat.obfuscation.items.all-models.sanitize-count` | `true` | Bedrock outbound item count serialization can be rewritten after a Bedrock-specific identity map is defined. | I |
+| `anticheat.obfuscation.items.model-overrides.minecraft:elytra.also-obfuscate` | `[]` | Bedrock item model identifiers differ from Java Elytra DataComponents. | N |
+| `anticheat.obfuscation.items.model-overrides.minecraft:elytra.dont-obfuscate` | `[minecraft:damage]` | Bedrock has no one-to-one Java Elytra damage component mapping. | N |
+| `anticheat.obfuscation.items.model-overrides.minecraft:elytra.sanitize-count` | `true` | Bedrock outbound item count serialization can be rewritten after a Bedrock-specific identity map is defined. | I |
+| `update-checker.enabled` | `true` | Paper update service has no BDS gameplay/runtime equivalent. | X |
+| `collisions.enable-player-collisions` | `true` | Existing Endstone `PushableByEntityUtility::push` hook identifies player/player pairs and is wired in this PR. | E |
+| `collisions.send-full-pos-for-hard-colliding-entities` | `true` | BDS outbound movement packets (`0x6E4B9C0`) exist, but hard-collision entity selection and full-position encoding need a new hook. | I |
 
 ## Detailed 1.26.40 world audit
 
@@ -246,6 +282,42 @@ equivalent.
 | `entities.spawning.duplicate-uuid.safe-regen-delete-range` | `32` | Bedrock chunk entity lists and actor positions exist; safe-regen deletion range needs a load-time filter. | I |
 | `entities.spawning.alt-item-despawn-rate.enabled` | `false` | Bedrock `ItemActor` age/lifetime fields exist; enable a type-aware lifetime table only when configured. | I |
 | `entities.spawning.alt-item-despawn-rate.items.minecraft:cobblestone` | `300` | Bedrock `ItemActor` exposes item stack and age/lifetime; cobblestone needs a configured per-item lifetime branch. | I |
+| `entities.behavior.disable-chest-cat-detection` | `false` | Bedrock chest/block-actor obstruction and cat lookup paths exist; skip only the cat check. | I |
+| `entities.behavior.spawner-nerfed-mobs-should-jump` | `false` | Bedrock mob-spawner and jump/float goals exist; preserve or remove the jump goal in the spawner spawn branch. | I |
+| `entities.behavior.experience-merge-max-value` | `-1` | Bedrock `ExperienceOrb` merge/tick paths exist; cap or split merged values before replacing the orb. | I |
+| `entities.behavior.should-remove-dragon` | `false` | Bedrock `EndDragonFight` and `EnderDragon` state exist; remove only the legacy active dragon branch. | I |
+| `entities.behavior.zombies-target-turtle-eggs` | `true` | Bedrock Zombie, TurtleEggBlock, and stomp-goal paths exist; add/remove that target goal. | I |
+| `entities.behavior.piglins-guard-chests` | `true` | Bedrock Piglin and chest interaction/anger paths exist; gate the guard reaction. | I |
+| `entities.behavior.baby-zombie-movement-modifier` | `0.5` | Bedrock Zombie/Mob attributes expose baby movement modifiers; adjust only the baby modifier. | I |
+| `entities.behavior.allow-spider-world-border-climbing` | `true` | Bedrock Spider climbing and collision paths exist; the border-specific collision branch needs a hook. | I |
+| `entities.behavior.door-breaking-difficulty.minecraft:zombie` | `[HARD]` | Bedrock BreakDoorGoal/DoorBlock and Zombie difficulty checks exist; replace the allowed difficulty list. | I |
+| `entities.behavior.door-breaking-difficulty.minecraft:husk` | `[HARD]` | Bedrock Husk/Zombie subtype and BreakDoorGoal paths exist; replace the allowed difficulty list. | I |
+| `entities.behavior.door-breaking-difficulty.minecraft:zombie_villager` | `[HARD]` | Bedrock ZombieVillager and BreakDoorGoal paths exist; replace the allowed difficulty list. | I |
+| `entities.behavior.door-breaking-difficulty.minecraft:zombified_piglin` | `[HARD]` | Bedrock zombified-piglin actor and BreakDoorGoal paths exist; replace the allowed difficulty list. | I |
+| `entities.behavior.door-breaking-difficulty.minecraft:vindicator` | `[NORMAL, HARD]` | Bedrock Vindicator/HumanoidMonster and BreakDoorGoal paths exist; replace the allowed difficulty list. | I |
+| `entities.behavior.door-breaking-difficulty.<entity-type>` | per-entity default | Bedrock BreakDoorGoal supports a type-aware difficulty predicate; arbitrary map entries need validation. | I |
+| `entities.behavior.disable-creeper-lingering-effect` | `false` | Bedrock Creeper explosion/effect-spawn paths exist; skip only the AreaEffectCloud/effect branch. | I |
+| `entities.behavior.ender-dragons-death-always-places-dragon-egg` | `false` | Bedrock EndDragonFight/DragonEggBlock state exists; gate repeated dragon-egg placement. | I |
+| `entities.behavior.phantoms-do-not-spawn-on-creative-players` | `true` | Bedrock Phantom spawn rules and player game mode exist; exclude creative players in the spawn predicate. | I |
+| `entities.behavior.phantoms-only-attack-insomniacs` | `true` | Bedrock Phantom and InsomniaComponent/InsomniaSystem paths exist; gate target selection. | I |
+| `entities.behavior.player-insomnia-start-ticks` | `72000` | Bedrock insomnia timer state exists; change the threshold used by Phantom logic. | I |
+| `entities.behavior.phantoms-spawn-attempt-min-seconds` | `60` | Bedrock Phantom/natural-spawn tick scheduling exists; change the lower random interval bound. | I |
+| `entities.behavior.phantoms-spawn-attempt-max-seconds` | `119` | Bedrock Phantom/natural-spawn tick scheduling exists; change the upper random interval bound. | I |
+| `entities.behavior.parrots-are-unaffected-by-player-movement` | `false` | Bedrock Player shoulder/passenger state and Parrot actor paths exist; preserve or clear the movement-drop branch. | I |
+| `entities.behavior.zombie-villager-infection-chance` | `default` | Bedrock Zombie/Villager conversion paths exist; difficulty-dependent infection probability needs a hook. | I |
+| `entities.behavior.mobs-can-always-pick-up-loot.zombies` | `false` | Bedrock Zombie/Mob pickup state exists; bypass the random/difficulty gate when enabled. | I |
+| `entities.behavior.mobs-can-always-pick-up-loot.skeletons` | `false` | Bedrock Skeleton/Mob pickup state exists; bypass the random/difficulty gate when enabled. | I |
+| `entities.behavior.disable-player-crits` | `false` | Bedrock Player attack parameters include a critical-hit decision; gate it before damage calculation. | I |
+| `entities.behavior.nerf-pigmen-from-nether-portals` | `false` | Bedrock PortalBlock pig-zombie/piglin spawn and awareness paths exist; change only portal-spawned actors. | I |
+| `entities.behavior.only-merge-items-horizontally` | `false` | Bedrock ItemActor neighbour merge paths exist; set the merge query's vertical extent to zero. | I |
+| `entities.behavior.pillager-patrols.disable` | `false` | Bedrock Pillager patrol spawn/reason paths exist; skip patrol attempts when enabled. | I |
+| `entities.behavior.pillager-patrols.spawn-chance` | `0.2` | Bedrock patrol scheduler tracks spawn attempts/chance; replace the probability. | I |
+| `entities.behavior.pillager-patrols.spawn-delay.per-player` | `false` | Bedrock player/level tick and patrol state exist; choose shared or per-player delay storage. | I |
+| `entities.behavior.pillager-patrols.spawn-delay.ticks` | `12000` | Bedrock patrol scheduler has delay state; replace the retry delay. | I |
+| `entities.behavior.pillager-patrols.start.per-player` | `false` | Bedrock player/level day and patrol state exist; choose shared or per-player start tracking. | I |
+| `entities.behavior.pillager-patrols.start.day` | `5` | Bedrock patrol scheduler has world-day state; replace the initial day threshold. | I |
+| `entities.behavior.cooldown-failed-beehive-releases` | `true` | Bedrock BeehiveBlockActor/Bee release and retry paths exist; gate the failure cooldown. | I |
+| `entities.behavior.stuck-entity-poi-retry-delay` | `200` | Bedrock POI/navigation and stuck-goal paths exist; replace the retry delay or disable it. | I |
 | `max-growth-height.cactus` | `3` | Levi `CactusBlock::randomTick`/`tick` are dedicated growth paths; add a targeted hook and check column height before growth. | I |
 | `max-growth-height.reeds` | `3` | Levi `SugarCaneBlock::randomTick`/`tick` are dedicated growth paths; add a targeted hook and check column height. | I |
 | `max-growth-height.bamboo.max` | `16` | Levi `BambooStalkBlock::randomTick`, `tick`, and `getMaxHeight` expose the exact growth subsystem; hook the state decision. | I |

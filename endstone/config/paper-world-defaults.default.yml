@@ -126,11 +126,11 @@ entities:
     baby-zombie-movement-modifier: 0.5
     allow-spider-world-border-climbing: true
     door-breaking-difficulty:
-      minecraft:zombie: [NORMAL, HARD]
-      minecraft:husk: [NORMAL, HARD]
-      minecraft:zombie_villager: [NORMAL, HARD]
-      minecraft:zombified_piglin: [NORMAL, HARD]
-      minecraft:vindicator: [HARD]
+      minecraft:zombie: [HARD]
+      minecraft:husk: [HARD]
+      minecraft:zombie_villager: [HARD]
+      minecraft:zombified_piglin: [HARD]
+      minecraft:vindicator: [NORMAL, HARD]
     disable-creeper-lingering-effect: false
     ender-dragons-death-always-places-dragon-egg: false
     phantoms-do-not-spawn-on-creative-players: true
