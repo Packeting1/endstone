@@ -628,11 +628,6 @@
     <member refid="classendstone_1_1ChunkLoadEvent_1a9ff79720197da4050b8aebdd39067097" kind="function"><name>ChunkLoadEvent</name></member>
     <member refid="classendstone_1_1ChunkLoadEvent_1a12dd8c991021e5543491629dcd798a00" kind="function"><name>~ChunkLoadEvent</name></member>
   </compound>
-  <compound refid="classendstone_1_1ChunkPopulateEvent" kind="class"><name>endstone::ChunkPopulateEvent</name>
-    <member refid="classendstone_1_1ChunkPopulateEvent_1af114d2d1c088752b79fdebc25c046e91" kind="function"><name>ENDSTONE_EVENT</name></member>
-    <member refid="classendstone_1_1ChunkPopulateEvent_1a625606ed702243c19d9080cf9ade5f0b" kind="function"><name>ChunkPopulateEvent</name></member>
-    <member refid="classendstone_1_1ChunkPopulateEvent_1ad589d8ebb211ec72ae1e7c0c7f24ad62" kind="function"><name>~ChunkPopulateEvent</name></member>
-  </compound>
   <compound refid="classendstone_1_1ChunkUnloadEvent" kind="class"><name>endstone::ChunkUnloadEvent</name>
     <member refid="classendstone_1_1ChunkUnloadEvent_1a3a7ae31d1ab834194f56590d390d2199" kind="function"><name>ENDSTONE_EVENT</name></member>
     <member refid="classendstone_1_1ChunkUnloadEvent_1aaf42a47c7fe2b92eff323ebc9326a18a" kind="function"><name>ChunkUnloadEvent</name></member>
@@ -1555,11 +1550,6 @@
     <member refid="classendstone_1_1LevelEvent_1ab3a3f5c2858709f045ea2195567b7892" kind="variable"><name>level_</name></member>
     <member refid="classendstone_1_1LevelEvent_1a75f2817cfb11480dedbf70c1d3ddc162" kind="function"><name>LevelEvent</name></member>
     <member refid="classendstone_1_1LevelEvent_1ac3be77ffb5a5416fe0c6b138ac01a709" kind="function"><name>getLevel</name></member>
-  </compound>
-  <compound refid="classendstone_1_1LevelLoadEvent" kind="class"><name>endstone::LevelLoadEvent</name>
-    <member refid="classendstone_1_1LevelLoadEvent_1a9cdc211dbaedc5a1330e247209d58948" kind="function"><name>ENDSTONE_EVENT</name></member>
-    <member refid="classendstone_1_1LevelLoadEvent_1ae52ccf1cdca81ae99e198839163c31d6" kind="function"><name>LevelLoadEvent</name></member>
-    <member refid="classendstone_1_1LevelLoadEvent_1a84f293ee77feb5d1117304f412bd27ba" kind="function"><name>~LevelLoadEvent</name></member>
   </compound>
   <compound refid="classendstone_1_1ListTag" kind="class"><name>endstone::ListTag</name>
     <member refid="classendstone_1_1ListTag_1a74f3034e0b1eee2fc7b34bf78e93cbba" kind="typedef"><name>value_type</name></member>
@@ -3493,8 +3483,6 @@
   </compound>
   <compound refid="chunk__load__event_8h" kind="file"><name>chunk_load_event.h</name>
   </compound>
-  <compound refid="chunk__populate__event_8h" kind="file"><name>chunk_populate_event.h</name>
-  </compound>
   <compound refid="chunk__unload__event_8h" kind="file"><name>chunk_unload_event.h</name>
   </compound>
   <compound refid="event_8h" kind="file"><name>event.h</name>
@@ -3513,8 +3501,6 @@
   <compound refid="dimension__event_8h" kind="file"><name>dimension_event.h</name>
   </compound>
   <compound refid="level__event_8h" kind="file"><name>level_event.h</name>
-  </compound>
-  <compound refid="level__load__event_8h" kind="file"><name>level_load_event.h</name>
   </compound>
   <compound refid="player__arm__swing__event_8h" kind="file"><name>player_arm_swing_event.h</name>
   </compound>

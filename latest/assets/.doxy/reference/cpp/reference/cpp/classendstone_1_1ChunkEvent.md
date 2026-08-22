@@ -17,7 +17,7 @@ _Represents a_ [_**Chunk**_](classendstone_1_1Chunk.md) _related event._
 Inherits the following classes: [endstone::DimensionEvent](classendstone_1_1DimensionEvent.md)
 
 
-Inherited by the following classes: [endstone::ChunkLoadEvent](classendstone_1_1ChunkLoadEvent.md),  [endstone::ChunkPopulateEvent](classendstone_1_1ChunkPopulateEvent.md),  [endstone::ChunkUnloadEvent](classendstone_1_1ChunkUnloadEvent.md)
+Inherited by the following classes: [endstone::ChunkLoadEvent](classendstone_1_1ChunkLoadEvent.md),  [endstone::ChunkUnloadEvent](classendstone_1_1ChunkUnloadEvent.md)
 
 
 

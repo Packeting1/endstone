@@ -54,7 +54,6 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**Chunk**](classendstone_1_1Chunk.md) _Represents a chunk of blocks._     
     * **class** [**ChunkEvent**](classendstone_1_1ChunkEvent.md) _Represents a_ [_**Chunk**_](classendstone_1_1Chunk.md) _related event._    
     * **class** [**ChunkLoadEvent**](classendstone_1_1ChunkLoadEvent.md) _Called when a chunk is loaded._     
-    * **class** [**ChunkPopulateEvent**](classendstone_1_1ChunkPopulateEvent.md) _Called when a newly generated chunk has finished being populated._     
     * **class** [**ChunkUnloadEvent**](classendstone_1_1ChunkUnloadEvent.md) _Called when a chunk is unloaded._     
     * **class** [**Color**](classendstone_1_1Color.md) _Represents a color with red, green, blue, and alpha components._     
     * **struct** [**ColorFormat**](structendstone_1_1ColorFormat.md) _All supported color and format codes._     
@@ -109,7 +108,6 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**Lectern**](classendstone_1_1Lectern.md) _Represents a captured state of a lectern._     
     * **class** [**Level**](classendstone_1_1Level.md) _Represents a level, which may contain actors, chunks and blocks._     
     * **class** [**LevelEvent**](classendstone_1_1LevelEvent.md) _Represents events within a level._     
-    * **class** [**LevelLoadEvent**](classendstone_1_1LevelLoadEvent.md) _Called when a level is loaded._     
     * **class** [**ListTag**](classendstone_1_1ListTag.md) _An NBT tag holding an ordered sequence of child tags that all share the same type._     
     * **class** [**Location**](classendstone_1_1Location.md) _Represents a 3-dimensional location in a dimension within a level._     
     * **class** [**Logger**](classendstone_1_1Logger.md) [_**Logger**_](classendstone_1_1Logger.md) _class which can format and output varies levels of logs._    

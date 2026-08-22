@@ -5547,8 +5547,6 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><code>ActorExplodeEvent::setBlockList()</code> and <code>BlockExplodeEvent::setBlockList()</code>, with the <code>BlockList</code> alias made public.</li>
 <li><code>InventoryEvent</code>, a base class for inventory-related events, reporting the primary <code>inventory</code> involved, and the cancellable <code>InventoryInteractEvent</code> under it, which adds the <code>who_clicked</code> player.</li>
 <li>Support for custom Python events with optional cancellation.</li>
-<li><code>LevelLoadEvent</code>, called during server startup once the level has finished loading and PostWorld plugins are enabled, before <code>ServerLoadEvent</code>.</li>
-<li><code>ChunkPopulateEvent</code>, fired for a freshly generated chunk right before <code>ChunkLoadEvent</code>. It does not fire for chunks loaded from disk.</li>
 </ul>
 <h4 id="actors-and-players">Actors and players<a class="headerlink" href="#actors-and-players" title="Permanent link">&para;</a></h4>
 <ul>

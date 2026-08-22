@@ -5,7 +5,6 @@
     <includes refid="dimension__event_8h" local="yes">endstone/event/level/dimension_event.h</includes>
     <includes refid="chunk_8h" local="yes">endstone/level/chunk.h</includes>
     <includedby refid="chunk__load__event_8h" local="yes">include/endstone/event/chunk/chunk_load_event.h</includedby>
-    <includedby refid="chunk__populate__event_8h" local="yes">include/endstone/event/chunk/chunk_populate_event.h</includedby>
     <includedby refid="chunk__unload__event_8h" local="yes">include/endstone/event/chunk/chunk_unload_event.h</includedby>
     <incdepgraph>
       <node id="11">
@@ -1094,18 +1093,12 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
       </node>
       <node id="2">
         <label>include/endstone/event/chunk/chunk_load_event.h</label>
         <link refid="chunk__load__event_8h_source"/>
       </node>
       <node id="3">
-        <label>include/endstone/event/chunk/chunk_populate_event.h</label>
-        <link refid="chunk__populate__event_8h_source"/>
-      </node>
-      <node id="4">
         <label>include/endstone/event/chunk/chunk_unload_event.h</label>
         <link refid="chunk__unload__event_8h_source"/>
       </node>

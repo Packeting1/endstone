@@ -51,7 +51,6 @@
     <innerclass refid="classendstone_1_1Chunk" prot="public">endstone::Chunk</innerclass>
     <innerclass refid="classendstone_1_1ChunkEvent" prot="public">endstone::ChunkEvent</innerclass>
     <innerclass refid="classendstone_1_1ChunkLoadEvent" prot="public">endstone::ChunkLoadEvent</innerclass>
-    <innerclass refid="classendstone_1_1ChunkPopulateEvent" prot="public">endstone::ChunkPopulateEvent</innerclass>
     <innerclass refid="classendstone_1_1ChunkUnloadEvent" prot="public">endstone::ChunkUnloadEvent</innerclass>
     <innerclass refid="classendstone_1_1Color" prot="public">endstone::Color</innerclass>
     <innerclass refid="structendstone_1_1ColorFormat" prot="public">endstone::ColorFormat</innerclass>
@@ -106,7 +105,6 @@
     <innerclass refid="classendstone_1_1Lectern" prot="public">endstone::Lectern</innerclass>
     <innerclass refid="classendstone_1_1Level" prot="public">endstone::Level</innerclass>
     <innerclass refid="classendstone_1_1LevelEvent" prot="public">endstone::LevelEvent</innerclass>
-    <innerclass refid="classendstone_1_1LevelLoadEvent" prot="public">endstone::LevelLoadEvent</innerclass>
     <innerclass refid="classendstone_1_1ListTag" prot="public">endstone::ListTag</innerclass>
     <innerclass refid="classendstone_1_1Location" prot="public">endstone::Location</innerclass>
     <innerclass refid="classendstone_1_1Logger" prot="public">endstone::Logger</innerclass>

@@ -4,7 +4,6 @@
     <compoundname>include/endstone/event/chunk</compoundname>
     <innerfile refid="chunk__event_8h">chunk_event.h</innerfile>
     <innerfile refid="chunk__load__event_8h">chunk_load_event.h</innerfile>
-    <innerfile refid="chunk__populate__event_8h">chunk_populate_event.h</innerfile>
     <innerfile refid="chunk__unload__event_8h">chunk_unload_event.h</innerfile>
     <briefdescription>
     </briefdescription>
