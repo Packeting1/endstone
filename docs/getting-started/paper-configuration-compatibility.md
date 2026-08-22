@@ -429,5 +429,5 @@ live Paper documentation can move ahead of that checkout (for example, it curren
 | `collisions.only-players-collide` | `false` | Existing BDS `PushableByEntityUtility::push` filtering suppresses pairs where neither actor is a player; vehicle/special collision paths remain outside this subset. | E/N |
 | `collisions.allow-vehicle-collisions` | `true` | `PushableByEntityUtility::push` (`0x142CF1F50`) accepts actor context, but vehicle boarding/special paths need separate validation. | E/I |
 | `collisions.fix-climbing-bypassing-cramming-rule` | `false` | No Java cramming rule or matching BDS counter was established. | X |
-| `collisions.max-entity-collisions` | `8` | Windows 1.26.40 confirms `Mob::pushActors` (`0x14240A4A0`) as the per-owner candidate loop; a counter can be added there, but no native max field exists. | E/I |
+| `collisions.max-entity-collisions` | `8` | Windows 1.26.40 confirms `Mob::pushActors` (`0x14240A4A0`) as the target per-owner loop, but the same push function is also called by SpawnActorSystem, ArmorStand, and Minecart. A correct 1.26.44 implementation needs separate Mob/ArmorStand caller ABIs and per-actor counters. | I |
 | `collisions.allow-player-cramming-damage` | `false` | Windows 1.26.40 found no explicit cramming/playersqueeze damage path; do not claim a native equivalent until one is located. | I |
