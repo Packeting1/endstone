@@ -164,6 +164,9 @@ EndstoneServer::EndstoneServer() : logger_(LoggerFactory::getLogger(""))
         toml::table tbl = toml::parse_file("endstone.toml");
         log_commands_ = tbl.at_path("commands.log").value_or(true);
         allow_client_packs_ = tbl.at_path("settings.allow-client-packs").value_or(false);
+        player_collision_enabled_ = tbl.at_path("paper.global.collisions.enable-player-collisions").value_or(true);
+        has_all_permissions_ = tbl.at_path("paper.global.console.has-all-permissions").value_or(false);
+        thunder_disabled_ = tbl.at_path("paper.world-defaults.environment.disable-thunder").value_or(false);
     }
     catch (const toml::parse_error &err) {
         EndstoneServer::getLogger().error("Failed to parse config file: {}", err.what());
@@ -321,6 +324,21 @@ bool EndstoneServer::getAllowClientPacks() const
 bool EndstoneServer::logCommands() const
 {
     return log_commands_;
+}
+
+bool EndstoneServer::isPlayerCollisionEnabled() const
+{
+    return player_collision_enabled_;
+}
+
+bool EndstoneServer::hasAllPermissions() const
+{
+    return has_all_permissions_;
+}
+
+bool EndstoneServer::isThunderDisabled() const
+{
+    return thunder_disabled_;
 }
 
 bool EndstoneServer::isServerTextEnabled(ServerTextEvent event) const

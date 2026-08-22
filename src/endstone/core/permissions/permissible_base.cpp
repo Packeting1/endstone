@@ -75,6 +75,10 @@ bool PermissibleBase::hasPermission(const NotNull<Permission> &perm) const
 
 bool PermissibleBase::hasPermission(PermissionDefault default_value, PermissionLevel level)
 {
+    if (level == PermissionLevel::Console && entt::locator<EndstoneServer>::has_value() &&
+        EndstoneServer::getInstance().hasAllPermissions()) {
+        return true;
+    }
     switch (default_value) {
     case PermissionDefault::True:
         return true;

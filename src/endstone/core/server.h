@@ -131,6 +131,9 @@ public:
     [[nodiscard]] const std::string *getContentKey(const PackIdVersion &pack_id) const;
     [[nodiscard]] bool getAllowClientPacks() const;
     [[nodiscard]] bool logCommands() const;
+    [[nodiscard]] bool isPlayerCollisionEnabled() const;
+    [[nodiscard]] bool hasAllPermissions() const;
+    [[nodiscard]] bool isThunderDisabled() const;
     [[nodiscard]] bool isServerTextEnabled(ServerTextEvent event) const;
 
     [[nodiscard]] ServerInstance &getServer() const;
@@ -177,6 +180,9 @@ private:
     // TODO(config): move the following the a separate class/struct
     bool allow_client_packs_ = false;
     bool log_commands_ = true;
+    bool player_collision_enabled_ = true;
+    bool has_all_permissions_ = false;
+    bool thunder_disabled_ = false;
     ServerTextSettings text_settings_;
     ::Bedrock::PubSub::Subscription on_gameplay_user_removed_;
     ::Bedrock::PubSub::Subscription on_chunk_load_;

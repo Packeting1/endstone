@@ -9,8 +9,9 @@ import subprocess
 import sys
 import tempfile
 import zipfile
+from collections.abc import Mapping
 from pathlib import Path
-from typing import Union
+from typing import Any, Union
 
 import click
 import importlib_resources
@@ -61,6 +62,10 @@ class Bootstrap:
     @property
     def config_path(self) -> Path:
         return self.server_path / "endstone.toml"
+
+    @property
+    def paper_config_path(self) -> Path:
+        return self.server_path / "config"
 
     @property
     def plugin_path(self) -> Path:
@@ -233,6 +238,80 @@ class Bootstrap:
             migrate_config(default_config, config)
             with open(self.config_path, "w", encoding="utf-8") as f:
                 tomlkit.dump(config, f)
+
+        self._prepare_paper_config()
+
+    def _prepare_paper_config(self) -> None:
+        self.paper_config_path.mkdir(parents=True, exist_ok=True)
+        for name in ("paper-global.yml", "paper-world-defaults.yml"):
+            path = self.paper_config_path / name
+            if not path.exists():
+                ref = importlib_resources.files("endstone") / "config" / f"{path.stem}.default.yml"
+                with importlib_resources.as_file(ref) as default_path:
+                    shutil.copy(default_path, path)
+
+        global_config = self._load_paper_config(self.paper_config_path / "paper-global.yml")
+        world_defaults = self._load_paper_config(self.paper_config_path / "paper-world-defaults.yml")
+
+        with self.config_path.open("r", encoding="utf-8") as f:
+            config = tomlkit.load(f)
+
+        paper = config.setdefault("paper", tomlkit.table())
+        if not isinstance(paper, tomlkit.items.Table):
+            raise TypeError("Expected [paper] to be a table in endstone.toml")
+
+        global_settings = paper.setdefault("global", tomlkit.table())
+        if not isinstance(global_settings, tomlkit.items.Table):
+            raise TypeError("Expected [paper.global] to be a table in endstone.toml")
+        collisions = global_settings.setdefault("collisions", tomlkit.table())
+        if not isinstance(collisions, tomlkit.items.Table):
+            raise TypeError("Expected [paper.global.collisions] to be a table in endstone.toml")
+        collisions["enable-player-collisions"] = self._paper_bool(
+            global_config, ("collisions", "enable-player-collisions"), True
+        )
+        console = global_settings.setdefault("console", tomlkit.table())
+        if not isinstance(console, tomlkit.items.Table):
+            raise TypeError("Expected [paper.global.console] to be a table in endstone.toml")
+        console["has-all-permissions"] = self._paper_bool(global_config, ("console", "has-all-permissions"), False)
+        world_settings = paper.setdefault("world-defaults", tomlkit.table())
+        if not isinstance(world_settings, tomlkit.items.Table):
+            raise TypeError("Expected [paper.world-defaults] to be a table in endstone.toml")
+        environment = world_settings.setdefault("environment", tomlkit.table())
+        if not isinstance(environment, tomlkit.items.Table):
+            raise TypeError("Expected [paper.world-defaults.environment] to be a table in endstone.toml")
+        environment["disable-thunder"] = self._paper_bool(world_defaults, ("environment", "disable-thunder"), False)
+
+        with self.config_path.open("w", encoding="utf-8") as f:
+            tomlkit.dump(config, f)
+
+    @staticmethod
+    def _load_paper_config(path: Path) -> Mapping[str, Any]:
+        import yaml
+
+        try:
+            config = yaml.safe_load(path.read_text(encoding="utf-8"))
+        except yaml.YAMLError as e:
+            raise ValueError(f"Failed to parse {path}: {e}") from e
+
+        if config is None:
+            return {}
+        if not isinstance(config, dict):
+            raise TypeError(f"Expected {path} to contain a mapping")
+        return config
+
+    @staticmethod
+    def _paper_bool(config: Mapping[str, Any], path: tuple[str, ...], default: bool) -> bool:
+        value: Any = config
+        for key in path:
+            if not isinstance(value, Mapping):
+                raise TypeError(f"Expected {'.'.join(path)} to be a boolean")
+            value = value.get(key)
+
+        if value is None:
+            return default
+        if type(value) is not bool:
+            raise ValueError(f"Expected {'.'.join(path)} to be a boolean")
+        return value
 
     def _install(self) -> None:
         """

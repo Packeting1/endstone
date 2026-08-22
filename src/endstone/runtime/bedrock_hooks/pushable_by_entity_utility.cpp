@@ -23,6 +23,9 @@
 void PushableByEntityUtility::push(Actor &owner, Actor &other, bool push_self_only)
 {
     const auto &server = endstone::core::EndstoneServer::getInstance();
+    if (!server.isPlayerCollisionEnabled() && owner.isPlayer() && other.isPlayer()) {
+        return;
+    }
     if (server.getEndstonePluginManager().isEventRegistered<endstone::ActorCollideWithActorEvent>()) {
         endstone::ActorCollideWithActorEvent event{owner.getEndstoneActor<endstone::Actor>(),
                                                    other.getEndstoneActor<endstone::Actor>()};

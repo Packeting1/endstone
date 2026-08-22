@@ -1,0 +1,131 @@
+_version: 31
+chunk-loading-basic:
+  player-max-chunk-send-rate: 75.0
+  player-max-chunk-load-rate: 100.0
+  player-max-chunk-generate-rate: -1.0
+chunk-loading-advanced:
+  auto-config-send-distance: true
+  player-max-concurrent-chunk-loads: 0
+  player-max-concurrent-chunk-generates: 0
+messages:
+  kick:
+    authentication-servers-down: '<lang:multiplayer.disconnect.authservers_down>'
+    connection-throttle: 'Connection throttled! Please wait before reconnecting.'
+    flying-player: '<lang:multiplayer.disconnect.flying>'
+    flying-vehicle: '<lang:multiplayer.disconnect.flying>'
+  no-permission: '<red>I''m sorry, but you do not have permission to perform this command. Please contact the server administrators if you believe that this is in error.'
+  use-display-name-in-quit-message: false
+spark:
+  enabled: true
+  enable-immediately: false
+proxies:
+  bungee-cord:
+    online-mode: true
+  velocity:
+    enabled: false
+    online-mode: true
+    secret: ''
+  proxy-protocol: false
+console:
+  enable-brigadier-highlighting: true
+  enable-brigadier-completions: true
+  has-all-permissions: false
+watchdog:
+  early-warning-every: 5000
+  early-warning-delay: 10000
+spam-limiter:
+  tab-spam-increment: 1
+  tab-spam-limit: 500
+  recipe-spam-increment: 1
+  recipe-spam-limit: 20
+  incoming-packet-threshold: 300
+unsupported-settings:
+  allow-unsafe-end-portal-teleportation: false
+  skip-tripwire-hook-placement-validation: false
+  allow-permanent-block-break-exploits: false
+  allow-piston-duplication: false
+  perform-username-validation: true
+  allow-headless-pistons: false
+  skip-vanilla-damage-tick-when-shield-blocked: false
+  update-equipment-on-player-actions: true
+  oversized-item-component-sanitizer:
+    dont-sanitize: []
+commands:
+  suggest-player-names-when-null-tab-completions: true
+  ride-command-allow-player-as-vehicle: false
+time:
+  affects-all-worlds: false
+scoreboards:
+  track-plugin-scoreboards: false
+  save-empty-scoreboard-teams: true
+chunk-system:
+  io-threads: -1
+  worker-threads: -1
+item-validation:
+  display-name: 8192
+  lore-line: 8192
+  book:
+    title: 8192
+    author: 8192
+    page: 16384
+  book-size:
+    page-max: 2560
+    total-multiplier: 0.98
+  resolve-selectors-in-books: false
+packet-limiter:
+  kick-message: '<red><lang:disconnect.exceeded_packet_rate>'
+  all-packets:
+    interval: 7.0
+    max-packet-rate: 500.0
+    action: KICK
+  overrides:
+    minecraft:place_recipe:
+      interval: 4.0
+      max-packet-rate: 5.0
+      action: DROP
+collisions:
+  enable-player-collisions: true
+  send-full-pos-for-hard-colliding-entities: true
+player-auto-save:
+  rate: -1
+  max-per-tick: -1
+misc:
+  chat-threads:
+    chat-executor-core-size: -1
+    chat-executor-max-size: -1
+  max-joins-per-tick: 5
+  catchup-ticks: default
+  send-full-pos-for-item-entities: false
+  load-permissions-yml-before-plugins: true
+  region-file-cache-size: 256
+  use-alternative-luck-formula: false
+  use-dimension-type-for-custom-spawners: false
+  strict-advancement-dimension-check: false
+  compression-level: default
+  client-interaction-leniency-distance: default
+  xp-orb-groups-per-area: default
+  prevent-negative-villager-demand: false
+  enable-nether: true
+  fix-far-end-terrain-generation: true
+  max-tracking-combat-entries: 10240
+block-updates:
+  disable-noteblock-updates: false
+  disable-tripwire-updates: false
+  disable-chorus-plant-updates: false
+  disable-mushroom-block-updates: false
+anticheat:
+  obfuscation:
+    items:
+      enable-item-obfuscation: false
+      all-models:
+        also-obfuscate: []
+        dont-obfuscate: []
+        sanitize-count: true
+      model-overrides:
+        minecraft:elytra:
+          also-obfuscate: []
+          dont-obfuscate:
+            - minecraft:damage
+          sanitize-count: true
+update-checker:
+  enabled: true

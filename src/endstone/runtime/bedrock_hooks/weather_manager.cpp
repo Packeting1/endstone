@@ -33,13 +33,19 @@ void WeatherManager::updateWeather(float rain_level, int rain_time, float lightn
             }
         }
 
-        auto is_lightning = weather_manager_proxy_->getLightningLevel() > 0;
-        auto will_be_lightning = lightning_level > 0;
-        if (is_lightning != will_be_lightning) {
-            endstone::ThunderChangeEvent e(*level, will_be_lightning);
-            server.getPluginManager().callEvent(e);
-            if (e.isCancelled()) {
-                lightning_level = weather_manager_proxy_->getLightningLevel();
+        if (server.isThunderDisabled()) {
+            lightning_level = 0;
+            lightning_time = 0;
+        }
+        else {
+            auto is_lightning = weather_manager_proxy_->getLightningLevel() > 0;
+            auto will_be_lightning = lightning_level > 0;
+            if (is_lightning != will_be_lightning) {
+                endstone::ThunderChangeEvent e(*level, will_be_lightning);
+                server.getPluginManager().callEvent(e);
+                if (e.isCancelled()) {
+                    lightning_level = weather_manager_proxy_->getLightningLevel();
+                }
             }
         }
     }

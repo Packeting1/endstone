@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Paper-style `config/paper-global.yml` and `config/paper-world-defaults.yml` files with the current Paper configuration tree. `collisions.enable-player-collisions` controls the BDS player-push path, `console.has-all-permissions` grants the Endstone console all plugin permissions when enabled, and `environment.disable-thunder` clears BDS lightning while preserving rain.
+
 #### Events
 
 - `PlayerLevelChangeEvent` (`old_level`, `new_level`), `PlayerExpChangeEvent` (`amount` gained) and `PlayerPickupExperienceEvent` (`amount` the orb is worth).

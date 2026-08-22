@@ -1,0 +1,286 @@
+_version: 31
+anticheat:
+  anti-xray:
+    enabled: false
+    engine-mode: 1
+    max-block-height: 64
+    update-radius: 2
+    lava-obscures: false
+    use-permission: false
+    hidden-blocks:
+      - minecraft:copper_ore
+      - minecraft:deepslate_copper_ore
+      - minecraft:raw_copper_block
+      - minecraft:gold_ore
+      - minecraft:deepslate_gold_ore
+      - minecraft:iron_ore
+      - minecraft:deepslate_iron_ore
+      - minecraft:raw_iron_block
+      - minecraft:coal_ore
+      - minecraft:deepslate_coal_ore
+      - minecraft:lapis_ore
+      - minecraft:deepslate_lapis_ore
+      - minecraft:mossy_cobblestone
+      - minecraft:obsidian
+      - minecraft:chest
+      - minecraft:diamond_ore
+      - minecraft:deepslate_diamond_ore
+      - minecraft:redstone_ore
+      - minecraft:deepslate_redstone_ore
+      - minecraft:clay
+      - minecraft:emerald_ore
+      - minecraft:deepslate_emerald_ore
+      - minecraft:ender_chest
+    replacement-blocks:
+      - minecraft:stone
+      - minecraft:oak_planks
+      - minecraft:deepslate
+entities:
+  mob-effects:
+    spiders-immune-to-poison-effect: true
+    immune-to-wither-effect:
+      wither: true
+      wither-skeleton: true
+  armor-stands:
+    do-collision-entity-lookups: true
+    tick: true
+  markers:
+    tick: true
+  sniffer:
+    hatch-time: default
+    boosted-hatch-time: default
+  spawning:
+    non-player-arrow-despawn-rate: default
+    creative-arrow-despawn-rate: default
+    max-arrow-despawn-invulnerability: 200
+    filter-bad-tile-entity-nbt-from-falling-blocks: true
+    filtered-entity-tag-nbt-paths:
+      - Pos
+      - Motion
+      - sleeping_pos
+    disable-mob-spawner-spawn-egg-transformation: false
+    per-player-mob-spawns: true
+    scan-for-legacy-ender-dragon: true
+    spawn-limits:
+      ambient: -1
+      axolotls: -1
+      creature: -1
+      monster: -1
+      underground-water-creature: -1
+      water-ambient: -1
+      water-creature: -1
+    despawn-ranges:
+      ambient: {soft: default, hard: default}
+      axolotls: {soft: default, hard: default}
+      creature: {soft: default, hard: default}
+      monster: {soft: default, hard: default}
+      underground-water-creature: {soft: default, hard: default}
+      water-ambient: {soft: default, hard: default}
+      water-creature: {soft: default, hard: default}
+    despawn-range-shape: ELLIPSOID
+    despawn-time:
+      minecraft:snowball: disabled
+      minecraft:llama_spit: disabled
+    ticks-per-spawn:
+      ambient: -1
+      axolotls: -1
+      creature: -1
+      monster: -1
+      underground-water-creature: -1
+      water-ambient: -1
+      water-creature: -1
+    wateranimal-spawn-height:
+      maximum: default
+      minimum: default
+    slime-spawn-height:
+      surface-biome:
+        minimum: 50.0
+        maximum: 70.0
+      slime-chunk:
+        maximum: 40.0
+    wandering-trader:
+      spawn-minute-length: 1200
+      spawn-day-length: 24000
+      spawn-chance-failure-increment: 25
+      spawn-chance-min: 25
+      spawn-chance-max: 75
+    all-chunks-are-slime-chunks: false
+    skeleton-horse-thunder-spawn-chance: default
+    iron-golems-can-spawn-in-air: false
+    count-all-mobs-for-spawning: false
+    monster-spawn-max-light-level: default
+    duplicate-uuid:
+      mode: SAFE_REGEN
+      safe-regen-delete-range: 32
+    alt-item-despawn-rate:
+      enabled: false
+      items:
+        minecraft:cobblestone: 300
+  behavior:
+    disable-chest-cat-detection: false
+    spawner-nerfed-mobs-should-jump: false
+    experience-merge-max-value: -1
+    should-remove-dragon: false
+    zombies-target-turtle-eggs: true
+    piglins-guard-chests: true
+    baby-zombie-movement-modifier: 0.5
+    allow-spider-world-border-climbing: true
+    door-breaking-difficulty:
+      minecraft:zombie: [NORMAL, HARD]
+      minecraft:husk: [NORMAL, HARD]
+      minecraft:zombie_villager: [NORMAL, HARD]
+      minecraft:zombified_piglin: [NORMAL, HARD]
+      minecraft:vindicator: [HARD]
+    disable-creeper-lingering-effect: false
+    ender-dragons-death-always-places-dragon-egg: false
+    phantoms-do-not-spawn-on-creative-players: true
+    phantoms-only-attack-insomniacs: true
+    player-insomnia-start-ticks: 72000
+    phantoms-spawn-attempt-min-seconds: 60
+    phantoms-spawn-attempt-max-seconds: 119
+    parrots-are-unaffected-by-player-movement: false
+    zombie-villager-infection-chance: default
+    mobs-can-always-pick-up-loot:
+      zombies: false
+      skeletons: false
+    disable-player-crits: false
+    nerf-pigmen-from-nether-portals: false
+    only-merge-items-horizontally: false
+    pillager-patrols:
+      disable: false
+      spawn-chance: 0.2
+      spawn-delay:
+        per-player: false
+        ticks: 12000
+      start:
+        per-player: false
+        day: 5
+    cooldown-failed-beehive-releases: true
+    stuck-entity-poi-retry-delay: 200
+  tracking-range-y:
+    enabled: false
+    player: default
+    animal: default
+    monster: default
+    misc: default
+    display: default
+    other: default
+lootables:
+  auto-replenish: false
+  restrict-player-reloot: true
+  restrict-player-reloot-time: disabled
+  reset-seed-on-fill: true
+  max-refills: -1
+  refresh-min: 12h
+  refresh-max: 2d
+  retain-unlooted-shulker-box-loot-table-on-non-player-break: true
+max-growth-height:
+  cactus: 3
+  reeds: 3
+  bamboo:
+    max: 16
+    min: 11
+scoreboards:
+  allow-non-player-entities-on-scoreboards: true
+  use-vanilla-world-scoreboard-name-coloring: false
+environment:
+  disable-thunder: false
+  disable-ice-and-snow: false
+  optimize-explosions: false
+  disable-explosion-knockback: false
+  generate-flat-bedrock: false
+  frosted-ice:
+    enabled: true
+    delay:
+      min: 20
+      max: 40
+  void-damage-amount: 4.0
+  void-damage-min-build-height-offset: -64.0
+  treasure-maps:
+    enabled: true
+    find-already-discovered:
+      villager-trade: false
+      loot-tables: default
+  fire-tick-delay: 30
+  water-over-lava-flow-speed: 5
+  portal-search-radius: 128
+  portal-create-radius: 16
+  portal-search-vanilla-dimension-scaling: true
+  nether-ceiling-void-damage-height: disabled
+  max-fluid-ticks: 65536
+  max-block-ticks: 65536
+  locate-structures-outside-world-border: false
+spawn:
+  allow-using-signs-inside-spawn-protection: false
+maps:
+  item-frame-cursor-limit: 128
+  item-frame-cursor-update-interval: 10
+fixes:
+  fix-items-merging-through-walls: false
+  disable-unloaded-chunk-enderpearl-exploit: false
+  prevent-tnt-from-moving-in-water: false
+  split-overstacked-loot: true
+  falling-block-height-nerf: disabled
+  tnt-entity-height-nerf: disabled
+unsupported-settings:
+  fix-invulnerable-end-crystal-exploit: true
+  disable-world-ticking-when-empty: false
+  ticking:
+    chunks: true
+    block-entities: true
+hopper:
+  cooldown-when-full: true
+  disable-move-event: false
+  ignore-occluding-blocks: false
+collisions:
+  only-players-collide: false
+  allow-vehicle-collisions: true
+  fix-climbing-bypassing-cramming-rule: false
+  max-entity-collisions: 8
+  allow-player-cramming-damage: false
+chunks:
+  auto-save-interval: default
+  max-auto-save-chunks-per-tick: 24
+  fixed-chunk-inhabited-time: -1
+  prevent-moving-into-unloaded-chunks: false
+  delay-chunk-unloads-by: 10s
+  entity-per-chunk-save-limit:
+    experience_orb: -1
+    snowball: -1
+    ender_pearl: -1
+    arrow: -1
+    fireball: -1
+    small_fireball: -1
+  flush-regions-on-save: false
+fishing-time-range:
+  minimum: 100
+  maximum: 600
+tick-rates:
+  grass-spread: 1
+  container-update: 1
+  mob-spawner: 1
+  wet-farmland: 1
+  dry-farmland: 1
+  sensor:
+    minecraft:villager:
+      secondarypoisensor: 40
+  behavior:
+    minecraft:villager:
+      validatenearbypoi: -1
+feature-seeds:
+  generate-random-seeds-for-all: false
+  features: {}
+command-blocks:
+  permissions-level: 2
+  force-follow-perm-level: true
+misc:
+  update-pathfinding-on-block-update: true
+  show-sign-click-command-failure-msgs-to-player: false
+  redstone-implementation: VANILLA
+  alternate-current-update-order: HORIZONTAL_FIRST_OUTWARD
+  disable-end-credits: false
+  max-leash-distance: default
+  disable-sprint-interruption-on-attack: false
+  disable-relative-projectile-velocity: false
+  legacy-ender-pearl-behavior: false
+  allow-remote-ender-dragon-respawning: false
