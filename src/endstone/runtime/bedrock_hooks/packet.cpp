@@ -14,7 +14,11 @@
 
 #include "bedrock/network/packet.h"
 
+#include <cstddef>
+#include <cstdint>
 #include <memory>
+#include <string>
+#include <string_view>
 #include <utility>
 #include <variant>
 
@@ -60,6 +64,17 @@
 #include "endstone/variant.h"
 
 namespace endstone::core {
+
+static std::size_t utf8CharacterCount(std::string_view value)
+{
+    std::size_t result = 0;
+    for (const auto byte : value) {
+        if ((static_cast<unsigned char>(byte) & 0xc0U) != 0x80U) {
+            ++result;
+        }
+    }
+    return result;
+}
 
 class EndstonePacketHandler {
 public:
@@ -120,6 +135,19 @@ void EndstonePacketHandler::handle(BookEditPacket &packet)
     constexpr auto writable_book = ItemTypeId::minecraft("writable_book");
     constexpr auto written_book = ItemTypeId::minecraft("written_book");
     constexpr int max_page_count = 50;
+    constexpr std::int64_t default_page_length = 16384;
+
+    const auto &config = EndstoneServer::getInstance().getConfig();
+    const auto configured_page_length = config.getInt("paper.global.item-validation.book.page", default_page_length);
+    const auto page_length_limit = configured_page_length > 0 ? static_cast<std::size_t>(configured_page_length)
+                                                              : static_cast<std::size_t>(default_page_length);
+    const auto configured_page_size = config.getInt("paper.global.item-validation.book-size.page-max", -1);
+    const auto page_size_limit = configured_page_size > 0 ? static_cast<std::size_t>(configured_page_size) : 0;
+    const auto page_exceeds_limits = [page_length_limit, page_size_limit](std::string_view page) {
+        return utf8CharacterCount(page) > page_length_limit || (page_size_limit != 0 && page.size() > page_size_limit);
+    };
+    const auto resolve_selectors = config.getBool("paper.global.item-validation.resolve-selectors-in-books", false);
+    (void)resolve_selectors;
 
     const auto *player = getPlayer();
     if (player == nullptr) {
@@ -148,9 +176,12 @@ void EndstonePacketHandler::handle(BookEditPacket &packet)
         return;
     }
 
+    bool invalid_action = false;
     std::visit(overloaded{
                    [&](const BookEditAction::ReplacePage &action) {
-                       if (action.page_index < 0 || action.page_index >= max_page_count) {
+                       if (action.page_index < 0 || action.page_index >= max_page_count ||
+                           page_exceeds_limits(action.page_text)) {
+                           invalid_action = true;
                            return;
                        }
                        auto pages = new_book_meta->getPages();
@@ -164,7 +195,9 @@ void EndstonePacketHandler::handle(BookEditPacket &packet)
                        new_book_meta->setPages(std::move(pages));
                    },
                    [&](const BookEditAction::AddPage &action) {
-                       if (action.page_index < 0 || action.page_index >= max_page_count) {
+                       if (action.page_index < 0 || action.page_index >= max_page_count ||
+                           page_exceeds_limits(action.page_text)) {
+                           invalid_action = true;
                            return;
                        }
                        auto pages = new_book_meta->getPages();
@@ -202,6 +235,9 @@ void EndstonePacketHandler::handle(BookEditPacket &packet)
                    },
                },
                packet.payload.operation);
+    if (invalid_action) {
+        return;
+    }
     const auto is_signing = std::holds_alternative<BookEditAction::Finalize>(packet.payload.operation);
 
     PlayerEditBookEvent e{endstone_player, slot, previous_book_meta, new_book_meta, is_signing};

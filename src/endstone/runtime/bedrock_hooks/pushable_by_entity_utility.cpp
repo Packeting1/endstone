@@ -32,5 +32,11 @@ void PushableByEntityUtility::push(Actor &owner, Actor &other, bool push_self_on
         }
     }
 
+    const auto enable_player_collisions =
+        server.getConfig().getBool("paper.global.collisions.enable-player-collisions", true);
+    if (!enable_player_collisions && owner.isPlayer() && other.isPlayer()) {
+        return;
+    }
+
     ENDSTONE_HOOK_CALL_ORIGINAL(&PushableByEntityUtility::push, owner, other, push_self_only);
 }

@@ -15,6 +15,7 @@
 #include "bedrock/world/actor/mob.h"
 
 #include <iostream>
+#include <optional>
 
 #include "bedrock/entity/components/damage_sensor_component.h"
 #include "bedrock/entity/components/no_action_time_component.h"
@@ -28,14 +29,23 @@
 #include "endstone/event/actor/actor_knockback_event.h"
 #include "endstone/runtime/hook.h"
 
+namespace endstone::runtime {
+const std::optional<Vec3> &getLastExplosionPos();
+}  // namespace endstone::runtime
+
 void Mob::knockback(Actor *source, float damage, float dx, float dz, const KnockbackParameters &parameters)
 {
+    const auto &server = endstone::core::EndstoneServer::getInstance();
+    if (endstone::runtime::getLastExplosionPos() &&
+        server.getConfig().getBool("paper.world_defaults.environment.disable-explosion-knockback", false)) {
+        return;
+    }
+
     const auto before = getPosDelta();
     ENDSTONE_HOOK_CALL_ORIGINAL(&Mob::knockback, this, source, damage, dx, dz, parameters);
     const auto after = getPosDelta();
     auto diff = after - before;
 
-    const auto &server = endstone::core::EndstoneServer::getInstance();
     endstone::ActorKnockbackEvent e{getEndstoneActor<endstone::core::EndstoneMob>(),
                                     source == nullptr ? nullptr : source->getEndstoneActor(),
                                     {diff.x, diff.y, diff.z}};

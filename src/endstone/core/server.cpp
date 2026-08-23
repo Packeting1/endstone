@@ -30,8 +30,6 @@
 
 #include <boost/algorithm/string.hpp>
 #include <entt/locator/locator.hpp>
-#include <pybind11/pybind11.h>
-#include <toml++/toml.h>
 
 #include "bedrock/network/server_network_handler.h"
 #include "bedrock/platform/threading/assigned_thread.h"
@@ -160,14 +158,13 @@ EndstoneServer::EndstoneServer() : logger_(LoggerFactory::getLogger(""))
     scheduler_ = std::make_unique<EndstoneScheduler>(*this);
     start_time_ = std::chrono::system_clock::now();
 
-    try {
-        toml::table tbl = toml::parse_file("endstone.toml");
-        log_commands_ = tbl.at_path("commands.log").value_or(true);
-        allow_client_packs_ = tbl.at_path("settings.allow-client-packs").value_or(false);
+    Config parsed_config("endstone.toml");
+    if (!parsed_config.load("endstone.toml")) {
+        EndstoneServer::getLogger().error("Failed to load endstone.toml; using default configuration values.");
     }
-    catch (const toml::parse_error &err) {
-        EndstoneServer::getLogger().error("Failed to parse config file: {}", err.what());
-    }
+    config_ = std::move(parsed_config);
+    log_commands_ = config_.getBool("commands.log", true);
+    allow_client_packs_ = config_.getBool("settings.allow-client-packs", false);
 
     loadPlugins();
 }
@@ -326,6 +323,11 @@ bool EndstoneServer::getAllowClientPacks() const
 bool EndstoneServer::logCommands() const
 {
     return log_commands_;
+}
+
+const Config &EndstoneServer::getConfig() const
+{
+    return config_;
 }
 
 bool EndstoneServer::isServerTextEnabled(ServerTextEvent event) const
