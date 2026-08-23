@@ -1,9 +1,17 @@
-from endstone.event import ChunkLoadEvent, ChunkUnloadEvent, event_handler
+from endstone.event import ChunkLoadEvent, ChunkUnloadEvent, LevelLoadEvent, event_handler
 
 from .event_listener import EventListener
 
 
 class LevelEventListener(EventListener):
+    @event_handler
+    def on_level_load(self, event: LevelLoadEvent):
+        self.record(
+            event,
+            f"{event.level.name} is loaded",
+            level=event.level.name,
+        )
+
     @event_handler
     def on_chunk_load(self, event: ChunkLoadEvent):
         self.record(

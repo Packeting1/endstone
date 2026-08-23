@@ -97,6 +97,7 @@ __getattr__, __dir__, __all__ = lazy.attach(
             "InventoryInteractEvent",
             "LeavesDecayEvent",
             "LevelEvent",
+            "LevelLoadEvent",
             "MapInitializeEvent",
             "MobEvent",
             "PacketReceiveEvent",

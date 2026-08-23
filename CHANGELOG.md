@@ -32,6 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `ActorExplodeEvent::setBlockList()` and `BlockExplodeEvent::setBlockList()`, with the `BlockList` alias made public.
 - `InventoryEvent`, a base class for inventory-related events, reporting the primary `inventory` involved, and the cancellable `InventoryInteractEvent` under it, which adds the `who_clicked` player.
 - Support for custom Python events with optional cancellation.
+- `LevelLoadEvent`, called during server startup once the level has finished loading and PostWorld plugins are enabled, before `ServerLoadEvent`.
 
 #### Actors and players
 
