@@ -57,6 +57,7 @@ def test_prepare_creates_targets_and_syncs_paper_values(tmp_path):
     bridge = __import__("tomllib").load((tmp_path / "endstone.toml").open("rb"))
     assert "global" in bridge["paper"] and "world_defaults" in bridge["paper"]
     assert bridge["paper"]["global"]["misc"]["max-joins-per-tick"] == 99
+    assert bridge["paper"]["global"]["packet-limiter"]["all-packets"]["max-packet-rate"] == 500.0
 
 
 def test_console_has_all_permissions_setting_is_synced(tmp_path):
@@ -71,6 +72,52 @@ def test_console_has_all_permissions_setting_is_synced(tmp_path):
     bridge = __import__("tomllib").load((tmp_path / "endstone.toml").open("rb"))
     assert global_config["console"]["has-all-permissions"] is True
     assert bridge["paper"]["global"]["console"]["has-all-permissions"] is True
+
+
+def test_global_runtime_settings_are_synced(tmp_path):
+    prepare_paper_configs(tmp_path, PACKAGE)
+    global_path = tmp_path / "config/endstone-global.yml"
+    value = yaml.safe_load(global_path.read_text(encoding="utf-8"))
+    value["misc"]["max-joins-per-tick"] = 11
+    value["misc"]["enable-nether"] = False
+    value["item-validation"]["book"]["author"] = 1024
+    value["item-validation"]["book"]["title"] = 2048
+    value["item-validation"]["book-size"]["total-multiplier"] = 0.75
+    value["packet-limiter"]["all-packets"]["max-packet-rate"] = 321.5
+    global_path.write_text(yaml.safe_dump(value, sort_keys=False), encoding="utf-8")
+
+    global_config = prepare_paper_configs(tmp_path, PACKAGE)[0]
+    bridge = __import__("tomllib").load((tmp_path / "endstone.toml").open("rb"))
+    assert global_config["misc"]["max-joins-per-tick"] == 11
+    assert global_config["misc"]["enable-nether"] is False
+    assert global_config["item-validation"]["book"]["author"] == 1024
+    assert global_config["item-validation"]["book"]["title"] == 2048
+    assert global_config["item-validation"]["book-size"]["total-multiplier"] == 0.75
+    assert global_config["packet-limiter"]["all-packets"]["max-packet-rate"] == 321.5
+    assert bridge["paper"]["global"]["misc"]["max-joins-per-tick"] == 11
+    assert bridge["paper"]["global"]["misc"]["enable-nether"] is False
+    assert bridge["paper"]["global"]["item-validation"]["book"]["author"] == 1024
+    assert bridge["paper"]["global"]["item-validation"]["book"]["title"] == 2048
+    assert bridge["paper"]["global"]["item-validation"]["book-size"]["total-multiplier"] == 0.75
+    assert bridge["paper"]["global"]["packet-limiter"]["all-packets"]["max-packet-rate"] == 321.5
+
+
+def test_world_collision_settings_are_synced(tmp_path):
+    prepare_paper_configs(tmp_path, PACKAGE)
+    world_path = tmp_path / "config/endstone-world-defaults.yml"
+    value = yaml.safe_load(world_path.read_text(encoding="utf-8"))
+    assert value["collisions"]["only-players-collide"] is False
+    assert value["collisions"]["allow-vehicle-collisions"] is True
+    value["collisions"]["only-players-collide"] = True
+    value["collisions"]["allow-vehicle-collisions"] = False
+    world_path.write_text(yaml.safe_dump(value, sort_keys=False), encoding="utf-8")
+
+    world_config = prepare_paper_configs(tmp_path, PACKAGE)[1]
+    bridge = __import__("tomllib").load((tmp_path / "endstone.toml").open("rb"))
+    assert world_config["collisions"]["only-players-collide"] is True
+    assert world_config["collisions"]["allow-vehicle-collisions"] is False
+    assert bridge["paper"]["world_defaults"]["collisions"]["only-players-collide"] is True
+    assert bridge["paper"]["world_defaults"]["collisions"]["allow-vehicle-collisions"] is False
 
 
 def test_prepare_rejects_type_errors(tmp_path):
@@ -116,6 +163,7 @@ def test_merge_accepts_arbitrary_recursive_lists():
 
 def test_sync_toml_preserves_user_values_and_converts_collections(tmp_path):
     path = tmp_path / "nested/endstone.toml"
+    path.parent.mkdir(parents=True)
     path.write_text('[custom]\nkeep = "yes"\n[paper]\nkeep = "yes"\n', encoding="utf-8")
     sync_toml(
         path,

@@ -30,8 +30,13 @@ void Level::tick()
 {
     constexpr auto symbol = __FUNCDNAME__;
     auto &server = EndstoneServer::getInstance();
-    server.tick(getCurrentServerTick().tick_id,
-                [&]() { ENDSTONE_HOOK_CALL_ORIGINAL_NAME(&Level::tick, symbol, this); });
+    const auto disable_world_ticking =
+        server.getConfig().getBool("paper.world_defaults.unsupported-settings.disable-world-ticking-when-empty", false);
+    server.tick(getCurrentServerTick().tick_id, [&]() {
+        if (!disable_world_ticking || !server.getOnlinePlayers().empty()) {
+            ENDSTONE_HOOK_CALL_ORIGINAL_NAME(&Level::tick, symbol, this);
+        }
+    });
 }
 
 // void Level::onChunkDiscarded(LevelChunk &lc)

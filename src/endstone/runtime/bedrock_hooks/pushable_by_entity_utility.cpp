@@ -32,6 +32,14 @@ void PushableByEntityUtility::push(Actor &owner, Actor &other, bool push_self_on
         }
     }
 
+    const auto only_players_collide =
+        server.getConfig().getBool("paper.world_defaults.collisions.only-players-collide", false);
+    const auto allow_vehicle_collisions =
+        server.getConfig().getBool("paper.world_defaults.collisions.allow-vehicle-collisions", true);
+    if (only_players_collide && !owner.isPlayer() && !other.isPlayer() &&
+        (!allow_vehicle_collisions || (!owner.isVehicle() && !other.isVehicle()))) {
+        return;
+    }
     const auto enable_player_collisions =
         server.getConfig().getBool("paper.global.collisions.enable-player-collisions", true);
     if (!enable_player_collisions && owner.isPlayer() && other.isPlayer()) {

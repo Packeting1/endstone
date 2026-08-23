@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 #### Configuration
 
 - Added Paper-compatible `config/endstone-global.yml` and `config/endstone-world-defaults.yml` templates. The launcher creates or updates them and synchronizes their values into `endstone.toml` before the server starts.
+- Added runtime consumers for Paper configuration: book page, author, title, and total-size validation; packet-rate limiting; authenticated join throttling; Nether transitions; empty-world ticking; actor collision filtering; void damage; and the existing weather and explosion settings.
 
 #### Events
 

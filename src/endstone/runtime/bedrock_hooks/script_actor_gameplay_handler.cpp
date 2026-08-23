@@ -15,6 +15,7 @@
 #include "bedrock/scripting/event_handlers/script_actor_gameplay_handler.h"
 
 #include "bedrock/world/actor/actor.h"
+#include "bedrock/world/actor/actor_damage_source.h"
 #include "endstone/core/actor/item.h"
 #include "endstone/core/actor/mob.h"
 #include "endstone/core/block/block.h"
@@ -66,13 +67,19 @@ bool handleEvent(::ActorBeforeHurtEvent &event)
 {
     const auto &source = event.source;
     const auto &server = endstone::core::EndstoneServer::getInstance();
+    auto damage = event.damage;
+    if (source.getCause() == ActorDamageCause::Void &&
+        server.getConfig().getString("paper.world_defaults.environment.void-damage-amount", "4.0") != "disabled") {
+        damage = static_cast<float>(server.getConfig().getDouble("paper.world_defaults.environment.void-damage-amount",
+                                                                 static_cast<double>(damage)));
+    }
     auto mob = event.entity.getEndstoneActor<endstone::core::EndstoneMob>();
-    endstone::ActorDamageEvent e{mob, std::make_shared<endstone::core::EndstoneDamageSource>(source), event.damage};
+    endstone::ActorDamageEvent e{mob, std::make_shared<endstone::core::EndstoneDamageSource>(source), damage};
     server.getPluginManager().callEvent(e);
     if (e.isCancelled()) {
         return false;
     }
-    if (e.getDamage() != event.damage) {
+    if (e.getDamage() != damage || damage != event.damage) {
         event.damage = e.getDamage();
         event.was_modified = true;
     }

@@ -14,6 +14,10 @@
 
 #include "bedrock/network/server_network_handler.h"
 
+#include <chrono>
+#include <cstdint>
+#include <mutex>
+
 #include <magic_enum/magic_enum.hpp>
 
 #include "bedrock/locale/i18n.h"
@@ -27,6 +31,29 @@
 #include "endstone/event/player/player_kick_event.h"
 #include "endstone/event/player/player_login_event.h"
 #include "endstone/runtime/hook.h"
+
+namespace {
+
+bool allowJoin(const endstone::core::EndstoneServer &server)
+{
+    const auto max_joins = server.getConfig().getInt("paper.global.misc.max-joins-per-tick", 5);
+    if (max_joins <= 0) {
+        return true;
+    }
+
+    static std::mutex mutex;
+    static auto window_started = std::chrono::steady_clock::now();
+    static std::int64_t joins = 0;
+    const auto now = std::chrono::steady_clock::now();
+    std::lock_guard lock(mutex);
+    if (now - window_started >= std::chrono::milliseconds(50)) {
+        window_started = now;
+        joins = 0;
+    }
+    return ++joins <= max_joins;
+}
+
+}  // namespace
 
 void ServerNetworkHandler::disconnectClientWithMessage(const NetworkIdentifier &id, const SubClientId sub_id,
                                                        const Connection::DisconnectFailReason reason,
@@ -153,6 +180,12 @@ std::optional<PlayerAuthenticationInfo> ServerNetworkHandler::_validateLoginPack
     auto auth_info = ENDSTONE_HOOK_CALL_ORIGINAL(&ServerNetworkHandler::_validateLoginPacket, this, source, packet);
     if (!auth_info) {
         return auth_info;
+    }
+
+    if (!allowJoin(server)) {
+        network_handler->disconnect(source, SubClientId::PrimaryClient,
+                                    "Too many players are joining; please try again.");
+        return std::nullopt;
     }
 
     const auto &info = *auth_info;
