@@ -84,6 +84,9 @@ def test_global_runtime_settings_are_synced(tmp_path):
     value["item-validation"]["book"]["title"] = 2048
     value["item-validation"]["book-size"]["total-multiplier"] = 0.75
     value["packet-limiter"]["all-packets"]["max-packet-rate"] = 321.5
+    value["packet-limiter"]["overrides"]["minecraft:place_recipe"]["action"] = "DROP"
+    value["packet-limiter"]["overrides"]["minecraft:place_recipe"]["max-packet-rate"] = 12.5
+    value["spam-limiter"]["incoming-packet-threshold"] = 64
     global_path.write_text(yaml.safe_dump(value, sort_keys=False), encoding="utf-8")
 
     global_config = prepare_paper_configs(tmp_path, PACKAGE)[0]
@@ -94,12 +97,18 @@ def test_global_runtime_settings_are_synced(tmp_path):
     assert global_config["item-validation"]["book"]["title"] == 2048
     assert global_config["item-validation"]["book-size"]["total-multiplier"] == 0.75
     assert global_config["packet-limiter"]["all-packets"]["max-packet-rate"] == 321.5
+    assert global_config["packet-limiter"]["overrides"]["minecraft:place_recipe"]["action"] == "DROP"
+    assert global_config["packet-limiter"]["overrides"]["minecraft:place_recipe"]["max-packet-rate"] == 12.5
+    assert global_config["spam-limiter"]["incoming-packet-threshold"] == 64
     assert bridge["paper"]["global"]["misc"]["max-joins-per-tick"] == 11
     assert bridge["paper"]["global"]["misc"]["enable-nether"] is False
     assert bridge["paper"]["global"]["item-validation"]["book"]["author"] == 1024
     assert bridge["paper"]["global"]["item-validation"]["book"]["title"] == 2048
     assert bridge["paper"]["global"]["item-validation"]["book-size"]["total-multiplier"] == 0.75
     assert bridge["paper"]["global"]["packet-limiter"]["all-packets"]["max-packet-rate"] == 321.5
+    assert bridge["paper"]["global"]["packet-limiter"]["overrides"]["minecraft:place_recipe"]["action"] == "DROP"
+    assert bridge["paper"]["global"]["packet-limiter"]["overrides"]["minecraft:place_recipe"]["max-packet-rate"] == 12.5
+    assert bridge["paper"]["global"]["spam-limiter"]["incoming-packet-threshold"] == 64
 
 
 def test_world_collision_settings_are_synced(tmp_path):
@@ -164,14 +173,20 @@ def test_prepare_accepts_paper_disabled_sentinels(tmp_path):
     global_path = tmp_path / "config/endstone-global.yml"
     world_path = tmp_path / "config/endstone-world-defaults.yml"
     global_path.parent.mkdir(parents=True)
-    global_path.write_text("item-validation:\n  book-size:\n    page-max: disabled\n", encoding="utf-8")
+    global_path.write_text(
+        "item-validation:\n  book-size:\n    page-max: disabled\n"
+        "spam-limiter:\n  incoming-packet-threshold: disabled\n",
+        encoding="utf-8",
+    )
     world_path.write_text("environment:\n  void-damage-amount: disabled\n", encoding="utf-8")
 
     global_config, world_config = prepare_paper_configs(tmp_path, PACKAGE)
     assert global_config["item-validation"]["book-size"]["page-max"] == "disabled"
+    assert global_config["spam-limiter"]["incoming-packet-threshold"] == "disabled"
     assert world_config["environment"]["void-damage-amount"] == "disabled"
     bridge = __import__("tomllib").load((tmp_path / "endstone.toml").open("rb"))
     assert bridge["paper"]["global"]["item-validation"]["book-size"]["page-max"] == "disabled"
+    assert bridge["paper"]["global"]["spam-limiter"]["incoming-packet-threshold"] == "disabled"
     assert bridge["paper"]["world_defaults"]["environment"]["void-damage-amount"] == "disabled"
 
 

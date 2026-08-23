@@ -21,6 +21,7 @@ _DISABLED_SENTINEL_PATHS = frozenset(
     {
         "item-validation.book-size.page-max",
         "environment.void-damage-amount",
+        "spam-limiter.incoming-packet-threshold",
     }
 )
 _NUMERIC_OR_DEFAULT_PATHS = frozenset({"entities.spawning.monster-spawn-max-light-level"})

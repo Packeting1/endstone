@@ -79,19 +79,61 @@ struct PacketRateWindow {
     double packets = 0.0;
 };
 
+struct IncomingSpamWindow {
+    std::chrono::steady_clock::time_point last_packet = std::chrono::steady_clock::time_point{};
+    std::uint32_t limited_packets = 0;
+};
+
 std::mutex packet_rate_mutex;
 std::unordered_map<std::string, PacketRateWindow> packet_rate_windows;
+std::unordered_map<std::string, IncomingSpamWindow> incoming_spam_windows;
 
 bool allowIncomingPacket(const EndstoneServer &server, const NetworkIdentifier &network_id, const Packet &packet)
 {
-    const auto interval = server.getConfig().getDouble("paper.global.packet-limiter.all-packets.interval", 7.0);
-    const auto limit = server.getConfig().getDouble("paper.global.packet-limiter.all-packets.max-packet-rate", 500.0);
+    const auto &config = server.getConfig();
+    const auto now = std::chrono::steady_clock::now();
+    const auto incoming_packet_threshold = config.getInt("paper.global.spam-limiter.incoming-packet-threshold", -1);
+    if (incoming_packet_threshold >= 0) {
+        auto spam_key = network_id.getAddress();
+        spam_key.append(1, '\x1f');
+        spam_key.append(std::to_string(static_cast<int>(packet.getSenderSubId())));
+        bool ignored = false;
+        {
+            std::lock_guard lock(packet_rate_mutex);
+            auto &window = incoming_spam_windows[spam_key];
+            const auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - window.last_packet);
+            if (window.last_packet != std::chrono::steady_clock::time_point{} &&
+                elapsed.count() < incoming_packet_threshold) {
+                ignored = window.limited_packets++ >= 8;
+            }
+            else {
+                window.last_packet = now;
+                window.limited_packets = 0;
+            }
+        }
+        if (ignored) {
+            return false;
+        }
+    }
+
+    const auto all_packets_prefix = std::string_view{"paper.global.packet-limiter.all-packets."};
+    const auto packet_override_prefix =
+        std::string{"paper.global.packet-limiter.overrides."} + std::string{packet.getName()} + ".";
+    const auto has_packet_override = config.has(packet_override_prefix + "interval") ||
+                                     config.has(packet_override_prefix + "max-packet-rate") ||
+                                     config.has(packet_override_prefix + "action");
+    const auto prefix = has_packet_override ? std::string_view{packet_override_prefix} : all_packets_prefix;
+    const auto interval = config.getDouble(std::string{prefix} + "interval", 7.0);
+    const auto limit = config.getDouble(std::string{prefix} + "max-packet-rate", 500.0);
     if (interval <= 0.0 || limit <= 0.0) {
         return true;
     }
 
-    const auto now = std::chrono::steady_clock::now();
-    const auto key = network_id.getAddress();
+    auto key = network_id.getAddress();
+    if (has_packet_override) {
+        key.append(1, '\x1f');
+        key.append(packet.getName());
+    }
     bool exceeded = false;
     {
         std::lock_guard lock(packet_rate_mutex);
@@ -105,9 +147,9 @@ bool allowIncomingPacket(const EndstoneServer &server, const NetworkIdentifier &
         return true;
     }
 
-    if (server.getConfig().getString("paper.global.packet-limiter.all-packets.action", "KICK") == "KICK") {
-        const auto message = server.getConfig().getString("paper.global.packet-limiter.kick-message",
-                                                          "<red><lang:disconnect.exceeded_packet_rate>");
+    if (config.getString(std::string{prefix} + "action", "KICK") == "KICK") {
+        const auto message =
+            config.getString("paper.global.packet-limiter.kick-message", "<red><lang:disconnect.exceeded_packet_rate>");
         server.getServer().getMinecraft()->getServerNetworkHandler()->disconnect(network_id, packet.getSenderSubId(),
                                                                                  message);
     }
