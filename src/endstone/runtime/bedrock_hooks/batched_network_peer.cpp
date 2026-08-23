@@ -14,7 +14,6 @@
 
 #include "bedrock/network/batched_network_peer.h"
 
-#include <chrono>
 #include <cstdint>
 #include <mutex>
 #include <optional>
@@ -77,7 +76,8 @@ void patchPacket(const ResourcePackStackPacket &packet)
 }
 
 struct FrameCursorWindow {
-    std::chrono::steady_clock::time_point updated;
+    bool initialized = false;
+    std::uint64_t updated_tick = 0;
     std::vector<endstone::MapCursor> cursors;
 };
 
@@ -94,13 +94,13 @@ std::vector<endstone::MapCursor> getFrameCursors(const endstone::core::RenderDat
         return {};
     }
 
-    const auto now = std::chrono::steady_clock::now();
+    const auto tick_id = player->getHandle().getLevel().getCurrentServerTick().tick_id;
     const auto key = std::to_string(player->getId()) + ":" + std::to_string(map.getId());
     std::lock_guard lock(frame_cursor_mutex);
     auto &window = frame_cursor_windows[key];
-    if (window.updated.time_since_epoch().count() == 0 ||
-        now - window.updated >= std::chrono::milliseconds(static_cast<std::int64_t>(interval) * 50)) {
-        window.updated = now;
+    if (!window.initialized || tick_id - window.updated_tick >= static_cast<std::uint64_t>(interval)) {
+        window.initialized = true;
+        window.updated_tick = tick_id;
         window.cursors.clear();
         for (const auto &cursor : render.cursors) {
             if (cursor.isVisible() && cursor.getType() == endstone::MapCursor::Type::Frame) {
