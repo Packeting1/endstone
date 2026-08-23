@@ -16,7 +16,9 @@ The files created in a server directory are:
 
 The installed package also contains `endstone/config/endstone-global.yml` and `endstone/config/endstone-world-defaults.yml`. Those are templates used by the launcher; edit the copies under the server's `config/` directory instead.
 
-The names and most keys intentionally follow Paper's configuration shape. The two templates currently enumerate 93 global leaves and 160 world-default leaves; every leaf is synchronized into `endstone.toml`, while only the runtime consumers listed below are active in this Bedrock checkout. They provide a familiar place for settings that can be implemented on Bedrock, settings that may be implemented later, and settings for which the closest Java behavior has no safe Bedrock equivalent. A Paper key being present does not by itself promise Paper behavior.
+The names and most keys intentionally follow Paper's configuration shape. The two templates currently enumerate 93 global leaves and 195 world-default schema leaves (181 fixed plus 14 placeholder schemas); every leaf is synchronized into `endstone.toml`, while only the runtime consumers listed below are active in this Bedrock checkout. They provide a familiar place for settings that can be implemented on Bedrock, settings that may be implemented later, and settings for which the closest Java behavior has no safe Bedrock equivalent. A Paper key being present does not by itself promise Paper behavior.
+
+The complete leaf-by-leaf inventory and decision evidence is maintained in [`paper-config-audit.md`](paper-config-audit.md).
 
 ## Startup synchronization
 
