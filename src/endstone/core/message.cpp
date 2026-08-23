@@ -14,10 +14,26 @@
 
 #include "endstone/core/message.h"
 
+#include <utility>
+
 #include "bedrock/locale/i18n.h"
+#include "endstone/core/server.h"
 #include "endstone/variant.h"
 
 namespace endstone::core {
+
+Message EndstoneMessage::applyConfiguredMessages(Message message)
+{
+    if (const auto *translatable = std::get_if<Translatable>(&message);
+        translatable && translatable->getText() == "commands.generic.error.permissions") {
+        const auto configured =
+            EndstoneServer::getInstance().getConfig().getString("paper.global.messages.no-permission", "");
+        if (!configured.empty()) {
+            return configured;
+        }
+    }
+    return message;
+}
 
 std::string EndstoneMessage::toString(Message message)
 {
@@ -25,7 +41,7 @@ std::string EndstoneMessage::toString(Message message)
                                  [](const Translatable &tr) {
                                      return getI18n().get(tr.getText(), tr.getParameters(), nullptr);
                                  }},
-                      message);
+                      applyConfiguredMessages(std::move(message)));
 }
 
 Translatable EndstoneMessage::toTranslatable(Message message)
@@ -34,7 +50,7 @@ Translatable EndstoneMessage::toTranslatable(Message message)
                                  [](const Translatable &tr) {
                                      return tr;
                                  }},
-                      message);
+                      applyConfiguredMessages(std::move(message)));
 }
 
 }  // namespace endstone::core

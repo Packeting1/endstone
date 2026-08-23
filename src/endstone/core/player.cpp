@@ -159,7 +159,7 @@ void EndstonePlayer::sendErrorMessage(const Message &message) const
                               Translatable tr{ColorFormat::Red + "%" + msg.getText(), msg.getParameters()};
                               sendMessage(tr);
                           }},
-               message);
+               EndstoneMessage::applyConfiguredMessages(message));
 }
 
 std::string EndstonePlayer::getName() const

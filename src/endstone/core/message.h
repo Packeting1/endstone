@@ -20,6 +20,7 @@ namespace endstone::core {
 
 class EndstoneMessage {
 public:
+    static Message applyConfiguredMessages(Message message);
     static std::string toString(Message message);
     static Translatable toTranslatable(Message message);
 };
