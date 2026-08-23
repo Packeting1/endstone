@@ -284,6 +284,7 @@ public:
     [[nodiscard]] bool isSneaking() const;
     [[nodiscard]] bool isSwimming() const;
     [[nodiscard]] bool isPlayer() const;
+    [[nodiscard]] bool isVehicle() const;
     [[nodiscard]] bool isRemoved() const;
     [[nodiscard]] bool isOnGround() const;
     [[nodiscard]] bool wasOnGround() const;

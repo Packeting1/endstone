@@ -26,6 +26,7 @@
 #include "bedrock/server/server_text_settings.h"
 #include "bedrock/shared_constants.h"
 #include "endstone/core/command/command_map.h"
+#include "endstone/core/config.h"
 #include "endstone/core/crash_handler.h"
 #include "endstone/core/lang/language.h"
 #include "endstone/core/level/level.h"
@@ -132,6 +133,7 @@ public:
     [[nodiscard]] const std::string *getContentKey(const PackIdVersion &pack_id) const;
     [[nodiscard]] bool getAllowClientPacks() const;
     [[nodiscard]] bool logCommands() const;
+    [[nodiscard]] const Config &getConfig() const;
     [[nodiscard]] bool isServerTextEnabled(ServerTextEvent event) const;
 
     [[nodiscard]] ServerInstance &getServer() const;
@@ -177,6 +179,7 @@ private:
     float current_usage_ = 0.0F;
     float average_usage_[SharedConstants::TicksPerSecond] = {0.0F};
     // TODO(config): move the following the a separate class/struct
+    Config config_;
     bool allow_client_packs_ = false;
     bool log_commands_ = true;
     ServerTextSettings text_settings_;

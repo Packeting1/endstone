@@ -192,6 +192,7 @@ nav:
   - Getting Started:
       - Installation: getting-started/installation.md
       - Start your server: getting-started/start-your-server.md
+      - Configuration: getting-started/configuration.md
       - Project structure: getting-started/project-structure.md
       - Contributing: getting-started/contributing.md
       - FAQ: getting-started/faq.md

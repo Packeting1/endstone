@@ -32,6 +32,7 @@
 #include "bedrock/entity/components/should_be_simulated_component.h"
 #include "bedrock/entity/components/should_update_bounding_box_request_component.h"
 #include "bedrock/entity/components/tags_component.h"
+#include "bedrock/entity/components/vehicle_component.h"
 #include "bedrock/entity/systems/tag_system.h"
 #include "bedrock/entity/utilities/rotation_utility.h"
 #include "bedrock/entity/utilities/synched_actor_data_access.h"
@@ -102,6 +103,11 @@ bool Actor::isSwimming() const
 bool Actor::isPlayer() const
 {
     return hasComponent<PlayerComponent>();
+}
+
+bool Actor::isVehicle() const
+{
+    return hasComponent<VehicleComponent>();
 }
 
 bool Actor::isRemoved() const

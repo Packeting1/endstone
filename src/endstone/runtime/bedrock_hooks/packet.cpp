@@ -14,7 +14,15 @@
 
 #include "bedrock/network/packet.h"
 
+#include <algorithm>
+#include <chrono>
+#include <cstddef>
+#include <cstdint>
 #include <memory>
+#include <mutex>
+#include <string>
+#include <string_view>
+#include <unordered_map>
 #include <utility>
 #include <variant>
 
@@ -32,6 +40,7 @@
 #include "bedrock/network/packet/set_local_player_as_initialized_packet.h"
 #include "bedrock/network/packet/set_player_inventory_options_packet.h"
 #include "bedrock/network/server_network_handler.h"
+#include "bedrock/server/server_instance.h"
 #include "bedrock/world/actor/provider/actor_offset.h"
 #include "bedrock/world/level/dimension/dimension.h"
 #include "endstone/block/block.h"
@@ -63,6 +72,61 @@
 #include "endstone/variant.h"
 
 namespace endstone::core {
+
+namespace {
+
+struct PacketRateWindow {
+    std::chrono::steady_clock::time_point started = std::chrono::steady_clock::now();
+    double packets = 0.0;
+};
+
+std::mutex packet_rate_mutex;
+std::unordered_map<std::string, PacketRateWindow> packet_rate_windows;
+
+bool allowIncomingPacket(const EndstoneServer &server, const NetworkIdentifier &network_id, const Packet &packet)
+{
+    const auto interval = server.getConfig().getDouble("paper.global.packet-limiter.all-packets.interval", 7.0);
+    const auto limit = server.getConfig().getDouble("paper.global.packet-limiter.all-packets.max-packet-rate", 500.0);
+    if (interval <= 0.0 || limit <= 0.0) {
+        return true;
+    }
+
+    const auto now = std::chrono::steady_clock::now();
+    const auto key = network_id.getAddress();
+    bool exceeded = false;
+    {
+        std::lock_guard lock(packet_rate_mutex);
+        auto &window = packet_rate_windows[key];
+        if (std::chrono::duration<double>(now - window.started).count() >= interval) {
+            window = PacketRateWindow{now, 0.0};
+        }
+        exceeded = ++window.packets > limit;
+    }
+    if (!exceeded) {
+        return true;
+    }
+
+    if (server.getConfig().getString("paper.global.packet-limiter.all-packets.action", "KICK") == "KICK") {
+        const auto message = server.getConfig().getString("paper.global.packet-limiter.kick-message",
+                                                          "<red><lang:disconnect.exceeded_packet_rate>");
+        server.getServer().getMinecraft()->getServerNetworkHandler()->disconnect(network_id, packet.getSenderSubId(),
+                                                                                 message);
+    }
+    return false;
+}
+
+std::size_t utf8CharacterCount(std::string_view value)
+{
+    std::size_t result = 0;
+    for (const auto byte : value) {
+        if ((static_cast<unsigned char>(byte) & 0xc0U) != 0x80U) {
+            ++result;
+        }
+    }
+    return result;
+}
+
+}  // namespace
 
 class EndstonePacketHandler {
 public:
@@ -144,6 +208,57 @@ void EndstonePacketHandler::handle(BookEditPacket &packet)
     constexpr auto writable_book = ItemTypeId::minecraft("writable_book");
     constexpr auto written_book = ItemTypeId::minecraft("written_book");
     constexpr int max_page_count = 50;
+    constexpr std::int64_t default_page_length = 16384;
+    constexpr std::int64_t default_author_length = 8192;
+    constexpr std::int64_t default_title_length = 8192;
+
+    const auto &config = EndstoneServer::getInstance().getConfig();
+    const auto configured_page_length = config.getInt("paper.global.item-validation.book.page", default_page_length);
+    const auto page_length_limit = configured_page_length > 0 ? static_cast<std::size_t>(configured_page_length)
+                                                              : static_cast<std::size_t>(default_page_length);
+    const auto configured_page_size = config.getInt("paper.global.item-validation.book-size.page-max", -1);
+    const auto page_size_limit = configured_page_size > 0 ? static_cast<std::size_t>(configured_page_size) : 0;
+    const auto configured_author_length =
+        config.getInt("paper.global.item-validation.book.author", default_author_length);
+    const auto author_length_limit = configured_author_length > 0 ? static_cast<std::size_t>(configured_author_length)
+                                                                  : static_cast<std::size_t>(default_author_length);
+    const auto configured_title_length = config.getInt("paper.global.item-validation.book.title", default_title_length);
+    const auto title_length_limit = configured_title_length > 0 ? static_cast<std::size_t>(configured_title_length)
+                                                                : static_cast<std::size_t>(default_title_length);
+    const auto page_exceeds_limits = [page_length_limit, page_size_limit](std::string_view page) {
+        return utf8CharacterCount(page) > page_length_limit || (page_size_limit != 0 && page.size() > page_size_limit);
+    };
+    const auto resolve_selectors = config.getBool("paper.global.item-validation.resolve-selectors-in-books", false);
+    (void)resolve_selectors;
+
+    const auto book_exceeds_total_limit = [configured_page_size, &config](const std::vector<std::string> &pages) {
+        if (configured_page_size <= 0) {
+            return false;
+        }
+        const auto multiplier =
+            std::clamp(config.getDouble("paper.global.item-validation.book-size.total-multiplier", 0.98), 0.3, 1.0);
+        std::size_t byte_total = 0;
+        double byte_allowed = static_cast<double>(configured_page_size);
+        for (const auto &page : pages) {
+            byte_total += page.size();
+            const auto character_count = utf8CharacterCount(page);
+            const auto page_multiplier = std::clamp(static_cast<double>(character_count) / 255.0, 0.1, 1.0);
+            byte_allowed += static_cast<double>(configured_page_size) * page_multiplier * multiplier;
+            const auto multibyte_characters =
+                static_cast<std::size_t>(std::count_if(page.begin(), page.end(), [](const char byte) {
+                    const auto value = static_cast<unsigned char>(byte);
+                    return value > 127U && (value & 0xc0U) != 0x80U;
+                }));
+            if (multibyte_characters > 1) {
+                byte_allowed -= static_cast<double>(multibyte_characters);
+            }
+        }
+        return static_cast<double>(byte_total) > byte_allowed;
+    };
+
+    const auto text_exceeds_limit = [](std::string_view text, std::size_t limit) {
+        return utf8CharacterCount(text) > limit;
+    };
 
     const auto *player = getPlayer();
     if (player == nullptr) {
@@ -172,9 +287,12 @@ void EndstonePacketHandler::handle(BookEditPacket &packet)
         return;
     }
 
+    bool invalid_action = false;
     std::visit(overloaded{
                    [&](const BookEditAction::ReplacePage &action) {
-                       if (action.page_index < 0 || action.page_index >= max_page_count) {
+                       if (action.page_index < 0 || action.page_index >= max_page_count ||
+                           page_exceeds_limits(action.page_text)) {
+                           invalid_action = true;
                            return;
                        }
                        auto pages = new_book_meta->getPages();
@@ -188,7 +306,9 @@ void EndstonePacketHandler::handle(BookEditPacket &packet)
                        new_book_meta->setPages(std::move(pages));
                    },
                    [&](const BookEditAction::AddPage &action) {
-                       if (action.page_index < 0 || action.page_index >= max_page_count) {
+                       if (action.page_index < 0 || action.page_index >= max_page_count ||
+                           page_exceeds_limits(action.page_text)) {
+                           invalid_action = true;
                            return;
                        }
                        auto pages = new_book_meta->getPages();
@@ -220,12 +340,23 @@ void EndstonePacketHandler::handle(BookEditPacket &packet)
                        }
                    },
                    [&](const BookEditAction::Finalize &action) {
+                       if (text_exceeds_limit(action.title, title_length_limit) ||
+                           text_exceeds_limit(action.author, author_length_limit)) {
+                           invalid_action = true;
+                           return;
+                       }
                        new_book_meta->setTitle(action.title);
                        new_book_meta->setAuthor(action.author);
                        new_book_meta->setGeneration(BookMeta::Generation::Original);
                    },
                },
                packet.payload.operation);
+    if (!invalid_action && book_exceeds_total_limit(new_book_meta->getPages())) {
+        invalid_action = true;
+    }
+    if (invalid_action) {
+        return;
+    }
     const auto is_signing = std::holds_alternative<BookEditAction::Finalize>(packet.payload.operation);
 
     PlayerEditBookEvent e{endstone_player, slot, previous_book_meta, new_book_meta, is_signing};
@@ -539,6 +670,41 @@ void EndstonePacketHandler::handle(PlayerAuthInputPacket &packet)
 }
 
 namespace {
+
+class EndstonePacketRateLimitDispatcher : public IPacketHandlerDispatcher {
+public:
+    static void set(const IPacketHandlerDispatcher **handler)
+    {
+        if (*handler == nullptr) {
+            return;
+        }
+        const auto *original = *handler;
+        static std::mutex dispatchers_mutex;
+        static std::unordered_map<const IPacketHandlerDispatcher *, std::unique_ptr<EndstonePacketRateLimitDispatcher>>
+            dispatchers;
+        std::lock_guard lock(dispatchers_mutex);
+        auto [it, inserted] = dispatchers.try_emplace(original);
+        if (inserted) {
+            it->second =
+                std::unique_ptr<EndstonePacketRateLimitDispatcher>(new EndstonePacketRateLimitDispatcher{*original});
+        }
+        *handler = it->second.get();
+    }
+
+    void handle(const NetworkIdentifier &network_id, NetEventCallback &callback,
+                std::shared_ptr<Packet> &packet) const override
+    {
+        if (allowIncomingPacket(EndstoneServer::getInstance(), network_id, *packet)) {
+            original_.handle(network_id, callback, packet);
+        }
+    }
+
+private:
+    explicit EndstonePacketRateLimitDispatcher(const IPacketHandlerDispatcher &original) : original_(original) {}
+
+    const IPacketHandlerDispatcher &original_;
+};
+
 template <typename T>
 class EndstonePacketHandlerDispatcher : public IPacketHandlerDispatcher {
 public:
@@ -554,6 +720,9 @@ public:
     void handle(const NetworkIdentifier &network_id, NetEventCallback &callback,
                 std::shared_ptr<Packet> &packet) const override
     {
+        if (!allowIncomingPacket(EndstoneServer::getInstance(), network_id, *packet)) {
+            return;
+        }
         EndstonePacketHandler handler{network_id, callback, original_, packet};
         handler.handle(static_cast<T &>(*packet));
     }
@@ -570,6 +739,7 @@ private:
 std::shared_ptr<Packet> MinecraftPackets::createPacket(MinecraftPacketIds id)
 {
     using endstone::core::EndstonePacketHandlerDispatcher;
+    using endstone::core::EndstonePacketRateLimitDispatcher;
     auto packet = ENDSTONE_HOOK_CALL_ORIGINAL(&MinecraftPackets::createPacket, id);
     switch (id) {
     case MinecraftPacketIds::PlayerEquipment: {
@@ -613,6 +783,7 @@ std::shared_ptr<Packet> MinecraftPackets::createPacket(MinecraftPacketIds id)
         break;
     }
     default:
+        EndstonePacketRateLimitDispatcher::set(&packet->handler_);
         break;
     }
     return packet;

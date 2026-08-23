@@ -15,6 +15,7 @@
 #include "bedrock/scripting/event_handlers/script_actor_gameplay_handler.h"
 
 #include "bedrock/world/actor/actor.h"
+#include "bedrock/world/actor/actor_damage_source.h"
 #include "endstone/core/actor/item.h"
 #include "endstone/core/actor/mob.h"
 #include "endstone/core/block/block.h"
@@ -66,13 +67,19 @@ bool handleEvent(::ActorBeforeHurtEvent &event)
 {
     const auto &source = event.source;
     const auto &server = endstone::core::EndstoneServer::getInstance();
+    auto damage = event.damage;
+    if (source.getCause() == ActorDamageCause::Void &&
+        server.getConfig().getString("paper.world_defaults.environment.void-damage-amount", "4.0") != "disabled") {
+        damage = static_cast<float>(server.getConfig().getDouble("paper.world_defaults.environment.void-damage-amount",
+                                                                 static_cast<double>(damage)));
+    }
     auto mob = event.entity.getEndstoneActor<endstone::core::EndstoneMob>();
-    endstone::ActorDamageEvent e{mob, std::make_shared<endstone::core::EndstoneDamageSource>(source), event.damage};
+    endstone::ActorDamageEvent e{mob, std::make_shared<endstone::core::EndstoneDamageSource>(source), damage};
     server.getPluginManager().callEvent(e);
     if (e.isCancelled()) {
         return false;
     }
-    if (e.getDamage() != event.damage) {
+    if (e.getDamage() != damage || damage != event.damage) {
         event.damage = e.getDamage();
         event.was_modified = true;
     }
@@ -82,15 +89,25 @@ bool handleEvent(::ActorBeforeHurtEvent &event)
 bool handleEvent(::ActorAddEffectEvent &event)
 {
     const auto &server = endstone::core::EndstoneServer::getInstance();
-    if (!server.getEndstonePluginManager().isEventRegistered<endstone::ActorEffectEvent>()) {
-        return true;
-    }
-
     auto *mob = WeakEntityRef(event.entity).tryUnwrap<::Mob>();
     if (!mob) {
         return true;
     }
 
+    const auto &effect_name = event.mob_effect.getResourceName();
+    const auto wither_effect = effect_name == "wither" || effect_name == "minecraft:wither";
+    const auto poison_effect = effect_name == "poison" || effect_name == "minecraft:poison";
+    if (wither_effect && (mob->isType(ActorType::WitherBoss) || mob->isType(ActorType::WitherSkeleton)) &&
+        server.getConfig().getBool("paper.world_defaults.entities.mob-effects.immune-to-wither-effect", true)) {
+        return false;
+    }
+    if (poison_effect && mob->isType(ActorType::Spider) &&
+        server.getConfig().getBool("paper.world_defaults.entities.mob-effects.spiders-immune-to-poison-effect", true)) {
+        return false;
+    }
+    if (!server.getEndstonePluginManager().isEventRegistered<endstone::ActorEffectEvent>()) {
+        return true;
+    }
     const endstone::Effect effect{
         endstone::EffectId{endstone::EffectId::Minecraft, event.mob_effect.getResourceName()},
         event.mob_effect.getDuration().getValue(),

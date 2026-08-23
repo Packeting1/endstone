@@ -21,6 +21,7 @@ from rich.progress import BarColumn, DownloadColumn, Progress, TextColumn, TimeR
 
 from endstone import __minecraft_version__
 from endstone.cli import _properties
+from endstone.cli.paper_config import prepare_paper_configs
 
 # server.properties entries where Endstone's default differs from Mojang's.
 _SERVER_PROPERTY_OVERRIDES = {
@@ -233,6 +234,9 @@ class Bootstrap:
             migrate_config(default_config, config)
             with open(self.config_path, "w", encoding="utf-8") as f:
                 tomlkit.dump(config, f)
+
+        paper_package = Path(importlib_resources.files("endstone") / "config")
+        prepare_paper_configs(self.server_path, paper_package, self._logger)
 
     def _install(self) -> None:
         """

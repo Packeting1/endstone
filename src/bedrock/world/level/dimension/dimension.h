@@ -99,6 +99,7 @@ public:
     [[nodiscard]] bool isRedstoneTick() const;
     [[nodiscard]] const std::string &getName() const;
     [[nodiscard]] const std::string &getTypeId() const;
+    void setMonsterSpawnBlockLightLimit(std::uint8_t value) { monster_spawn_block_light_limit_ = value; }
     WeakRef<Dimension> getWeakRef();
     [[nodiscard]] endstone::NotNull<endstone::Dimension> getEndstoneDimension() const;  // Endstone
 

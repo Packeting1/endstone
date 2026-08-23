@@ -14,20 +14,26 @@
 
 #include "bedrock/server/server_player.h"
 
+#include "bedrock/world/level/dimension/vanilla_dimensions.h"
 #include "endstone/core/actor/actor.h"
 #include "endstone/core/level/location.h"
 #include "endstone/core/player.h"
+#include "endstone/core/server.h"
 #include "endstone/event/player/player_portal_event.h"
 #include "endstone/runtime/hook.h"
 
 void ServerPlayer::changeDimension(DimensionType to_id)
 {
+    auto &server = endstone::core::EndstoneServer::getInstance();
+    if (to_id == VanillaDimensions::Nether && !server.getConfig().getBool("paper.global.misc.enable-nether", true)) {
+        return;
+    }
+
     auto to_dimension = getLevel().getOrCreateDimension(to_id);
     if (!to_dimension.isSet()) {
         return;
     }
 
-    auto &server = endstone::core::EndstoneServer::getInstance();
     auto player = getEndstoneActor<endstone::core::EndstonePlayer>();
     ChangeDimensionRequest request(getDimensionId(), to_id, getPosition(), Vec3::ZERO, true, false);
     static_cast<IPlayerDimensionTransferer &>(

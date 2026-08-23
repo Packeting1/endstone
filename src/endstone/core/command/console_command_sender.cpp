@@ -14,6 +14,8 @@
 
 #include "endstone/core/command/console_command_sender.h"
 
+#include <utility>
+
 #include "endstone/core/message.h"
 #include "endstone/core/server.h"
 
@@ -37,6 +39,18 @@ std::string EndstoneConsoleCommandSender::getName() const
 PermissionLevel EndstoneConsoleCommandSender::getPermissionLevel() const
 {
     return PermissionLevel::Console;
+}
+
+bool EndstoneConsoleCommandSender::hasPermission(std::string name) const
+{
+    return EndstoneServer::getInstance().getConfig().getBool("paper.global.console.has-all-permissions") ||
+           ServerCommandSender<ConsoleCommandSender>::hasPermission(std::move(name));
+}
+
+bool EndstoneConsoleCommandSender::hasPermission(const NotNull<Permission> &perm) const
+{
+    return EndstoneServer::getInstance().getConfig().getBool("paper.global.console.has-all-permissions") ||
+           ServerCommandSender<ConsoleCommandSender>::hasPermission(perm);
 }
 
 }  // namespace endstone::core
