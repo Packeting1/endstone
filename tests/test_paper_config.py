@@ -125,6 +125,10 @@ def test_world_collision_settings_are_synced(tmp_path):
     assert value["entities"]["mob-effects"]["spiders-immune-to-poison-effect"] is True
     assert value["entities"]["spawning"]["monster-spawn-max-light-level"] == "default"
     assert value["chunks"]["prevent-moving-into-unloaded-chunks"] is False
+    assert value["environment"]["void-damage-min-build-height-offset"] == -64
+    assert value["environment"]["nether-ceiling-void-damage-height"] == "disabled"
+    assert value["maps"]["item-frame-cursor-limit"] == 128
+    assert value["maps"]["item-frame-cursor-update-interval"] == 10
     value["collisions"]["only-players-collide"] = True
     value["collisions"]["allow-vehicle-collisions"] = False
     value["collisions"]["max-entity-collisions"] = 4
@@ -132,6 +136,10 @@ def test_world_collision_settings_are_synced(tmp_path):
     value["entities"]["mob-effects"]["spiders-immune-to-poison-effect"] = False
     value["entities"]["spawning"]["monster-spawn-max-light-level"] = 7
     value["chunks"]["prevent-moving-into-unloaded-chunks"] = True
+    value["environment"]["void-damage-min-build-height-offset"] = -32
+    value["environment"]["nether-ceiling-void-damage-height"] = 128
+    value["maps"]["item-frame-cursor-limit"] = 3
+    value["maps"]["item-frame-cursor-update-interval"] = 2
     world_path.write_text(yaml.safe_dump(value, sort_keys=False), encoding="utf-8")
 
     world_config = prepare_paper_configs(tmp_path, PACKAGE)[1]
@@ -143,6 +151,10 @@ def test_world_collision_settings_are_synced(tmp_path):
     assert world_config["entities"]["mob-effects"]["spiders-immune-to-poison-effect"] is False
     assert world_config["entities"]["spawning"]["monster-spawn-max-light-level"] == 7
     assert world_config["chunks"]["prevent-moving-into-unloaded-chunks"] is True
+    assert world_config["environment"]["void-damage-min-build-height-offset"] == -32
+    assert world_config["environment"]["nether-ceiling-void-damage-height"] == 128
+    assert world_config["maps"]["item-frame-cursor-limit"] == 3
+    assert world_config["maps"]["item-frame-cursor-update-interval"] == 2
     assert bridge["paper"]["world_defaults"]["collisions"]["only-players-collide"] is True
     assert bridge["paper"]["world_defaults"]["collisions"]["allow-vehicle-collisions"] is False
     assert bridge["paper"]["world_defaults"]["collisions"]["max-entity-collisions"] == 4
@@ -150,6 +162,10 @@ def test_world_collision_settings_are_synced(tmp_path):
     assert bridge["paper"]["world_defaults"]["entities"]["mob-effects"]["spiders-immune-to-poison-effect"] is False
     assert bridge["paper"]["world_defaults"]["entities"]["spawning"]["monster-spawn-max-light-level"] == 7
     assert bridge["paper"]["world_defaults"]["chunks"]["prevent-moving-into-unloaded-chunks"] is True
+    assert bridge["paper"]["world_defaults"]["environment"]["void-damage-min-build-height-offset"] == -32
+    assert bridge["paper"]["world_defaults"]["environment"]["nether-ceiling-void-damage-height"] == 128
+    assert bridge["paper"]["world_defaults"]["maps"]["item-frame-cursor-limit"] == 3
+    assert bridge["paper"]["world_defaults"]["maps"]["item-frame-cursor-update-interval"] == 2
 
 
 def test_prepare_rejects_type_errors(tmp_path):

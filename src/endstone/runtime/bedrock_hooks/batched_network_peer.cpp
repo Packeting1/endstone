@@ -14,9 +14,14 @@
 
 #include "bedrock/network/batched_network_peer.h"
 
+#include <chrono>
+#include <cstdint>
+#include <mutex>
 #include <optional>
 #include <string>
 #include <string_view>
+#include <unordered_map>
+#include <vector>
 
 #include "bedrock/core/sem_ver/sem_version.h"
 #include "bedrock/network/packet.h"
@@ -71,6 +76,41 @@ void patchPacket(const ResourcePackStackPacket &packet)
     }
 }
 
+struct FrameCursorWindow {
+    std::chrono::steady_clock::time_point updated;
+    std::vector<endstone::MapCursor> cursors;
+};
+
+std::mutex frame_cursor_mutex;
+std::unordered_map<std::string, FrameCursorWindow> frame_cursor_windows;
+
+std::vector<endstone::MapCursor> getFrameCursors(const endstone::core::RenderData &render,
+                                                 const endstone::NotNull<endstone::core::EndstonePlayer> &player,
+                                                 const endstone::core::EndstoneServer &server,
+                                                 const endstone::core::EndstoneMapView &map)
+{
+    const auto interval = server.getConfig().getInt("paper.world_defaults.maps.item-frame-cursor-update-interval", 10);
+    if (interval <= 0) {
+        return {};
+    }
+
+    const auto now = std::chrono::steady_clock::now();
+    const auto key = std::to_string(player->getId()) + ":" + std::to_string(map.getId());
+    std::lock_guard lock(frame_cursor_mutex);
+    auto &window = frame_cursor_windows[key];
+    if (window.updated.time_since_epoch().count() == 0 ||
+        now - window.updated >= std::chrono::milliseconds(static_cast<std::int64_t>(interval) * 50)) {
+        window.updated = now;
+        window.cursors.clear();
+        for (const auto &cursor : render.cursors) {
+            if (cursor.isVisible() && cursor.getType() == endstone::MapCursor::Type::Frame) {
+                window.cursors.emplace_back(cursor);
+            }
+        }
+    }
+    return window.cursors;
+}
+
 void patchPacket(const ClientboundMapItemDataPacket &packet,
                  const endstone::NotNull<endstone::core::EndstonePlayer> &player)
 {
@@ -105,8 +145,26 @@ void patchPacket(const ClientboundMapItemDataPacket &packet,
     // Tracked actor ids and decorations go on the wire as parallel arrays
     pk.payload.unique_ids.clear();
     pk.payload.decorations.clear();
+    const auto cursor_limit = server.getConfig().getInt("paper.world_defaults.maps.item-frame-cursor-limit", 128);
+    const auto frame_cursors = getFrameCursors(render, player, server, *map);
+    std::vector<endstone::MapCursor> cursors;
+    cursors.reserve(render.cursors.size());
     for (const auto &cursor : render.cursors) {
+        if (cursor.isVisible() && cursor.getType() != endstone::MapCursor::Type::Frame) {
+            cursors.emplace_back(cursor);
+        }
+    }
+    cursors.insert(cursors.end(), frame_cursors.begin(), frame_cursors.end());
+    std::int64_t frame_cursors_sent = 0;
+    for (const auto &cursor : cursors) {
         if (cursor.isVisible()) {
+            const auto is_frame_cursor = cursor.getType() == endstone::MapCursor::Type::Frame;
+            if (is_frame_cursor && cursor_limit >= 0 && frame_cursors_sent >= cursor_limit) {
+                continue;
+            }
+            if (is_frame_cursor) {
+                ++frame_cursors_sent;
+            }
             pk.payload.unique_ids.emplace_back(ActorUniqueID::INVALID_ID);
             pk.payload.decorations.emplace_back(
                 std::make_shared<MapDecoration>(static_cast<MapDecoration::Type>(cursor.getType()), cursor.getX(),

@@ -16,6 +16,7 @@
 
 #include "bedrock/world/actor/actor.h"
 #include "bedrock/world/actor/actor_damage_source.h"
+#include "bedrock/world/level/dimension/vanilla_dimensions.h"
 #include "endstone/core/actor/item.h"
 #include "endstone/core/actor/mob.h"
 #include "endstone/core/block/block.h"
@@ -68,10 +69,23 @@ bool handleEvent(::ActorBeforeHurtEvent &event)
     const auto &source = event.source;
     const auto &server = endstone::core::EndstoneServer::getInstance();
     auto damage = event.damage;
-    if (source.getCause() == ActorDamageCause::Void &&
-        server.getConfig().getString("paper.world_defaults.environment.void-damage-amount", "4.0") != "disabled") {
-        damage = static_cast<float>(server.getConfig().getDouble("paper.world_defaults.environment.void-damage-amount",
-                                                                 static_cast<double>(damage)));
+    if (source.getCause() == ActorDamageCause::Void) {
+        const auto min_height = static_cast<float>(event.entity.getDimensionBlockSourceConst().getMinHeight());
+        const auto min_build_height_offset =
+            server.getConfig().getInt("paper.world_defaults.environment.void-damage-min-build-height-offset", -64);
+        const auto nether_ceiling_height =
+            server.getConfig().getInt("paper.world_defaults.environment.nether-ceiling-void-damage-height", -1);
+        const auto below_world_threshold = min_height + static_cast<float>(min_build_height_offset);
+        const auto feet_y = event.entity.getAABB().min.y;
+        const auto nether_ceiling_damage = event.entity.getDimensionId() == VanillaDimensions::Nether &&
+                                           nether_ceiling_height >= 0 && feet_y >= nether_ceiling_height;
+        if (feet_y >= below_world_threshold && !nether_ceiling_damage) {
+            return false;
+        }
+        if (server.getConfig().getString("paper.world_defaults.environment.void-damage-amount", "4.0") != "disabled") {
+            damage = static_cast<float>(server.getConfig().getDouble(
+                "paper.world_defaults.environment.void-damage-amount", static_cast<double>(damage)));
+        }
     }
     auto mob = event.entity.getEndstoneActor<endstone::core::EndstoneMob>();
     endstone::ActorDamageEvent e{mob, std::make_shared<endstone::core::EndstoneDamageSource>(source), damage};
