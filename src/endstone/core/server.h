@@ -15,7 +15,9 @@
 #pragma once
 
 #include <chrono>
+#include <cstdint>
 #include <memory>
+#include <mutex>
 #include <string>
 #include <thread>
 #include <typeindex>
@@ -38,6 +40,7 @@
 
 class RakNetConnector;
 class RemoteConnector;
+class NetworkIdentifier;
 class ServerInstance;
 
 namespace endstone::core {
@@ -135,6 +138,8 @@ public:
     [[nodiscard]] bool onlyPlayersCollide() const;
     [[nodiscard]] bool hasAllPermissions() const;
     [[nodiscard]] bool isThunderDisabled() const;
+    bool checkPacketRate(const NetworkIdentifier &id, bool &kick);
+    [[nodiscard]] const std::string &getPacketLimitKickMessage() const;
     [[nodiscard]] bool isServerTextEnabled(ServerTextEvent event) const;
 
     [[nodiscard]] ServerInstance &getServer() const;
@@ -185,6 +190,16 @@ private:
     bool only_players_collide_ = false;
     bool has_all_permissions_ = false;
     bool thunder_disabled_ = false;
+    struct PacketRateState {
+        std::chrono::steady_clock::time_point window_start;
+        std::uint64_t packet_count = 0;
+    };
+    std::mutex packet_rate_mutex_;
+    std::unordered_map<std::string, PacketRateState> packet_rate_states_;
+    double packet_limit_interval_seconds_ = 7.0;
+    double packet_limit_max_rate_ = 500.0;
+    bool packet_limit_kick_ = true;
+    std::string packet_limit_kick_message_ = "<red><lang:disconnect.exceeded_packet_rate>";
     ServerTextSettings text_settings_;
     ::Bedrock::PubSub::Subscription on_gameplay_user_removed_;
     ::Bedrock::PubSub::Subscription on_chunk_load_;

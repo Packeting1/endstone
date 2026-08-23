@@ -273,6 +273,23 @@ class Bootstrap:
         if not isinstance(console, tomlkit.items.Table):
             raise TypeError("Expected [paper.global.console] to be a table in endstone.toml")
         console["has-all-permissions"] = self._paper_bool(global_config, ("console", "has-all-permissions"), False)
+        packet_limiter = global_settings.setdefault("packet-limiter", tomlkit.table())
+        if not isinstance(packet_limiter, tomlkit.items.Table):
+            raise TypeError("Expected [paper.global.packet-limiter] to be a table in endstone.toml")
+        kick_message = packet_limiter.setdefault("kick-message", "<red><lang:disconnect.exceeded_packet_rate>")
+        if not isinstance(kick_message, str):
+            raise TypeError("Expected [paper.global.packet-limiter.kick-message] to be a string")
+        all_packets = packet_limiter.setdefault("all-packets", tomlkit.table())
+        if not isinstance(all_packets, tomlkit.items.Table):
+            raise TypeError("Expected [paper.global.packet-limiter.all-packets] to be a table")
+        all_packets["interval"] = self._paper_float(global_config, ("packet-limiter", "all-packets", "interval"), 7.0)
+        all_packets["max-packet-rate"] = self._paper_float(
+            global_config, ("packet-limiter", "all-packets", "max-packet-rate"), 500.0
+        )
+        action = self._paper_string(global_config, ("packet-limiter", "all-packets", "action"), "KICK")
+        if action not in {"KICK", "DROP"}:
+            raise ValueError("Expected paper.global.packet-limiter.all-packets.action to be KICK or DROP")
+        all_packets["action"] = action
         world_settings = paper.setdefault("world-defaults", tomlkit.table())
         if not isinstance(world_settings, tomlkit.items.Table):
             raise TypeError("Expected [paper.world-defaults] to be a table in endstone.toml")
@@ -317,6 +334,34 @@ class Bootstrap:
             return default
         if type(value) is not bool:
             raise ValueError(f"Expected {'.'.join(path)} to be a boolean")
+        return value
+
+    @staticmethod
+    def _paper_float(config: Mapping[str, Any], path: tuple[str, ...], default: float) -> float:
+        value: Any = config
+        for key in path:
+            if not isinstance(value, Mapping):
+                raise TypeError(f"Expected {'.'.join(path)} to be a number")
+            value = value.get(key)
+
+        if value is None:
+            return default
+        if isinstance(value, bool) or not isinstance(value, (int, float)):
+            raise ValueError(f"Expected {'.'.join(path)} to be a number")
+        return float(value)
+
+    @staticmethod
+    def _paper_string(config: Mapping[str, Any], path: tuple[str, ...], default: str) -> str:
+        value: Any = config
+        for key in path:
+            if not isinstance(value, Mapping):
+                raise TypeError(f"Expected {'.'.join(path)} to be a string")
+            value = value.get(key)
+
+        if value is None:
+            return default
+        if not isinstance(value, str):
+            raise ValueError(f"Expected {'.'.join(path)} to be a string")
         return value
 
     def _install(self) -> None:

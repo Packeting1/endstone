@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Paper-style `config/paper-global.yml` and `config/paper-world-defaults.yml` files with the current Paper configuration tree. `collisions.enable-player-collisions` controls the BDS player-push path, `world-defaults.collisions.only-players-collide` filters non-player push pairs, `console.has-all-permissions` grants the Endstone console all plugin permissions when enabled, and `environment.disable-thunder` clears BDS lightning while preserving rain.
+- Paper-style `config/paper-global.yml` and `config/paper-world-defaults.yml` files with the current Paper configuration tree. `collisions.enable-player-collisions` controls the BDS player-push path, `world-defaults.collisions.only-players-collide` filters non-player push pairs, `console.has-all-permissions` grants the Endstone console all plugin permissions when enabled, `packet-limiter.all-packets` applies the configured per-connection receive limit, and `environment.disable-thunder` clears BDS lightning while preserving rain.
 
 #### Events
 

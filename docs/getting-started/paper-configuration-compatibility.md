@@ -40,7 +40,8 @@ what this PR wires into Endstone; the detailed 1.26.40 audits separately record 
 | `chunk-system.io-threads`, `worker-threads` | Partial | BDS has asynchronous chunk tasks and thread limits, but not Paper's two executor contract. |
 | `item-validation.display-name`, `lore-line`, `book.title`, `book.author`, `book.page`, `book-size.page-max`, `book-size.total-multiplier` | Partial | Bedrock book packets and item text can be validated, but their wire/data limits differ from Java. |
 | `item-validation.resolve-selectors-in-books` | Unsupported | No Java selector expansion behavior exists for Bedrock book text. |
-| `packet-limiter.kick-message`, `all-packets.interval`, `max-packet-rate`, `action`, `overrides` | Investigate | BDS has `packetlimitconfig.json`, `PacketGroupDefinition`, `BucketPacketLimitAlgorithm`, `PacketLimitHandler`, and reload support. Paper packet names/actions still need Bedrock packet-ID mapping and 1.26.44 symbols. |
+| `packet-limiter.kick-message`, `all-packets.interval`, `max-packet-rate`, `action` | Implemented | The existing BDS `_receivePacket` hook applies a per-connection Paper all-packets window/rate and maps DROP/KICK to the Endstone receive/disconnect boundary. Native BDS packet-id limiting remains active separately. |
+| `packet-limiter.overrides` | Partial | BDS has native packet-id buckets, but Paper `minecraft:place_recipe` has no Bedrock packet equivalent and is intentionally not mapped to broader ItemStackRequest traffic. |
 | `collisions.enable-player-collisions` | Implemented | Suppresses the verified BDS player-to-player `PushableByEntityUtility::push` path. |
 | `collisions.send-full-pos-for-hard-colliding-entities` | Investigate | BDS has entity movement/position packets; the Java hard-collision correction path needs an ABI proof. |
 | `player-auto-save.rate`, `max-per-tick` | Investigate | BDS saves player/actor state, but its batching scheduler is different. |
@@ -120,10 +121,10 @@ their concrete defaults and an explicit `<...>` entry for extensible keys.
 | `chunk-loading-advanced.player-max-concurrent-chunk-generates` | `0` | BDS has asynchronous generation work, but no per-player concurrent-generate field was confirmed in this batch. | I |
 | `chunk-system.io-threads` | `-1` | BDS has asynchronous chunk/storage tasks, but no safe Paper-compatible I/O thread-count field was confirmed. | I |
 | `chunk-system.worker-threads` | `-1` | BDS has worker/task scheduling, but no safe Paper-compatible generation worker-count field was confirmed. | I |
-| `packet-limiter.kick-message` | `'<red><lang:disconnect.exceeded_packet_rate>'` | Windows `NetworkSystem::_sortAndPacketizeEvents` (`0x140BF9F40`) and Linux `PacketSecurityController_makeLimitError` (`0x85B3D80`) confirm a native violation/disconnect path; Endstone can supply the configured Bedrock disconnect text. | E |
-| `packet-limiter.all-packets.interval` | `7.0` | Windows `NetworkSystem::runEvents` (`0x140BF9700`) and Linux `PacketViolationHandler_updateBucket` (`0x85B49C0`) confirm monotonic/token-bucket windows. A new Endstone adapter still needs the 1.26.44 ABI. | E |
-| `packet-limiter.all-packets.max-packet-rate` | `500.0` | Linux `PacketLimitHandler_checkPacketId` (`0x85B39B0`) and the Windows packet-id table both enforce native limits; an adapter can feed Paper's rate after ABI regeneration. | E |
-| `packet-limiter.all-packets.action` | `KICK` | The BDS violation path marks the connection; Linux's receive path can drop and the existing disconnect hook can kick, but the action adapter is not wired in this change. | E |
+| `packet-limiter.kick-message` | `'<red><lang:disconnect.exceeded_packet_rate>'` | Existing Endstone disconnect boundary accepts the configured message; the 1.26.40 native violation path is separately confirmed at Windows `0x140BF9F40`/Linux `0x85B3D80`. | E |
+| `packet-limiter.all-packets.interval` | `7.0` | Existing BDS `BatchedNetworkPeer::_receivePacket` hook applies the configured per-connection time window. | E |
+| `packet-limiter.all-packets.max-packet-rate` | `500.0` | Existing BDS receive hook counts every decoded packet for the connection; no guessed native packet-limit field is used. | E |
+| `packet-limiter.all-packets.action` | `KICK` | Existing BDS receive hook drops over-limit packets or calls the Endstone disconnect boundary for KICK. | E |
 | `spam-limiter.tab-spam-increment` | `1` | Bedrock has no Java command-suggestion request counter. | X |
 | `spam-limiter.tab-spam-limit` | `500` | Bedrock has no Java command-suggestion request counter. | X |
 | `spam-limiter.recipe-spam-increment` | `1` | Bedrock recipe/item-stack request packets can be counted, but their scope is wider than Java recipe-book requests. | N |

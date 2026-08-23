@@ -168,6 +168,11 @@ EndstoneServer::EndstoneServer() : logger_(LoggerFactory::getLogger(""))
         only_players_collide_ = tbl.at_path("paper.world-defaults.collisions.only-players-collide").value_or(false);
         has_all_permissions_ = tbl.at_path("paper.global.console.has-all-permissions").value_or(false);
         thunder_disabled_ = tbl.at_path("paper.world-defaults.environment.disable-thunder").value_or(false);
+        packet_limit_interval_seconds_ = tbl.at_path("paper.global.packet-limiter.all-packets.interval").value_or(7.0);
+        packet_limit_max_rate_ = tbl.at_path("paper.global.packet-limiter.all-packets.max-packet-rate").value_or(500.0);
+        packet_limit_kick_ = tbl.at_path("paper.global.packet-limiter.all-packets.action").value_or("KICK") == "KICK";
+        packet_limit_kick_message_ =
+            tbl.at_path("paper.global.packet-limiter.kick-message").value_or(packet_limit_kick_message_);
     }
     catch (const toml::parse_error &err) {
         EndstoneServer::getLogger().error("Failed to parse config file: {}", err.what());
@@ -345,6 +350,35 @@ bool EndstoneServer::hasAllPermissions() const
 bool EndstoneServer::isThunderDisabled() const
 {
     return thunder_disabled_;
+}
+
+bool EndstoneServer::checkPacketRate(const NetworkIdentifier &id, bool &kick)
+{
+    if (id.getType() == NetworkIdentifier::Type::Invalid || packet_limit_interval_seconds_ <= 0.0 ||
+        packet_limit_max_rate_ <= 0.0) {
+        return false;
+    }
+
+    std::string key(reinterpret_cast<const char *>(&id), sizeof(id));
+    const auto now = std::chrono::steady_clock::now();
+    std::scoped_lock lock(packet_rate_mutex_);
+    auto &state = packet_rate_states_[std::move(key)];
+    if (state.window_start.time_since_epoch().count() == 0 ||
+        std::chrono::duration<double>(now - state.window_start).count() >= packet_limit_interval_seconds_) {
+        state.window_start = now;
+        state.packet_count = 0;
+    }
+    ++state.packet_count;
+    if (static_cast<double>(state.packet_count) <= packet_limit_max_rate_) {
+        return false;
+    }
+    kick = packet_limit_kick_;
+    return true;
+}
+
+const std::string &EndstoneServer::getPacketLimitKickMessage() const
+{
+    return packet_limit_kick_message_;
 }
 
 bool EndstoneServer::isServerTextEnabled(ServerTextEvent event) const

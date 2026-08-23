@@ -20,12 +20,22 @@ collisions:
   enable-player-collisions: true
 console:
   has-all-permissions: false
+packet-limiter:
+  kick-message: '<red><lang:disconnect.exceeded_packet_rate>'
+  all-packets:
+    interval: 7.0
+    max-packet-rate: 500.0
+    action: KICK
 ```
 
 `collisions.enable-player-collisions` controls BDS player-to-player pushing. It does not change collisions involving
 mobs, vehicles, or blocks.
 
 `console.has-all-permissions` grants the Endstone console sender every plugin permission when enabled.
+
+`packet-limiter.all-packets` applies a per-connection packet window in the BDS receive hook. `DROP` discards packets
+over the limit; `KICK` disconnects with `packet-limiter.kick-message`. The Paper `place_recipe` override is preserved
+but is not mapped to Bedrock's broader item-stack request protocol.
 
 ```yaml title="config/paper-world-defaults.yml"
 _version: 31

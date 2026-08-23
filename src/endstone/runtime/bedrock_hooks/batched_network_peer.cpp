@@ -341,11 +341,9 @@ NetworkPeer::DataStatus BatchedNetworkPeer::_receivePacket(std::string &out_data
                                                            const PacketRecvTimepointPtr &timepoint_ptr)
 {
     const auto &server = endstone::core::EndstoneServer::getInstance();
-    if (!server.getEndstonePluginManager().isEventRegistered<endstone::PacketReceiveEvent>()) {
-        return ENDSTONE_HOOK_CALL_ORIGINAL(&BatchedNetworkPeer::_receivePacket, this, out_data, timepoint_ptr);
-    }
-
     auto network_handler = server.getServer().getMinecraft()->getServerNetworkHandler();
+    const auto packet_receive_events =
+        server.getEndstonePluginManager().isEventRegistered<endstone::PacketReceiveEvent>();
     while (true) {
         const auto status =
             ENDSTONE_HOOK_CALL_ORIGINAL(&BatchedNetworkPeer::_receivePacket, this, out_data, timepoint_ptr);
@@ -361,6 +359,17 @@ NetworkPeer::DataStatus BatchedNetworkPeer::_receivePacket(std::string &out_data
 
         const auto header = PacketHeader::fromRaw(result.value());
         const auto &id = getId();
+        bool kick = false;
+        if (server.checkPacketRate(id, kick)) {
+            if (kick) {
+                network_handler->disconnect(id, header.getRecipientSubId(), server.getPacketLimitKickMessage());
+                return DataStatus::NoData;
+            }
+            continue;
+        }
+        if (!packet_receive_events) {
+            return status;
+        }
         endstone::Nullable<endstone::Player> player;
         if (const auto *p = network_handler->getServerPlayer(id, header.getRecipientSubId())) {
             player = p->getEndstoneActor<endstone::core::EndstonePlayer>();
