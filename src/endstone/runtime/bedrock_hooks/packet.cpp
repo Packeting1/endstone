@@ -41,6 +41,8 @@
 #include "bedrock/network/server_network_handler.h"
 #include "bedrock/server/server_instance.h"
 #include "bedrock/world/actor/provider/actor_offset.h"
+#include "bedrock/world/level/block_source.h"
+#include "bedrock/world/phys/aabb.h"
 #include "endstone/block/block.h"
 #include "endstone/color_format.h"
 #include "endstone/core/entity/components/flag_components.h"
@@ -564,9 +566,17 @@ void EndstonePacketHandler::handle(PlayerAuthInputPacket &packet)
         plugin_manager.callEvent(e);
     }
 
+    auto &block_source = player->getDimension().getBlockSourceFromMainChunkSource();
+    const auto prevent_unloaded_chunk_movement = EndstoneServer::getInstance().getConfig().getBool(
+        "paper.world_defaults.chunks.prevent-moving-into-unloaded-chunks", false);
+
     auto &actions = packet.payload.player_block_actions.actions_;
     for (auto it = actions.begin(); it != actions.end();) {
         const auto &action = *it;
+        if (prevent_unloaded_chunk_movement && !block_source.hasChunk(ChunkPos(action.pos), false)) {
+            it = actions.erase(it);
+            continue;
+        }
         if (action.player_action_type == PlayerActionType::StartDestroyBlock) {
             const auto item = endstone_player->getInventory().getItemInMainHand();
             const auto block = endstone_player->getDimension()->getBlockAt(action.pos.x, action.pos.y, action.pos.z);
@@ -593,6 +603,25 @@ void EndstonePacketHandler::handle(PlayerAuthInputPacket &packet)
     const auto delta = input.pos - pos;
     const auto delta_angle = input.rot - rot;
     const auto on_ground = player->isOnGround();
+
+    if (prevent_unloaded_chunk_movement && (delta.x != 0.0F || delta.z != 0.0F)) {
+        const auto &aabb = player->getAABB();
+        const AABB moved_aabb{aabb.min.x + delta.x, aabb.min.y + delta.y, aabb.min.z + delta.z,
+                              aabb.max.x + delta.x, aabb.max.y + delta.y, aabb.max.z + delta.z};
+        if (!block_source.hasChunksAt(moved_aabb, false)) {
+            auto correction = MinecraftPackets::createPacket(MinecraftPacketIds::CorrectPlayerMovePredictionPacket);
+            auto &payload = static_cast<CorrectPlayerMovePredictionPacket &>(*correction).payload;
+            payload.pos = pos;
+            payload.pos_delta = Vec3::ZERO;
+            payload.vehicle_rotation = Vec2::ZERO;
+            payload.vehicle_angular_velocity = std::nullopt;
+            payload.tick = input.client_tick;
+            payload.on_ground = on_ground;
+            payload.prediction_type = RewindType::Player;
+            player->sendNetworkPacket(*correction);
+            return;
+        }
+    }
 
     const Location from = endstone_player->getLocation();
     const auto height_offset = ActorOffset::getHeightOffset(player->getEntity());
