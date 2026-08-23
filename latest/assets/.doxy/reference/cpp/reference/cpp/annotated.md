@@ -76,6 +76,7 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**Dimension**](classendstone_1_1Dimension.md) _Represents a dimension within a_ [_**Level**_](classendstone_1_1Level.md) _._    
     * **class** [**DimensionCreator**](classendstone_1_1DimensionCreator.md) _Represents the options that may be used to create a custom_ [_**Dimension**_](classendstone_1_1Dimension.md) _._    
     * **class** [**DimensionEvent**](classendstone_1_1DimensionEvent.md) _Represents events within a dimension._     
+    * **class** [**DimensionLoadEvent**](classendstone_1_1DimensionLoadEvent.md) _Called when a dimension is loaded._     
     * **class** [**Divider**](classendstone_1_1Divider.md) _Represents a divider._     
     * **class** [**DrilldownPie**](classendstone_1_1DrilldownPie.md) _A bStats pie chart with grouped named values._     
     * **class** [**Dropdown**](classendstone_1_1Dropdown.md) _Represents a dropdown with a set of predefined options._     
@@ -225,6 +226,7 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
     * **class** [**Toggle**](classendstone_1_1Toggle.md) _Represents a toggle button with a label._     
     * **class** [**Translatable**](classendstone_1_1Translatable.md) _Represents an object with a text representation that can be translated by the Minecraft client._     
     * **class** [**UUID**](classendstone_1_1UUID.md) _Implementation of Universally Unique_ [_**Identifier**_](classendstone_1_1Identifier.md) _(_[_**UUID**_](classendstone_1_1UUID.md) _)._    
+    * **class** [**UnknownCommandEvent**](classendstone_1_1UnknownCommandEvent.md) _Called when a command sender executes a command that is not defined._     
     * **class** [**Vector**](classendstone_1_1Vector.md) _Represents a 3-dimensional vector._     
     * **class** [**WeatherChangeEvent**](classendstone_1_1WeatherChangeEvent.md) _Called when the weather (rain) state in a world is changing._     
     * **class** [**WeatherEvent**](classendstone_1_1WeatherEvent.md) _Represents a Weather-related event._     
