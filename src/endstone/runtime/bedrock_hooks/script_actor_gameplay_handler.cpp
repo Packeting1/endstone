@@ -89,15 +89,25 @@ bool handleEvent(::ActorBeforeHurtEvent &event)
 bool handleEvent(::ActorAddEffectEvent &event)
 {
     const auto &server = endstone::core::EndstoneServer::getInstance();
-    if (!server.getEndstonePluginManager().isEventRegistered<endstone::ActorEffectEvent>()) {
-        return true;
-    }
-
     auto *mob = WeakEntityRef(event.entity).tryUnwrap<::Mob>();
     if (!mob) {
         return true;
     }
 
+    const auto &effect_name = event.mob_effect.getResourceName();
+    const auto wither_effect = effect_name == "wither" || effect_name == "minecraft:wither";
+    const auto poison_effect = effect_name == "poison" || effect_name == "minecraft:poison";
+    if (wither_effect && (mob->isType(ActorType::WitherBoss) || mob->isType(ActorType::WitherSkeleton)) &&
+        server.getConfig().getBool("paper.world_defaults.entities.mob-effects.immune-to-wither-effect", true)) {
+        return false;
+    }
+    if (poison_effect && mob->isType(ActorType::Spider) &&
+        server.getConfig().getBool("paper.world_defaults.entities.mob-effects.spiders-immune-to-poison-effect", true)) {
+        return false;
+    }
+    if (!server.getEndstonePluginManager().isEventRegistered<endstone::ActorEffectEvent>()) {
+        return true;
+    }
     const endstone::Effect effect{
         endstone::EffectId{endstone::EffectId::Minecraft, event.mob_effect.getResourceName()},
         event.mob_effect.getDuration().getValue(),

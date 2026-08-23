@@ -17,6 +17,7 @@
 #include "bedrock/world/level/chunk/chunk_source.h"
 #include "bedrock/world/level/chunk/level_chunk.h"
 #include "endstone/core/level/chunk.h"
+#include "endstone/core/level/dimension.h"
 #include "endstone/core/scheduler/scheduler.h"
 #include "endstone/core/server.h"
 #include "endstone/event/chunk/chunk_load_event.h"
@@ -32,6 +33,16 @@ void Level::tick()
     auto &server = EndstoneServer::getInstance();
     const auto disable_world_ticking =
         server.getConfig().getBool("paper.world_defaults.unsupported-settings.disable-world-ticking-when-empty", false);
+    const auto monster_spawn_light_limit =
+        server.getConfig().getInt("paper.world_defaults.entities.spawning.monster-spawn-max-light-level", -1);
+    if (monster_spawn_light_limit >= 0 && monster_spawn_light_limit <= 15) {
+        if (const auto *level = server.getEndstoneLevel(); level != nullptr) {
+            for (const auto dimension : level->getDimensions()) {
+                auto &handle = static_cast<endstone::core::EndstoneDimension &>(*dimension).getHandle();
+                handle.setMonsterSpawnBlockLightLimit(static_cast<std::uint8_t>(monster_spawn_light_limit));
+            }
+        }
+    }
     server.tick(getCurrentServerTick().tick_id, [&]() {
         if (!disable_world_ticking || !server.getOnlinePlayers().empty()) {
             ENDSTONE_HOOK_CALL_ORIGINAL_NAME(&Level::tick, symbol, this);

@@ -108,16 +108,32 @@ def test_world_collision_settings_are_synced(tmp_path):
     value = yaml.safe_load(world_path.read_text(encoding="utf-8"))
     assert value["collisions"]["only-players-collide"] is False
     assert value["collisions"]["allow-vehicle-collisions"] is True
+    assert value["collisions"]["max-entity-collisions"] == 8
+    assert value["entities"]["mob-effects"]["immune-to-wither-effect"] is True
+    assert value["entities"]["mob-effects"]["spiders-immune-to-poison-effect"] is True
+    assert value["entities"]["spawning"]["monster-spawn-max-light-level"] == "default"
     value["collisions"]["only-players-collide"] = True
     value["collisions"]["allow-vehicle-collisions"] = False
+    value["collisions"]["max-entity-collisions"] = 4
+    value["entities"]["mob-effects"]["immune-to-wither-effect"] = False
+    value["entities"]["mob-effects"]["spiders-immune-to-poison-effect"] = False
+    value["entities"]["spawning"]["monster-spawn-max-light-level"] = 7
     world_path.write_text(yaml.safe_dump(value, sort_keys=False), encoding="utf-8")
 
     world_config = prepare_paper_configs(tmp_path, PACKAGE)[1]
     bridge = __import__("tomllib").load((tmp_path / "endstone.toml").open("rb"))
     assert world_config["collisions"]["only-players-collide"] is True
     assert world_config["collisions"]["allow-vehicle-collisions"] is False
+    assert world_config["collisions"]["max-entity-collisions"] == 4
+    assert world_config["entities"]["mob-effects"]["immune-to-wither-effect"] is False
+    assert world_config["entities"]["mob-effects"]["spiders-immune-to-poison-effect"] is False
+    assert world_config["entities"]["spawning"]["monster-spawn-max-light-level"] == 7
     assert bridge["paper"]["world_defaults"]["collisions"]["only-players-collide"] is True
     assert bridge["paper"]["world_defaults"]["collisions"]["allow-vehicle-collisions"] is False
+    assert bridge["paper"]["world_defaults"]["collisions"]["max-entity-collisions"] == 4
+    assert bridge["paper"]["world_defaults"]["entities"]["mob-effects"]["immune-to-wither-effect"] is False
+    assert bridge["paper"]["world_defaults"]["entities"]["mob-effects"]["spiders-immune-to-poison-effect"] is False
+    assert bridge["paper"]["world_defaults"]["entities"]["spawning"]["monster-spawn-max-light-level"] == 7
 
 
 def test_prepare_rejects_type_errors(tmp_path):

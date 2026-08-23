@@ -23,6 +23,7 @@ _DISABLED_SENTINEL_PATHS = frozenset(
         "environment.void-damage-amount",
     }
 )
+_NUMERIC_OR_DEFAULT_PATHS = frozenset({"entities.spawning.monster-spawn-max-light-level"})
 
 
 def _normalize_default(value: Any) -> Any:
@@ -82,6 +83,13 @@ def merge_defaults(defaults: Any, current: Any = _MISSING, path: str = "") -> An
     if current is _MISSING:
         return copy.deepcopy(defaults)
     if current == "disabled" and path in _DISABLED_SENTINEL_PATHS:
+        return current
+    if (
+        path in _NUMERIC_OR_DEFAULT_PATHS
+        and defaults == "default"
+        and isinstance(current, (int, float))
+        and not isinstance(current, bool)
+    ):
         return current
     if defaults is None:
         if current is None:
