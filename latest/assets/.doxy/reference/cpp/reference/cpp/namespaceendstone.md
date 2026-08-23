@@ -37,6 +37,8 @@ _Represents a button with text and an optional icon._
 
 | Type | Name |
 | ---: | :--- |
+| class | [**Ability**](classendstone_1_1Ability.md) <br>_All player abilities._  |
+| class | [**AbilityId**](classendstone_1_1AbilityId.md) &lt;[**typename**](classendstone_1_1Identifier.md) [**T**](classendstone_1_1Identifier.md)&gt;<br>_Represents the identifier of a player ability, carrying the type of the ability's value._  |
 | class | [**ActionForm**](classendstone_1_1ActionForm.md) <br>_Represents a form with buttons that let the player take action._  |
 | class | [**Actor**](classendstone_1_1Actor.md) <br>_Represents a base actor in the level._  |
 | class | [**ActorChangeBlockEvent**](classendstone_1_1ActorChangeBlockEvent.md) <br>_Called when an_ [_**Actor**_](classendstone_1_1Actor.md) _changes a block as part of its own behaviour, such as a creeper exploding, an enderman picking a block up, a ravager trampling crops or a zombie breaking a door._ |
@@ -97,6 +99,8 @@ _Represents a button with text and an optional icon._
 | class | [**CommandMap**](classendstone_1_1CommandMap.md) <br>_Represents a command map that manages all commands of the_ [_**Server**_](classendstone_1_1Server.md) _._ |
 | class | [**CommandSender**](classendstone_1_1CommandSender.md) <br>_Represents a command sender._  |
 | class | [**CommandSenderWrapper**](classendstone_1_1CommandSenderWrapper.md) <br>_Represents a wrapper that forwards commands to the wrapped_ [_**CommandSender**_](classendstone_1_1CommandSender.md) _and captures its output._ |
+| class | [**ComplexAliasIngredient**](classendstone_1_1ComplexAliasIngredient.md) <br>_Represents an ingredient that matches any item an id stands for._  |
+| class | [**ComplexRecipe**](classendstone_1_1ComplexRecipe.md) <br>_Represents a complex recipe which has imperative server-defined behavior, eg armor dyeing._  |
 | class | [**CompoundTag**](classendstone_1_1CompoundTag.md) <br>_An NBT tag holding a set of named child tags, keyed by string._  |
 | class | [**ConsoleCommandSender**](classendstone_1_1ConsoleCommandSender.md) <br>_Represents a console command sender._  |
 | class | [**Container**](classendstone_1_1Container.md) <br>_Represents a captured state of a container block, such as a chest._  |
@@ -117,6 +121,7 @@ _Represents a button with text and an optional icon._
 | class | [**Enchantment**](classendstone_1_1Enchantment.md) <br>_Represents an enchantment that may be added to armor, weapons, tools or other items._  |
 | class | [**Event**](classendstone_1_1Event.md) <br>_Represents an event._  |
 | class | [**EventHandler**](classendstone_1_1EventHandler.md) <br>_Represents a registered_ [_**EventHandler**_](classendstone_1_1EventHandler.md) _which associates with a_[_**Plugin**_](classendstone_1_1Plugin.md) _._ |
+| class | [**ExactIngredient**](classendstone_1_1ExactIngredient.md) <br>_Represents an ingredient that matches one item with one exact data value._  |
 | class | [**Form**](classendstone_1_1Form.md) &lt;[**typename**](classendstone_1_1Identifier.md) [**T**](classendstone_1_1Identifier.md)&gt;<br>_Represents a generic form._  |
 | class | [**Furnace**](classendstone_1_1Furnace.md) <br>_Represents a captured state of a furnace._  |
 | class | [**GameRule**](classendstone_1_1GameRule.md) <br>_Represents a game rule._  |
@@ -129,8 +134,10 @@ _Represents a button with text and an optional icon._
 | class | [**Image**](classendstone_1_1Image.md) <br>_Represents an RGBA image._  |
 | class | [**Input**](classendstone_1_1Input.md) <br>_Represents a movement input applied to a player._  |
 | class | [**Inventory**](classendstone_1_1Inventory.md) <br>_Interface to the various inventories._  |
+| class | [**InventoryCloseEvent**](classendstone_1_1InventoryCloseEvent.md) <br>_Called when a player closes an inventory._  |
 | class | [**InventoryEvent**](classendstone_1_1InventoryEvent.md) <br>_Represents a player related inventory event._  |
 | class | [**InventoryInteractEvent**](classendstone_1_1InventoryInteractEvent.md) <br>_An abstract base class for events that describe an interaction between a_ [_**Player**_](classendstone_1_1Player.md) _and the contents of an_[_**Inventory**_](classendstone_1_1Inventory.md) _._ |
+| class | [**InventoryOpenEvent**](classendstone_1_1InventoryOpenEvent.md) <br>_Called when a player opens an inventory._  |
 | class | [**IpBanEntry**](classendstone_1_1IpBanEntry.md) <br>_Represents an entry for a banned IP address._  |
 | class | [**IpBanList**](classendstone_1_1IpBanList.md) <br>_Represents a ban list, containing banned IP addresses._  |
 | class | [**Item**](classendstone_1_1Item.md) <br>_Represents a dropped item that can be picked up by players._  |
@@ -138,7 +145,9 @@ _Represents a button with text and an optional icon._
 | class | [**ItemFrame**](classendstone_1_1ItemFrame.md) <br>_Represents a captured state of an item frame._  |
 | class | [**ItemMeta**](classendstone_1_1ItemMeta.md) <br>_Represents the metadata of a generic item._  |
 | class | [**ItemStack**](classendstone_1_1ItemStack.md) <br>_Represents a stack of items._  |
+| class | [**ItemTagIngredient**](classendstone_1_1ItemTagIngredient.md) <br>_Represents an ingredient that matches any item carrying a tag._  |
 | class | [**ItemType**](classendstone_1_1ItemType.md) <br>_Represents an item type._  |
+| class | [**ItemTypeIngredient**](classendstone_1_1ItemTypeIngredient.md) <br>_Represents an ingredient that matches an item type, whatever its data value._  |
 | class | [**Label**](classendstone_1_1Label.md) <br>_Represents a text label._  |
 | class | [**Language**](classendstone_1_1Language.md) <br>_Represents the interface for translating text into different languages._  |
 | class | [**LeavesDecayEvent**](classendstone_1_1LeavesDecayEvent.md) <br>_Called when leaves are decaying naturally._  |
@@ -159,6 +168,7 @@ _Represents a button with text and an optional icon._
 | class | [**MetricsBase**](classendstone_1_1MetricsBase.md) <br>_Collects and submits the data behind a_ [_**Metrics**_](classendstone_1_1Metrics.md) _instance._ |
 | class | [**Mob**](classendstone_1_1Mob.md) <br>_Represents a mobile entity (i.e._  |
 | class | [**ModalForm**](classendstone_1_1ModalForm.md) <br>_Represents a modal form with controls._  |
+| class | [**MolangIngredient**](classendstone_1_1MolangIngredient.md) <br>_Represents an ingredient that matches the items a Molang expression selects._  |
 | class | [**MultiLineChart**](classendstone_1_1MultiLineChart.md) <br>_A bStats line chart with a line per named value._  |
 | class | [**NotNull**](classendstone_1_1NotNull.md) &lt;[**class**](classendstone_1_1Identifier.md) [**T**](classendstone_1_1Identifier.md)&gt;<br>_A wrapper around a std::shared\_ptr that documents that it is never null._  |
 | class | [**Nullable**](classendstone_1_1Nullable.md) &lt;[**class**](classendstone_1_1Identifier.md) [**T**](classendstone_1_1Identifier.md)&gt;<br>_A wrapper around a std::shared\_ptr that may be null._  |
@@ -230,6 +240,7 @@ _Represents a button with text and an optional icon._
 | class | [**Preconditions**](classendstone_1_1Preconditions.md) <br>_Static helpers for validating method arguments and object state._  |
 | class | [**ProxiedCommandSender**](classendstone_1_1ProxiedCommandSender.md) <br>_Represents a command sender that is running a command on behalf of another one, as_ `/execute` _does._ |
 | class | [**Recipe**](classendstone_1_1Recipe.md) <br>_Represents some type of crafting recipe._  |
+| class | [**RecipeIngredient**](classendstone_1_1RecipeIngredient.md) <br>_Represents a potential item match within a recipe._  |
 | class | [**Registry**](classendstone_1_1Registry.md) &lt;[**typename**](classendstone_1_1Identifier.md) [**T**](classendstone_1_1Identifier.md)&gt;<br>_Abstract registry interface for objects with identifiers._  |
 | class | [**Scheduler**](classendstone_1_1Scheduler.md) <br>_Represents a scheduler that executes various tasks._  |
 | class | [**Score**](classendstone_1_1Score.md) <br>_Represents a score for an objective on a scoreboard._  |
@@ -242,6 +253,8 @@ _Represents a button with text and an optional icon._
 | class | [**ServerLoadEvent**](classendstone_1_1ServerLoadEvent.md) <br>_Called when either the server startup or reload has completed._  |
 | class | [**Service**](classendstone_1_1Service.md) <br>_Services represent a list of methods._  |
 | class | [**ServiceManager**](classendstone_1_1ServiceManager.md) <br>_Represent a service manager that manages services and service providers._  |
+| class | [**ShapedRecipe**](classendstone_1_1ShapedRecipe.md) <br>_Represents a shaped (ie normal) crafting recipe._  |
+| class | [**ShapelessRecipe**](classendstone_1_1ShapelessRecipe.md) <br>_Represents a shapeless recipe, where the arrangement of the ingredients on the crafting grid does not matter._  |
 | class | [**Sign**](classendstone_1_1Sign.md) <br>_Represents a captured state of a sign._  |
 | class | [**SignSide**](classendstone_1_1SignSide.md) <br>_Represents a side of a sign._  |
 | class | [**SimpleBarChart**](classendstone_1_1SimpleBarChart.md) <br>_A bStats bar chart with a single bar per category._  |
@@ -249,6 +262,9 @@ _Represents a button with text and an optional icon._
 | class | [**SingleLineChart**](classendstone_1_1SingleLineChart.md) <br>_A bStats line chart with a single line._  |
 | class | [**Skin**](classendstone_1_1Skin.md) <br>_Represents a player skin._  |
 | class | [**Slider**](classendstone_1_1Slider.md) <br>_Represents a slider with a label._  |
+| class | [**SmithingRecipe**](classendstone_1_1SmithingRecipe.md) <br>_Represents a smithing recipe._  |
+| class | [**SmithingTransformRecipe**](classendstone_1_1SmithingTransformRecipe.md) <br>_Represents a smithing transform recipe._  |
+| class | [**SmithingTrimRecipe**](classendstone_1_1SmithingTrimRecipe.md) <br>_Represents a smithing trim recipe._  |
 | class | [**SocketAddress**](classendstone_1_1SocketAddress.md) <br>_Represents an IP Socket Address (hostname + port number)._  |
 | class | [**StepSlider**](classendstone_1_1StepSlider.md) <br>_Represents a step slider with a set of predefined options._  |
 | class | [**Task**](classendstone_1_1Task.md) <br>_Represents a task being executed by the scheduler._  |
@@ -269,6 +285,7 @@ _Represents a button with text and an optional icon._
 
 | Type | Name |
 | ---: | :--- |
+| typedef std::variant&lt; [**bool**](classendstone_1_1Identifier.md), [**float**](classendstone_1_1Identifier.md) &gt; | [**AbilityValue**](#typedef-abilityvalue)  <br> |
 | typedef [**Identifier**](classendstone_1_1Identifier.md)&lt; [**ActorType**](classendstone_1_1ActorType.md) &gt; | [**ActorTypeId**](#typedef-actortypeid)  <br> |
 | typedef [**Identifier**](classendstone_1_1Identifier.md)&lt; [**class**](classendstone_1_1Identifier.md) [**Attribute**](classendstone_1_1Attribute.md) &gt; | [**AttributeId**](#typedef-attributeid)  <br> |
 | typedef [**Identifier**](classendstone_1_1Identifier.md)&lt; [**class**](classendstone_1_1Identifier.md) [**AttributeModifier**](classendstone_1_1AttributeModifier.md) &gt; | [**AttributeModifierId**](#typedef-attributemodifierid)  <br> |
@@ -383,6 +400,19 @@ _Represents a button with text and an optional icon._
 
 ## Public Types Documentation
 
+
+
+
+### typedef AbilityValue 
+
+```C++
+using endstone::AbilityValue = typedef std::variant<bool, float>;
+```
+
+
+
+
+<hr>
 
 
 
@@ -1340,5 +1370,5 @@ inline void endstone::swap (
 <hr>
 
 ------------------------------
-The documentation for this class was generated from the following file `include/endstone/actor/actor.h`
+The documentation for this class was generated from the following file `include/endstone/ability.h`
 
