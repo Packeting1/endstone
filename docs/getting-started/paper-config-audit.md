@@ -30,7 +30,7 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `chunk-system.io-threads` | BRIDGE_ONLY | `Dimension` owns opaque `TaskGroup`/chunk-generation state and `ChunkSource` exposes no thread-pool setter; changing these values would require an unverified construction-time ABI. |
 | `chunk-system.worker-threads` | BRIDGE_ONLY | `Dimension` owns opaque `TaskGroup`/chunk-generation state and `ChunkSource` exposes no thread-pool setter; changing these values would require an unverified construction-time ABI. |
 | `collisions.enable-player-collisions` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/pushable_by_entity_utility.cpp`: reads `paper.global.collisions.enable-player-collisions` and skips vanilla player-to-player push when false. |
-| `collisions.send-full-pos-for-hard-colliding-entities` | BRIDGE_ONLY | No safe Bedrock hard-collision position serialization decision point is identified. |
+| `collisions.send-full-pos-for-hard-colliding-entities` | BRIDGE_ONLY | `BatchedNetworkPeer::sendPacket` sees serialized packet bytes, but no verified hard-collision entity position serializer or collision-classification metadata is exposed for safe per-entity rewriting. |
 | `commands.ride-command-allow-player-as-vehicle` | BRIDGE_ONLY | `MinecraftCommands::executeCommand` receives a raw command line and origin, but the current player path dispatches through Endstone's command map; no verified Bedrock `/ride` AST/vehicle validation point is available for this option. |
 | `commands.suggest-player-names-when-null-tab-completions` | BRIDGE_ONLY | The Bedrock packet headers/current dispatcher expose no serverbound tab-completion request or null-completion fallback hook; `AvailableCommandsPacket` is outbound command metadata only. |
 | `console.enable-brigadier-completions` | BRIDGE_ONLY | Paper Brigadier completion behavior has no safe Bedrock equivalent identified. |
@@ -91,15 +91,15 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `spark.enable-immediately` | BRIDGE_ONLY | Spark is Java-specific; no safe Bedrock Spark decision point is identified. |
 | `spark.enabled` | BRIDGE_ONLY | Spark is Java-specific; no safe Bedrock Spark decision point is identified. |
 | `time.affects-all-worlds` | BRIDGE_ONLY | Bedrock's current `Level` time APIs are Level-wide and the existing hooks expose no per-dimension clock manager or routing decision; treating the global clock as Paper's switch would make `false` ineffective. |
-| `unsupported-settings.allow-headless-pistons` | BRIDGE_ONLY | No safe Bedrock piston-execution decision point is identified. |
-| `unsupported-settings.allow-permanent-block-break-exploits` | BRIDGE_ONLY | No safe Bedrock exploit-path decision point is identified. |
-| `unsupported-settings.allow-piston-duplication` | BRIDGE_ONLY | No safe Bedrock piston-duplication decision point is identified. |
+| `unsupported-settings.allow-headless-pistons` | BRIDGE_ONLY | `PistonBlockActor::tick` is a verified plugin-event hook, but it does not expose the moving-piston/base consistency decision used to prevent headless piston states. |
+| `unsupported-settings.allow-permanent-block-break-exploits` | BRIDGE_ONLY | `PistonBlockActor::tick` does not expose the permanent-break exploit cleanup path, and the generic piston event hook cannot safely identify all break-exploit states. |
+| `unsupported-settings.allow-piston-duplication` | BRIDGE_ONLY | `PistonBlockActor::tick` handles plugin piston events after native state selection; it is not the moving-block duplication/explosion cleanup decision required by Paper. |
 | `unsupported-settings.allow-unsafe-end-portal-teleportation` | BRIDGE_ONLY | `ServerPlayer::changeDimension` runs after Bedrock's portal teleport decision and exposes no unsafe-portal validation state; intercepting it would change all dimension transfers. |
 | `unsupported-settings.oversized-item-component-sanitizer.dont-sanitize` | BRIDGE_ONLY | Paper applies this at outbound oversized item-component codecs; Bedrock's verified `Item::readUserData` hook is an inbound parser and has no per-player outbound component sanitizer context. |
-| `unsupported-settings.perform-username-validation` | BRIDGE_ONLY | No safe Bedrock username-validation decision point is identified. |
-| `unsupported-settings.skip-tripwire-hook-placement-validation` | BRIDGE_ONLY | No safe Bedrock tripwire-placement decision point is identified. |
-| `unsupported-settings.skip-vanilla-damage-tick-when-shield-blocked` | BRIDGE_ONLY | No safe Bedrock shield-damage decision point is identified. |
-| `unsupported-settings.update-equipment-on-player-actions` | BRIDGE_ONLY | No safe Bedrock equipment-update decision point is identified. |
+| `unsupported-settings.perform-username-validation` | BRIDGE_ONLY | `_validateLoginPacket` can observe only the native aggregate optional authentication result after validation; it does not expose a sub-decision to disable the username validator while preserving other login checks. |
+| `unsupported-settings.skip-tripwire-hook-placement-validation` | BRIDGE_ONLY | `BlockType` declares `mayPlace`/`tryToPlace`, but no enabled tripwire-specific placement hook or validation result override is verified; the existing player block-interaction event cannot bypass native placement validation. |
+| `unsupported-settings.skip-vanilla-damage-tick-when-shield-blocked` | BRIDGE_ONLY | Bedrock declares `Actor::blockedByShield`, `canDisableShield`, and `isBlocking`, but no current verified hook reaches the shield-block result/tick decision; `ActorBeforeHurtEvent` is too early to flip only shield stun without cancelling damage. |
+| `unsupported-settings.update-equipment-on-player-actions` | BRIDGE_ONLY | Paper calls `ServerPlayer.detectEquipmentUpdates` after inventory actions; Bedrock's verified PlayerAuthInput/MobEquipment hooks expose packets/events but no equivalent equipment-diff refresh function. |
 | `update-checker.enabled` | BRIDGE_ONLY | No safe Bedrock update-checker decision point is identified. |
 | `watchdog.early-warning-delay` | BRIDGE_ONLY | No safe Bedrock watchdog warning decision point is identified. |
 | `watchdog.early-warning-every` | BRIDGE_ONLY | No safe Bedrock watchdog warning decision point is identified. |
@@ -108,14 +108,14 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 
 | Path | Status | Evidence |
 | --- | --- | --- |
-| `anticheat.anti-xray.enabled` | BRIDGE_ONLY | No safe Bedrock anti-xray decision point is identified. |
-| `anticheat.anti-xray.engine-mode` | BRIDGE_ONLY | No safe Bedrock anti-xray decision point is identified. |
-| `anticheat.anti-xray.hidden-blocks` | BRIDGE_ONLY | No safe Bedrock anti-xray decision point is identified. |
-| `anticheat.anti-xray.lava-obscures` | BRIDGE_ONLY | No safe Bedrock anti-xray decision point is identified. |
-| `anticheat.anti-xray.max-block-height` | BRIDGE_ONLY | No safe Bedrock anti-xray decision point is identified. |
-| `anticheat.anti-xray.replacement-blocks` | BRIDGE_ONLY | No safe Bedrock anti-xray decision point is identified. |
-| `anticheat.anti-xray.update-radius` | BRIDGE_ONLY | No safe Bedrock anti-xray decision point is identified. |
-| `anticheat.anti-xray.use-permission` | BRIDGE_ONLY | No safe Bedrock anti-xray decision point is identified. |
+| `anticheat.anti-xray.enabled` | BRIDGE_ONLY | Paper's anti-xray engine rewrites outbound chunk palettes per viewer; Bedrock's current outbound hook has no verified LevelChunk palette serializer or per-viewer obfuscation context. |
+| `anticheat.anti-xray.engine-mode` | BRIDGE_ONLY | Paper's anti-xray engine rewrites outbound chunk palettes per viewer; Bedrock's current outbound hook has no verified LevelChunk palette serializer or per-viewer obfuscation context. |
+| `anticheat.anti-xray.hidden-blocks` | BRIDGE_ONLY | Paper's anti-xray engine rewrites outbound chunk palettes per viewer; Bedrock's current outbound hook has no verified LevelChunk palette serializer or per-viewer obfuscation context. |
+| `anticheat.anti-xray.lava-obscures` | BRIDGE_ONLY | Paper's anti-xray engine rewrites outbound chunk palettes per viewer; Bedrock's current outbound hook has no verified LevelChunk palette serializer or per-viewer obfuscation context. |
+| `anticheat.anti-xray.max-block-height` | BRIDGE_ONLY | Paper's anti-xray engine rewrites outbound chunk palettes per viewer; Bedrock's current outbound hook has no verified LevelChunk palette serializer or per-viewer obfuscation context. |
+| `anticheat.anti-xray.replacement-blocks` | BRIDGE_ONLY | Paper's anti-xray engine rewrites outbound chunk palettes per viewer; Bedrock's current outbound hook has no verified LevelChunk palette serializer or per-viewer obfuscation context. |
+| `anticheat.anti-xray.update-radius` | BRIDGE_ONLY | Paper's anti-xray engine rewrites outbound chunk palettes per viewer; Bedrock's current outbound hook has no verified LevelChunk palette serializer or per-viewer obfuscation context. |
+| `anticheat.anti-xray.use-permission` | BRIDGE_ONLY | Paper's anti-xray engine rewrites outbound chunk palettes per viewer; Bedrock's current outbound hook has no verified LevelChunk palette serializer or per-viewer obfuscation context. |
 | `chunks.auto-save-interval` | BRIDGE_ONLY | `src/bedrock/world/level/chunk/chunk_source.h` exposes `saveLiveChunk`, but the current Level hook has no verified save scheduler or current-version ChunkSource vtable target to change the interval safely. |
 | `chunks.delay-chunk-unloads-by` | BRIDGE_ONLY | `ChunkSource` exposes discard/shutdown operations but no confirmed unload-delay scheduler or per-chunk timestamp decision; changing shutdown/discard directly would risk storage lifecycle corruption. |
 | `chunks.entity-per-chunk-save-limit.experience_orb` | BRIDGE_ONLY | The available ExperienceOrb adapter/type records do not expose the ChunkSource entity serialization path or a per-chunk save list; limiting at pickup/merge time would change gameplay rather than save data. |
