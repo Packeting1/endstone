@@ -17,6 +17,8 @@
 #include <algorithm>
 #include <cstddef>
 #include <cstdint>
+#include <mutex>
+#include <unordered_map>
 #include <utility>
 #include <vector>
 
@@ -31,9 +33,51 @@
 #include "endstone/event/player/player_craft_item_event.h"
 #include "endstone/runtime/hook.h"
 
+struct RecipeSpamState {
+    bool initialized = false;
+    std::uint64_t last_tick = 0;
+    std::int64_t count = 0;
+};
+
+static std::mutex recipe_spam_mutex;
+static std::unordered_map<std::uint64_t, RecipeSpamState> recipe_spam_states;
+
+static bool allowRecipe(const endstone::core::EndstoneServer &server, Player &player)
+{
+    const auto increment = server.getConfig().getInt("paper.global.spam-limiter.recipe-spam-increment", 1);
+    const auto threshold = server.getConfig().getInt("paper.global.spam-limiter.recipe-spam-limit", 20);
+    if (increment <= 0 || threshold <= 0) {
+        return true;
+    }
+
+    const auto tick = player.getLevel().getCurrentServerTick().tick_id;
+    std::lock_guard lock(recipe_spam_mutex);
+    auto &state = recipe_spam_states[player.getRuntimeID().raw_id];
+    if (!state.initialized || tick < state.last_tick) {
+        state.initialized = true;
+        state.last_tick = tick;
+        state.count = 0;
+    }
+    else if (tick > state.last_tick) {
+        const auto decay = std::min<std::uint64_t>(tick - state.last_tick, static_cast<std::uint64_t>(state.count));
+        state.count -= static_cast<std::int64_t>(decay);
+        state.last_tick = tick;
+    }
+
+    state.count += increment;
+    return state.count < threshold;
+}
+
 ItemStackNetResult CraftHandlerCrafting::_handleCraftAction(const ItemStackRequestActionCraftBase &request_action)
 {
     const auto &server = endstone::core::EndstoneServer::getInstance();
+    const auto action_type = request_action.getActionType();
+    if ((action_type == ItemStackRequestActionType::CraftRecipe ||
+         action_type == ItemStackRequestActionType::CraftRecipeAuto) &&
+        !allowRecipe(server, player_)) {
+        player_.getEndstoneActor<endstone::core::EndstonePlayer>()->kick("disconnect.spam");
+        return ItemStackNetResult::ActionRequestNotAllowed;
+    }
     if (!server.getEndstonePluginManager().isEventRegistered<endstone::PlayerCraftItemEvent>()) {
         return ENDSTONE_HOOK_CALL_ORIGINAL(&CraftHandlerCrafting::_handleCraftAction, this, request_action);
     }

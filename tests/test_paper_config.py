@@ -87,6 +87,8 @@ def test_global_runtime_settings_are_synced(tmp_path):
     value["packet-limiter"]["overrides"]["minecraft:place_recipe"]["action"] = "DROP"
     value["packet-limiter"]["overrides"]["minecraft:place_recipe"]["max-packet-rate"] = 12.5
     value["spam-limiter"]["incoming-packet-threshold"] = 64
+    value["spam-limiter"]["recipe-spam-increment"] = 2
+    value["spam-limiter"]["recipe-spam-limit"] = 8
     value["messages"]["no-permission"] = "No access"
     value["messages"]["use-display-name-in-quit-message"] = True
     global_path.write_text(yaml.safe_dump(value, sort_keys=False), encoding="utf-8")
@@ -102,6 +104,8 @@ def test_global_runtime_settings_are_synced(tmp_path):
     assert global_config["packet-limiter"]["overrides"]["minecraft:place_recipe"]["action"] == "DROP"
     assert global_config["packet-limiter"]["overrides"]["minecraft:place_recipe"]["max-packet-rate"] == 12.5
     assert global_config["spam-limiter"]["incoming-packet-threshold"] == 64
+    assert global_config["spam-limiter"]["recipe-spam-increment"] == 2
+    assert global_config["spam-limiter"]["recipe-spam-limit"] == 8
     assert global_config["messages"]["no-permission"] == "No access"
     assert global_config["messages"]["use-display-name-in-quit-message"] is True
     assert bridge["paper"]["global"]["misc"]["max-joins-per-tick"] == 11
@@ -113,6 +117,8 @@ def test_global_runtime_settings_are_synced(tmp_path):
     assert bridge["paper"]["global"]["packet-limiter"]["overrides"]["minecraft:place_recipe"]["action"] == "DROP"
     assert bridge["paper"]["global"]["packet-limiter"]["overrides"]["minecraft:place_recipe"]["max-packet-rate"] == 12.5
     assert bridge["paper"]["global"]["spam-limiter"]["incoming-packet-threshold"] == 64
+    assert bridge["paper"]["global"]["spam-limiter"]["recipe-spam-increment"] == 2
+    assert bridge["paper"]["global"]["spam-limiter"]["recipe-spam-limit"] == 8
     assert bridge["paper"]["global"]["messages"]["no-permission"] == "No access"
     assert bridge["paper"]["global"]["messages"]["use-display-name-in-quit-message"] is True
 

@@ -84,8 +84,8 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `scoreboards.save-empty-scoreboard-teams` | BRIDGE_ONLY | No safe Bedrock scoreboard persistence decision point is identified. |
 | `scoreboards.track-plugin-scoreboards` | BRIDGE_ONLY | No safe Bedrock plugin-scoreboard tracking decision point is identified. |
 | `spam-limiter.incoming-packet-threshold` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: reads the threshold and drops packets after the initial window allowance. |
-| `spam-limiter.recipe-spam-increment` | BRIDGE_ONLY | No safe Bedrock recipe-spam decision point is identified. |
-| `spam-limiter.recipe-spam-limit` | BRIDGE_ONLY | No safe Bedrock recipe-spam decision point is identified. |
+| `spam-limiter.recipe-spam-increment` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/craft_handler_crafting.cpp`: increments the per-player tick-decaying recipe-action counter. |
+| `spam-limiter.recipe-spam-limit` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/craft_handler_crafting.cpp`: kicks recipe-book spammers when the configured positive threshold is reached. |
 | `spam-limiter.tab-spam-increment` | BRIDGE_ONLY | No safe Bedrock tab-spam decision point is identified. |
 | `spam-limiter.tab-spam-limit` | BRIDGE_ONLY | No safe Bedrock tab-spam decision point is identified. |
 | `spark.enable-immediately` | BRIDGE_ONLY | Spark is Java-specific; no safe Bedrock Spark decision point is identified. |
@@ -316,4 +316,4 @@ Validation performed for this audit:
 4. Classified a leaf as `IMPLEMENTED` only when a source read of its exact TOML path reaches a concrete runtime decision point; all remaining leaves have an explicit concrete no-safe-decision-point statement.
 5. Confirmed that no C++ or configuration source was modified; this audit is documentation-only.
 
-Expected audit statistics: **288 leaves**, **34 IMPLEMENTED**, **254 BRIDGE_ONLY**, with **93 global + 195 world-default schema leaves** and **3 documentation/metadata leaves excluded**. The active implementation set is intentionally narrow and matches the runtime behavior table in `configuration.md`; synchronization alone is not treated as implementation.
+Expected audit statistics: **288 leaves**, **36 IMPLEMENTED**, **252 BRIDGE_ONLY**, with **93 global + 195 world-default schema leaves** and **3 documentation/metadata leaves excluded**. The active implementation set is intentionally narrow and matches the runtime behavior table in `configuration.md`; synchronization alone is not treated as implementation.
