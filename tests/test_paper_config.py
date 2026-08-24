@@ -259,4 +259,5 @@ def test_paper_audit_covers_all_leaves_with_concrete_evidence():
     rows = [line for line in text.splitlines() if line.startswith("| `")]
     assert len(rows) == 288
     assert sum("| IMPLEMENTED |" in line for line in rows) == 36
+    assert sum("| BRIDGE_ONLY |" in line for line in rows) == 252
     assert "No safe Bedrock" not in text
