@@ -260,4 +260,7 @@ def test_paper_audit_covers_all_leaves_with_concrete_evidence():
     assert len(rows) == 288
     assert sum("| IMPLEMENTED |" in line for line in rows) == 36
     assert sum("| BRIDGE_ONLY |" in line for line in rows) == 252
+    global_section, world_section = text.split("## World defaults — 195 schema leaves", 1)
+    assert sum(line.startswith("| `") for line in global_section.splitlines()) == 93
+    assert sum(line.startswith("| `") for line in world_section.splitlines()) == 195
     assert "No safe Bedrock" not in text
