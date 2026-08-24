@@ -166,7 +166,7 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `entities.behavior.zombie-villager-infection-chance` | BRIDGE_ONLY | No safe Bedrock infection decision point is identified. |
 | `entities.behavior.zombies-target-turtle-eggs` | BRIDGE_ONLY | No safe Bedrock turtle-egg targeting decision point is identified. |
 | `entities.entities-target-with-follow-range` | BRIDGE_ONLY | No safe Bedrock follow-range targeting decision point is identified. |
-| `entities.markers.tick` | BRIDGE_ONLY | No safe Bedrock marker ticking decision point is identified. |
+| `entities.markers.tick` | BRIDGE_ONLY | Paper gates marker registration in `ServerLevel.EntityCallbacks.onTickingStart`; no Bedrock entity-tick-list registration hook is exposed, and the current Level tick hook cannot distinguish marker actors from other entities. |
 | `entities.mob-effects.immune-to-wither-effect` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/script_actor_gameplay_handler.cpp`: rejects Wither for Withers and Wither Skeletons when true. |
 | `entities.mob-effects.spiders-immune-to-poison-effect` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/script_actor_gameplay_handler.cpp`: rejects Poison for spiders when true. |
 | `entities.sniffer.boosted-hatch-time` | BRIDGE_ONLY | No safe Bedrock sniffer hatch decision point is identified. |
@@ -240,7 +240,7 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `environment.max-block-ticks` | BRIDGE_ONLY | No safe Bedrock block-tick budget decision point is identified. |
 | `environment.max-fluid-ticks` | BRIDGE_ONLY | No safe Bedrock fluid-tick budget decision point is identified. |
 | `environment.nether-ceiling-void-damage-height` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/script_actor_gameplay_handler.cpp`: reads the path to opt Nether ceiling Void damage into the existing hurt path. |
-| `environment.optimize-explosions` | BRIDGE_ONLY | No safe Bedrock explosion-optimization decision point is identified. |
+| `environment.optimize-explosions` | BRIDGE_ONLY | Paper changes `ServerExplosion` block collection; the verified Bedrock `Explosion::explode` hook only records thread-local explosion context for downstream knockback and does not expose a safe collection/optimization switch. |
 | `environment.portal-create-radius` | BRIDGE_ONLY | No safe Bedrock portal-create decision point is identified. |
 | `environment.portal-search-radius` | BRIDGE_ONLY | No safe Bedrock portal-search decision point is identified. |
 | `environment.portal-search-vanilla-dimension-scaling` | BRIDGE_ONLY | No safe Bedrock portal-scaling decision point is identified. |
@@ -254,12 +254,12 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `feature-seeds.<feature-namespace>` | BRIDGE_ONLY | No safe Bedrock feature-seed decision point is identified. |
 | `fishing-time-range.maximum` | BRIDGE_ONLY | No safe Bedrock fishing timing decision point is identified. |
 | `fishing-time-range.minimum` | BRIDGE_ONLY | No safe Bedrock fishing timing decision point is identified. |
-| `fixes.disable-unloaded-chunk-enderpearl-exploit` | BRIDGE_ONLY | No safe Bedrock Ender Pearl exploit decision point is identified. |
+| `fixes.disable-unloaded-chunk-enderpearl-exploit` | BRIDGE_ONLY | Paper resets a thrown pearl owner in `ServerLevel.EntityCallbacks.onTickingEnd`; Bedrock's verified `Actor::teleportTo` hook is a teleport completion path and has no entity-ticking transition or pearl owner reset decision. |
 | `fixes.falling-block-height-nerf` | BRIDGE_ONLY | No safe Bedrock falling-block height decision point is identified. |
 | `fixes.fix-items-merging-through-walls` | BRIDGE_ONLY | No safe Bedrock item-merge collision decision point is identified. |
-| `fixes.prevent-tnt-from-moving-in-water` | BRIDGE_ONLY | No safe Bedrock TNT-water movement decision point is identified. |
+| `fixes.prevent-tnt-from-moving-in-water` | BRIDGE_ONLY | Paper changes `PrimedTnt` fluid pushing/tick behavior; Endstone has no verified PrimedTnt actor or fluid-push hook, and the generic explosion hook runs after movement. |
 | `fixes.split-overstacked-loot` | BRIDGE_ONLY | Paper applies this in `LootTable.createStackSplitter` before item entities are created; the verified Bedrock ItemActor/player pickup hooks are downstream and cannot safely recover the original loot split. |
-| `fixes.tnt-entity-height-nerf` | BRIDGE_ONLY | No safe Bedrock TNT height decision point is identified. |
+| `fixes.tnt-entity-height-nerf` | BRIDGE_ONLY | Paper checks `PrimedTnt`/`MinecartTNT` height during entity tick; no current Bedrock TNT actor tick or height-nerf decision point is exposed. |
 | `hopper.cooldown-when-full` | BRIDGE_ONLY | No safe Bedrock hopper cooldown decision point is identified. |
 | `hopper.disable-move-event` | BRIDGE_ONLY | No safe Bedrock hopper move-event decision point is identified. |
 | `hopper.ignore-occluding-blocks` | BRIDGE_ONLY | No safe Bedrock hopper occlusion decision point is identified. |
@@ -301,8 +301,8 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `tick-rates.wet-farmland` | BRIDGE_ONLY | No safe Bedrock farmland tick-rate decision point is identified. |
 | `unsupported-settings.disable-world-ticking-when-empty` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/level.cpp`: reads the path and skips native Level ticking when no players are online. |
 | `unsupported-settings.fix-invulnerable-end-crystal-exploit` | BRIDGE_ONLY | No safe Bedrock end-crystal exploit decision point is identified. |
-| `unsupported-settings.ticking.chunks` | BRIDGE_ONLY | No safe Bedrock chunk-ticking switch decision point is identified. |
-| `unsupported-settings.ticking.block-entities` | BRIDGE_ONLY | No safe Bedrock block-entity ticking switch decision point is identified. |
+| `unsupported-settings.ticking.chunks` | BRIDGE_ONLY | `Level::tick` can only skip the native Level tick as a whole; no verified Bedrock switch separates chunk ticking from entities, block entities, fluids, and scheduler work. |
+| `unsupported-settings.ticking.block-entities` | BRIDGE_ONLY | `Level::tick` has no verified block-entity-only boundary; skipping the whole native Level tick would also suppress unrelated world systems and cannot implement this leaf safely. |
 
 ## Synchronization and validation method
 
