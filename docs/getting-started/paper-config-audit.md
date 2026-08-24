@@ -244,19 +244,19 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `environment.portal-create-radius` | BRIDGE_ONLY | `ServerPlayer::changeDimension` is the only verified portal-adjacent hook and runs after portal selection; it does not expose Bedrock portal creation/search/scaling validation. |
 | `environment.portal-search-radius` | BRIDGE_ONLY | `ServerPlayer::changeDimension` is the only verified portal-adjacent hook and runs after portal selection; it does not expose Bedrock portal creation/search/scaling validation. |
 | `environment.portal-search-vanilla-dimension-scaling` | BRIDGE_ONLY | `ServerPlayer::changeDimension` is the only verified portal-adjacent hook and runs after portal selection; it does not expose Bedrock portal creation/search/scaling validation. |
-| `environment.treasure-maps.enabled` | BRIDGE_ONLY | No safe Bedrock treasure-map decision point is identified. |
-| `environment.treasure-maps.find-already-discovered.loot-tables` | BRIDGE_ONLY | No safe Bedrock treasure-map decision point is identified. |
-| `environment.treasure-maps.find-already-discovered.villager-trade` | BRIDGE_ONLY | No safe Bedrock treasure-map decision point is identified. |
+| `environment.treasure-maps.enabled` | BRIDGE_ONLY | Paper gates `ExplorationMapFunction`; Bedrock's MapDataManager/map hooks manage saved map data and do not expose the structure-search loot-function decision. |
+| `environment.treasure-maps.find-already-discovered.loot-tables` | BRIDGE_ONLY | Paper applies this in `ExplorationMapFunction` for loot-table trades; Bedrock has no verified exploration-map loot-function or structure-search hook. |
+| `environment.treasure-maps.find-already-discovered.villager-trade` | BRIDGE_ONLY | Paper applies this in `ExplorationMapFunction` for villager trades; Bedrock has no verified exploration-map trade/structure-search hook. |
 | `environment.void-damage-amount` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/script_actor_gameplay_handler.cpp`: reads the path and supplies the configured Void damage to the existing hurt path. |
 | `environment.void-damage-min-build-height-offset` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/script_actor_gameplay_handler.cpp`: reads the path to suppress native Void hurt at/above the configured offset. |
 | `environment.water-over-lava-flow-speed` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/liquid_block.cpp::_trySpreadTo` runs the spread body after a fluid tick has already been scheduled; it is not the verified on-place/update-shape scheduling decision required to change water-over-lava flow speed. |
-| `feature-seeds.generate-random-seeds-for-all` | BRIDGE_ONLY | No safe Bedrock feature-seed generation decision point is identified. |
-| `feature-seeds.<feature-namespace>` | BRIDGE_ONLY | No safe Bedrock feature-seed decision point is identified. |
-| `fishing-time-range.maximum` | BRIDGE_ONLY | No safe Bedrock fishing timing decision point is identified. |
-| `fishing-time-range.minimum` | BRIDGE_ONLY | No safe Bedrock fishing timing decision point is identified. |
+| `feature-seeds.generate-random-seeds-for-all` | BRIDGE_ONLY | Paper applies this during worldgen feature-seed selection; the Bedrock WorldGenerator interface in this checkout exposes no per-feature seed policy hook. |
+| `feature-seeds.<feature-namespace>` | BRIDGE_ONLY | Paper applies this during worldgen feature-seed selection; the Bedrock WorldGenerator interface in this checkout exposes no per-feature seed policy hook. |
+| `fishing-time-range.maximum` | BRIDGE_ONLY | Paper changes the FishingHook wait-time range; Bedrock has an ActorType::FishingHook value but no FishingHook class or verified bite-timer hook in this source tree. |
+| `fishing-time-range.minimum` | BRIDGE_ONLY | Paper changes the FishingHook wait-time range; Bedrock has an ActorType::FishingHook value but no FishingHook class or verified bite-timer hook in this source tree. |
 | `fixes.disable-unloaded-chunk-enderpearl-exploit` | BRIDGE_ONLY | Paper resets a thrown pearl owner in `ServerLevel.EntityCallbacks.onTickingEnd`; Bedrock's verified `Actor::teleportTo` hook is a teleport completion path and has no entity-ticking transition or pearl owner reset decision. |
-| `fixes.falling-block-height-nerf` | BRIDGE_ONLY | No safe Bedrock falling-block height decision point is identified. |
-| `fixes.fix-items-merging-through-walls` | BRIDGE_ONLY | No safe Bedrock item-merge collision decision point is identified. |
+| `fixes.falling-block-height-nerf` | BRIDGE_ONLY | Paper checks `FallingBlockEntity` during entity tick; Bedrock only exposes ActorType::FallingBlock here, with no FallingBlock actor class or verified height hook. |
+| `fixes.fix-items-merging-through-walls` | BRIDGE_ONLY | Paper changes the ItemEntity merge eligibility/collision check; Bedrock's verified ItemActor/player pickup hooks do not expose the two-item merge or wall-occlusion decision. |
 | `fixes.prevent-tnt-from-moving-in-water` | BRIDGE_ONLY | Paper changes `PrimedTnt` fluid pushing/tick behavior; Endstone has no verified PrimedTnt actor or fluid-push hook, and the generic explosion hook runs after movement. |
 | `fixes.split-overstacked-loot` | BRIDGE_ONLY | Paper applies this in `LootTable.createStackSplitter` before item entities are created; the verified Bedrock ItemActor/player pickup hooks are downstream and cannot safely recover the original loot split. |
 | `fixes.tnt-entity-height-nerf` | BRIDGE_ONLY | Paper checks `PrimedTnt`/`MinecartTNT` height during entity tick; no current Bedrock TNT actor tick or height-nerf decision point is exposed. |
@@ -277,28 +277,28 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `max-growth-height.bamboo.min` | BRIDGE_ONLY | The only enabled random-tick hook is `LeavesBlock::randomTick`; no generic bamboo/cactus/reeds growth scheduler or height decision hook is verified. |
 | `max-growth-height.cactus` | BRIDGE_ONLY | The only enabled random-tick hook is `LeavesBlock::randomTick`; no generic bamboo/cactus/reeds growth scheduler or height decision hook is verified. |
 | `max-growth-height.reeds` | BRIDGE_ONLY | The only enabled random-tick hook is `LeavesBlock::randomTick`; no generic bamboo/cactus/reeds growth scheduler or height decision hook is verified. |
-| `misc.allow-remote-ender-dragon-respawning` | BRIDGE_ONLY | No safe Bedrock dragon-respawn decision point is identified. |
-| `misc.alternate-current-update-order` | BRIDGE_ONLY | No safe Bedrock redstone decision point is identified. |
+| `misc.allow-remote-ender-dragon-respawning` | BRIDGE_ONLY | Paper changes Ender Dragon respawn validation across dimensions; the current Bedrock headers expose no dragon-respawn controller or verified end-crystal sequence hook. |
+| `misc.alternate-current-update-order` | BRIDGE_ONLY | Bedrock exposes `Dimension::tickRedstone` and `CircuitSystem`, but no alternate redstone update-order strategy or verified branch selector is present. |
 | `misc.disable-end-credits` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/server_player.cpp::ServerPlayer::changeDimension` runs after the portal decision and exposes no `seenCredits`/EndPortalBlock state; using it would alter dimension transfer rather than suppressing credits. |
 | `misc.disable-relative-projectile-velocity` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/trident_item.cpp` is a verified trident/riptide hook, but Paper changes the generic projectile shoot path and Bedrock's other projectile item paths are not covered by this hook. |
 | `misc.disable-sprint-interruption-on-attack` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/packet.cpp` exposes sprint input transitions, but no verified attack handler or attacker movement-state decision is present; forcing sprint after damage would affect ordinary sprint toggles. |
 | `misc.legacy-ender-pearl-behavior` | BRIDGE_ONLY | No safe Bedrock Ender Pearl behavior decision point is identified. |
-| `misc.max-leash-distance` | BRIDGE_ONLY | No safe Bedrock leash-distance decision point is identified. |
-| `misc.redstone-implementation` | BRIDGE_ONLY | No safe Bedrock redstone implementation decision point is identified. |
+| `misc.max-leash-distance` | BRIDGE_ONLY | Bedrock's Actor header exposes a RopeSystem field but no verified leash-distance check or leash-break decision function for a safe limit override. |
+| `misc.redstone-implementation` | BRIDGE_ONLY | Bedrock exposes only its native `Dimension::tickRedstone`/`CircuitSystem` path; no verified alternate implementation entrypoint or selector is available. |
 | `misc.show-sign-click-command-failure-msgs-to-player` | BRIDGE_ONLY | Paper routes sign commands through `SignBlockEntity` and conditionally forwards command failures; Bedrock's command hook exposes `CommandOriginType` but no verified sign-click command origin or failure-message callback. |
-| `misc.update-pathfinding-on-block-update` | BRIDGE_ONLY | No safe Bedrock pathfinding-update decision point is identified. |
+| `misc.update-pathfinding-on-block-update` | BRIDGE_ONLY | `BlockType::neighborChanged` is declared in the Bedrock header, but no current verified pathfinding-update hook or scheduler flag is exposed; the generic block hook would affect unrelated neighbor updates. |
 | `scoreboards.allow-non-player-entities-on-scoreboards` | BRIDGE_ONLY | Paper gates `Entity.getTeam`/`LivingEntity` team lookup for non-player entities; Endstone's scoreboard wrapper can create actor score entries but has no verified Bedrock team lookup hook to change collision behavior. |
 | `scoreboards.use-vanilla-world-scoreboard-name-coloring` | BRIDGE_ONLY | Paper applies this in `ChatProcessor` when choosing vanilla world-scoreboard name coloring; the current Bedrock chat/quit message paths do not expose an equivalent scoreboard-name color decision. |
 | `spawn.allow-using-signs-inside-spawn-protection` | BRIDGE_ONLY | `PlayerInteractWithBlockBeforeEvent` exposes the sign/block interaction before Endstone events, but no Bedrock spawn-protection bypass result or sign-specific native validation override is available at that hook. |
-| `tick-rates.behavior.villager.validatenearbypoi` | BRIDGE_ONLY | No safe Bedrock behavior tick-rate decision point is identified. |
-| `tick-rates.behavior.<entity-type>.<behavior-name>` | BRIDGE_ONLY | No safe Bedrock behavior tick-rate decision point is identified. |
-| `tick-rates.container-update` | BRIDGE_ONLY | No safe Bedrock container tick-rate decision point is identified. |
-| `tick-rates.dry-farmland` | BRIDGE_ONLY | No safe Bedrock farmland tick-rate decision point is identified. |
-| `tick-rates.grass-spread` | BRIDGE_ONLY | No safe Bedrock grass tick-rate decision point is identified. |
+| `tick-rates.behavior.villager.validatenearbypoi` | BRIDGE_ONLY | Bedrock's available spawner/Level tick declarations do not expose a generic per-behavior scheduler or named behavior-rate control; applying a global Level tick divisor would affect unrelated AI and world systems. |
+| `tick-rates.behavior.<entity-type>.<behavior-name>` | BRIDGE_ONLY | Bedrock's available spawner/Level tick declarations do not expose a generic per-behavior scheduler or named behavior-rate control; applying a global Level tick divisor would affect unrelated AI and world systems. |
+| `tick-rates.container-update` | BRIDGE_ONLY | Paper changes `ServerPlayer.tick` container-menu broadcast timing; Endstone has no verified ServerPlayer tick hook or container broadcast scheduler. |
+| `tick-rates.dry-farmland` | BRIDGE_ONLY | The current enabled random-tick hook is `LeavesBlock::randomTick`; no generic farmland/grass random-tick function or rate parameter is verified. |
+| `tick-rates.grass-spread` | BRIDGE_ONLY | The current enabled random-tick hook is `LeavesBlock::randomTick`; no generic farmland/grass random-tick function or rate parameter is verified. |
 | `tick-rates.mob-spawner` | BRIDGE_ONLY | `src/bedrock/world/level/spawner.h` exposes opaque `tick`, `tickMobCount`, and `spawnForChunk` virtual declarations, but no concrete 1.26.40 function pointer or current-version hook target was verified. |
-| `tick-rates.sensor.villager.secondarypoisensor` | BRIDGE_ONLY | No safe Bedrock sensor tick-rate decision point is identified. |
-| `tick-rates.sensor.<entity-type>.<sensor-name>` | BRIDGE_ONLY | No safe Bedrock sensor tick-rate decision point is identified. |
-| `tick-rates.wet-farmland` | BRIDGE_ONLY | No safe Bedrock farmland tick-rate decision point is identified. |
+| `tick-rates.sensor.villager.secondarypoisensor` | BRIDGE_ONLY | Bedrock exposes no generic sensor scheduler or named sensor tick-rate control in the current headers; the Level hook cannot safely target a villager sensor without suppressing unrelated systems. |
+| `tick-rates.sensor.<entity-type>.<sensor-name>` | BRIDGE_ONLY | Bedrock exposes no generic sensor scheduler or named sensor tick-rate control in the current headers; the Level hook cannot safely target a villager sensor without suppressing unrelated systems. |
+| `tick-rates.wet-farmland` | BRIDGE_ONLY | The current enabled random-tick hook is `LeavesBlock::randomTick`; no generic farmland/grass random-tick function or rate parameter is verified. |
 | `unsupported-settings.disable-world-ticking-when-empty` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/level.cpp`: reads the path and skips native Level ticking when no players are online. |
 | `unsupported-settings.fix-invulnerable-end-crystal-exploit` | BRIDGE_ONLY | No safe Bedrock end-crystal exploit decision point is identified. |
 | `unsupported-settings.ticking.chunks` | BRIDGE_ONLY | `Level::tick` can only skip the native Level tick as a whole; no verified Bedrock switch separates chunk ticking from entities, block entities, fluids, and scheduler work. |
