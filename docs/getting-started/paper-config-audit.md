@@ -41,8 +41,8 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `item-validation.book.title` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: reads `paper.global.item-validation.book.title` before native book finalization. |
 | `item-validation.book-size.page-max` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: reads `paper.global.item-validation.book-size.page-max` and applies the additional byte cap. |
 | `item-validation.book-size.total-multiplier` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: reads and clamps `paper.global.item-validation.book-size.total-multiplier`. |
-| `item-validation.display-name` | BRIDGE_ONLY | No safe Bedrock item display-name validation decision point is identified. |
-| `item-validation.lore-line` | BRIDGE_ONLY | No safe Bedrock item lore validation decision point is identified. |
+| `item-validation.display-name` | BRIDGE_ONLY | Paper's current configuration declares the limit, but no matching runtime consumer exists in the checked Paper sources; Bedrock's `Item::readUserData` hook parses inbound user data/components and is not a verified display-name validation boundary. |
+| `item-validation.lore-line` | BRIDGE_ONLY | Paper's current configuration declares the limit, but no matching runtime consumer exists in the checked Paper sources; Bedrock's `Item::readUserData` hook parses inbound user data/components and is not a verified lore-line validation boundary. |
 | `item-validation.resolve-selectors-in-books` | BRIDGE_ONLY | Source explicitly leaves book selector resolution inactive; no safe decision point is identified. |
 | `messages.kick.authentication-servers-down` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/server_network_handler.cpp::_validateLoginPacket` receives only the aggregate optional authentication result after the native validator; `disconnectClientWithMessage` has no verified authentication-server provenance at this hook, so rewriting every failed authentication message would mislabel invalid certificates and other failures. |
 | `messages.kick.connection-throttle` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/rak_peer_helper.cpp::RakPeerHelper::peerStartup` exposes startup configuration only; the underlying RakNet IP-frequency limiter is not a verified message-producing rejection hook, so the Paper message cannot be safely substituted. |
@@ -66,7 +66,7 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `misc.strict-advancement-dimension-check` | BRIDGE_ONLY | No safe Bedrock advancement decision point is identified. |
 | `misc.use-alternative-luck-formula` | BRIDGE_ONLY | No safe Bedrock entity-luck decision point is identified. |
 | `misc.use-dimension-type-for-custom-spawners` | BRIDGE_ONLY | No safe Bedrock custom-spawner decision point is identified. |
-| `misc.xp-orb-groups-per-area` | BRIDGE_ONLY | No safe Bedrock XP-orb grouping decision point is identified. |
+| `misc.xp-orb-groups-per-area` | BRIDGE_ONLY | Paper's grouping policy is applied during XP-orb merge/collection; Bedrock's available pickup event and `Player::addExperience` hooks occur after that grouping decision. |
 | `packet-limiter.all-packets.action` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: reads the all-packets action for over-limit handling. |
 | `packet-limiter.all-packets.interval` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: reads the all-packets interval for address-based packet accounting. |
 | `packet-limiter.all-packets.max-packet-rate` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: reads the all-packets rate for address-based packet accounting. |
@@ -95,7 +95,7 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `unsupported-settings.allow-permanent-block-break-exploits` | BRIDGE_ONLY | No safe Bedrock exploit-path decision point is identified. |
 | `unsupported-settings.allow-piston-duplication` | BRIDGE_ONLY | No safe Bedrock piston-duplication decision point is identified. |
 | `unsupported-settings.allow-unsafe-end-portal-teleportation` | BRIDGE_ONLY | No safe Bedrock portal-teleport decision point is identified. |
-| `unsupported-settings.oversized-item-component-sanitizer.dont-sanitize` | BRIDGE_ONLY | No safe Bedrock oversized-component sanitizer decision point is identified. |
+| `unsupported-settings.oversized-item-component-sanitizer.dont-sanitize` | BRIDGE_ONLY | Paper applies this at outbound oversized item-component codecs; Bedrock's verified `Item::readUserData` hook is an inbound parser and has no per-player outbound component sanitizer context. |
 | `unsupported-settings.perform-username-validation` | BRIDGE_ONLY | No safe Bedrock username-validation decision point is identified. |
 | `unsupported-settings.skip-tripwire-hook-placement-validation` | BRIDGE_ONLY | No safe Bedrock tripwire-placement decision point is identified. |
 | `unsupported-settings.skip-vanilla-damage-tick-when-shield-blocked` | BRIDGE_ONLY | No safe Bedrock shield-damage decision point is identified. |
@@ -142,9 +142,9 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `entities.behavior.door-breaking-difficulty.vindicator` | BRIDGE_ONLY | No safe Bedrock door-breaking difficulty decision point is identified. |
 | `entities.behavior.door-breaking-difficulty.<entity-type>` | BRIDGE_ONLY | No safe Bedrock door-breaking difficulty decision point is identified. |
 | `entities.behavior.ender-dragons-death-always-places-dragon-egg` | BRIDGE_ONLY | No safe Bedrock dragon-egg decision point is identified. |
-| `entities.behavior.experience-merge-max-value` | BRIDGE_ONLY | No safe Bedrock XP merge decision point is identified. |
-| `entities.behavior.mobs-can-always-pick-up-loot.skeletons` | BRIDGE_ONLY | No safe Bedrock mob-loot pickup decision point is identified. |
-| `entities.behavior.mobs-can-always-pick-up-loot.zombies` | BRIDGE_ONLY | No safe Bedrock mob-loot pickup decision point is identified. |
+| `entities.behavior.experience-merge-max-value` | BRIDGE_ONLY | The existing `PlayerGetExperienceOrbEvent` runs at player pickup after orb merging; no verified ExperienceOrb pair/merge function or value cap decision point is available. |
+| `entities.behavior.mobs-can-always-pick-up-loot.skeletons` | BRIDGE_ONLY | `ActorBeforeAcquireItemEvent` is reached only after Bedrock has selected an acquisition attempt; it cannot make skeleton pickup eligibility unconditional without the unverified mob AI decision point. |
+| `entities.behavior.mobs-can-always-pick-up-loot.zombies` | BRIDGE_ONLY | `ActorBeforeAcquireItemEvent` is reached only after Bedrock has selected an acquisition attempt; it cannot make zombie pickup eligibility unconditional without the unverified mob AI decision point. |
 | `entities.behavior.nerf-pigmen-from-nether-portals` | BRIDGE_ONLY | No safe Bedrock portal pigman decision point is identified. |
 | `entities.behavior.only-merge-items-horizontally` | BRIDGE_ONLY | No safe Bedrock item-merge decision point is identified. |
 | `entities.behavior.parrots-are-unaffected-by-player-movement` | BRIDGE_ONLY | No safe Bedrock parrot movement decision point is identified. |
@@ -258,7 +258,7 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `fixes.falling-block-height-nerf` | BRIDGE_ONLY | No safe Bedrock falling-block height decision point is identified. |
 | `fixes.fix-items-merging-through-walls` | BRIDGE_ONLY | No safe Bedrock item-merge collision decision point is identified. |
 | `fixes.prevent-tnt-from-moving-in-water` | BRIDGE_ONLY | No safe Bedrock TNT-water movement decision point is identified. |
-| `fixes.split-overstacked-loot` | BRIDGE_ONLY | No safe Bedrock loot-stack decision point is identified. |
+| `fixes.split-overstacked-loot` | BRIDGE_ONLY | Paper applies this in `LootTable.createStackSplitter` before item entities are created; the verified Bedrock ItemActor/player pickup hooks are downstream and cannot safely recover the original loot split. |
 | `fixes.tnt-entity-height-nerf` | BRIDGE_ONLY | No safe Bedrock TNT height decision point is identified. |
 | `hopper.cooldown-when-full` | BRIDGE_ONLY | No safe Bedrock hopper cooldown decision point is identified. |
 | `hopper.disable-move-event` | BRIDGE_ONLY | No safe Bedrock hopper move-event decision point is identified. |
