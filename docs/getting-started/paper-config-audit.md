@@ -94,7 +94,7 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `unsupported-settings.allow-headless-pistons` | BRIDGE_ONLY | No safe Bedrock piston-execution decision point is identified. |
 | `unsupported-settings.allow-permanent-block-break-exploits` | BRIDGE_ONLY | No safe Bedrock exploit-path decision point is identified. |
 | `unsupported-settings.allow-piston-duplication` | BRIDGE_ONLY | No safe Bedrock piston-duplication decision point is identified. |
-| `unsupported-settings.allow-unsafe-end-portal-teleportation` | BRIDGE_ONLY | No safe Bedrock portal-teleport decision point is identified. |
+| `unsupported-settings.allow-unsafe-end-portal-teleportation` | BRIDGE_ONLY | `ServerPlayer::changeDimension` runs after Bedrock's portal teleport decision and exposes no unsafe-portal validation state; intercepting it would change all dimension transfers. |
 | `unsupported-settings.oversized-item-component-sanitizer.dont-sanitize` | BRIDGE_ONLY | Paper applies this at outbound oversized item-component codecs; Bedrock's verified `Item::readUserData` hook is an inbound parser and has no per-player outbound component sanitizer context. |
 | `unsupported-settings.perform-username-validation` | BRIDGE_ONLY | No safe Bedrock username-validation decision point is identified. |
 | `unsupported-settings.skip-tripwire-hook-placement-validation` | BRIDGE_ONLY | No safe Bedrock tripwire-placement decision point is identified. |
@@ -145,7 +145,7 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `entities.behavior.experience-merge-max-value` | BRIDGE_ONLY | The existing `PlayerGetExperienceOrbEvent` runs at player pickup after orb merging; no verified ExperienceOrb pair/merge function or value cap decision point is available. |
 | `entities.behavior.mobs-can-always-pick-up-loot.skeletons` | BRIDGE_ONLY | `ActorBeforeAcquireItemEvent` is reached only after Bedrock has selected an acquisition attempt; it cannot make skeleton pickup eligibility unconditional without the unverified mob AI decision point. |
 | `entities.behavior.mobs-can-always-pick-up-loot.zombies` | BRIDGE_ONLY | `ActorBeforeAcquireItemEvent` is reached only after Bedrock has selected an acquisition attempt; it cannot make zombie pickup eligibility unconditional without the unverified mob AI decision point. |
-| `entities.behavior.nerf-pigmen-from-nether-portals` | BRIDGE_ONLY | No safe Bedrock portal pigman decision point is identified. |
+| `entities.behavior.nerf-pigmen-from-nether-portals` | BRIDGE_ONLY | `ServerPlayer::changeDimension` covers players only; no verified Bedrock Nether portal entity-spawn callback identifies pigmen created from a portal. |
 | `entities.behavior.only-merge-items-horizontally` | BRIDGE_ONLY | No safe Bedrock item-merge decision point is identified. |
 | `entities.behavior.parrots-are-unaffected-by-player-movement` | BRIDGE_ONLY | No safe Bedrock parrot movement decision point is identified. |
 | `entities.behavior.phantoms-do-not-spawn-on-creative-players` | BRIDGE_ONLY | No safe Bedrock phantom spawn decision point is identified. |
@@ -241,9 +241,9 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `environment.max-fluid-ticks` | BRIDGE_ONLY | No safe Bedrock fluid-tick budget decision point is identified. |
 | `environment.nether-ceiling-void-damage-height` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/script_actor_gameplay_handler.cpp`: reads the path to opt Nether ceiling Void damage into the existing hurt path. |
 | `environment.optimize-explosions` | BRIDGE_ONLY | Paper changes `ServerExplosion` block collection; the verified Bedrock `Explosion::explode` hook only records thread-local explosion context for downstream knockback and does not expose a safe collection/optimization switch. |
-| `environment.portal-create-radius` | BRIDGE_ONLY | No safe Bedrock portal-create decision point is identified. |
-| `environment.portal-search-radius` | BRIDGE_ONLY | No safe Bedrock portal-search decision point is identified. |
-| `environment.portal-search-vanilla-dimension-scaling` | BRIDGE_ONLY | No safe Bedrock portal-scaling decision point is identified. |
+| `environment.portal-create-radius` | BRIDGE_ONLY | `ServerPlayer::changeDimension` is the only verified portal-adjacent hook and runs after portal selection; it does not expose Bedrock portal creation/search/scaling validation. |
+| `environment.portal-search-radius` | BRIDGE_ONLY | `ServerPlayer::changeDimension` is the only verified portal-adjacent hook and runs after portal selection; it does not expose Bedrock portal creation/search/scaling validation. |
+| `environment.portal-search-vanilla-dimension-scaling` | BRIDGE_ONLY | `ServerPlayer::changeDimension` is the only verified portal-adjacent hook and runs after portal selection; it does not expose Bedrock portal creation/search/scaling validation. |
 | `environment.treasure-maps.enabled` | BRIDGE_ONLY | No safe Bedrock treasure-map decision point is identified. |
 | `environment.treasure-maps.find-already-discovered.loot-tables` | BRIDGE_ONLY | No safe Bedrock treasure-map decision point is identified. |
 | `environment.treasure-maps.find-already-discovered.villager-trade` | BRIDGE_ONLY | No safe Bedrock treasure-map decision point is identified. |
@@ -260,23 +260,23 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `fixes.prevent-tnt-from-moving-in-water` | BRIDGE_ONLY | Paper changes `PrimedTnt` fluid pushing/tick behavior; Endstone has no verified PrimedTnt actor or fluid-push hook, and the generic explosion hook runs after movement. |
 | `fixes.split-overstacked-loot` | BRIDGE_ONLY | Paper applies this in `LootTable.createStackSplitter` before item entities are created; the verified Bedrock ItemActor/player pickup hooks are downstream and cannot safely recover the original loot split. |
 | `fixes.tnt-entity-height-nerf` | BRIDGE_ONLY | Paper checks `PrimedTnt`/`MinecartTNT` height during entity tick; no current Bedrock TNT actor tick or height-nerf decision point is exposed. |
-| `hopper.cooldown-when-full` | BRIDGE_ONLY | No safe Bedrock hopper cooldown decision point is identified. |
+| `hopper.cooldown-when-full` | BRIDGE_ONLY | Bedrock has no HopperBlockActor header or verified hopper tick hook in this checkout; `InventoryTransaction::executeWorldInteraction` covers player drop/pickup transactions, not hopper transfer/cooldown/occlusion decisions. |
 | `hopper.disable-move-event` | BRIDGE_ONLY | No safe Bedrock hopper move-event decision point is identified. |
 | `hopper.ignore-occluding-blocks` | BRIDGE_ONLY | No safe Bedrock hopper occlusion decision point is identified. |
-| `lootables.auto-replenish` | BRIDGE_ONLY | No safe Bedrock lootable replenishment decision point is identified. |
-| `lootables.max-refills` | BRIDGE_ONLY | No safe Bedrock lootable replenishment decision point is identified. |
-| `lootables.refresh-max` | BRIDGE_ONLY | No safe Bedrock lootable replenishment decision point is identified. |
-| `lootables.refresh-min` | BRIDGE_ONLY | No safe Bedrock lootable replenishment decision point is identified. |
+| `lootables.auto-replenish` | BRIDGE_ONLY | Bedrock's `VanillaBlockActor::eraseLootTable` only removes stored loot-table state; no verified loot-fill/replenish, refill-count, seed, or shulker-break decision hook is exposed. |
+| `lootables.max-refills` | BRIDGE_ONLY | Bedrock's `VanillaBlockActor::eraseLootTable` only removes stored loot-table state; no verified loot-fill/replenish, refill-count, seed, or shulker-break decision hook is exposed. |
+| `lootables.refresh-max` | BRIDGE_ONLY | Bedrock's `VanillaBlockActor::eraseLootTable` only removes stored loot-table state; no verified loot-fill/replenish, refill-count, seed, or shulker-break decision hook is exposed. |
+| `lootables.refresh-min` | BRIDGE_ONLY | Bedrock's `VanillaBlockActor::eraseLootTable` only removes stored loot-table state; no verified loot-fill/replenish, refill-count, seed, or shulker-break decision hook is exposed. |
 | `lootables.reset-seed-on-fill` | BRIDGE_ONLY | No safe Bedrock lootable seed decision point is identified. |
 | `lootables.restrict-player-reloot` | BRIDGE_ONLY | No safe Bedrock reloot decision point is identified. |
 | `lootables.restrict-player-reloot-time` | BRIDGE_ONLY | No safe Bedrock reloot decision point is identified. |
 | `lootables.retain-unlooted-shulker-box-loot-table-on-non-player-break` | BRIDGE_ONLY | No safe Bedrock shulker-loot decision point is identified. |
 | `maps.item-frame-cursor-limit` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/batched_network_peer.cpp`: reads the path when serializing visible map cursors. |
 | `maps.item-frame-cursor-update-interval` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/batched_network_peer.cpp`: reads the path for cached frame-cursor updates. |
-| `max-growth-height.bamboo.max` | BRIDGE_ONLY | No safe Bedrock bamboo growth-height decision point is identified. |
-| `max-growth-height.bamboo.min` | BRIDGE_ONLY | No safe Bedrock bamboo growth-height decision point is identified. |
-| `max-growth-height.cactus` | BRIDGE_ONLY | No safe Bedrock cactus growth-height decision point is identified. |
-| `max-growth-height.reeds` | BRIDGE_ONLY | No safe Bedrock reeds growth-height decision point is identified. |
+| `max-growth-height.bamboo.max` | BRIDGE_ONLY | The only enabled random-tick hook is `LeavesBlock::randomTick`; no generic bamboo/cactus/reeds growth scheduler or height decision hook is verified. |
+| `max-growth-height.bamboo.min` | BRIDGE_ONLY | The only enabled random-tick hook is `LeavesBlock::randomTick`; no generic bamboo/cactus/reeds growth scheduler or height decision hook is verified. |
+| `max-growth-height.cactus` | BRIDGE_ONLY | The only enabled random-tick hook is `LeavesBlock::randomTick`; no generic bamboo/cactus/reeds growth scheduler or height decision hook is verified. |
+| `max-growth-height.reeds` | BRIDGE_ONLY | The only enabled random-tick hook is `LeavesBlock::randomTick`; no generic bamboo/cactus/reeds growth scheduler or height decision hook is verified. |
 | `misc.allow-remote-ender-dragon-respawning` | BRIDGE_ONLY | No safe Bedrock dragon-respawn decision point is identified. |
 | `misc.alternate-current-update-order` | BRIDGE_ONLY | No safe Bedrock redstone decision point is identified. |
 | `misc.disable-end-credits` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/server_player.cpp::ServerPlayer::changeDimension` runs after the portal decision and exposes no `seenCredits`/EndPortalBlock state; using it would alter dimension transfer rather than suppressing credits. |
