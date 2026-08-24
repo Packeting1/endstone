@@ -44,17 +44,17 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `item-validation.display-name` | BRIDGE_ONLY | No safe Bedrock item display-name validation decision point is identified. |
 | `item-validation.lore-line` | BRIDGE_ONLY | No safe Bedrock item lore validation decision point is identified. |
 | `item-validation.resolve-selectors-in-books` | BRIDGE_ONLY | Source explicitly leaves book selector resolution inactive; no safe decision point is identified. |
-| `messages.kick.authentication-servers-down` | BRIDGE_ONLY | No safe Bedrock authentication-kick message decision point is identified. |
-| `messages.kick.connection-throttle` | BRIDGE_ONLY | No safe Bedrock connection-throttle message decision point is identified. |
-| `messages.kick.flying-player` | BRIDGE_ONLY | No safe Bedrock flying-player message decision point is identified. |
-| `messages.kick.flying-vehicle` | BRIDGE_ONLY | No safe Bedrock flying-vehicle message decision point is identified. |
+| `messages.kick.authentication-servers-down` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/server_network_handler.cpp::_validateLoginPacket` receives only the aggregate optional authentication result after the native validator; `disconnectClientWithMessage` has no verified authentication-server provenance at this hook, so rewriting every failed authentication message would mislabel invalid certificates and other failures. |
+| `messages.kick.connection-throttle` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/rak_peer_helper.cpp::RakPeerHelper::peerStartup` exposes startup configuration only; the underlying RakNet IP-frequency limiter is not a verified message-producing rejection hook, so the Paper message cannot be safely substituted. |
+| `messages.kick.flying-player` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/packet.cpp::EndstonePacketHandler::handle(PlayerAuthInputPacket&)` observes client flight input and movement events, but not BDS's downstream flying validator or its player/vehicle classification. |
+| `messages.kick.flying-vehicle` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/packet.cpp::EndstonePacketHandler::handle(PlayerAuthInputPacket&)` has no verified vehicle-flying validator or vehicle-specific kick reason; changing all movement corrections to this message would affect legitimate teleports. |
 | `messages.no-permission` | IMPLEMENTED | `src/endstone/core/message.cpp`: reads `paper.global.messages.no-permission` for command sender error messages. |
 | `messages.use-display-name-in-quit-message` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/script_player_gameplay_handler.cpp`: reads the setting in the existing PlayerDisconnectEvent path and uses a non-empty player name tag as the quit-message name. |
-| `misc.catchup-ticks` | BRIDGE_ONLY | No safe Bedrock catch-up tick policy decision point is identified. |
+| `misc.catchup-ticks` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/level.cpp::Level::tick` is called once per BDS tick and can skip the native tick, but no missed-wall-clock-tick accumulator or bounded catch-up loop is exposed. |
 | `misc.chat-threads.chat-executor-core-size` | BRIDGE_ONLY | No safe Bedrock chat executor sizing decision point is identified. |
 | `misc.chat-threads.chat-executor-max-size` | BRIDGE_ONLY | No safe Bedrock chat executor sizing decision point is identified. |
-| `misc.client-interaction-leniency-distance` | BRIDGE_ONLY | No safe Bedrock client-interaction leniency decision point is identified. |
-| `misc.compression-level` | BRIDGE_ONLY | No safe Bedrock compression-level decision point is identified. |
+| `misc.client-interaction-leniency-distance` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/packet.cpp` receives block actions and player-auth input after the packet has been decoded, but no Bedrock interaction-range validation function or distance parameter is exposed by the current hook/header set. |
+| `misc.compression-level` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/batched_network_peer.cpp::sendPacket` receives an already serialized packet and a `Compressibility` flag; it is downstream of the codec-level selection and cannot safely change the configured compression level. |
 | `misc.enable-nether` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/server_player.cpp`: reads `paper.global.misc.enable-nether` and rejects Nether transitions when false. |
 | `misc.fix-far-end-terrain-generation` | BRIDGE_ONLY | No safe Bedrock End terrain-generation decision point is identified. |
 | `misc.load-permissions-yml-before-plugins` | BRIDGE_ONLY | No safe Bedrock plugin/permissions ordering decision point is identified. |
@@ -90,7 +90,7 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `spam-limiter.tab-spam-limit` | BRIDGE_ONLY | No safe Bedrock tab-spam decision point is identified. |
 | `spark.enable-immediately` | BRIDGE_ONLY | Spark is Java-specific; no safe Bedrock Spark decision point is identified. |
 | `spark.enabled` | BRIDGE_ONLY | Spark is Java-specific; no safe Bedrock Spark decision point is identified. |
-| `time.affects-all-worlds` | BRIDGE_ONLY | No safe Bedrock time-scope decision point is identified. |
+| `time.affects-all-worlds` | BRIDGE_ONLY | Bedrock's current `Level` time APIs are Level-wide and the existing hooks expose no per-dimension clock manager or routing decision; treating the global clock as Paper's switch would make `false` ineffective. |
 | `unsupported-settings.allow-headless-pistons` | BRIDGE_ONLY | No safe Bedrock piston-execution decision point is identified. |
 | `unsupported-settings.allow-permanent-block-break-exploits` | BRIDGE_ONLY | No safe Bedrock exploit-path decision point is identified. |
 | `unsupported-settings.allow-piston-duplication` | BRIDGE_ONLY | No safe Bedrock piston-duplication decision point is identified. |
