@@ -56,16 +56,16 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `misc.client-interaction-leniency-distance` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/packet.cpp` receives block actions and player-auth input after the packet has been decoded, but no Bedrock interaction-range validation function or distance parameter is exposed by the current hook/header set. |
 | `misc.compression-level` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/batched_network_peer.cpp::sendPacket` receives an already serialized packet and a `Compressibility` flag; it is downstream of the codec-level selection and cannot safely change the configured compression level. |
 | `misc.enable-nether` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/server_player.cpp`: reads `paper.global.misc.enable-nether` and rejects Nether transitions when false. |
-| `misc.fix-far-end-terrain-generation` | BRIDGE_ONLY | No safe Bedrock End terrain-generation decision point is identified. |
-| `misc.load-permissions-yml-before-plugins` | BRIDGE_ONLY | No safe Bedrock plugin/permissions ordering decision point is identified. |
+| `misc.fix-far-end-terrain-generation` | BRIDGE_ONLY | Paper changes End worldgen terrain generation; Bedrock's WorldGenerator/End dimension declarations expose no far-terrain generation branch or safe seed hook. |
+| `misc.load-permissions-yml-before-plugins` | BRIDGE_ONLY | Endstone's plugin bootstrap has no Bukkit `permissions.yml` loader or ordering stage; changing plugin startup order would not implement the Paper permissions source. |
 | `misc.max-joins-per-tick` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/server_network_handler.cpp`: reads `paper.global.misc.max-joins-per-tick` in authenticated join validation. |
-| `misc.max-tracking-combat-entries` | BRIDGE_ONLY | No safe Bedrock combat-tracking retention decision point is identified. |
-| `misc.prevent-negative-villager-demand` | BRIDGE_ONLY | No safe Bedrock villager-demand decision point is identified. |
-| `misc.region-file-cache-size` | BRIDGE_ONLY | No safe Bedrock region-file cache decision point is identified. |
-| `misc.send-full-pos-for-item-entities` | BRIDGE_ONLY | No safe Bedrock item-entity position serialization decision point is identified. |
-| `misc.strict-advancement-dimension-check` | BRIDGE_ONLY | No safe Bedrock advancement decision point is identified. |
-| `misc.use-alternative-luck-formula` | BRIDGE_ONLY | No safe Bedrock entity-luck decision point is identified. |
-| `misc.use-dimension-type-for-custom-spawners` | BRIDGE_ONLY | No safe Bedrock custom-spawner decision point is identified. |
+| `misc.max-tracking-combat-entries` | BRIDGE_ONLY | Paper changes `CombatTracker` retention; the current Bedrock Actor/DamageSource headers expose damage events but no combat-tracker entry list or retention hook. |
+| `misc.prevent-negative-villager-demand` | BRIDGE_ONLY | Paper clamps villager trade demand; the current Bedrock headers expose no villager trade-demand field or trade calculation hook. |
+| `misc.region-file-cache-size` | BRIDGE_ONLY | Bedrock's ChunkSource exposes storage/flush operations but no region-file cache object or capacity setter; changing ChunkSource storage would require an unverified concrete ABI. |
+| `misc.send-full-pos-for-item-entities` | BRIDGE_ONLY | The outbound packet hook has no verified AddItemActor/ItemStack position serializer or per-entity precision flag; altering raw packet bytes would risk protocol layout. |
+| `misc.strict-advancement-dimension-check` | BRIDGE_ONLY | Bedrock has no Java advancement/criterion subsystem in the current headers or runtime hooks, so no dimension-check consumer exists to alter. |
+| `misc.use-alternative-luck-formula` | BRIDGE_ONLY | Paper changes entity luck calculation; the current Bedrock Actor/Mob headers expose no luck formula or generic loot-roll hook. |
+| `misc.use-dimension-type-for-custom-spawners` | BRIDGE_ONLY | Bedrock's Spawner API exposes opaque spawn methods and no Paper-style custom-spawner registry or dimension-type selection consumer. |
 | `misc.xp-orb-groups-per-area` | BRIDGE_ONLY | Paper's grouping policy is applied during XP-orb merge/collection; Bedrock's available pickup event and `Player::addExperience` hooks occur after that grouping decision. |
 | `packet-limiter.all-packets.action` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: reads the all-packets action for over-limit handling. |
 | `packet-limiter.all-packets.interval` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: reads the all-packets interval for address-based packet accounting. |
@@ -74,10 +74,10 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `packet-limiter.overrides.minecraft:place_recipe.action` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: matching packet-name override replaces the all-packets action. |
 | `packet-limiter.overrides.minecraft:place_recipe.interval` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: matching packet-name override replaces the all-packets interval. |
 | `packet-limiter.overrides.minecraft:place_recipe.max-packet-rate` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: matching packet-name override replaces the all-packets rate. |
-| `player-auto-save.max-per-tick` | BRIDGE_ONLY | No safe Bedrock player auto-save scheduling decision point is identified. |
-| `player-auto-save.rate` | BRIDGE_ONLY | No safe Bedrock player auto-save scheduling decision point is identified. |
+| `player-auto-save.max-per-tick` | BRIDGE_ONLY | Paper budgets ServerPlayer saves in its save scheduler; Bedrock has no verified ServerPlayer save/tick hook or per-tick player-save queue. |
+| `player-auto-save.rate` | BRIDGE_ONLY | Paper schedules player saves from ServerPlayer tick state; Bedrock's current Player/ChunkSource hooks do not expose an equivalent player-save timer. |
 | `proxies.bungee-cord.online-mode` | BRIDGE_ONLY | Java Bungee proxy integration has no safe Bedrock equivalent identified. |
-| `proxies.proxy-protocol` | BRIDGE_ONLY | No safe Bedrock proxy-protocol decision point is identified. |
+| `proxies.proxy-protocol` | BRIDGE_ONLY | Bedrock's gameplay transport is RakNet/NetworkIdentifier based; the current RakPeer hook has no PROXY protocol parser or trusted-address handoff decision. |
 | `proxies.velocity.enabled` | BRIDGE_ONLY | Java Velocity integration has no safe Bedrock equivalent identified. |
 | `proxies.velocity.online-mode` | BRIDGE_ONLY | Java Velocity integration has no safe Bedrock equivalent identified. |
 | `proxies.velocity.secret` | BRIDGE_ONLY | Java Velocity integration has no safe Bedrock equivalent identified. |
@@ -86,8 +86,8 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `spam-limiter.incoming-packet-threshold` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: reads the threshold and drops packets after the initial window allowance. |
 | `spam-limiter.recipe-spam-increment` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/craft_handler_crafting.cpp`: increments the per-player tick-decaying recipe-action counter. |
 | `spam-limiter.recipe-spam-limit` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/craft_handler_crafting.cpp`: kicks recipe-book spammers when the configured positive threshold is reached. |
-| `spam-limiter.tab-spam-increment` | BRIDGE_ONLY | No safe Bedrock tab-spam decision point is identified. |
-| `spam-limiter.tab-spam-limit` | BRIDGE_ONLY | No safe Bedrock tab-spam decision point is identified. |
+| `spam-limiter.tab-spam-increment` | BRIDGE_ONLY | The Bedrock packet headers/current dispatcher expose no serverbound tab-completion request; the existing command/AvailableCommands paths cannot provide a Paper tab-spam counter. |
+| `spam-limiter.tab-spam-limit` | BRIDGE_ONLY | The Bedrock packet headers/current dispatcher expose no serverbound tab-completion request; the existing command/AvailableCommands paths cannot provide a Paper tab-spam counter. |
 | `spark.enable-immediately` | BRIDGE_ONLY | Spark is Java-specific; no safe Bedrock Spark decision point is identified. |
 | `spark.enabled` | BRIDGE_ONLY | Spark is Java-specific; no safe Bedrock Spark decision point is identified. |
 | `time.affects-all-worlds` | BRIDGE_ONLY | Bedrock's current `Level` time APIs are Level-wide and the existing hooks expose no per-dimension clock manager or routing decision; treating the global clock as Paper's switch would make `false` ineffective. |
@@ -100,9 +100,9 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `unsupported-settings.skip-tripwire-hook-placement-validation` | BRIDGE_ONLY | `BlockType` declares `mayPlace`/`tryToPlace`, but no enabled tripwire-specific placement hook or validation result override is verified; the existing player block-interaction event cannot bypass native placement validation. |
 | `unsupported-settings.skip-vanilla-damage-tick-when-shield-blocked` | BRIDGE_ONLY | Bedrock declares `Actor::blockedByShield`, `canDisableShield`, and `isBlocking`, but no current verified hook reaches the shield-block result/tick decision; `ActorBeforeHurtEvent` is too early to flip only shield stun without cancelling damage. |
 | `unsupported-settings.update-equipment-on-player-actions` | BRIDGE_ONLY | Paper calls `ServerPlayer.detectEquipmentUpdates` after inventory actions; Bedrock's verified PlayerAuthInput/MobEquipment hooks expose packets/events but no equivalent equipment-diff refresh function. |
-| `update-checker.enabled` | BRIDGE_ONLY | No safe Bedrock update-checker decision point is identified. |
-| `watchdog.early-warning-delay` | BRIDGE_ONLY | No safe Bedrock watchdog warning decision point is identified. |
-| `watchdog.early-warning-every` | BRIDGE_ONLY | No safe Bedrock watchdog warning decision point is identified. |
+| `update-checker.enabled` | BRIDGE_ONLY | Paper's update checker is a Java/HTTP background service; Endstone's current runtime has no matching update-checker service or config consumer. |
+| `watchdog.early-warning-delay` | BRIDGE_ONLY | Paper's `WatchdogThread` early-warning timers are a Java server watchdog feature; no current Bedrock watchdog warning timer hook or safe delay/every consumer is exposed. |
+| `watchdog.early-warning-every` | BRIDGE_ONLY | Paper's `WatchdogThread` early-warning timers are a Java server watchdog feature; no current Bedrock watchdog warning timer hook or safe delay/every consumer is exposed. |
 
 ## World defaults — 195 schema leaves
 
