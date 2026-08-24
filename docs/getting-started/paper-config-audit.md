@@ -26,15 +26,15 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `chunk-loading-advanced.player-max-concurrent-chunk-loads` | BRIDGE_ONLY | `ChunkSource` declares load/generate operations but no verified player request scheduler or concurrency counter is exposed; changing `getOrLoadChunk`/`createNewChunk` without its concrete implementation would guess ABI and queue ownership. |
 | `chunk-loading-basic.player-max-chunk-generate-rate` | BRIDGE_ONLY | No per-player generation token/rate counter is exposed by the current ChunkSource/Dimension headers; the Level tick hook cannot safely throttle asynchronous generation requests. |
 | `chunk-loading-basic.player-max-chunk-load-rate` | BRIDGE_ONLY | No per-player load token/rate counter is exposed by the current ChunkSource/Dimension headers; the Level tick hook cannot safely throttle asynchronous load requests. |
-| `chunk-loading-basic.player-max-chunk-send-rate` | BRIDGE_ONLY | No safe Bedrock chunk-send rate decision point is identified. |
+| `chunk-loading-basic.player-max-chunk-send-rate` | BRIDGE_ONLY | `BatchedNetworkPeer::sendPacket` is downstream of chunk packet creation and no per-player chunk-send token/rate scheduler is exposed; the existing map patch is not a generic chunk-send limiter. |
 | `chunk-system.io-threads` | BRIDGE_ONLY | `Dimension` owns opaque `TaskGroup`/chunk-generation state and `ChunkSource` exposes no thread-pool setter; changing these values would require an unverified construction-time ABI. |
 | `chunk-system.worker-threads` | BRIDGE_ONLY | `Dimension` owns opaque `TaskGroup`/chunk-generation state and `ChunkSource` exposes no thread-pool setter; changing these values would require an unverified construction-time ABI. |
 | `collisions.enable-player-collisions` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/pushable_by_entity_utility.cpp`: reads `paper.global.collisions.enable-player-collisions` and skips vanilla player-to-player push when false. |
 | `collisions.send-full-pos-for-hard-colliding-entities` | BRIDGE_ONLY | `BatchedNetworkPeer::sendPacket` sees serialized packet bytes, but no verified hard-collision entity position serializer or collision-classification metadata is exposed for safe per-entity rewriting. |
 | `commands.ride-command-allow-player-as-vehicle` | BRIDGE_ONLY | `MinecraftCommands::executeCommand` receives a raw command line and origin, but the current player path dispatches through Endstone's command map; no verified Bedrock `/ride` AST/vehicle validation point is available for this option. |
 | `commands.suggest-player-names-when-null-tab-completions` | BRIDGE_ONLY | The Bedrock packet headers/current dispatcher expose no serverbound tab-completion request or null-completion fallback hook; `AvailableCommandsPacket` is outbound command metadata only. |
-| `console.enable-brigadier-completions` | BRIDGE_ONLY | Paper Brigadier completion behavior has no safe Bedrock equivalent identified. |
-| `console.enable-brigadier-highlighting` | BRIDGE_ONLY | Paper Brigadier highlighting behavior has no safe Bedrock equivalent identified. |
+| `console.enable-brigadier-completions` | BRIDGE_ONLY | Paper Brigadier console completion has no Bedrock console parser/completion provider; Endstone's `Console` input reader exposes no matching service. |
+| `console.enable-brigadier-highlighting` | BRIDGE_ONLY | Paper Brigadier console highlighting has no Bedrock console parser/highlighter; Endstone's `Console` input reader exposes no matching service. |
 | `console.has-all-permissions` | IMPLEMENTED | `src/endstone/core/command/console_command_sender.cpp`: reads `paper.global.console.has-all-permissions` for permission checks. |
 | `item-validation.book.author` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: reads `paper.global.item-validation.book.author` before native book finalization. |
 | `item-validation.book.page` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: reads `paper.global.item-validation.book.page` before native page handling. |
@@ -43,7 +43,7 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `item-validation.book-size.total-multiplier` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: reads and clamps `paper.global.item-validation.book-size.total-multiplier`. |
 | `item-validation.display-name` | BRIDGE_ONLY | Paper's current configuration declares the limit, but no matching runtime consumer exists in the checked Paper sources; Bedrock's `Item::readUserData` hook parses inbound user data/components and is not a verified display-name validation boundary. |
 | `item-validation.lore-line` | BRIDGE_ONLY | Paper's current configuration declares the limit, but no matching runtime consumer exists in the checked Paper sources; Bedrock's `Item::readUserData` hook parses inbound user data/components and is not a verified lore-line validation boundary. |
-| `item-validation.resolve-selectors-in-books` | BRIDGE_ONLY | Source explicitly leaves book selector resolution inactive; no safe decision point is identified. |
+| `item-validation.resolve-selectors-in-books` | BRIDGE_ONLY | Source explicitly leaves book selector resolution inactive; Bedrock exposes no verified selector-expansion service in the book packet/text pipeline. |
 | `messages.kick.authentication-servers-down` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/server_network_handler.cpp::_validateLoginPacket` receives only the aggregate optional authentication result after the native validator; `disconnectClientWithMessage` has no verified authentication-server provenance at this hook, so rewriting every failed authentication message would mislabel invalid certificates and other failures. |
 | `messages.kick.connection-throttle` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/rak_peer_helper.cpp::RakPeerHelper::peerStartup` exposes startup configuration only; the underlying RakNet IP-frequency limiter is not a verified message-producing rejection hook, so the Paper message cannot be safely substituted. |
 | `messages.kick.flying-player` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/packet.cpp::EndstonePacketHandler::handle(PlayerAuthInputPacket&)` observes client flight input and movement events, but not BDS's downstream flying validator or its player/vehicle classification. |
@@ -51,8 +51,8 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `messages.no-permission` | IMPLEMENTED | `src/endstone/core/message.cpp`: reads `paper.global.messages.no-permission` for command sender error messages. |
 | `messages.use-display-name-in-quit-message` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/script_player_gameplay_handler.cpp`: reads the setting in the existing PlayerDisconnectEvent path and uses a non-empty player name tag as the quit-message name. |
 | `misc.catchup-ticks` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/level.cpp::Level::tick` is called once per BDS tick and can skip the native tick, but no missed-wall-clock-tick accumulator or bounded catch-up loop is exposed. |
-| `misc.chat-threads.chat-executor-core-size` | BRIDGE_ONLY | The Bedrock/Endstone chat path has no Paper-style configurable chat executor pool; `Console`/plugin scheduler threads are separate and no safe per-thread-size config consumer is exposed. |
-| `misc.chat-threads.chat-executor-max-size` | BRIDGE_ONLY | The Bedrock/Endstone chat path has no Paper-style configurable chat executor pool; `Console`/plugin scheduler threads are separate and no safe per-thread-size config consumer is exposed. |
+| `misc.chat-threads.chat-executor-core-size` | BRIDGE_ONLY | The Bedrock/Endstone chat path has no Paper-style configurable chat executor pool; `Console`/plugin scheduler threads are separate and no per-thread-size config consumer is exposed. |
+| `misc.chat-threads.chat-executor-max-size` | BRIDGE_ONLY | The Bedrock/Endstone chat path has no Paper-style configurable chat executor pool; `Console`/plugin scheduler threads are separate and no per-thread-size config consumer is exposed. |
 | `misc.client-interaction-leniency-distance` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/packet.cpp` receives block actions and player-auth input after the packet has been decoded, but no Bedrock interaction-range validation function or distance parameter is exposed by the current hook/header set. |
 | `misc.compression-level` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/batched_network_peer.cpp::sendPacket` receives an already serialized packet and a `Compressibility` flag; it is downstream of the codec-level selection and cannot safely change the configured compression level. |
 | `misc.enable-nether` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/server_player.cpp`: reads `paper.global.misc.enable-nether` and rejects Nether transitions when false. |
@@ -76,11 +76,11 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `packet-limiter.overrides.minecraft:place_recipe.max-packet-rate` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: matching packet-name override replaces the all-packets rate. |
 | `player-auto-save.max-per-tick` | BRIDGE_ONLY | Paper budgets ServerPlayer saves in its save scheduler; Bedrock has no verified ServerPlayer save/tick hook or per-tick player-save queue. |
 | `player-auto-save.rate` | BRIDGE_ONLY | Paper schedules player saves from ServerPlayer tick state; Bedrock's current Player/ChunkSource hooks do not expose an equivalent player-save timer. |
-| `proxies.bungee-cord.online-mode` | BRIDGE_ONLY | Java Bungee proxy integration has no safe Bedrock equivalent identified. |
+| `proxies.bungee-cord.online-mode` | BRIDGE_ONLY | Java Bungee online-mode integration has no Bedrock proxy handshake or Bungee metadata consumer in the RakNet/NetworkIdentifier path. |
 | `proxies.proxy-protocol` | BRIDGE_ONLY | Bedrock's gameplay transport is RakNet/NetworkIdentifier based; the current RakPeer hook has no PROXY protocol parser or trusted-address handoff decision. |
-| `proxies.velocity.enabled` | BRIDGE_ONLY | Java Velocity integration has no safe Bedrock equivalent identified. |
-| `proxies.velocity.online-mode` | BRIDGE_ONLY | Java Velocity integration has no safe Bedrock equivalent identified. |
-| `proxies.velocity.secret` | BRIDGE_ONLY | Java Velocity integration has no safe Bedrock equivalent identified. |
+| `proxies.velocity.enabled` | BRIDGE_ONLY | Java Velocity proxy settings have no Bedrock Velocity handshake/plugin channel or current RakNet proxy integration hook. |
+| `proxies.velocity.online-mode` | BRIDGE_ONLY | Java Velocity proxy settings have no Bedrock Velocity handshake/plugin channel or current RakNet proxy integration hook. |
+| `proxies.velocity.secret` | BRIDGE_ONLY | Java Velocity proxy settings have no Bedrock Velocity handshake/plugin channel or current RakNet proxy integration hook. |
 | `scoreboards.save-empty-scoreboard-teams` | BRIDGE_ONLY | Paper applies this while serializing `Scoreboard.getPlayerTeams`; Endstone exposes no team persistence hook or team API distinct from Bedrock's native scoreboard save path. |
 | `scoreboards.track-plugin-scoreboards` | BRIDGE_ONLY | Paper uses this in `CraftScoreboardManager.getNewScoreboard` to register plugin boards globally; Endstone custom scoreboards are sent through per-player `ScoreboardPacketSender` and have no equivalent global tracking collection. |
 | `spam-limiter.incoming-packet-threshold` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: reads the threshold and drops packets after the initial window allowance. |
@@ -88,8 +88,8 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `spam-limiter.recipe-spam-limit` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/craft_handler_crafting.cpp`: kicks recipe-book spammers when the configured positive threshold is reached. |
 | `spam-limiter.tab-spam-increment` | BRIDGE_ONLY | The Bedrock packet headers/current dispatcher expose no serverbound tab-completion request; the existing command/AvailableCommands paths cannot provide a Paper tab-spam counter. |
 | `spam-limiter.tab-spam-limit` | BRIDGE_ONLY | The Bedrock packet headers/current dispatcher expose no serverbound tab-completion request; the existing command/AvailableCommands paths cannot provide a Paper tab-spam counter. |
-| `spark.enable-immediately` | BRIDGE_ONLY | Spark is Java-specific; no safe Bedrock Spark decision point is identified. |
-| `spark.enabled` | BRIDGE_ONLY | Spark is Java-specific; no safe Bedrock Spark decision point is identified. |
+| `spark.enable-immediately` | BRIDGE_ONLY | Spark is a Java profiler/plugin service and no Bedrock Spark runtime or equivalent Endstone consumer exists in this checkout. |
+| `spark.enabled` | BRIDGE_ONLY | Spark is a Java profiler/plugin service and no Bedrock Spark runtime or equivalent Endstone consumer exists in this checkout. |
 | `time.affects-all-worlds` | BRIDGE_ONLY | Bedrock's current `Level` time APIs are Level-wide and the existing hooks expose no per-dimension clock manager or routing decision; treating the global clock as Paper's switch would make `false` ineffective. |
 | `unsupported-settings.allow-headless-pistons` | BRIDGE_ONLY | `PistonBlockActor::tick` is a verified plugin-event hook, but it does not expose the moving-piston/base consistency decision used to prevent headless piston states. |
 | `unsupported-settings.allow-permanent-block-break-exploits` | BRIDGE_ONLY | `PistonBlockActor::tick` does not expose the permanent-break exploit cleanup path, and the generic piston event hook cannot safely identify all break-exploit states. |
@@ -120,28 +120,28 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `chunks.delay-chunk-unloads-by` | BRIDGE_ONLY | `ChunkSource` exposes discard/shutdown operations but no confirmed unload-delay scheduler or per-chunk timestamp decision; changing shutdown/discard directly would risk storage lifecycle corruption. |
 | `chunks.entity-per-chunk-save-limit.experience_orb` | BRIDGE_ONLY | The available ExperienceOrb adapter/type records do not expose the ChunkSource entity serialization path or a per-chunk save list; limiting at pickup/merge time would change gameplay rather than save data. |
 | `chunks.entity-per-chunk-save-limit.<entity-type>` | BRIDGE_ONLY | The available ExperienceOrb adapter/type records do not expose the ChunkSource entity serialization path or a per-chunk save list; limiting at pickup/merge time would change gameplay rather than save data. |
-| `chunks.fixed-chunk-inhabited-time` | BRIDGE_ONLY | No safe Bedrock inhabited-time decision point is identified. |
+| `chunks.fixed-chunk-inhabited-time` | BRIDGE_ONLY | The current `LevelChunk` header exposes no inhabited-time field/accessor; `ChunkSource::saveLiveChunk` is downstream and cannot safely inject a fixed value without storage-layout evidence. |
 | `chunks.flush-regions-on-save` | BRIDGE_ONLY | `ChunkSource` exposes `flushPendingDiscardedChunkWrites` and `flushThreadBatch`, but neither is a verified region-file flush policy hook and their call ordering is not established for a safe boolean override. |
 | `chunks.max-auto-save-chunks-per-tick` | BRIDGE_ONLY | `ChunkSource::saveLiveChunk` is the nearest declared operation, but no verified callsite exposes the save queue or per-tick quota; a quota in `Level::tick` would not control native save ordering. |
 | `chunks.prevent-moving-into-unloaded-chunks` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: reads the path in PlayerAuthInput/block-action validation and rejects unloaded targets. |
-| `collisions.allow-player-cramming-damage` | BRIDGE_ONLY | No safe Bedrock cramming-damage decision point is identified. |
+| `collisions.allow-player-cramming-damage` | BRIDGE_ONLY | Bedrock's ActorDamageCause enum has no Cramming value and `ActorBeforeHurtEvent` cannot identify Paper's cramming damage separately from other contact/suffocation effects. |
 | `collisions.allow-vehicle-collisions` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/pushable_by_entity_utility.cpp`: reads the path when only-player collision mode is active. |
-| `collisions.fix-climbing-bypassing-cramming-rule` | BRIDGE_ONLY | No safe Bedrock climbing/cramming decision point is identified. |
+| `collisions.fix-climbing-bypassing-cramming-rule` | BRIDGE_ONLY | Bedrock exposes no cramming rule/climbing bypass decision in the current Actor/Mob headers; the verified push hook runs after pair selection and cannot safely alter climbing-specific damage eligibility. |
 | `collisions.max-entity-collisions` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/pushable_by_entity_utility.cpp`: reads the path and caps per-tick push resolutions. |
 | `collisions.only-players-collide` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/pushable_by_entity_utility.cpp`: reads the path and filters non-player pairs. |
-| `command-blocks.force-follow-perm-level` | BRIDGE_ONLY | No safe Bedrock command-block permission decision point is identified. |
-| `command-blocks.permissions-level` | BRIDGE_ONLY | No safe Bedrock command-block permission decision point is identified. |
-| `entities.armor-stands.do-collision-entity-lookups` | BRIDGE_ONLY | No safe Bedrock armor-stand collision lookup decision point is identified. |
-| `entities.armor-stands.tick` | BRIDGE_ONLY | No safe Bedrock armor-stand ticking decision point is identified. |
-| `entities.behavior.allow-spider-world-border-climbing` | BRIDGE_ONLY | No safe Bedrock spider border-climbing decision point is identified. |
-| `entities.behavior.baby-zombie-movement-modifier` | BRIDGE_ONLY | No safe Bedrock baby-zombie movement decision point is identified. |
-| `entities.behavior.cooldown-failed-beehive-releases` | BRIDGE_ONLY | No safe Bedrock beehive-release decision point is identified. |
-| `entities.behavior.disable-chest-cat-detection` | BRIDGE_ONLY | No safe Bedrock chest-cat decision point is identified. |
+| `command-blocks.force-follow-perm-level` | BRIDGE_ONLY | `CommandOrigin::getPermissionsLevel` is available, but the current `MinecraftCommands::executeCommand` hook routes command-block origins to native execution and has no configured command-block permission override. |
+| `command-blocks.permissions-level` | BRIDGE_ONLY | `CommandOrigin::getPermissionsLevel` is available, but the current `MinecraftCommands::executeCommand` hook routes command-block origins to native execution and has no configured command-block permission override. |
+| `entities.armor-stands.do-collision-entity-lookups` | BRIDGE_ONLY | `ArmorStand::getInteraction` is the only verified armor-stand hook and covers player interaction; no armor-stand collision lookup or tick scheduler decision is exposed. |
+| `entities.armor-stands.tick` | BRIDGE_ONLY | `ArmorStand::getInteraction` is the only verified armor-stand hook and covers player interaction; no armor-stand collision lookup or tick scheduler decision is exposed. |
+| `entities.behavior.allow-spider-world-border-climbing` | BRIDGE_ONLY | No Bedrock Spider AI movement-goal or world-border climbing predicate is exposed; the current push/movement hooks run after AI path selection. |
+| `entities.behavior.baby-zombie-movement-modifier` | BRIDGE_ONLY | No Bedrock baby-zombie movement modifier or mob AI speed decision hook is exposed by the current Mob/Actor headers. |
+| `entities.behavior.cooldown-failed-beehive-releases` | BRIDGE_ONLY | No Bedrock beehive release cooldown scheduler or failure-state hook is exposed; the current actor/block event handlers do not identify hive release retries. |
+| `entities.behavior.disable-chest-cat-detection` | BRIDGE_ONLY | No Bedrock chest-cat detection predicate or cat AI target hook is exposed by the current block/entity headers. |
 | `entities.behavior.disable-creeper-lingering-effect` | BRIDGE_ONLY | Paper gates `Creeper.spawnLingeringCloud`; Bedrock's `ActorAddEffectEvent` handles mob effects but no verified Creeper explosion/cloud-spawn hook exists. |
 | `entities.behavior.disable-player-crits` | BRIDGE_ONLY | Paper checks the critical-hit branch in `LivingEntity`; Bedrock `ActorBeforeHurtEvent` exposes damage cause/value but no verified critical-hit marker or attack-calculation hook. |
-| `entities.behavior.door-breaking-difficulty.vindicator` | BRIDGE_ONLY | No safe Bedrock door-breaking difficulty decision point is identified. |
-| `entities.behavior.door-breaking-difficulty.<entity-type>` | BRIDGE_ONLY | No safe Bedrock door-breaking difficulty decision point is identified. |
-| `entities.behavior.ender-dragons-death-always-places-dragon-egg` | BRIDGE_ONLY | No safe Bedrock dragon-egg decision point is identified. |
+| `entities.behavior.door-breaking-difficulty.vindicator` | BRIDGE_ONLY | No Bedrock entity-specific door-breaking difficulty map or AI door-break decision hook is exposed by the current Mob/BlockType headers. |
+| `entities.behavior.door-breaking-difficulty.<entity-type>` | BRIDGE_ONLY | No Bedrock entity-specific door-breaking difficulty map or AI door-break decision hook is exposed by the current Mob/BlockType headers. |
+| `entities.behavior.ender-dragons-death-always-places-dragon-egg` | BRIDGE_ONLY | No Bedrock Ender Dragon death/egg placement controller or verified death-finalization hook is exposed in the current Actor/Level headers. |
 | `entities.behavior.experience-merge-max-value` | BRIDGE_ONLY | The existing `PlayerGetExperienceOrbEvent` runs at player pickup after orb merging; no verified ExperienceOrb pair/merge function or value cap decision point is available. |
 | `entities.behavior.mobs-can-always-pick-up-loot.skeletons` | BRIDGE_ONLY | `ActorBeforeAcquireItemEvent` is reached only after Bedrock has selected an acquisition attempt; it cannot make skeleton pickup eligibility unconditional without the unverified mob AI decision point. |
 | `entities.behavior.mobs-can-always-pick-up-loot.zombies` | BRIDGE_ONLY | `ActorBeforeAcquireItemEvent` is reached only after Bedrock has selected an acquisition attempt; it cannot make zombie pickup eligibility unconditional without the unverified mob AI decision point. |
@@ -159,11 +159,11 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `entities.behavior.pillager-patrols.spawn-delay.per-player` | BRIDGE_ONLY | Paper changes Pillager patrol scheduler/chance/start conditions; no Bedrock patrol manager or per-player patrol timer hook is verified. |
 | `entities.behavior.pillager-patrols.start.day` | BRIDGE_ONLY | Paper changes Pillager patrol scheduler/chance/start conditions; no Bedrock patrol manager or per-player patrol timer hook is verified. |
 | `entities.behavior.pillager-patrols.start.per-player` | BRIDGE_ONLY | Paper changes Pillager patrol scheduler/chance/start conditions; no Bedrock patrol manager or per-player patrol timer hook is verified. |
-| `entities.behavior.player-insomnia-start-ticks` | BRIDGE_ONLY | No safe Bedrock insomnia decision point is identified. |
-| `entities.behavior.should-remove-dragon` | BRIDGE_ONLY | No safe Bedrock dragon removal decision point is identified. |
-| `entities.behavior.spawner-nerfed-mobs-should-jump` | BRIDGE_ONLY | No safe Bedrock spawner-mob decision point is identified. |
-| `entities.behavior.stuck-entity-poi-retry-delay` | BRIDGE_ONLY | No safe Bedrock POI retry decision point is identified. |
-| `entities.behavior.zombie-villager-infection-chance` | BRIDGE_ONLY | No safe Bedrock infection decision point is identified. |
+| `entities.behavior.player-insomnia-start-ticks` | BRIDGE_ONLY | No Bedrock insomnia tracker or player sleep-duration scheduler is exposed by the current Player/Level headers. |
+| `entities.behavior.should-remove-dragon` | BRIDGE_ONLY | No Bedrock Dragon removal policy or legacy-dragon scan hook is exposed by the current Actor/Level lifecycle; the changeDimension hook is unrelated. |
+| `entities.behavior.spawner-nerfed-mobs-should-jump` | BRIDGE_ONLY | The Bedrock Spawner API is opaque and no verified spawned-mob jump-state or AI initialization hook is exposed for this setting. |
+| `entities.behavior.stuck-entity-poi-retry-delay` | BRIDGE_ONLY | No Bedrock POI retry scheduler or stuck-entity retry delay field is exposed by the current Actor/Dimension headers. |
+| `entities.behavior.zombie-villager-infection-chance` | BRIDGE_ONLY | No Bedrock Zombie Villager conversion/infection chance hook is exposed; `ActorBeforeHurtEvent` and actor effect events occur outside the conversion decision. |
 | `entities.behavior.zombies-target-turtle-eggs` | BRIDGE_ONLY | Paper changes Zombie target-goal registration; no Bedrock Zombie AI target or turtle-egg goal hook is verified. |
 | `entities.entities-target-with-follow-range` | BRIDGE_ONLY | Paper changes target-selector range behavior in entity AI; current Bedrock headers expose no generic target-goal/range scheduler hook. |
 | `entities.markers.tick` | BRIDGE_ONLY | Paper gates marker registration in `ServerLevel.EntityCallbacks.onTickingStart`; no Bedrock entity-tick-list registration hook is exposed, and the current Level tick hook cannot distinguish marker actors from other entities. |
@@ -195,7 +195,7 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `entities.spawning.monster-spawn-max-light-level` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/level.cpp`: reads the numeric path and updates loaded Dimensions' monster block-light limit before ticking. |
 | `entities.spawning.non-player-arrow-despawn-rate` | BRIDGE_ONLY | Bedrock exposes projectile ActorType values but no enabled Arrow/AbstractArrow despawn or invulnerability-tick hook; the current Player pickup hook is downstream of despawn logic. |
 | `entities.spawning.per-player-mob-spawns` | BRIDGE_ONLY | No Bedrock per-player spawn-state map or local mob-cap scheduler is exposed by the current Spawner/ChunkSource headers; the Level tick hook cannot safely introduce one. |
-| `entities.spawning.scan-for-legacy-ender-dragon` | BRIDGE_ONLY | No safe Bedrock dragon scan decision point is identified. |
+| `entities.spawning.scan-for-legacy-ender-dragon` | BRIDGE_ONLY | No Bedrock legacy Ender Dragon scan/repair routine or verified Level-load decision hook is exposed. |
 | `entities.spawning.skeleton-horse-thunder-spawn-chance` | BRIDGE_ONLY | No verified Bedrock Skeleton Horse thunder-spawn probability consumer or thunder spawn scheduler is exposed. |
 | `entities.spawning.slime-spawn-height.slime-chunk.maximum` | BRIDGE_ONLY | No verified Bedrock Slime spawn-height predicate or biome/chunk spawn-condition hook is exposed by the current Spawner/WorldGenerator headers. |
 | `entities.spawning.slime-spawn-height.surface-biome.minimum` | BRIDGE_ONLY | No verified Bedrock Slime spawn-height predicate or biome/chunk spawn-condition hook is exposed by the current Spawner/WorldGenerator headers. |
@@ -232,13 +232,13 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `environment.disable-ice-and-snow` | BRIDGE_ONLY | `src/bedrock/world/level/block/block_type.h` exposes `BlockType::handlePrecipitation`, but the current generated symbol table has no verified implementation entry and the vtable hook would need coverage for every concrete BlockType vtable; the existing WeatherManager hook would incorrectly suppress rain when used as a substitute. |
 | `environment.disable-thunder` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/weather_manager.cpp`: reads the path and zeros lightning level/duration. |
 | `environment.fire-tick-delay` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/fire_block.cpp` contains only an inactive draft; no enabled FireBlock hook or current-version symbol/ABI for the scheduling method is verified. |
-| `environment.frosted-ice.delay.max` | BRIDGE_ONLY | No safe Bedrock frosted-ice delay decision point is identified. |
-| `environment.frosted-ice.delay.min` | BRIDGE_ONLY | No safe Bedrock frosted-ice delay decision point is identified. |
-| `environment.frosted-ice.enabled` | BRIDGE_ONLY | No safe Bedrock frosted-ice decision point is identified. |
-| `environment.generate-flat-bedrock` | BRIDGE_ONLY | No safe Bedrock flat-bedrock generation decision point is identified. |
-| `environment.locate-structures-outside-world-border` | BRIDGE_ONLY | No safe Bedrock structure-location decision point is identified. |
-| `environment.max-block-ticks` | BRIDGE_ONLY | No safe Bedrock block-tick budget decision point is identified. |
-| `environment.max-fluid-ticks` | BRIDGE_ONLY | No safe Bedrock fluid-tick budget decision point is identified. |
+| `environment.frosted-ice.delay.max` | BRIDGE_ONLY | No Bedrock frosted-ice formation block/tick hook or delay provider is exposed; WeatherManager only controls precipitation/lightning levels. |
+| `environment.frosted-ice.delay.min` | BRIDGE_ONLY | No Bedrock frosted-ice formation block/tick hook or delay provider is exposed; WeatherManager only controls precipitation/lightning levels. |
+| `environment.frosted-ice.enabled` | BRIDGE_ONLY | No Bedrock frosted-ice formation block/tick hook or delay provider is exposed; WeatherManager only controls precipitation/lightning levels. |
+| `environment.generate-flat-bedrock` | BRIDGE_ONLY | No Bedrock flat-bedrock generation layer or verified WorldGenerator terrain-fill hook is exposed in this checkout. |
+| `environment.locate-structures-outside-world-border` | BRIDGE_ONLY | No Bedrock structure-locator/world-border query hook is exposed; map/command hooks do not carry the Paper locate-structures outside-border decision. |
+| `environment.max-block-ticks` | BRIDGE_ONLY | `Level::tick` has no verified block-tick queue budget boundary; changing the whole tick would also suppress entities, block entities, fluids, and scheduler work. |
+| `environment.max-fluid-ticks` | BRIDGE_ONLY | `Level::tick` has no verified fluid-tick queue budget boundary; `LiquidBlock::_trySpreadTo` runs after scheduling and cannot safely implement a queue cap. |
 | `environment.nether-ceiling-void-damage-height` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/script_actor_gameplay_handler.cpp`: reads the path to opt Nether ceiling Void damage into the existing hurt path. |
 | `environment.optimize-explosions` | BRIDGE_ONLY | Paper changes `ServerExplosion` block collection; the verified Bedrock `Explosion::explode` hook only records thread-local explosion context for downstream knockback and does not expose a safe collection/optimization switch. |
 | `environment.portal-create-radius` | BRIDGE_ONLY | `ServerPlayer::changeDimension` is the only verified portal-adjacent hook and runs after portal selection; it does not expose Bedrock portal creation/search/scaling validation. |
@@ -261,16 +261,16 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `fixes.split-overstacked-loot` | BRIDGE_ONLY | Paper applies this in `LootTable.createStackSplitter` before item entities are created; the verified Bedrock ItemActor/player pickup hooks are downstream and cannot safely recover the original loot split. |
 | `fixes.tnt-entity-height-nerf` | BRIDGE_ONLY | Paper checks `PrimedTnt`/`MinecartTNT` height during entity tick; no current Bedrock TNT actor tick or height-nerf decision point is exposed. |
 | `hopper.cooldown-when-full` | BRIDGE_ONLY | Bedrock has no HopperBlockActor header or verified hopper tick hook in this checkout; `InventoryTransaction::executeWorldInteraction` covers player drop/pickup transactions, not hopper transfer/cooldown/occlusion decisions. |
-| `hopper.disable-move-event` | BRIDGE_ONLY | No safe Bedrock hopper move-event decision point is identified. |
-| `hopper.ignore-occluding-blocks` | BRIDGE_ONLY | No safe Bedrock hopper occlusion decision point is identified. |
+| `hopper.disable-move-event` | BRIDGE_ONLY | Bedrock has no HopperBlockActor header or verified hopper transfer hook; `InventoryTransaction::executeWorldInteraction` is unrelated to hopper move events. |
+| `hopper.ignore-occluding-blocks` | BRIDGE_ONLY | Bedrock has no HopperBlockActor header or verified hopper occlusion query hook; raw block interaction/transaction hooks cannot safely change hopper container lookup. |
 | `lootables.auto-replenish` | BRIDGE_ONLY | Bedrock's `VanillaBlockActor::eraseLootTable` only removes stored loot-table state; no verified loot-fill/replenish, refill-count, seed, or shulker-break decision hook is exposed. |
 | `lootables.max-refills` | BRIDGE_ONLY | Bedrock's `VanillaBlockActor::eraseLootTable` only removes stored loot-table state; no verified loot-fill/replenish, refill-count, seed, or shulker-break decision hook is exposed. |
 | `lootables.refresh-max` | BRIDGE_ONLY | Bedrock's `VanillaBlockActor::eraseLootTable` only removes stored loot-table state; no verified loot-fill/replenish, refill-count, seed, or shulker-break decision hook is exposed. |
 | `lootables.refresh-min` | BRIDGE_ONLY | Bedrock's `VanillaBlockActor::eraseLootTable` only removes stored loot-table state; no verified loot-fill/replenish, refill-count, seed, or shulker-break decision hook is exposed. |
-| `lootables.reset-seed-on-fill` | BRIDGE_ONLY | No safe Bedrock lootable seed decision point is identified. |
-| `lootables.restrict-player-reloot` | BRIDGE_ONLY | No safe Bedrock reloot decision point is identified. |
-| `lootables.restrict-player-reloot-time` | BRIDGE_ONLY | No safe Bedrock reloot decision point is identified. |
-| `lootables.retain-unlooted-shulker-box-loot-table-on-non-player-break` | BRIDGE_ONLY | No safe Bedrock shulker-loot decision point is identified. |
+| `lootables.reset-seed-on-fill` | BRIDGE_ONLY | Bedrock's `VanillaBlockActor::eraseLootTable` has no seed-reset-on-fill callback; no verified loot fill boundary is exposed. |
+| `lootables.restrict-player-reloot` | BRIDGE_ONLY | Bedrock's loot-table storage declarations expose no player reloot state or refresh timer; no verified lootable open/fill hook exists. |
+| `lootables.restrict-player-reloot-time` | BRIDGE_ONLY | Bedrock's loot-table storage declarations expose no player reloot state or refresh timer; no verified lootable open/fill hook exists. |
+| `lootables.retain-unlooted-shulker-box-loot-table-on-non-player-break` | BRIDGE_ONLY | Bedrock has no verified shulker break/loot retention hook; `VanillaBlockActor::eraseLootTable` is storage erasure only. |
 | `maps.item-frame-cursor-limit` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/batched_network_peer.cpp`: reads the path when serializing visible map cursors. |
 | `maps.item-frame-cursor-update-interval` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/batched_network_peer.cpp`: reads the path for cached frame-cursor updates. |
 | `max-growth-height.bamboo.max` | BRIDGE_ONLY | The only enabled random-tick hook is `LeavesBlock::randomTick`; no generic bamboo/cactus/reeds growth scheduler or height decision hook is verified. |
@@ -282,7 +282,7 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `misc.disable-end-credits` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/server_player.cpp::ServerPlayer::changeDimension` runs after the portal decision and exposes no `seenCredits`/EndPortalBlock state; using it would alter dimension transfer rather than suppressing credits. |
 | `misc.disable-relative-projectile-velocity` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/trident_item.cpp` is a verified trident/riptide hook, but Paper changes the generic projectile shoot path and Bedrock's other projectile item paths are not covered by this hook. |
 | `misc.disable-sprint-interruption-on-attack` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/packet.cpp` exposes sprint input transitions, but no verified attack handler or attacker movement-state decision is present; forcing sprint after damage would affect ordinary sprint toggles. |
-| `misc.legacy-ender-pearl-behavior` | BRIDGE_ONLY | No safe Bedrock Ender Pearl behavior decision point is identified. |
+| `misc.legacy-ender-pearl-behavior` | BRIDGE_ONLY | Paper's legacy pearl behavior is coupled to projectile ticking/owner persistence; Bedrock has no verified EnderPearl actor tick/serialization hook in this source tree. |
 | `misc.max-leash-distance` | BRIDGE_ONLY | Bedrock's Actor header exposes a RopeSystem field but no verified leash-distance check or leash-break decision function for a safe limit override. |
 | `misc.redstone-implementation` | BRIDGE_ONLY | Bedrock exposes only its native `Dimension::tickRedstone`/`CircuitSystem` path; no verified alternate implementation entrypoint or selector is available. |
 | `misc.show-sign-click-command-failure-msgs-to-player` | BRIDGE_ONLY | Paper routes sign commands through `SignBlockEntity` and conditionally forwards command failures; Bedrock's command hook exposes `CommandOriginType` but no verified sign-click command origin or failure-message callback. |
@@ -300,7 +300,7 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `tick-rates.sensor.<entity-type>.<sensor-name>` | BRIDGE_ONLY | Bedrock exposes no generic sensor scheduler or named sensor tick-rate control in the current headers; the Level hook cannot safely target a villager sensor without suppressing unrelated systems. |
 | `tick-rates.wet-farmland` | BRIDGE_ONLY | The current enabled random-tick hook is `LeavesBlock::randomTick`; no generic farmland/grass random-tick function or rate parameter is verified. |
 | `unsupported-settings.disable-world-ticking-when-empty` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/level.cpp`: reads the path and skips native Level ticking when no players are online. |
-| `unsupported-settings.fix-invulnerable-end-crystal-exploit` | BRIDGE_ONLY | No safe Bedrock end-crystal exploit decision point is identified. |
+| `unsupported-settings.fix-invulnerable-end-crystal-exploit` | BRIDGE_ONLY | No Bedrock End Crystal invulnerability/tick or exploit-cleanup hook is exposed; the current explosion and actor event hooks do not identify the crystal-specific state. |
 | `unsupported-settings.ticking.chunks` | BRIDGE_ONLY | `Level::tick` can only skip the native Level tick as a whole; no verified Bedrock switch separates chunk ticking from entities, block entities, fluids, and scheduler work. |
 | `unsupported-settings.ticking.block-entities` | BRIDGE_ONLY | `Level::tick` has no verified block-entity-only boundary; skipping the whole native Level tick would also suppress unrelated world systems and cannot implement this leaf safely. |
 
