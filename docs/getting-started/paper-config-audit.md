@@ -171,35 +171,35 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `entities.mob-effects.spiders-immune-to-poison-effect` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/script_actor_gameplay_handler.cpp`: rejects Poison for spiders when true. |
 | `entities.sniffer.boosted-hatch-time` | BRIDGE_ONLY | Paper changes Sniffer hatch timing in the Sniffer entity tick; no Bedrock Sniffer actor class or hatch scheduler hook is present. |
 | `entities.sniffer.hatch-time` | BRIDGE_ONLY | Paper changes Sniffer hatch timing in the Sniffer entity tick; no Bedrock Sniffer actor class or hatch scheduler hook is present. |
-| `entities.spawning.all-chunks-are-slime-chunks` | BRIDGE_ONLY | No safe Bedrock slime-chunk decision point is identified. |
-| `entities.spawning.alt-item-despawn-rate.enabled` | BRIDGE_ONLY | No safe Bedrock alternate item despawn decision point is identified. |
-| `entities.spawning.alt-item-despawn-rate.items.cobblestone` | BRIDGE_ONLY | No safe Bedrock alternate item despawn decision point is identified. |
-| `entities.spawning.alt-item-despawn-rate.items.<item-type>` | BRIDGE_ONLY | No safe Bedrock alternate item despawn decision point is identified. |
-| `entities.spawning.max-arrow-despawn-invulnerability` | BRIDGE_ONLY | No safe Bedrock arrow despawn decision point is identified. |
-| `entities.spawning.count-all-mobs-for-spawning` | BRIDGE_ONLY | No safe Bedrock mob-count decision point is identified. |
-| `entities.spawning.creative-arrow-despawn-rate` | BRIDGE_ONLY | No safe Bedrock arrow despawn decision point is identified. |
-| `entities.spawning.despawn-range-shape` | BRIDGE_ONLY | No safe Bedrock despawn-shape decision point is identified. |
-| `entities.spawning.despawn-ranges.<mob_category>.hard` | BRIDGE_ONLY | No safe Bedrock despawn-range decision point is identified. |
-| `entities.spawning.despawn-ranges.<mob_category>.soft` | BRIDGE_ONLY | No safe Bedrock despawn-range decision point is identified. |
-| `entities.spawning.despawn-ranges.<mob_category>_.hard.horizontal` | BRIDGE_ONLY | No safe Bedrock despawn-range decision point is identified. |
-| `entities.spawning.despawn-ranges.<mob_category>_.hard.vertical` | BRIDGE_ONLY | No safe Bedrock despawn-range decision point is identified. |
-| `entities.spawning.despawn-ranges.<mob_category>_.soft.horizontal` | BRIDGE_ONLY | No safe Bedrock despawn-range decision point is identified. |
-| `entities.spawning.despawn-ranges.<mob_category>_.soft.vertical` | BRIDGE_ONLY | No safe Bedrock despawn-range decision point is identified. |
-| `entities.spawning.despawn-time.<entity-type>` | BRIDGE_ONLY | No safe Bedrock despawn-time decision point is identified. |
-| `entities.spawning.disable-mob-spawner-spawn-egg-transformation` | BRIDGE_ONLY | No safe Bedrock spawner spawn-egg decision point is identified. |
-| `entities.spawning.duplicate-uuid.mode` | BRIDGE_ONLY | No safe Bedrock duplicate-UUID decision point is identified. |
-| `entities.spawning.duplicate-uuid.safe-regen-delete-range` | BRIDGE_ONLY | No safe Bedrock duplicate-UUID decision point is identified. |
-| `entities.spawning.filter-bad-tile-entity-nbt-from-falling-blocks` | BRIDGE_ONLY | No safe Bedrock falling-block NBT decision point is identified. |
-| `entities.spawning.filtered-entity-tag-nbt-paths` | BRIDGE_ONLY | No safe Bedrock entity-NBT filtering decision point is identified. |
-| `entities.spawning.iron-golems-can-spawn-in-air` | BRIDGE_ONLY | No safe Bedrock iron-golem spawn decision point is identified. |
+| `entities.spawning.all-chunks-are-slime-chunks` | BRIDGE_ONLY | Paper changes `Slime` chunk eligibility; Bedrock exposes no verified slime-chunk calculation hook or spawn-condition override. |
+| `entities.spawning.alt-item-despawn-rate.enabled` | BRIDGE_ONLY | Bedrock's `ItemActor` declares age/lifetime state but no enabled `postNormalTick`/despawn hook; changing alternate despawn values there would require an unverified virtual target. |
+| `entities.spawning.alt-item-despawn-rate.items.cobblestone` | BRIDGE_ONLY | Bedrock's `ItemActor` declares age/lifetime state but no enabled `postNormalTick`/despawn hook; changing alternate despawn values there would require an unverified virtual target. |
+| `entities.spawning.alt-item-despawn-rate.items.<item-type>` | BRIDGE_ONLY | Bedrock's `ItemActor` declares age/lifetime state but no enabled `postNormalTick`/despawn hook; changing alternate despawn values there would require an unverified virtual target. |
+| `entities.spawning.max-arrow-despawn-invulnerability` | BRIDGE_ONLY | Bedrock exposes projectile ActorType values but no enabled Arrow/AbstractArrow despawn or invulnerability-tick hook; the current Player pickup hook is downstream of despawn logic. |
+| `entities.spawning.count-all-mobs-for-spawning` | BRIDGE_ONLY | The Bedrock `Spawner` interface exposes opaque tick/count methods, but no verified concrete mob-count consumer or category scheduler is available for this setting. |
+| `entities.spawning.creative-arrow-despawn-rate` | BRIDGE_ONLY | Bedrock exposes projectile ActorType values but no enabled Arrow/AbstractArrow despawn or invulnerability-tick hook; the current Player pickup hook is downstream of despawn logic. |
+| `entities.spawning.despawn-range-shape` | BRIDGE_ONLY | No generic Bedrock entity despawn scheduler, shape selector, per-category range map, or entity-type lifetime hook is exposed by the current Actor/Level headers. |
+| `entities.spawning.despawn-ranges.<mob_category>.hard` | BRIDGE_ONLY | No generic Bedrock entity despawn scheduler, shape selector, per-category range map, or entity-type lifetime hook is exposed by the current Actor/Level headers. |
+| `entities.spawning.despawn-ranges.<mob_category>.soft` | BRIDGE_ONLY | No generic Bedrock entity despawn scheduler, shape selector, per-category range map, or entity-type lifetime hook is exposed by the current Actor/Level headers. |
+| `entities.spawning.despawn-ranges.<mob_category>_.hard.horizontal` | BRIDGE_ONLY | No generic Bedrock entity despawn scheduler, shape selector, per-category range map, or entity-type lifetime hook is exposed by the current Actor/Level headers. |
+| `entities.spawning.despawn-ranges.<mob_category>_.hard.vertical` | BRIDGE_ONLY | No generic Bedrock entity despawn scheduler, shape selector, per-category range map, or entity-type lifetime hook is exposed by the current Actor/Level headers. |
+| `entities.spawning.despawn-ranges.<mob_category>_.soft.horizontal` | BRIDGE_ONLY | No generic Bedrock entity despawn scheduler, shape selector, per-category range map, or entity-type lifetime hook is exposed by the current Actor/Level headers. |
+| `entities.spawning.despawn-ranges.<mob_category>_.soft.vertical` | BRIDGE_ONLY | No generic Bedrock entity despawn scheduler, shape selector, per-category range map, or entity-type lifetime hook is exposed by the current Actor/Level headers. |
+| `entities.spawning.despawn-time.<entity-type>` | BRIDGE_ONLY | No generic Bedrock entity despawn scheduler, shape selector, per-category range map, or entity-type lifetime hook is exposed by the current Actor/Level headers. |
+| `entities.spawning.disable-mob-spawner-spawn-egg-transformation` | BRIDGE_ONLY | The current Bedrock headers expose opaque Spawner interfaces and no verified mob-spawner spawn-egg transformation function or block-actor hook. |
+| `entities.spawning.duplicate-uuid.mode` | BRIDGE_ONLY | Bedrock's current Actor/Level headers expose no spawn-registry duplicate-UUID validation or safe regen/delete-range decision before entity insertion. |
+| `entities.spawning.duplicate-uuid.safe-regen-delete-range` | BRIDGE_ONLY | Bedrock's current Actor/Level headers expose no spawn-registry duplicate-UUID validation or safe regen/delete-range decision before entity insertion. |
+| `entities.spawning.filter-bad-tile-entity-nbt-from-falling-blocks` | BRIDGE_ONLY | Bedrock exposes no FallingBlock actor/NBT load hook in this checkout; `Item::readUserData` is item data parsing and cannot safely filter falling-block tile/entity tags. |
+| `entities.spawning.filtered-entity-tag-nbt-paths` | BRIDGE_ONLY | No generic Bedrock entity-NBT sanitization boundary is exposed; the existing Actor/item serialization hooks do not carry the configured path list or entity-type context. |
+| `entities.spawning.iron-golems-can-spawn-in-air` | BRIDGE_ONLY | No verified Bedrock Iron Golem spawn-condition function or air-support predicate is exposed by the current Spawner/Actor headers. |
 | `entities.spawning.monster-spawn-max-light-level` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/level.cpp`: reads the numeric path and updates loaded Dimensions' monster block-light limit before ticking. |
-| `entities.spawning.non-player-arrow-despawn-rate` | BRIDGE_ONLY | No safe Bedrock arrow despawn decision point is identified. |
-| `entities.spawning.per-player-mob-spawns` | BRIDGE_ONLY | No safe Bedrock per-player spawn decision point is identified. |
+| `entities.spawning.non-player-arrow-despawn-rate` | BRIDGE_ONLY | Bedrock exposes projectile ActorType values but no enabled Arrow/AbstractArrow despawn or invulnerability-tick hook; the current Player pickup hook is downstream of despawn logic. |
+| `entities.spawning.per-player-mob-spawns` | BRIDGE_ONLY | No Bedrock per-player spawn-state map or local mob-cap scheduler is exposed by the current Spawner/ChunkSource headers; the Level tick hook cannot safely introduce one. |
 | `entities.spawning.scan-for-legacy-ender-dragon` | BRIDGE_ONLY | No safe Bedrock dragon scan decision point is identified. |
-| `entities.spawning.skeleton-horse-thunder-spawn-chance` | BRIDGE_ONLY | No safe Bedrock skeleton-horse spawn decision point is identified. |
-| `entities.spawning.slime-spawn-height.slime-chunk.maximum` | BRIDGE_ONLY | No safe Bedrock slime-height decision point is identified. |
-| `entities.spawning.slime-spawn-height.surface-biome.minimum` | BRIDGE_ONLY | No safe Bedrock slime-height decision point is identified. |
-| `entities.spawning.slime-spawn-height.surface-biome.maximum` | BRIDGE_ONLY | No safe Bedrock slime-height decision point is identified. |
+| `entities.spawning.skeleton-horse-thunder-spawn-chance` | BRIDGE_ONLY | No verified Bedrock Skeleton Horse thunder-spawn probability consumer or thunder spawn scheduler is exposed. |
+| `entities.spawning.slime-spawn-height.slime-chunk.maximum` | BRIDGE_ONLY | No verified Bedrock Slime spawn-height predicate or biome/chunk spawn-condition hook is exposed by the current Spawner/WorldGenerator headers. |
+| `entities.spawning.slime-spawn-height.surface-biome.minimum` | BRIDGE_ONLY | No verified Bedrock Slime spawn-height predicate or biome/chunk spawn-condition hook is exposed by the current Spawner/WorldGenerator headers. |
+| `entities.spawning.slime-spawn-height.surface-biome.maximum` | BRIDGE_ONLY | No verified Bedrock Slime spawn-height predicate or biome/chunk spawn-condition hook is exposed by the current Spawner/WorldGenerator headers. |
 | `entities.spawning.spawn-limits.ambient` | BRIDGE_ONLY | `src/bedrock/world/level/dimension/dimension.h` exposes private `mobs_per_chunk_*` arrays without category accessors, while the confirmed 1.26.40 spawn candidate functions are not tick/count consumers; mapping this value would guess Bedrock spawn accounting. |
 | `entities.spawning.spawn-limits.axolotls` | BRIDGE_ONLY | `src/bedrock/world/level/dimension/dimension.h` exposes private `mobs_per_chunk_*` arrays without category accessors, while the confirmed 1.26.40 spawn candidate functions are not tick/count consumers; mapping this value would guess Bedrock spawn accounting. |
 | `entities.spawning.spawn-limits.creature` | BRIDGE_ONLY | `src/bedrock/world/level/dimension/dimension.h` exposes private `mobs_per_chunk_*` arrays without category accessors, while the confirmed 1.26.40 spawn candidate functions are not tick/count consumers; mapping this value would guess Bedrock spawn accounting. |
@@ -207,20 +207,20 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `entities.spawning.spawn-limits.underground_water_creature` | BRIDGE_ONLY | `src/bedrock/world/level/dimension/dimension.h` exposes private `mobs_per_chunk_*` arrays without category accessors, while the confirmed 1.26.40 spawn candidate functions are not tick/count consumers; mapping this value would guess Bedrock spawn accounting. |
 | `entities.spawning.spawn-limits.water_ambient` | BRIDGE_ONLY | `src/bedrock/world/level/dimension/dimension.h` exposes private `mobs_per_chunk_*` arrays without category accessors, while the confirmed 1.26.40 spawn candidate functions are not tick/count consumers; mapping this value would guess Bedrock spawn accounting. |
 | `entities.spawning.spawn-limits.water_creature` | BRIDGE_ONLY | `src/bedrock/world/level/dimension/dimension.h` exposes private `mobs_per_chunk_*` arrays without category accessors, while the confirmed 1.26.40 spawn candidate functions are not tick/count consumers; mapping this value would guess Bedrock spawn accounting. |
-| `entities.spawning.ticks-per-spawn.ambient` | BRIDGE_ONLY | No safe Bedrock spawn-tick decision point is identified. |
-| `entities.spawning.ticks-per-spawn.axolotls` | BRIDGE_ONLY | No safe Bedrock spawn-tick decision point is identified. |
-| `entities.spawning.ticks-per-spawn.creature` | BRIDGE_ONLY | No safe Bedrock spawn-tick decision point is identified. |
-| `entities.spawning.ticks-per-spawn.monster` | BRIDGE_ONLY | No safe Bedrock spawn-tick decision point is identified. |
-| `entities.spawning.ticks-per-spawn.underground_water_creature` | BRIDGE_ONLY | No safe Bedrock spawn-tick decision point is identified. |
-| `entities.spawning.ticks-per-spawn.water_ambient` | BRIDGE_ONLY | No safe Bedrock spawn-tick decision point is identified. |
-| `entities.spawning.ticks-per-spawn.water_creature` | BRIDGE_ONLY | No safe Bedrock spawn-tick decision point is identified. |
-| `entities.spawning.wandering-trader.spawn-chance-failure-increment` | BRIDGE_ONLY | No safe Bedrock wandering-trader decision point is identified. |
-| `entities.spawning.wandering-trader.spawn-chance-max` | BRIDGE_ONLY | No safe Bedrock wandering-trader decision point is identified. |
-| `entities.spawning.wandering-trader.spawn-chance-min` | BRIDGE_ONLY | No safe Bedrock wandering-trader decision point is identified. |
-| `entities.spawning.wandering-trader.spawn-day-length` | BRIDGE_ONLY | No safe Bedrock wandering-trader decision point is identified. |
-| `entities.spawning.wandering-trader.spawn-minute-length` | BRIDGE_ONLY | No safe Bedrock wandering-trader decision point is identified. |
-| `entities.spawning.wateranimal-spawn-height.maximum` | BRIDGE_ONLY | No safe Bedrock water-animal spawn-height decision point is identified. |
-| `entities.spawning.wateranimal-spawn-height.minimum` | BRIDGE_ONLY | No safe Bedrock water-animal spawn-height decision point is identified. |
+| `entities.spawning.ticks-per-spawn.ambient` | BRIDGE_ONLY | The Bedrock `Spawner` interface exposes opaque tick/count methods, but no verified concrete category scheduler or per-category interval consumer is available. |
+| `entities.spawning.ticks-per-spawn.axolotls` | BRIDGE_ONLY | The Bedrock `Spawner` interface exposes opaque tick/count methods, but no verified concrete category scheduler or per-category interval consumer is available. |
+| `entities.spawning.ticks-per-spawn.creature` | BRIDGE_ONLY | The Bedrock `Spawner` interface exposes opaque tick/count methods, but no verified concrete category scheduler or per-category interval consumer is available. |
+| `entities.spawning.ticks-per-spawn.monster` | BRIDGE_ONLY | The Bedrock `Spawner` interface exposes opaque tick/count methods, but no verified concrete category scheduler or per-category interval consumer is available. |
+| `entities.spawning.ticks-per-spawn.underground_water_creature` | BRIDGE_ONLY | The Bedrock `Spawner` interface exposes opaque tick/count methods, but no verified concrete category scheduler or per-category interval consumer is available. |
+| `entities.spawning.ticks-per-spawn.water_ambient` | BRIDGE_ONLY | The Bedrock `Spawner` interface exposes opaque tick/count methods, but no verified concrete category scheduler or per-category interval consumer is available. |
+| `entities.spawning.ticks-per-spawn.water_creature` | BRIDGE_ONLY | The Bedrock `Spawner` interface exposes opaque tick/count methods, but no verified concrete category scheduler or per-category interval consumer is available. |
+| `entities.spawning.wandering-trader.spawn-chance-failure-increment` | BRIDGE_ONLY | No verified Bedrock Wandering Trader spawn controller, failure counter, or day/minute schedule hook is exposed. |
+| `entities.spawning.wandering-trader.spawn-chance-max` | BRIDGE_ONLY | No verified Bedrock Wandering Trader spawn controller, failure counter, or day/minute schedule hook is exposed. |
+| `entities.spawning.wandering-trader.spawn-chance-min` | BRIDGE_ONLY | No verified Bedrock Wandering Trader spawn controller, failure counter, or day/minute schedule hook is exposed. |
+| `entities.spawning.wandering-trader.spawn-day-length` | BRIDGE_ONLY | No verified Bedrock Wandering Trader spawn controller, failure counter, or day/minute schedule hook is exposed. |
+| `entities.spawning.wandering-trader.spawn-minute-length` | BRIDGE_ONLY | No verified Bedrock Wandering Trader spawn controller, failure counter, or day/minute schedule hook is exposed. |
+| `entities.spawning.wateranimal-spawn-height.maximum` | BRIDGE_ONLY | No verified Bedrock water-animal spawn-height predicate or category-specific spawn-condition hook is exposed by the current Spawner/WorldGenerator headers. |
+| `entities.spawning.wateranimal-spawn-height.minimum` | BRIDGE_ONLY | No verified Bedrock water-animal spawn-height predicate or category-specific spawn-condition hook is exposed by the current Spawner/WorldGenerator headers. |
 | `entities.tracking-range-y.animal` | BRIDGE_ONLY | `Dimension::sendPacketForEntity` is a direct packet-send API, not the entity-tracking selection/update-distance decision; no current tracking manager hook or verified per-category range consumer is exposed. |
 | `entities.tracking-range-y.display` | BRIDGE_ONLY | `Dimension::sendPacketForEntity` is a direct packet-send API, not the entity-tracking selection/update-distance decision; no current tracking manager hook or verified per-category range consumer is exposed. |
 | `entities.tracking-range-y.enabled` | BRIDGE_ONLY | `Dimension::sendPacketForEntity` is a direct packet-send API, not the entity-tracking selection/update-distance decision; no current tracking manager hook or verified per-category range consumer is exposed. |
