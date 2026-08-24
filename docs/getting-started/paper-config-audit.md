@@ -49,7 +49,7 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `messages.kick.flying-player` | BRIDGE_ONLY | No safe Bedrock flying-player message decision point is identified. |
 | `messages.kick.flying-vehicle` | BRIDGE_ONLY | No safe Bedrock flying-vehicle message decision point is identified. |
 | `messages.no-permission` | IMPLEMENTED | `src/endstone/core/message.cpp`: reads `paper.global.messages.no-permission` for command sender error messages. |
-| `messages.use-display-name-in-quit-message` | BRIDGE_ONLY | No safe Bedrock quit-message formatting decision point is identified. |
+| `messages.use-display-name-in-quit-message` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/script_player_gameplay_handler.cpp`: reads the setting in the existing PlayerDisconnectEvent path and uses a non-empty player name tag as the quit-message name. |
 | `misc.catchup-ticks` | BRIDGE_ONLY | No safe Bedrock catch-up tick policy decision point is identified. |
 | `misc.chat-threads.chat-executor-core-size` | BRIDGE_ONLY | No safe Bedrock chat executor sizing decision point is identified. |
 | `misc.chat-threads.chat-executor-max-size` | BRIDGE_ONLY | No safe Bedrock chat executor sizing decision point is identified. |
@@ -316,4 +316,4 @@ Validation performed for this audit:
 4. Classified a leaf as `IMPLEMENTED` only when a source read of its exact TOML path reaches a concrete runtime decision point; all remaining leaves have an explicit concrete no-safe-decision-point statement.
 5. Confirmed that no C++ or configuration source was modified; this audit is documentation-only.
 
-Expected audit statistics: **288 leaves**, **33 IMPLEMENTED**, **255 BRIDGE_ONLY**, with **93 global + 195 world-default schema leaves** and **3 documentation/metadata leaves excluded**. The active implementation set is intentionally narrow and matches the runtime behavior table in `configuration.md`; synchronization alone is not treated as implementation.
+Expected audit statistics: **288 leaves**, **34 IMPLEMENTED**, **254 BRIDGE_ONLY**, with **93 global + 195 world-default schema leaves** and **3 documentation/metadata leaves excluded**. The active implementation set is intentionally narrow and matches the runtime behavior table in `configuration.md`; synchronization alone is not treated as implementation.

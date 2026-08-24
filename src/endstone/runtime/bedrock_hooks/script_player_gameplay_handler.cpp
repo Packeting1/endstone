@@ -89,8 +89,13 @@ bool handleEvent(const PlayerDisconnectEvent &event)
         const auto &server = endstone::core::EndstoneServer::getInstance();
         auto endstone_player = player->getEndstoneActor<endstone::core::EndstonePlayer>();
 
-        endstone::Message quit_message = endstone::Translatable{
-            endstone::ColorFormat::Yellow + "%multiplayer.player.left", {endstone_player->getName()}};
+        const auto use_display_name =
+            server.getConfig().getBool("paper.global.messages.use-display-name-in-quit-message", false);
+        const auto quit_name = use_display_name && !endstone_player->getNameTag().empty()
+                                 ? endstone_player->getNameTag()
+                                 : endstone_player->getName();
+        endstone::Message quit_message =
+            endstone::Translatable{endstone::ColorFormat::Yellow + "%multiplayer.player.left", {quit_name}};
         endstone::PlayerQuitEvent e{endstone_player, quit_message};
         server.getPluginManager().callEvent(e);
         endstone_player->disconnect();
