@@ -14,6 +14,7 @@ from endstone.cli.paper_config import (
 )
 
 PACKAGE = Path(__file__).parents[1] / "endstone" / "config"
+AUDIT = Path(__file__).parents[1] / "docs" / "getting-started" / "paper-config-audit.md"
 
 
 def leaf_count(value):
@@ -251,3 +252,11 @@ def test_prepare_migrates_legacy_names_and_removes_empty_directory(tmp_path):
     assert not legacy.exists()
     value = yaml.safe_load((tmp_path / "config/endstone-global.yml").read_text(encoding="utf-8"))
     assert value["misc"]["max-joins-per-tick"] == 77
+
+
+def test_paper_audit_covers_all_leaves_with_concrete_evidence():
+    text = AUDIT.read_text(encoding="utf-8")
+    rows = [line for line in text.splitlines() if line.startswith("| `")]
+    assert len(rows) == 288
+    assert sum("| IMPLEMENTED |" in line for line in rows) == 36
+    assert "No safe Bedrock" not in text
