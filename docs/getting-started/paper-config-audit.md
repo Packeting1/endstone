@@ -316,4 +316,4 @@ Validation performed for this audit:
 4. Classified a leaf as `IMPLEMENTED` only when a source read of its exact TOML path reaches a concrete runtime decision point; all remaining leaves have an explicit concrete no-safe-decision-point statement.
 5. Confirmed that no C++ or configuration source was modified; this audit is documentation-only.
 
-Expected audit statistics: **288 leaves**, **30 IMPLEMENTED**, **258 BRIDGE_ONLY**, with **93 global + 195 world-default schema leaves** and **3 documentation/metadata leaves excluded**. The active implementation set is intentionally narrow and matches the runtime behavior table in `configuration.md`; synchronization alone is not treated as implementation.
+Expected audit statistics: **288 leaves**, **33 IMPLEMENTED**, **255 BRIDGE_ONLY**, with **93 global + 195 world-default schema leaves** and **3 documentation/metadata leaves excluded**. The active implementation set is intentionally narrow and matches the runtime behavior table in `configuration.md`; synchronization alone is not treated as implementation.
