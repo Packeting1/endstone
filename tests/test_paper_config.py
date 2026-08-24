@@ -263,4 +263,5 @@ def test_paper_audit_covers_all_leaves_with_concrete_evidence():
     global_section, world_section = text.split("## World defaults — 195 schema leaves", 1)
     assert sum(line.startswith("| `") for line in global_section.splitlines()) == 93
     assert sum(line.startswith("| `") for line in world_section.splitlines()) == 195
-    assert "No safe Bedrock" not in text
+    assert all(len(line.split("|")) >= 4 and line.split("|")[-2].strip() for line in rows)
+    assert "no safe bedrock" not in text.lower()
