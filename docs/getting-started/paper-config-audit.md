@@ -200,13 +200,13 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `entities.spawning.slime-spawn-height.slime-chunk.maximum` | BRIDGE_ONLY | No safe Bedrock slime-height decision point is identified. |
 | `entities.spawning.slime-spawn-height.surface-biome.minimum` | BRIDGE_ONLY | No safe Bedrock slime-height decision point is identified. |
 | `entities.spawning.slime-spawn-height.surface-biome.maximum` | BRIDGE_ONLY | No safe Bedrock slime-height decision point is identified. |
-| `entities.spawning.spawn-limits.ambient` | BRIDGE_ONLY | No safe Bedrock spawn-limit decision point is identified. |
-| `entities.spawning.spawn-limits.axolotls` | BRIDGE_ONLY | No safe Bedrock spawn-limit decision point is identified. |
-| `entities.spawning.spawn-limits.creature` | BRIDGE_ONLY | No safe Bedrock spawn-limit decision point is identified. |
-| `entities.spawning.spawn-limits.monster` | BRIDGE_ONLY | No safe Bedrock spawn-limit decision point is identified. |
-| `entities.spawning.spawn-limits.underground_water_creature` | BRIDGE_ONLY | No safe Bedrock spawn-limit decision point is identified. |
-| `entities.spawning.spawn-limits.water_ambient` | BRIDGE_ONLY | No safe Bedrock spawn-limit decision point is identified. |
-| `entities.spawning.spawn-limits.water_creature` | BRIDGE_ONLY | No safe Bedrock spawn-limit decision point is identified. |
+| `entities.spawning.spawn-limits.ambient` | BRIDGE_ONLY | `src/bedrock/world/level/dimension/dimension.h` exposes private `mobs_per_chunk_*` arrays without category accessors, while the confirmed 1.26.40 spawn candidate functions are not tick/count consumers; mapping this value would guess Bedrock spawn accounting. |
+| `entities.spawning.spawn-limits.axolotls` | BRIDGE_ONLY | `src/bedrock/world/level/dimension/dimension.h` exposes private `mobs_per_chunk_*` arrays without category accessors, while the confirmed 1.26.40 spawn candidate functions are not tick/count consumers; mapping this value would guess Bedrock spawn accounting. |
+| `entities.spawning.spawn-limits.creature` | BRIDGE_ONLY | `src/bedrock/world/level/dimension/dimension.h` exposes private `mobs_per_chunk_*` arrays without category accessors, while the confirmed 1.26.40 spawn candidate functions are not tick/count consumers; mapping this value would guess Bedrock spawn accounting. |
+| `entities.spawning.spawn-limits.monster` | BRIDGE_ONLY | `src/bedrock/world/level/dimension/dimension.h` exposes private `mobs_per_chunk_*` arrays without category accessors, while the confirmed 1.26.40 spawn candidate functions are not tick/count consumers; mapping this value would guess Bedrock spawn accounting. |
+| `entities.spawning.spawn-limits.underground_water_creature` | BRIDGE_ONLY | `src/bedrock/world/level/dimension/dimension.h` exposes private `mobs_per_chunk_*` arrays without category accessors, while the confirmed 1.26.40 spawn candidate functions are not tick/count consumers; mapping this value would guess Bedrock spawn accounting. |
+| `entities.spawning.spawn-limits.water_ambient` | BRIDGE_ONLY | `src/bedrock/world/level/dimension/dimension.h` exposes private `mobs_per_chunk_*` arrays without category accessors, while the confirmed 1.26.40 spawn candidate functions are not tick/count consumers; mapping this value would guess Bedrock spawn accounting. |
+| `entities.spawning.spawn-limits.water_creature` | BRIDGE_ONLY | `src/bedrock/world/level/dimension/dimension.h` exposes private `mobs_per_chunk_*` arrays without category accessors, while the confirmed 1.26.40 spawn candidate functions are not tick/count consumers; mapping this value would guess Bedrock spawn accounting. |
 | `entities.spawning.ticks-per-spawn.ambient` | BRIDGE_ONLY | No safe Bedrock spawn-tick decision point is identified. |
 | `entities.spawning.ticks-per-spawn.axolotls` | BRIDGE_ONLY | No safe Bedrock spawn-tick decision point is identified. |
 | `entities.spawning.ticks-per-spawn.creature` | BRIDGE_ONLY | No safe Bedrock spawn-tick decision point is identified. |
@@ -229,9 +229,9 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `entities.tracking-range-y.other` | BRIDGE_ONLY | No safe Bedrock tracking-range decision point is identified. |
 | `entities.tracking-range-y.player` | BRIDGE_ONLY | No safe Bedrock tracking-range decision point is identified. |
 | `environment.disable-explosion-knockback` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/mob.cpp`: reads the path and suppresses explosion-synchronous knockback. |
-| `environment.disable-ice-and-snow` | BRIDGE_ONLY | No safe Bedrock ice-and-snow decision point is identified. |
+| `environment.disable-ice-and-snow` | BRIDGE_ONLY | `src/bedrock/world/level/block/block_type.h` exposes `BlockType::handlePrecipitation`, but the current generated symbol table has no verified implementation entry and the vtable hook would need coverage for every concrete BlockType vtable; the existing WeatherManager hook would incorrectly suppress rain when used as a substitute. |
 | `environment.disable-thunder` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/weather_manager.cpp`: reads the path and zeros lightning level/duration. |
-| `environment.fire-tick-delay` | BRIDGE_ONLY | No safe Bedrock fire tick decision point is identified. |
+| `environment.fire-tick-delay` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/fire_block.cpp` contains only an inactive draft; no enabled FireBlock hook or current-version symbol/ABI for the scheduling method is verified. |
 | `environment.frosted-ice.delay.max` | BRIDGE_ONLY | No safe Bedrock frosted-ice delay decision point is identified. |
 | `environment.frosted-ice.delay.min` | BRIDGE_ONLY | No safe Bedrock frosted-ice delay decision point is identified. |
 | `environment.frosted-ice.enabled` | BRIDGE_ONLY | No safe Bedrock frosted-ice decision point is identified. |
@@ -249,7 +249,7 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `environment.treasure-maps.find-already-discovered.villager-trade` | BRIDGE_ONLY | No safe Bedrock treasure-map decision point is identified. |
 | `environment.void-damage-amount` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/script_actor_gameplay_handler.cpp`: reads the path and supplies the configured Void damage to the existing hurt path. |
 | `environment.void-damage-min-build-height-offset` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/script_actor_gameplay_handler.cpp`: reads the path to suppress native Void hurt at/above the configured offset. |
-| `environment.water-over-lava-flow-speed` | BRIDGE_ONLY | No safe Bedrock fluid-flow decision point is identified. |
+| `environment.water-over-lava-flow-speed` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/liquid_block.cpp::_trySpreadTo` runs the spread body after a fluid tick has already been scheduled; it is not the verified on-place/update-shape scheduling decision required to change water-over-lava flow speed. |
 | `feature-seeds.generate-random-seeds-for-all` | BRIDGE_ONLY | No safe Bedrock feature-seed generation decision point is identified. |
 | `feature-seeds.<feature-namespace>` | BRIDGE_ONLY | No safe Bedrock feature-seed decision point is identified. |
 | `fishing-time-range.maximum` | BRIDGE_ONLY | No safe Bedrock fishing timing decision point is identified. |
@@ -279,9 +279,9 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `max-growth-height.reeds` | BRIDGE_ONLY | No safe Bedrock reeds growth-height decision point is identified. |
 | `misc.allow-remote-ender-dragon-respawning` | BRIDGE_ONLY | No safe Bedrock dragon-respawn decision point is identified. |
 | `misc.alternate-current-update-order` | BRIDGE_ONLY | No safe Bedrock redstone decision point is identified. |
-| `misc.disable-end-credits` | BRIDGE_ONLY | No safe Bedrock end-credits decision point is identified. |
-| `misc.disable-relative-projectile-velocity` | BRIDGE_ONLY | No safe Bedrock projectile-velocity decision point is identified. |
-| `misc.disable-sprint-interruption-on-attack` | BRIDGE_ONLY | No safe Bedrock sprint interruption decision point is identified. |
+| `misc.disable-end-credits` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/server_player.cpp::ServerPlayer::changeDimension` runs after the portal decision and exposes no `seenCredits`/EndPortalBlock state; using it would alter dimension transfer rather than suppressing credits. |
+| `misc.disable-relative-projectile-velocity` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/trident_item.cpp` is a verified trident/riptide hook, but Paper changes the generic projectile shoot path and Bedrock's other projectile item paths are not covered by this hook. |
+| `misc.disable-sprint-interruption-on-attack` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/packet.cpp` exposes sprint input transitions, but no verified attack handler or attacker movement-state decision is present; forcing sprint after damage would affect ordinary sprint toggles. |
 | `misc.legacy-ender-pearl-behavior` | BRIDGE_ONLY | No safe Bedrock Ender Pearl behavior decision point is identified. |
 | `misc.max-leash-distance` | BRIDGE_ONLY | No safe Bedrock leash-distance decision point is identified. |
 | `misc.redstone-implementation` | BRIDGE_ONLY | No safe Bedrock redstone implementation decision point is identified. |
@@ -295,7 +295,7 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `tick-rates.container-update` | BRIDGE_ONLY | No safe Bedrock container tick-rate decision point is identified. |
 | `tick-rates.dry-farmland` | BRIDGE_ONLY | No safe Bedrock farmland tick-rate decision point is identified. |
 | `tick-rates.grass-spread` | BRIDGE_ONLY | No safe Bedrock grass tick-rate decision point is identified. |
-| `tick-rates.mob-spawner` | BRIDGE_ONLY | No safe Bedrock mob-spawner tick-rate decision point is identified. |
+| `tick-rates.mob-spawner` | BRIDGE_ONLY | `src/bedrock/world/level/spawner.h` exposes opaque `tick`, `tickMobCount`, and `spawnForChunk` virtual declarations, but no concrete 1.26.40 function pointer or current-version hook target was verified. |
 | `tick-rates.sensor.villager.secondarypoisensor` | BRIDGE_ONLY | No safe Bedrock sensor tick-rate decision point is identified. |
 | `tick-rates.sensor.<entity-type>.<sensor-name>` | BRIDGE_ONLY | No safe Bedrock sensor tick-rate decision point is identified. |
 | `tick-rates.wet-farmland` | BRIDGE_ONLY | No safe Bedrock farmland tick-rate decision point is identified. |
@@ -314,6 +314,6 @@ Validation performed for this audit:
 2. Flattened each YAML mapping into dot paths, retaining placeholder leaves and excluding the two inline-doc metadata leaves plus the documentation-only packet-limiter header.
 3. Reconciled the flattened inventory to the documented totals: **93 global**, **195 world-default schema leaves**, **288 total**.
 4. Classified a leaf as `IMPLEMENTED` only when a source read of its exact TOML path reaches a concrete runtime decision point; all remaining leaves have an explicit concrete no-safe-decision-point statement.
-5. Confirmed that no C++ or configuration source was modified; this audit is documentation-only.
+5. Confirmed that this audit update did not modify C++ or configuration sources; implementation changes are recorded separately in the runtime behavior table and their commits.
 
 Expected audit statistics: **288 leaves**, **36 IMPLEMENTED**, **252 BRIDGE_ONLY**, with **93 global + 195 world-default schema leaves** and **3 documentation/metadata leaves excluded**. The active implementation set is intentionally narrow and matches the runtime behavior table in `configuration.md`; synchronization alone is not treated as implementation.
