@@ -116,13 +116,13 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `anticheat.anti-xray.replacement-blocks` | BRIDGE_ONLY | No safe Bedrock anti-xray decision point is identified. |
 | `anticheat.anti-xray.update-radius` | BRIDGE_ONLY | No safe Bedrock anti-xray decision point is identified. |
 | `anticheat.anti-xray.use-permission` | BRIDGE_ONLY | No safe Bedrock anti-xray decision point is identified. |
-| `chunks.auto-save-interval` | BRIDGE_ONLY | No safe Bedrock chunk auto-save decision point is identified. |
-| `chunks.delay-chunk-unloads-by` | BRIDGE_ONLY | No safe Bedrock chunk-unload delay decision point is identified. |
-| `chunks.entity-per-chunk-save-limit.experience_orb` | BRIDGE_ONLY | No safe Bedrock per-entity chunk-save decision point is identified. |
-| `chunks.entity-per-chunk-save-limit.<entity-type>` | BRIDGE_ONLY | No safe Bedrock per-entity chunk-save decision point is identified. |
+| `chunks.auto-save-interval` | BRIDGE_ONLY | `src/bedrock/world/level/chunk/chunk_source.h` exposes `saveLiveChunk`, but the current Level hook has no verified save scheduler or current-version ChunkSource vtable target to change the interval safely. |
+| `chunks.delay-chunk-unloads-by` | BRIDGE_ONLY | `ChunkSource` exposes discard/shutdown operations but no confirmed unload-delay scheduler or per-chunk timestamp decision; changing shutdown/discard directly would risk storage lifecycle corruption. |
+| `chunks.entity-per-chunk-save-limit.experience_orb` | BRIDGE_ONLY | The available ExperienceOrb adapter/type records do not expose the ChunkSource entity serialization path or a per-chunk save list; limiting at pickup/merge time would change gameplay rather than save data. |
+| `chunks.entity-per-chunk-save-limit.<entity-type>` | BRIDGE_ONLY | The available ExperienceOrb adapter/type records do not expose the ChunkSource entity serialization path or a per-chunk save list; limiting at pickup/merge time would change gameplay rather than save data. |
 | `chunks.fixed-chunk-inhabited-time` | BRIDGE_ONLY | No safe Bedrock inhabited-time decision point is identified. |
-| `chunks.flush-regions-on-save` | BRIDGE_ONLY | No safe Bedrock region flush decision point is identified. |
-| `chunks.max-auto-save-chunks-per-tick` | BRIDGE_ONLY | No safe Bedrock chunk-save budget decision point is identified. |
+| `chunks.flush-regions-on-save` | BRIDGE_ONLY | `ChunkSource` exposes `flushPendingDiscardedChunkWrites` and `flushThreadBatch`, but neither is a verified region-file flush policy hook and their call ordering is not established for a safe boolean override. |
+| `chunks.max-auto-save-chunks-per-tick` | BRIDGE_ONLY | `ChunkSource::saveLiveChunk` is the nearest declared operation, but no verified callsite exposes the save queue or per-tick quota; a quota in `Level::tick` would not control native save ordering. |
 | `chunks.prevent-moving-into-unloaded-chunks` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: reads the path in PlayerAuthInput/block-action validation and rejects unloaded targets. |
 | `collisions.allow-player-cramming-damage` | BRIDGE_ONLY | No safe Bedrock cramming-damage decision point is identified. |
 | `collisions.allow-vehicle-collisions` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/pushable_by_entity_utility.cpp`: reads the path when only-player collision mode is active. |
@@ -221,13 +221,13 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `entities.spawning.wandering-trader.spawn-minute-length` | BRIDGE_ONLY | No safe Bedrock wandering-trader decision point is identified. |
 | `entities.spawning.wateranimal-spawn-height.maximum` | BRIDGE_ONLY | No safe Bedrock water-animal spawn-height decision point is identified. |
 | `entities.spawning.wateranimal-spawn-height.minimum` | BRIDGE_ONLY | No safe Bedrock water-animal spawn-height decision point is identified. |
-| `entities.tracking-range-y.animal` | BRIDGE_ONLY | No safe Bedrock tracking-range decision point is identified. |
-| `entities.tracking-range-y.display` | BRIDGE_ONLY | No safe Bedrock tracking-range decision point is identified. |
-| `entities.tracking-range-y.enabled` | BRIDGE_ONLY | No safe Bedrock tracking-range decision point is identified. |
-| `entities.tracking-range-y.misc` | BRIDGE_ONLY | No safe Bedrock tracking-range decision point is identified. |
-| `entities.tracking-range-y.monster` | BRIDGE_ONLY | No safe Bedrock tracking-range decision point is identified. |
-| `entities.tracking-range-y.other` | BRIDGE_ONLY | No safe Bedrock tracking-range decision point is identified. |
-| `entities.tracking-range-y.player` | BRIDGE_ONLY | No safe Bedrock tracking-range decision point is identified. |
+| `entities.tracking-range-y.animal` | BRIDGE_ONLY | `Dimension::sendPacketForEntity` is a direct packet-send API, not the entity-tracking selection/update-distance decision; no current tracking manager hook or verified per-category range consumer is exposed. |
+| `entities.tracking-range-y.display` | BRIDGE_ONLY | `Dimension::sendPacketForEntity` is a direct packet-send API, not the entity-tracking selection/update-distance decision; no current tracking manager hook or verified per-category range consumer is exposed. |
+| `entities.tracking-range-y.enabled` | BRIDGE_ONLY | `Dimension::sendPacketForEntity` is a direct packet-send API, not the entity-tracking selection/update-distance decision; no current tracking manager hook or verified per-category range consumer is exposed. |
+| `entities.tracking-range-y.misc` | BRIDGE_ONLY | `Dimension::sendPacketForEntity` is a direct packet-send API, not the entity-tracking selection/update-distance decision; no current tracking manager hook or verified per-category range consumer is exposed. |
+| `entities.tracking-range-y.monster` | BRIDGE_ONLY | `Dimension::sendPacketForEntity` is a direct packet-send API, not the entity-tracking selection/update-distance decision; no current tracking manager hook or verified per-category range consumer is exposed. |
+| `entities.tracking-range-y.other` | BRIDGE_ONLY | `Dimension::sendPacketForEntity` is a direct packet-send API, not the entity-tracking selection/update-distance decision; no current tracking manager hook or verified per-category range consumer is exposed. |
+| `entities.tracking-range-y.player` | BRIDGE_ONLY | `Dimension::sendPacketForEntity` is a direct packet-send API, not the entity-tracking selection/update-distance decision; no current tracking manager hook or verified per-category range consumer is exposed. |
 | `environment.disable-explosion-knockback` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/mob.cpp`: reads the path and suppresses explosion-synchronous knockback. |
 | `environment.disable-ice-and-snow` | BRIDGE_ONLY | `src/bedrock/world/level/block/block_type.h` exposes `BlockType::handlePrecipitation`, but the current generated symbol table has no verified implementation entry and the vtable hook would need coverage for every concrete BlockType vtable; the existing WeatherManager hook would incorrectly suppress rain when used as a substitute. |
 | `environment.disable-thunder` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/weather_manager.cpp`: reads the path and zeros lightning level/duration. |
