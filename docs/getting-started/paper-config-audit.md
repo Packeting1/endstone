@@ -10,29 +10,29 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 
 | Path | Status | Evidence |
 | --- | --- | --- |
-| `anticheat.obfuscation.items.all-models.also-obfuscate` | BRIDGE_ONLY | No safe Bedrock item-obfuscation decision point is identified. |
-| `anticheat.obfuscation.items.all-models.dont-obfuscate` | BRIDGE_ONLY | No safe Bedrock item-obfuscation decision point is identified. |
-| `anticheat.obfuscation.items.all-models.sanitize-count` | BRIDGE_ONLY | No safe Bedrock item-obfuscation decision point is identified. |
-| `anticheat.obfuscation.items.enable-item-obfuscation` | BRIDGE_ONLY | No safe Bedrock item-obfuscation decision point is identified. |
-| `anticheat.obfuscation.items.model-overrides.minecraft:elytra.also-obfuscate` | BRIDGE_ONLY | No safe Bedrock item-obfuscation decision point is identified. |
-| `anticheat.obfuscation.items.model-overrides.minecraft:elytra.dont-obfuscate` | BRIDGE_ONLY | No safe Bedrock item-obfuscation decision point is identified. |
-| `anticheat.obfuscation.items.model-overrides.minecraft:elytra.sanitize-count` | BRIDGE_ONLY | No safe Bedrock item-obfuscation decision point is identified. |
-| `block-updates.disable-chorus-plant-updates` | BRIDGE_ONLY | No safe Bedrock block-update decision point is identified. |
-| `block-updates.disable-mushroom-block-updates` | BRIDGE_ONLY | No safe Bedrock block-update decision point is identified. |
-| `block-updates.disable-noteblock-updates` | BRIDGE_ONLY | No safe Bedrock block-update decision point is identified. |
-| `block-updates.disable-tripwire-updates` | BRIDGE_ONLY | No safe Bedrock block-update decision point is identified. |
-| `chunk-loading-advanced.auto-config-send-distance` | BRIDGE_ONLY | No safe Bedrock chunk-send policy decision point is identified. |
-| `chunk-loading-advanced.player-max-concurrent-chunk-generates` | BRIDGE_ONLY | No safe Bedrock chunk-generation decision point is identified. |
-| `chunk-loading-advanced.player-max-concurrent-chunk-loads` | BRIDGE_ONLY | No safe Bedrock chunk-load decision point is identified. |
-| `chunk-loading-basic.player-max-chunk-generate-rate` | BRIDGE_ONLY | No safe Bedrock chunk-generation rate decision point is identified. |
-| `chunk-loading-basic.player-max-chunk-load-rate` | BRIDGE_ONLY | No safe Bedrock chunk-load rate decision point is identified. |
+| `anticheat.obfuscation.items.all-models.also-obfuscate` | BRIDGE_ONLY | `BatchedNetworkPeer::sendPacket` has a per-player context but the current hook only parses selected packet types; no verified generic outbound ItemStack/component serializer or chunk-obfuscation boundary is exposed for these per-player rules. |
+| `anticheat.obfuscation.items.all-models.dont-obfuscate` | BRIDGE_ONLY | `BatchedNetworkPeer::sendPacket` has a per-player context but the current hook only parses selected packet types; no verified generic outbound ItemStack/component serializer or chunk-obfuscation boundary is exposed for these per-player rules. |
+| `anticheat.obfuscation.items.all-models.sanitize-count` | BRIDGE_ONLY | `BatchedNetworkPeer::sendPacket` has a per-player context but the current hook only parses selected packet types; no verified generic outbound ItemStack/component serializer or chunk-obfuscation boundary is exposed for these per-player rules. |
+| `anticheat.obfuscation.items.enable-item-obfuscation` | BRIDGE_ONLY | `BatchedNetworkPeer::sendPacket` has a per-player context but the current hook only parses selected packet types; no verified generic outbound ItemStack/component serializer or chunk-obfuscation boundary is exposed for these per-player rules. |
+| `anticheat.obfuscation.items.model-overrides.minecraft:elytra.also-obfuscate` | BRIDGE_ONLY | `BatchedNetworkPeer::sendPacket` has a per-player context but the current hook only parses selected packet types; no verified generic outbound ItemStack/component serializer or chunk-obfuscation boundary is exposed for these per-player rules. |
+| `anticheat.obfuscation.items.model-overrides.minecraft:elytra.dont-obfuscate` | BRIDGE_ONLY | `BatchedNetworkPeer::sendPacket` has a per-player context but the current hook only parses selected packet types; no verified generic outbound ItemStack/component serializer or chunk-obfuscation boundary is exposed for these per-player rules. |
+| `anticheat.obfuscation.items.model-overrides.minecraft:elytra.sanitize-count` | BRIDGE_ONLY | `BatchedNetworkPeer::sendPacket` has a per-player context but the current hook only parses selected packet types; no verified generic outbound ItemStack/component serializer or chunk-obfuscation boundary is exposed for these per-player rules. |
+| `block-updates.disable-chorus-plant-updates` | BRIDGE_ONLY | `BlockType::neighborChanged` is declared but no enabled generic block-update hook filters chorus, mushroom, noteblock, or tripwire instances; suppressing all neighbor updates would alter unrelated blocks. |
+| `block-updates.disable-mushroom-block-updates` | BRIDGE_ONLY | `BlockType::neighborChanged` is declared but no enabled generic block-update hook filters chorus, mushroom, noteblock, or tripwire instances; suppressing all neighbor updates would alter unrelated blocks. |
+| `block-updates.disable-noteblock-updates` | BRIDGE_ONLY | `BlockType::neighborChanged` is declared but no enabled generic block-update hook filters chorus, mushroom, noteblock, or tripwire instances; suppressing all neighbor updates would alter unrelated blocks. |
+| `block-updates.disable-tripwire-updates` | BRIDGE_ONLY | `BlockType::neighborChanged` is declared but no enabled generic block-update hook filters chorus, mushroom, noteblock, or tripwire instances; suppressing all neighbor updates would alter unrelated blocks. |
+| `chunk-loading-advanced.auto-config-send-distance` | BRIDGE_ONLY | `BatchedNetworkPeer::sendPacket` is downstream of packet creation and no verified ChunkSource send-distance or player-specific chunk-send scheduler is exposed; the current map packet patch is not a generic chunk policy hook. |
+| `chunk-loading-advanced.player-max-concurrent-chunk-generates` | BRIDGE_ONLY | `ChunkSource` declares load/generate operations but no verified player request scheduler or concurrency counter is exposed; changing `getOrLoadChunk`/`createNewChunk` without its concrete implementation would guess ABI and queue ownership. |
+| `chunk-loading-advanced.player-max-concurrent-chunk-loads` | BRIDGE_ONLY | `ChunkSource` declares load/generate operations but no verified player request scheduler or concurrency counter is exposed; changing `getOrLoadChunk`/`createNewChunk` without its concrete implementation would guess ABI and queue ownership. |
+| `chunk-loading-basic.player-max-chunk-generate-rate` | BRIDGE_ONLY | No per-player generation token/rate counter is exposed by the current ChunkSource/Dimension headers; the Level tick hook cannot safely throttle asynchronous generation requests. |
+| `chunk-loading-basic.player-max-chunk-load-rate` | BRIDGE_ONLY | No per-player load token/rate counter is exposed by the current ChunkSource/Dimension headers; the Level tick hook cannot safely throttle asynchronous load requests. |
 | `chunk-loading-basic.player-max-chunk-send-rate` | BRIDGE_ONLY | No safe Bedrock chunk-send rate decision point is identified. |
-| `chunk-system.io-threads` | BRIDGE_ONLY | No safe Bedrock chunk-system thread decision point is identified. |
-| `chunk-system.worker-threads` | BRIDGE_ONLY | No safe Bedrock chunk-system thread decision point is identified. |
+| `chunk-system.io-threads` | BRIDGE_ONLY | `Dimension` owns opaque `TaskGroup`/chunk-generation state and `ChunkSource` exposes no thread-pool setter; changing these values would require an unverified construction-time ABI. |
+| `chunk-system.worker-threads` | BRIDGE_ONLY | `Dimension` owns opaque `TaskGroup`/chunk-generation state and `ChunkSource` exposes no thread-pool setter; changing these values would require an unverified construction-time ABI. |
 | `collisions.enable-player-collisions` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/pushable_by_entity_utility.cpp`: reads `paper.global.collisions.enable-player-collisions` and skips vanilla player-to-player push when false. |
 | `collisions.send-full-pos-for-hard-colliding-entities` | BRIDGE_ONLY | No safe Bedrock hard-collision position serialization decision point is identified. |
-| `commands.ride-command-allow-player-as-vehicle` | BRIDGE_ONLY | No safe Bedrock ride-command decision point is identified. |
-| `commands.suggest-player-names-when-null-tab-completions` | BRIDGE_ONLY | No safe Bedrock command-completion decision point is identified. |
+| `commands.ride-command-allow-player-as-vehicle` | BRIDGE_ONLY | `MinecraftCommands::executeCommand` receives a raw command line and origin, but the current player path dispatches through Endstone's command map; no verified Bedrock `/ride` AST/vehicle validation point is available for this option. |
+| `commands.suggest-player-names-when-null-tab-completions` | BRIDGE_ONLY | The Bedrock packet headers/current dispatcher expose no serverbound tab-completion request or null-completion fallback hook; `AvailableCommandsPacket` is outbound command metadata only. |
 | `console.enable-brigadier-completions` | BRIDGE_ONLY | Paper Brigadier completion behavior has no safe Bedrock equivalent identified. |
 | `console.enable-brigadier-highlighting` | BRIDGE_ONLY | Paper Brigadier highlighting behavior has no safe Bedrock equivalent identified. |
 | `console.has-all-permissions` | IMPLEMENTED | `src/endstone/core/command/console_command_sender.cpp`: reads `paper.global.console.has-all-permissions` for permission checks. |
@@ -51,8 +51,8 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `messages.no-permission` | IMPLEMENTED | `src/endstone/core/message.cpp`: reads `paper.global.messages.no-permission` for command sender error messages. |
 | `messages.use-display-name-in-quit-message` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/script_player_gameplay_handler.cpp`: reads the setting in the existing PlayerDisconnectEvent path and uses a non-empty player name tag as the quit-message name. |
 | `misc.catchup-ticks` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/level.cpp::Level::tick` is called once per BDS tick and can skip the native tick, but no missed-wall-clock-tick accumulator or bounded catch-up loop is exposed. |
-| `misc.chat-threads.chat-executor-core-size` | BRIDGE_ONLY | No safe Bedrock chat executor sizing decision point is identified. |
-| `misc.chat-threads.chat-executor-max-size` | BRIDGE_ONLY | No safe Bedrock chat executor sizing decision point is identified. |
+| `misc.chat-threads.chat-executor-core-size` | BRIDGE_ONLY | The Bedrock/Endstone chat path has no Paper-style configurable chat executor pool; `Console`/plugin scheduler threads are separate and no safe per-thread-size config consumer is exposed. |
+| `misc.chat-threads.chat-executor-max-size` | BRIDGE_ONLY | The Bedrock/Endstone chat path has no Paper-style configurable chat executor pool; `Console`/plugin scheduler threads are separate and no safe per-thread-size config consumer is exposed. |
 | `misc.client-interaction-leniency-distance` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/packet.cpp` receives block actions and player-auth input after the packet has been decoded, but no Bedrock interaction-range validation function or distance parameter is exposed by the current hook/header set. |
 | `misc.compression-level` | BRIDGE_ONLY | `src/endstone/runtime/bedrock_hooks/batched_network_peer.cpp::sendPacket` receives an already serialized packet and a `Compressibility` flag; it is downstream of the codec-level selection and cannot safely change the configured compression level. |
 | `misc.enable-nether` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/server_player.cpp`: reads `paper.global.misc.enable-nether` and rejects Nether transitions when false. |
