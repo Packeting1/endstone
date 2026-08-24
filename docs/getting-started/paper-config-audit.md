@@ -137,8 +137,8 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `entities.behavior.baby-zombie-movement-modifier` | BRIDGE_ONLY | No safe Bedrock baby-zombie movement decision point is identified. |
 | `entities.behavior.cooldown-failed-beehive-releases` | BRIDGE_ONLY | No safe Bedrock beehive-release decision point is identified. |
 | `entities.behavior.disable-chest-cat-detection` | BRIDGE_ONLY | No safe Bedrock chest-cat decision point is identified. |
-| `entities.behavior.disable-creeper-lingering-effect` | BRIDGE_ONLY | No safe Bedrock creeper-effect decision point is identified. |
-| `entities.behavior.disable-player-crits` | BRIDGE_ONLY | No safe Bedrock critical-hit decision point is identified. |
+| `entities.behavior.disable-creeper-lingering-effect` | BRIDGE_ONLY | Paper gates `Creeper.spawnLingeringCloud`; Bedrock's `ActorAddEffectEvent` handles mob effects but no verified Creeper explosion/cloud-spawn hook exists. |
+| `entities.behavior.disable-player-crits` | BRIDGE_ONLY | Paper checks the critical-hit branch in `LivingEntity`; Bedrock `ActorBeforeHurtEvent` exposes damage cause/value but no verified critical-hit marker or attack-calculation hook. |
 | `entities.behavior.door-breaking-difficulty.vindicator` | BRIDGE_ONLY | No safe Bedrock door-breaking difficulty decision point is identified. |
 | `entities.behavior.door-breaking-difficulty.<entity-type>` | BRIDGE_ONLY | No safe Bedrock door-breaking difficulty decision point is identified. |
 | `entities.behavior.ender-dragons-death-always-places-dragon-egg` | BRIDGE_ONLY | No safe Bedrock dragon-egg decision point is identified. |
@@ -146,31 +146,31 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `entities.behavior.mobs-can-always-pick-up-loot.skeletons` | BRIDGE_ONLY | `ActorBeforeAcquireItemEvent` is reached only after Bedrock has selected an acquisition attempt; it cannot make skeleton pickup eligibility unconditional without the unverified mob AI decision point. |
 | `entities.behavior.mobs-can-always-pick-up-loot.zombies` | BRIDGE_ONLY | `ActorBeforeAcquireItemEvent` is reached only after Bedrock has selected an acquisition attempt; it cannot make zombie pickup eligibility unconditional without the unverified mob AI decision point. |
 | `entities.behavior.nerf-pigmen-from-nether-portals` | BRIDGE_ONLY | `ServerPlayer::changeDimension` covers players only; no verified Bedrock Nether portal entity-spawn callback identifies pigmen created from a portal. |
-| `entities.behavior.only-merge-items-horizontally` | BRIDGE_ONLY | No safe Bedrock item-merge decision point is identified. |
-| `entities.behavior.parrots-are-unaffected-by-player-movement` | BRIDGE_ONLY | No safe Bedrock parrot movement decision point is identified. |
-| `entities.behavior.phantoms-do-not-spawn-on-creative-players` | BRIDGE_ONLY | No safe Bedrock phantom spawn decision point is identified. |
-| `entities.behavior.phantoms-only-attack-insomniacs` | BRIDGE_ONLY | No safe Bedrock phantom targeting decision point is identified. |
-| `entities.behavior.phantoms-spawn-attempt-max-seconds` | BRIDGE_ONLY | No safe Bedrock phantom spawn timing decision point is identified. |
-| `entities.behavior.phantoms-spawn-attempt-min-seconds` | BRIDGE_ONLY | No safe Bedrock phantom spawn timing decision point is identified. |
-| `entities.behavior.piglins-guard-chests` | BRIDGE_ONLY | No safe Bedrock piglin chest decision point is identified. |
-| `entities.behavior.pillager-patrols.disable` | BRIDGE_ONLY | No safe Bedrock patrol decision point is identified. |
-| `entities.behavior.pillager-patrols.spawn-chance` | BRIDGE_ONLY | No safe Bedrock patrol decision point is identified. |
-| `entities.behavior.pillager-patrols.spawn-delay.ticks` | BRIDGE_ONLY | No safe Bedrock patrol decision point is identified. |
-| `entities.behavior.pillager-patrols.spawn-delay.per-player` | BRIDGE_ONLY | No safe Bedrock patrol decision point is identified. |
-| `entities.behavior.pillager-patrols.start.day` | BRIDGE_ONLY | No safe Bedrock patrol decision point is identified. |
-| `entities.behavior.pillager-patrols.start.per-player` | BRIDGE_ONLY | No safe Bedrock patrol decision point is identified. |
+| `entities.behavior.only-merge-items-horizontally` | BRIDGE_ONLY | Paper changes `ItemEntity` pair-merge eligibility; Bedrock's ItemActor class exposes item/pickup state but no verified two-actor merge or axis-check hook. |
+| `entities.behavior.parrots-are-unaffected-by-player-movement` | BRIDGE_ONLY | Paper changes the player push effect on Parrot entities; the current Bedrock push hook can classify players/vehicles but has no verified passenger/parrot movement decision. |
+| `entities.behavior.phantoms-do-not-spawn-on-creative-players` | BRIDGE_ONLY | Paper gates Phantom spawn eligibility by player game mode; no Bedrock Phantom spawn candidate or player-spawn-condition hook is verified. |
+| `entities.behavior.phantoms-only-attack-insomniacs` | BRIDGE_ONLY | Paper gates Phantom target selection by insomnia; no Bedrock Phantom goal/targeting hook or insomnia predicate is exposed. |
+| `entities.behavior.phantoms-spawn-attempt-max-seconds` | BRIDGE_ONLY | Paper changes Phantom spawn-attempt timing; no Bedrock Phantom spawn scheduler or timer hook is verified. |
+| `entities.behavior.phantoms-spawn-attempt-min-seconds` | BRIDGE_ONLY | Paper changes Phantom spawn-attempt timing; no Bedrock Phantom spawn scheduler or timer hook is verified. |
+| `entities.behavior.piglins-guard-chests` | BRIDGE_ONLY | Paper changes Piglin chest-target behavior; no Bedrock Piglin AI goal or chest-interaction decision hook is verified. |
+| `entities.behavior.pillager-patrols.disable` | BRIDGE_ONLY | Paper changes Pillager patrol scheduler/chance/start conditions; no Bedrock patrol manager or per-player patrol timer hook is verified. |
+| `entities.behavior.pillager-patrols.spawn-chance` | BRIDGE_ONLY | Paper changes Pillager patrol scheduler/chance/start conditions; no Bedrock patrol manager or per-player patrol timer hook is verified. |
+| `entities.behavior.pillager-patrols.spawn-delay.ticks` | BRIDGE_ONLY | Paper changes Pillager patrol scheduler/chance/start conditions; no Bedrock patrol manager or per-player patrol timer hook is verified. |
+| `entities.behavior.pillager-patrols.spawn-delay.per-player` | BRIDGE_ONLY | Paper changes Pillager patrol scheduler/chance/start conditions; no Bedrock patrol manager or per-player patrol timer hook is verified. |
+| `entities.behavior.pillager-patrols.start.day` | BRIDGE_ONLY | Paper changes Pillager patrol scheduler/chance/start conditions; no Bedrock patrol manager or per-player patrol timer hook is verified. |
+| `entities.behavior.pillager-patrols.start.per-player` | BRIDGE_ONLY | Paper changes Pillager patrol scheduler/chance/start conditions; no Bedrock patrol manager or per-player patrol timer hook is verified. |
 | `entities.behavior.player-insomnia-start-ticks` | BRIDGE_ONLY | No safe Bedrock insomnia decision point is identified. |
 | `entities.behavior.should-remove-dragon` | BRIDGE_ONLY | No safe Bedrock dragon removal decision point is identified. |
 | `entities.behavior.spawner-nerfed-mobs-should-jump` | BRIDGE_ONLY | No safe Bedrock spawner-mob decision point is identified. |
 | `entities.behavior.stuck-entity-poi-retry-delay` | BRIDGE_ONLY | No safe Bedrock POI retry decision point is identified. |
 | `entities.behavior.zombie-villager-infection-chance` | BRIDGE_ONLY | No safe Bedrock infection decision point is identified. |
-| `entities.behavior.zombies-target-turtle-eggs` | BRIDGE_ONLY | No safe Bedrock turtle-egg targeting decision point is identified. |
-| `entities.entities-target-with-follow-range` | BRIDGE_ONLY | No safe Bedrock follow-range targeting decision point is identified. |
+| `entities.behavior.zombies-target-turtle-eggs` | BRIDGE_ONLY | Paper changes Zombie target-goal registration; no Bedrock Zombie AI target or turtle-egg goal hook is verified. |
+| `entities.entities-target-with-follow-range` | BRIDGE_ONLY | Paper changes target-selector range behavior in entity AI; current Bedrock headers expose no generic target-goal/range scheduler hook. |
 | `entities.markers.tick` | BRIDGE_ONLY | Paper gates marker registration in `ServerLevel.EntityCallbacks.onTickingStart`; no Bedrock entity-tick-list registration hook is exposed, and the current Level tick hook cannot distinguish marker actors from other entities. |
 | `entities.mob-effects.immune-to-wither-effect` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/script_actor_gameplay_handler.cpp`: rejects Wither for Withers and Wither Skeletons when true. |
 | `entities.mob-effects.spiders-immune-to-poison-effect` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/script_actor_gameplay_handler.cpp`: rejects Poison for spiders when true. |
-| `entities.sniffer.boosted-hatch-time` | BRIDGE_ONLY | No safe Bedrock sniffer hatch decision point is identified. |
-| `entities.sniffer.hatch-time` | BRIDGE_ONLY | No safe Bedrock sniffer hatch decision point is identified. |
+| `entities.sniffer.boosted-hatch-time` | BRIDGE_ONLY | Paper changes Sniffer hatch timing in the Sniffer entity tick; no Bedrock Sniffer actor class or hatch scheduler hook is present. |
+| `entities.sniffer.hatch-time` | BRIDGE_ONLY | Paper changes Sniffer hatch timing in the Sniffer entity tick; no Bedrock Sniffer actor class or hatch scheduler hook is present. |
 | `entities.spawning.all-chunks-are-slime-chunks` | BRIDGE_ONLY | No safe Bedrock slime-chunk decision point is identified. |
 | `entities.spawning.alt-item-despawn-rate.enabled` | BRIDGE_ONLY | No safe Bedrock alternate item despawn decision point is identified. |
 | `entities.spawning.alt-item-despawn-rate.items.cobblestone` | BRIDGE_ONLY | No safe Bedrock alternate item despawn decision point is identified. |
