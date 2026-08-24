@@ -81,8 +81,8 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `proxies.velocity.enabled` | BRIDGE_ONLY | Java Velocity integration has no safe Bedrock equivalent identified. |
 | `proxies.velocity.online-mode` | BRIDGE_ONLY | Java Velocity integration has no safe Bedrock equivalent identified. |
 | `proxies.velocity.secret` | BRIDGE_ONLY | Java Velocity integration has no safe Bedrock equivalent identified. |
-| `scoreboards.save-empty-scoreboard-teams` | BRIDGE_ONLY | No safe Bedrock scoreboard persistence decision point is identified. |
-| `scoreboards.track-plugin-scoreboards` | BRIDGE_ONLY | No safe Bedrock plugin-scoreboard tracking decision point is identified. |
+| `scoreboards.save-empty-scoreboard-teams` | BRIDGE_ONLY | Paper applies this while serializing `Scoreboard.getPlayerTeams`; Endstone exposes no team persistence hook or team API distinct from Bedrock's native scoreboard save path. |
+| `scoreboards.track-plugin-scoreboards` | BRIDGE_ONLY | Paper uses this in `CraftScoreboardManager.getNewScoreboard` to register plugin boards globally; Endstone custom scoreboards are sent through per-player `ScoreboardPacketSender` and have no equivalent global tracking collection. |
 | `spam-limiter.incoming-packet-threshold` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/packet.cpp`: reads the threshold and drops packets after the initial window allowance. |
 | `spam-limiter.recipe-spam-increment` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/craft_handler_crafting.cpp`: increments the per-player tick-decaying recipe-action counter. |
 | `spam-limiter.recipe-spam-limit` | IMPLEMENTED | `src/endstone/runtime/bedrock_hooks/craft_handler_crafting.cpp`: kicks recipe-book spammers when the configured positive threshold is reached. |
@@ -285,11 +285,11 @@ This audit covers the packaged templates `endstone/config/endstone-global.yml` a
 | `misc.legacy-ender-pearl-behavior` | BRIDGE_ONLY | No safe Bedrock Ender Pearl behavior decision point is identified. |
 | `misc.max-leash-distance` | BRIDGE_ONLY | No safe Bedrock leash-distance decision point is identified. |
 | `misc.redstone-implementation` | BRIDGE_ONLY | No safe Bedrock redstone implementation decision point is identified. |
-| `misc.show-sign-click-command-failure-msgs-to-player` | BRIDGE_ONLY | No safe Bedrock sign-command failure decision point is identified. |
+| `misc.show-sign-click-command-failure-msgs-to-player` | BRIDGE_ONLY | Paper routes sign commands through `SignBlockEntity` and conditionally forwards command failures; Bedrock's command hook exposes `CommandOriginType` but no verified sign-click command origin or failure-message callback. |
 | `misc.update-pathfinding-on-block-update` | BRIDGE_ONLY | No safe Bedrock pathfinding-update decision point is identified. |
-| `scoreboards.allow-non-player-entities-on-scoreboards` | BRIDGE_ONLY | No safe Bedrock scoreboard decision point is identified. |
-| `scoreboards.use-vanilla-world-scoreboard-name-coloring` | BRIDGE_ONLY | No safe Bedrock scoreboard-color decision point is identified. |
-| `spawn.allow-using-signs-inside-spawn-protection` | BRIDGE_ONLY | No safe Bedrock spawn-protection decision point is identified. |
+| `scoreboards.allow-non-player-entities-on-scoreboards` | BRIDGE_ONLY | Paper gates `Entity.getTeam`/`LivingEntity` team lookup for non-player entities; Endstone's scoreboard wrapper can create actor score entries but has no verified Bedrock team lookup hook to change collision behavior. |
+| `scoreboards.use-vanilla-world-scoreboard-name-coloring` | BRIDGE_ONLY | Paper applies this in `ChatProcessor` when choosing vanilla world-scoreboard name coloring; the current Bedrock chat/quit message paths do not expose an equivalent scoreboard-name color decision. |
+| `spawn.allow-using-signs-inside-spawn-protection` | BRIDGE_ONLY | `PlayerInteractWithBlockBeforeEvent` exposes the sign/block interaction before Endstone events, but no Bedrock spawn-protection bypass result or sign-specific native validation override is available at that hook. |
 | `tick-rates.behavior.villager.validatenearbypoi` | BRIDGE_ONLY | No safe Bedrock behavior tick-rate decision point is identified. |
 | `tick-rates.behavior.<entity-type>.<behavior-name>` | BRIDGE_ONLY | No safe Bedrock behavior tick-rate decision point is identified. |
 | `tick-rates.container-update` | BRIDGE_ONLY | No safe Bedrock container tick-rate decision point is identified. |
