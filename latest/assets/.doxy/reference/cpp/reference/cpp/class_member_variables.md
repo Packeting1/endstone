@@ -271,6 +271,7 @@
 * **Item** ([**endstone::ActorType**](classendstone_1_1ActorType.md))
 * **id\_** ([**endstone::AttributeModifier**](classendstone_1_1AttributeModifier.md), [**endstone::DimensionCreator**](classendstone_1_1DimensionCreator.md), [**endstone::Skin**](classendstone_1_1Skin.md))
 * **icon\_** ([**endstone::Button**](classendstone_1_1Button.md), [**endstone::Effect**](classendstone_1_1Effect.md), [**endstone::ModalForm**](classendstone_1_1ModalForm.md))
+* **info\_** ([**endstone::ClassInfo**](classendstone_1_1ClassInfo.md))
 * **Italic** ([**endstone::ColorFormat**](structendstone_1_1ColorFormat.md))
 * **Infested** ([**endstone::EffectType**](classendstone_1_1EffectType.md), [**endstone::PotionType**](classendstone_1_1PotionType.md))
 * **InstantDamage** ([**endstone::EffectType**](classendstone_1_1EffectType.md))
@@ -349,7 +350,6 @@
 * **LongWeakness** ([**endstone::PotionType**](classendstone_1_1PotionType.md))
 * **level\_name\_** ([**endstone::ServerListPingEvent**](classendstone_1_1ServerListPingEvent.md))
 * **local\_port\_** ([**endstone::ServerListPingEvent**](classendstone_1_1ServerListPingEvent.md))
-* **local\_port\_v6\_** ([**endstone::ServerListPingEvent**](classendstone_1_1ServerListPingEvent.md))
 * **load** ([**endstone::detail::PluginDescriptionBuilder**](structendstone_1_1detail_1_1PluginDescriptionBuilder.md))
 * **load\_before** ([**endstone::detail::PluginDescriptionBuilder**](structendstone_1_1detail_1_1PluginDescriptionBuilder.md))
 
