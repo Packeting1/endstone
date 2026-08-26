@@ -2659,6 +2659,7 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1Form/"><strong>endstone::Form</strong></a> <em>Represents a generic form.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Object/"><strong>endstone::Object</strong></a> <em>Base class providing runtime type identification and safe casting.</em>     <ul>
 <li><strong>class</strong> <a href="../classendstone_1_1BlockState/"><strong>endstone::BlockState</strong></a> <em>Represents a captured state of a block, which will not update automatically.</em>     <ul>
+<li><strong>class</strong> <a href="../classendstone_1_1BlockActorState/"><strong>endstone::BlockActorState</strong></a> <em>Represents a captured state of a block entity.</em>     <ul>
 <li><strong>class</strong> <a href="../classendstone_1_1Campfire/"><strong>endstone::Campfire</strong></a> <em>Represents a captured state of a campfire.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Container/"><strong>endstone::Container</strong></a> <em>Represents a captured state of a container block, such as a chest.</em>     <ul>
 <li><strong>class</strong> <a href="../classendstone_1_1Furnace/"><strong>endstone::Furnace</strong></a> <em>Represents a captured state of a furnace.</em> </li>
@@ -2668,6 +2669,8 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1CreatureSpawner/"><strong>endstone::CreatureSpawner</strong></a> <em>Represents a captured state of a creature spawner.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1ItemFrame/"><strong>endstone::ItemFrame</strong></a> <em>Represents a captured state of an item frame.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Sign/"><strong>endstone::Sign</strong></a> <em>Represents a captured state of a sign.</em> </li>
+</ul>
+</li>
 </ul>
 </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Command/"><strong>endstone::Command</strong></a> <em>Represents a</em> <a href="../classendstone_1_1Command/"><em><strong>Command</strong></em></a> <em>, which executes various tasks upon user input.</em>    <ul>
@@ -2704,6 +2707,13 @@ For latest updates join the chat on
 </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Recipe/"><strong>endstone::Recipe</strong></a> <em>Represents some type of crafting recipe.</em>     <ul>
 <li><strong>class</strong> <a href="../classendstone_1_1ComplexRecipe/"><strong>endstone::ComplexRecipe</strong></a> <em>Represents a complex recipe which has imperative server-defined behavior, eg armor dyeing.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1CookingRecipe/"><strong>endstone::CookingRecipe</strong></a> <em>Represents a cooking recipe.</em>     <ul>
+<li><strong>class</strong> <a href="../classendstone_1_1BlastingRecipe/"><strong>endstone::BlastingRecipe</strong></a> <em>Represents a blasting recipe.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1CampfireRecipe/"><strong>endstone::CampfireRecipe</strong></a> <em>Represents a campfire recipe.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1FurnaceRecipe/"><strong>endstone::FurnaceRecipe</strong></a> <em>Represents a furnace recipe.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1SmokingRecipe/"><strong>endstone::SmokingRecipe</strong></a> <em>Represents a smoking recipe.</em> </li>
+</ul>
+</li>
 <li><strong>class</strong> <a href="../classendstone_1_1ShapedRecipe/"><strong>endstone::ShapedRecipe</strong></a> <em>Represents a shaped (ie normal) crafting recipe.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1ShapelessRecipe/"><strong>endstone::ShapelessRecipe</strong></a> <em>Represents a shapeless recipe, where the arrangement of the ingredients on the crafting grid does not matter.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1SmithingRecipe/"><strong>endstone::SmithingRecipe</strong></a> <em>Represents a smithing recipe.</em>     <ul>
@@ -2766,6 +2776,7 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerBedLeaveEvent/"><strong>endstone::PlayerBedLeaveEvent</strong></a> <em>Called when a player is leaving a bed.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerDimensionChangeEvent/"><strong>endstone::PlayerDimensionChangeEvent</strong></a> <em>Called when a player switches to another dimension.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerExpChangeEvent/"><strong>endstone::PlayerExpChangeEvent</strong></a> <em>Called when a player's experience changes.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1PlayerHideActorEvent/"><strong>endstone::PlayerHideActorEvent</strong></a> <em>Called when a visible actor is hidden from a player.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerInputEvent/"><strong>endstone::PlayerInputEvent</strong></a> <em>Called when a player sends updated input to the server.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerJoinEvent/"><strong>endstone::PlayerJoinEvent</strong></a> <em>Called when a player joins a server.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerLevelChangeEvent/"><strong>endstone::PlayerLevelChangeEvent</strong></a> <em>Called when a player's level changes.</em> </li>
@@ -2773,6 +2784,7 @@ For latest updates join the chat on
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerRecipeBookSettingsChangeEvent/"><strong>endstone::PlayerRecipeBookSettingsChangeEvent</strong></a> <em>Called when a player changes recipe book settings.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerRespawnEvent/"><strong>endstone::PlayerRespawnEvent</strong></a> <em>Called when a player respawns.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerRiptideEvent/"><strong>endstone::PlayerRiptideEvent</strong></a> <em>Called when a player activates the riptide enchantment, using their trident to propel them through the air.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1PlayerShowActorEvent/"><strong>endstone::PlayerShowActorEvent</strong></a> <em>Called when a hidden actor is shown to a player.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerToggleCrawlEvent/"><strong>endstone::PlayerToggleCrawlEvent</strong></a> <em>Called when a player toggles their crawling state.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerToggleFlightEvent/"><strong>endstone::PlayerToggleFlightEvent</strong></a> <em>Called when a player toggles their flying state.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1PlayerToggleSneakEvent/"><strong>endstone::PlayerToggleSneakEvent</strong></a> <em>Called when a player toggles their sneaking state.</em> </li>
@@ -3092,6 +3104,11 @@ For latest updates join the chat on
 </ul>
 </li>
 <li><strong>class</strong> <strong>EventType</strong>    <ul>
+<li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
+<li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>
 <li><strong>class</strong> <a href="../classendstone_1_1Cancellable/"><strong>endstone::Cancellable</strong></a> <em>A type characterizing events that may be cancelled by a plugin or the server.</em> </li>

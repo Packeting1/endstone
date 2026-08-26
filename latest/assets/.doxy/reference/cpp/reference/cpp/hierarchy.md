@@ -18,13 +18,14 @@ This inheritance list is sorted roughly, but not completely, alphabetically:
 * **class** [**endstone::Form**](classendstone_1_1Form.md) _Represents a generic form._ 
 * **class** [**endstone::Object**](classendstone_1_1Object.md) _Base class providing runtime type identification and safe casting._     
     * **class** [**endstone::BlockState**](classendstone_1_1BlockState.md) _Represents a captured state of a block, which will not update automatically._     
-        * **class** [**endstone::Campfire**](classendstone_1_1Campfire.md) _Represents a captured state of a campfire._ 
-        * **class** [**endstone::Container**](classendstone_1_1Container.md) _Represents a captured state of a container block, such as a chest._     
-            * **class** [**endstone::Furnace**](classendstone_1_1Furnace.md) _Represents a captured state of a furnace._ 
-            * **class** [**endstone::Lectern**](classendstone_1_1Lectern.md) _Represents a captured state of a lectern._ 
-        * **class** [**endstone::CreatureSpawner**](classendstone_1_1CreatureSpawner.md) _Represents a captured state of a creature spawner._ 
-        * **class** [**endstone::ItemFrame**](classendstone_1_1ItemFrame.md) _Represents a captured state of an item frame._ 
-        * **class** [**endstone::Sign**](classendstone_1_1Sign.md) _Represents a captured state of a sign._ 
+        * **class** [**endstone::BlockActorState**](classendstone_1_1BlockActorState.md) _Represents a captured state of a block entity._     
+            * **class** [**endstone::Campfire**](classendstone_1_1Campfire.md) _Represents a captured state of a campfire._ 
+            * **class** [**endstone::Container**](classendstone_1_1Container.md) _Represents a captured state of a container block, such as a chest._     
+                * **class** [**endstone::Furnace**](classendstone_1_1Furnace.md) _Represents a captured state of a furnace._ 
+                * **class** [**endstone::Lectern**](classendstone_1_1Lectern.md) _Represents a captured state of a lectern._ 
+            * **class** [**endstone::CreatureSpawner**](classendstone_1_1CreatureSpawner.md) _Represents a captured state of a creature spawner._ 
+            * **class** [**endstone::ItemFrame**](classendstone_1_1ItemFrame.md) _Represents a captured state of an item frame._ 
+            * **class** [**endstone::Sign**](classendstone_1_1Sign.md) _Represents a captured state of a sign._ 
     * **class** [**endstone::Command**](classendstone_1_1Command.md) _Represents a_ [_**Command**_](classendstone_1_1Command.md) _, which executes various tasks upon user input._    
         * **class** [**endstone::PluginCommand**](classendstone_1_1PluginCommand.md) _Represents a_ [_**Command**_](classendstone_1_1Command.md) _belonging to a_[_**Plugin**_](classendstone_1_1Plugin.md) _._
     * **class** [**endstone::ItemMeta**](classendstone_1_1ItemMeta.md) _Represents the metadata of a generic item._     
@@ -45,6 +46,11 @@ This inheritance list is sorted roughly, but not completely, alphabetically:
             * **class** [**endstone::ProxiedCommandSender**](classendstone_1_1ProxiedCommandSender.md) _Represents a command sender that is running a command on behalf of another one, as_ `/execute` _does._
     * **class** [**endstone::Recipe**](classendstone_1_1Recipe.md) _Represents some type of crafting recipe._     
         * **class** [**endstone::ComplexRecipe**](classendstone_1_1ComplexRecipe.md) _Represents a complex recipe which has imperative server-defined behavior, eg armor dyeing._ 
+        * **class** [**endstone::CookingRecipe**](classendstone_1_1CookingRecipe.md) _Represents a cooking recipe._     
+            * **class** [**endstone::BlastingRecipe**](classendstone_1_1BlastingRecipe.md) _Represents a blasting recipe._ 
+            * **class** [**endstone::CampfireRecipe**](classendstone_1_1CampfireRecipe.md) _Represents a campfire recipe._ 
+            * **class** [**endstone::FurnaceRecipe**](classendstone_1_1FurnaceRecipe.md) _Represents a furnace recipe._ 
+            * **class** [**endstone::SmokingRecipe**](classendstone_1_1SmokingRecipe.md) _Represents a smoking recipe._ 
         * **class** [**endstone::ShapedRecipe**](classendstone_1_1ShapedRecipe.md) _Represents a shaped (ie normal) crafting recipe._ 
         * **class** [**endstone::ShapelessRecipe**](classendstone_1_1ShapelessRecipe.md) _Represents a shapeless recipe, where the arrangement of the ingredients on the crafting grid does not matter._ 
         * **class** [**endstone::SmithingRecipe**](classendstone_1_1SmithingRecipe.md) _Represents a smithing recipe._     
@@ -87,6 +93,7 @@ This inheritance list is sorted roughly, but not completely, alphabetically:
         * **class** [**endstone::PlayerBedLeaveEvent**](classendstone_1_1PlayerBedLeaveEvent.md) _Called when a player is leaving a bed._ 
         * **class** [**endstone::PlayerDimensionChangeEvent**](classendstone_1_1PlayerDimensionChangeEvent.md) _Called when a player switches to another dimension._ 
         * **class** [**endstone::PlayerExpChangeEvent**](classendstone_1_1PlayerExpChangeEvent.md) _Called when a player's experience changes._ 
+        * **class** [**endstone::PlayerHideActorEvent**](classendstone_1_1PlayerHideActorEvent.md) _Called when a visible actor is hidden from a player._ 
         * **class** [**endstone::PlayerInputEvent**](classendstone_1_1PlayerInputEvent.md) _Called when a player sends updated input to the server._ 
         * **class** [**endstone::PlayerJoinEvent**](classendstone_1_1PlayerJoinEvent.md) _Called when a player joins a server._ 
         * **class** [**endstone::PlayerLevelChangeEvent**](classendstone_1_1PlayerLevelChangeEvent.md) _Called when a player's level changes._ 
@@ -94,6 +101,7 @@ This inheritance list is sorted roughly, but not completely, alphabetically:
         * **class** [**endstone::PlayerRecipeBookSettingsChangeEvent**](classendstone_1_1PlayerRecipeBookSettingsChangeEvent.md) _Called when a player changes recipe book settings._ 
         * **class** [**endstone::PlayerRespawnEvent**](classendstone_1_1PlayerRespawnEvent.md) _Called when a player respawns._ 
         * **class** [**endstone::PlayerRiptideEvent**](classendstone_1_1PlayerRiptideEvent.md) _Called when a player activates the riptide enchantment, using their trident to propel them through the air._ 
+        * **class** [**endstone::PlayerShowActorEvent**](classendstone_1_1PlayerShowActorEvent.md) _Called when a hidden actor is shown to a player._ 
         * **class** [**endstone::PlayerToggleCrawlEvent**](classendstone_1_1PlayerToggleCrawlEvent.md) _Called when a player toggles their crawling state._ 
         * **class** [**endstone::PlayerToggleFlightEvent**](classendstone_1_1PlayerToggleFlightEvent.md) _Called when a player toggles their flying state._ 
         * **class** [**endstone::PlayerToggleSneakEvent**](classendstone_1_1PlayerToggleSneakEvent.md) _Called when a player toggles their sneaking state._ 
@@ -309,6 +317,11 @@ This inheritance list is sorted roughly, but not completely, alphabetically:
             * **class** [**endstone::ConsoleCommandSender**](classendstone_1_1ConsoleCommandSender.md) _Represents a console command sender._ 
             * **class** [**endstone::ProxiedCommandSender**](classendstone_1_1ProxiedCommandSender.md) _Represents a command sender that is running a command on behalf of another one, as_ `/execute` _does._
 * **class** **EventType**    
+    * **class** [**endstone::Cancellable**](classendstone_1_1Cancellable.md) _A type characterizing events that may be cancelled by a plugin or the server._ 
+    * **class** [**endstone::Cancellable**](classendstone_1_1Cancellable.md) _A type characterizing events that may be cancelled by a plugin or the server._ 
+    * **class** [**endstone::Cancellable**](classendstone_1_1Cancellable.md) _A type characterizing events that may be cancelled by a plugin or the server._ 
+    * **class** [**endstone::Cancellable**](classendstone_1_1Cancellable.md) _A type characterizing events that may be cancelled by a plugin or the server._ 
+    * **class** [**endstone::Cancellable**](classendstone_1_1Cancellable.md) _A type characterizing events that may be cancelled by a plugin or the server._ 
     * **class** [**endstone::Cancellable**](classendstone_1_1Cancellable.md) _A type characterizing events that may be cancelled by a plugin or the server._ 
     * **class** [**endstone::Cancellable**](classendstone_1_1Cancellable.md) _A type characterizing events that may be cancelled by a plugin or the server._ 
     * **class** [**endstone::Cancellable**](classendstone_1_1Cancellable.md) _A type characterizing events that may be cancelled by a plugin or the server._ 
